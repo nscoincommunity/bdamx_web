@@ -1,0 +1,6 @@
+.cms-cnt form{font-size:0.8rem;}
+.cms-cnt form input,.cms-cnt form textarea{background:rgba(255,255,255,0.1);margin-bottom:10px;border-radius:5px;border:none;font-size:0.8rem;color:#fff;width:100%;padding:0.25rem;}
+.cms-cnt .btn{padding:5px 15px;font-size:0.9rem;}
+.contact-map-cnt{width:100%; margin-bottom: 10px;}
+.contact-map-cnt iframe{height:150px;width:100%;border-radius:5px;}
+.contact-addr-cnt{width:100%;margin-top:15px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);}

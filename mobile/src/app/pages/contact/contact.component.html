@@ -1,0 +1,46 @@
+<div class="top-header d-flex justify-content-between">
+	<div class="topheader-icon-cnt"><img src="assets/images/back.png" (click)="apiService.historyBack()" class="img-fluid"></div>
+	<h3 class="header-heading mx-auto" >Contact</h3>
+	<div></div>
+</div>
+<div class="cms-cnt">
+	<div class="form-cnt">
+		<div class="contact-map-cnt">
+			<iframe [src]="sanitizer.bypassSecurityTrustResourceUrl(map_address)" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+		</div>
+		<form (ngSubmit)="contactUs(data)" name="form" #data="ngForm">
+			<div class="form-row">
+				<div class="input-group">
+					<input class="form-control" placeholder="Your Name" type="text" [minlength]="4" [maxlength]="20" [(ngModel)]="model.name" name="name" pattern="[A-Za-z]+" #name="ngModel" [class.form-control-danger]="name.invalid && name.touched" required>
+				 	<span class="errr" *ngIf="name.invalid && name.touched && name.errors?.required">Name is required</span>                     
+				            <span class="errr" *ngIf="name.invalid && name.touched && name.errors?.minlength">Name should have minimum 4 characters</span>
+				            <span class="errr" *ngIf="name.invalid && name.touched && name.errors?.pattern">Only letters are allowed</span>
+				</div>
+				<div class="input-group">
+					<input class="form-control" placeholder="Your Email" type="text" [(ngModel)]="model.email" name="email" pattern=".+@.+\..+"  #email="ngModel" [class.form-control-danger]="email.invalid && email.touched" required >
+				    <span class="errr" *ngIf="email.invalid && email.touched && email.errors?.required">Email is required</span>
+				            <span class="errr" *ngIf="email.invalid && email.touched && email.errors?.pattern">Must be a valid email address</span>
+				</div>
+				<div class="input-group">
+					<input class="form-control" placeholder="Your Subject" type="text" [(ngModel)]="model.subject" name="subject" #subject="ngModel" [class.form-control-danger]="subject.invalid && subject.touched" required >
+				    <span class="errr" *ngIf="subject.invalid && subject.touched && subject.errors?.required">Subject is required</span>
+				</div>
+				<div class="input-group">
+					<textarea placeholder="Message" [(ngModel)]="model.message" name="message" #message="ngModel" [class.form-control-danger]="message.invalid && message.touched" required rows="3" pattern="[a-zA-Z0-9\s_@.,]+"></textarea>
+				    <span class="errr" *ngIf="message.invalid && message.touched && message.errors?.required">Message is required</span>
+            <span class="errr" *ngIf="message.errors?.pattern">Please Enter Valid Value</span>
+				</div>
+				<div class="input-group justify-content-center">
+					<button type="submit" class="btn btn-success" *ngIf='data.valid'>Submit</button>
+					<button type="submit" class="btn btn-success" *ngIf='!data.valid'>Submit</button>
+				</div>
+			</div>
+		</form>
+		<div class="contact-addr-cnt">
+			<h3>Where to find us?</h3>
+			<div [innerHtml]="adminAddress"></div>
+			<p>{{adminMail}}</p>
+			<p>{{adminPhone}}</p>
+		</div>
+	</div>
+</div>

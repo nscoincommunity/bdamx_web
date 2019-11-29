@@ -1,0 +1,51 @@
+<div class="top-header d-flex justify-content-between">
+	<div class="topheader-icon-cnt"><img src="assets/images/back.png" (click)="apiService.historyBack()" class="img-fluid"></div>
+	<h3 class="header-heading mx-auto">Fees</h3> 
+	<div></div>
+</div>
+<div class="cms-cnt">
+	 <div [innerHtml]="feeDetails.feeheader"></div>
+	<h3>Fees Details</h3>
+	<div class="fee-details-cnt">
+		<h3>Deposit Fee</h3>
+		<div [innerHtml]="feeDetails.feedeposit"></div>
+        <div [innerHtml]="feeDetails.feedepositvalue"></div>
+	</div>
+	<div class="fee-details-cnt">
+		<h3>Trading fee</h3>
+		<div [innerHtml]="feeDetails.feetrade"></div>
+	</div>
+	<h3>Cash Withdrawal Minimum Amount</h3>
+	<div class="table-responsive mb-2">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Currency</th>
+					<th>Minimum Withdrawal Amount</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let currencies of currencyData">
+					<td>{{currencies.currencySymbol}}</td>
+                	<td>{{currencies.minwithamt}} ({{currencies.currencySymbol}})</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="table-responsive mb-2">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Currency</th>
+					<th>Minimum Withdrawal Amount</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let currencies of currencyData">
+					<td>{{currencies.currencySymbol}}</td>
+                     <td>{{currencies.withdrawfee}} ({{currencies.currencySymbol}})</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

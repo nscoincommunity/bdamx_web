@@ -1,0 +1,167 @@
+<div class="home-container">
+	<div class="home-header d-flex justify-content-center">
+		<!-- Nav tabs -->
+		<ul class="nav nav-tabs">
+		  <li class="nav-item">
+		    <a class="nav-link" data-toggle="tab" routerLink="/trade/ETH_BTC">Trade</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link active" data-toggle="tab" href="#markets">Markets</a>
+		  </li>
+		</ul>
+		<!-- <span class="home-search" (click)="staticModal.show()"><img src="assets/images/search-icon.png"></span> -->
+		<span class="home-search" data-toggle="modal" data-target="#login1"><img src="assets/images/login-icon.png"></span>
+		<!-- <div class="btn-group assets-dd" dropdown *ngIf="showAssets">
+			  <button id="button-basic" dropdownToggle type="button" class="btn dropdown-toggle"
+			          aria-controls="dropdown-basic">
+			    BTC Wallet <span class="caret"></span>
+			  </button>
+			  <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+			      role="menu" aria-labelledby="button-basic">
+			    <li role="menuitem" *ngIf="btcAddress"><span class="address">{{btcAddress}}</span></li>
+			    <li role="menuitem"><a class="dropdown-item" (click)="logout()">Logout</a></li>
+			  </ul>
+			</div> -->
+
+		
+	</div>
+	<div class="home-content-cnt">
+		<div class="marquee-cnt">
+			<p class="marquee"> <img src="assets/images/news.png" style="height: 15px">&nbsp;&nbsp; ETH & EOS Wallets - Only applicable on the website </p>
+		</div>
+		<div class="tab-content">
+		  <div class="tab-pane container-fluid fade px-0" id="favourites">
+		  	<div class="market-table-cnt mobile-table">
+				<div class="table-responsive">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Pair</th>
+								<th>Last Price</th>
+								<th>24h Change</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<span class="white-txt lg-txt">ETH_BTC</span>
+									<span>$0.00000205</span>
+								</td>
+								<td>
+									<span class="white-txt lg-txt">$20.00500000</span>
+									<span>$20.50</span>
+								</td>
+								<td>
+									<span class="lg-txt">0.00%</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="white-txt lg-txt">ETH_BTC</span>
+									<span>$0.00000205</span>
+								</td>
+								<td>
+									<span class="white-txt lg-txt">$20.00500000</span>
+									<span>$20.50</span>
+								</td>
+								<td>
+									<span class="lg-txt">0.00%</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="white-txt lg-txt">ETH_BTC</span>
+									<span>$0.00000205</span>
+								</td>
+								<td>
+									<span class="white-txt lg-txt">$20.00500000</span>
+									<span>$20.50</span>
+								</td>
+								<td>
+									<span class="lg-txt">0.00%</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="white-txt lg-txt">ETH_BTC</span>
+									<span>$0.00000205</span>
+								</td>
+								<td>
+									<span class="white-txt lg-txt">$20.00500000</span>
+									<span>$20.50</span>
+								</td>
+								<td>
+									<span class="lg-txt">0.00%</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		  </div>
+		  <div class="tab-pane container-fluid active px-0" id="markets">
+		  	<div class="color-coin-cnt">
+		  		<div class="color-coin coin-bg-{{i%6}}" *ngFor="let pairs of recommended; let i = index">
+		  			<h3>{{pairs.pair}}</h3>
+		  			<p>{{pairs.marketPrice | number:'1.8-8'}} ≈</p>
+		  			<p>${{pairs.usdEql | number:'1.8-8'}}</p>
+		  		</div>
+		  	</div>
+
+		  	<div class="color-coin-cnt pt-0 justify-content-center">
+		  		<div class="color-coin coin-bg-dark">
+		  			<h3>EOS</h3>
+		  			<p>${{usdVal.EOS}} ≈ EOS </p>
+		  		</div>
+		  		<div class="color-coin coin-bg-dark">
+		  			<h3>BTC</h3>
+		  			<p>${{usdVal.BTC}} ≈ BTC</p>
+		  		</div>
+		  		<div class="color-coin coin-bg-dark">
+		  			<h3>ETH</h3>
+		  			<p>${{usdVal.ETH}} ≈ ETH</p>
+		  		</div>
+		  	</div>
+
+		  	<div class="market-table-cnt mobile-table">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs justify-content-between">
+				  <li class="nav-item" *ngFor="let currencies of currencyData">
+				    <a class="nav-link" (click)="loadPairs(currencies)" [ngClass]="{'active': selectedCurrency === currencies.currency}" data-toggle="tab" href="#btc">{{currencies.currency}}</a>
+				  </li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane container-fluid active px-0" id="btc">
+						<div class="table-responsive">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th>Pair</th>
+										<th>Last Price</th>
+										<th>24h Change</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr *ngFor="let pairs of pairsData" (click)="tradeView(pairs)">
+										<td>
+											<span class="white-txt lg-txt">{{pairs.pair}}</span>
+											<span>{{pairs.marketPrice | number:'1.8-8'}}</span>
+										</td>
+										<td>
+											<span class="white-txt lg-txt">{{(pairs.price ? pairs.price : pairs.marketPrice) | number:'1.8-8'}}</span>
+											<span>${{pairs.usdEql | number:'1.2-2'}}</span>
+										</td>
+										<td>
+											<span class="lg-txt">{{pairs.change | number:'1.2-2'}}%</span>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		  </div>
+		</div>
+	</div>
+</div>

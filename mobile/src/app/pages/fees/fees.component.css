@@ -1,0 +1,5 @@
+.fee-details-cnt{padding:10px;background:rgba(0,0,0,0.2);border-radius:5px;margin-bottom:10px;}
+.cms-cnt table thead tr th{color:#b6c3d6;font-size:0.8rem;border:none;}
+.cms-cnt table tbody tr td{color:#fff;font-size:0.75rem;border:none;}
+.table-striped tbody tr:nth-of-type(2n+1){background:rgba(0,0,0,0.2);}
+h2{font-size:16px;color:#ff85ca;margin-bottom:0px;}

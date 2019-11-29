@@ -1,0 +1,14 @@
+<div class="top-header d-flex justify-content-between">
+	<div class="topheader-icon-cnt"><img src="assets/images/back.png" (click)="apiService.historyBack()" class="img-fluid"></div>
+	<h3 class="header-heading mx-auto">News</h3>
+	<div></div>
+</div>
+<div class="cms-cnt">
+	<div class="news-cnt" *ngFor="let news of newsContent">
+		<div class="d-flex">
+			<h3>{{news.title}} : {{news.description}}</h3>
+			<span class="news-date ml-auto">{{news.modifieddate | date:'medium'}}</span>
+		</div>
+		<p>{{news.content}}</p>
+	</div>
+</div>

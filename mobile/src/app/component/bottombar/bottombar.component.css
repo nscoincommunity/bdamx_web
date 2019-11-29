@@ -1,0 +1,5 @@
+.page-tab-footer{height:50px;background:#252d3a;position:fixed;left:0;bottom:0;width:100%;}
+.page-tab-footer .page-tab{width:33.33%;max-width:33.33%;height:50px;}
+.page-tab-footer .page-tab span{color:#fff;font-size:0.8rem;font-weight:400;letter-spacing: 0.5px;}
+.page-tab-footer .page-tab a{display:flex;flex-direction:column;justify-content:center;align-items:center;}
+.page-tab-footer .page-tab a img{height:20px;margin-bottom:2px;}

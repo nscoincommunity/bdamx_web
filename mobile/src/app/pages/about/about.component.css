@@ -1,0 +1,6 @@
+.cms-list-cnt{width:100%;padding:50px 15px;}
+h3.cms-list-heading{font-size:1rem;color:#fff;margin-bottom:5px;}
+.cms-list-cnt ul{padding-left:0px;}
+.cms-list-cnt ul li{width:100%;margin-bottom:2px;display:block;list-style-type:none;}
+.cms-list-cnt ul li a{font-size:0.85rem;padding:8px 15px;background:rgba(255,255,255,0.1) url('/assets/images/next.png') no-repeat right 5px center;background-size:15px;width:100%;border-radius:5px;color:#b6c3d6;display:flex;}
+.cms-list-cnt ul li a:hover,.cms-list-cnt ul li a:focus{text-decoration:none;}

@@ -1,0 +1,537 @@
+<div class="top-header d-flex justify-content-between">
+	<div class="topheader-icon-cnt"><img src="assets/images/back.png" class="img-fluid" (click)="service.historyBack()"></div>
+	<div class="mx-auto">
+		<h3 class="header-heading anchor" (click)="staticModal.show()">{{fromCurrency}}/{{toCurrency}} <i class="fa fa-caret-down"></i></h3>
+		<div class="btn-group trd-zone-dd">
+  			<span id="button-basic" class="header-heading anchor"
+          aria-controls="dropdown-basic">
+		    {{toCurrency}} Zone
+		  </span>
+
+		  
+		  <!-- <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+		      role="menu" aria-labelledby="button-basic">
+		    <li role="menuitem"><a class="dropdown-item" href="#">ETH Trading zone</a></li>
+		    <li role="menuitem"><a class="dropdown-item" href="#">BTC Trading zone</a></li>
+		    <li role="menuitem"><a class="dropdown-item" href="#">EOS Trading zone</a></li>
+		  </ul> -->
+		</div>
+	</div>
+</div>
+<div class="assets-info-header py-2">
+	<!-- <h5>0.00120000<span>BTC</span></h5>
+	<h5>0.00120000<span>BTC</span></h5> -->
+	<div class="d-flex">
+		<p>Last price: <span class="text-success">{{price | number:'1.8-8'}}</span></p>
+		<p class="ml-auto" *ngIf="change >= 0">24h Change: <span class="text-danger">{{change | number:'1.2-2'}} %</span></p>
+
+		<p class="ml-auto" *ngIf="change < 0">24h Change: <span class="text-danger">{{change | number:'1.2-2'}} %</span></p>
+
+	</div>
+	<div class="d-flex">
+		<p>24h High: <span class="text-success">{{high | number:'.8'}}</span></p>
+		<p class="ml-auto">24h Low: <span class="text-danger">{{low | number:'.8'}}</span></p>
+	</div>
+	
+</div>
+<div class="trade-chart-cnt">
+	<!-- <img src="assets/images/trade-chart.png" class="img-fluid"> -->
+	<div class="app-tv-chart-container" id="tv_chart_container" style="height: 100%"></div>
+</div>
+<div class="buy-sell-form-cnt">
+	<ul class="nav nav-tabs buy-sell-tab">
+	  <li class="nav-item">
+	    <a class="nav-link buy-tab active" id='buytab'  data-toggle="tab"  href="#buying">Buy</a>
+	  </li>
+	  <li class="nav-item"> 
+	    <a class="nav-link sell-tab" id='selltab' data-toggle="tab" href="#sellform">Sell</a>
+	  </li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-pane container-fluid active px-0" id="buying">
+			<ul class="nav nav-tabs justify-content-around limit-market-tab">
+			  <li class="nav-item">
+			    <a class="nav-link active" data-toggle="tab" href="#buy1"  (click)="change_type('limit','buy')">Limit</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" data-toggle="tab" href="#buy2" (click)="change_type('instant','buy')">Market</a>
+			  </li>
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane container-fluid active px-0" id="buy1">
+					<form class="">
+						<div class="form-row">
+							<div class="d-flex col-12 px-0 mb-2">
+								<label>Price</label>
+								<label class="value-label ml-auto">{{toCurrency}} : Balance  {{tobal | number:'1.8-8'}}</label>
+							</div>
+							<div class="input-group">
+								<input type="text" class="form-control" aria-label="Text input with dropdown button"  autocomplete="off" appvalidDecimal placeholder="" [(ngModel)]="TradeDetails.buy_price" name="buy_price" #buy_price="ngModel" (input)="calculation(orderType['buy'].type,'buy');" onkeypress="return (event.charCode == 8 || event.charCode == 46) ? null : event.charCode >= 48 && event.charCode <= 57">
+								<!-- <input class="form-control" placeholder="Price" type="text"> -->
+								<div class="input-group-append">
+									<div class="input-group-text">{{toCurrency}}</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-row">
+							<label class="mb-2">Amount</label>
+							<div class="input-group">
+								 <input type="text" class="form-control" aria-label="Text input with dropdown button" id="buy_amount" appvalidDecimal autocomplete="off" placeholder="" [(ngModel)]="TradeDetails.buy_amount" name="buy_amount" #buy_amount="ngModel" (input)="calculation(orderType['buy'].type,'buy');" onkeypress="return (event.charCode == 8 || event.charCode == 46) ? null : event.charCode >= 48 && event.charCode <= 57">
+								<div class="input-group-append">
+									<div class="input-group-text">{{fromCurrency}}</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-row d-flex row">
+							<div class="col-8">
+								<label *ngIf="feesper==1"><span>Maker ({{makerfee | number:'.2'}}%) :</span> {{buy_maker_fees | number:'.8'}}</label>
+								<label *ngIf="feesper!=1"><span>Maker ({{makerfee | number:'.2'}}) :</span> {{buy_maker_fees | number:'.8'}}</label>
+								<label *ngIf="feesper==1"><span>Taker ({{takerfee | number:'.2'}}%) :</span> {{buy_taker_fees | number:'.8'}}</label>
+								<label *ngIf="feesper!=1"><span>Taker ({{takerfee | number:'.2'}}) :</span> {{buy_taker_fees | number:'.8'}}</label>
+								<label><span>Total : {{toCurrency}}</span> {{buy_total | number:'.8'}} </label>
+							</div>
+							<div class="col-4 d-flex">
+								<div class="mt-3 ml-auto">
+									<button *ngIf='!buylimitbtn' (click)="order_placed(orderType['buy'].type,'buy');" class="btn btn-success ml-auto">Buy {{fromCurrency}}</button>
+									<button *ngIf='buylimitbtn' class="btn btn-success ml-auto" disabled="">Placing your trade... <i class="fa fa-cog fa-spin" aria-hidden="true"></i></button>
+									<!-- <button class="btn btn-success ml-auto">Buy</button> -->
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="tab-pane container-fluid fade px-0" id="buy2">
+					<form class="">
+						<div class="form-row">
+							<div class="d-flex col-12 px-0 mb-2">
+								<label>Amount</label>
+								<label class="value-label ml-auto">{{toCurrency}} : Balance {{tobal| number:'.8'}}</label>
+							</div>
+							<div class="input-group">
+								<input type="text" class="form-control" aria-label="Text input with dropdown button" id="buy_amount" appvalidDecimal autocomplete="off" placeholder="" [(ngModel)]="TradeDetails.buy_amount" name="buy_amount" #buy_amount="ngModel" (input)="calculation(orderType['buy'].type,'buy');" onkeypress="return (event.charCode == 8 || event.charCode == 46) ? null : event.charCode >= 48 && event.charCode <= 57">
+								<div class="input-group-append">
+									<div class="input-group-text">{{fromCurrency}}</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-row d-flex row">
+							<div class="col-8">
+								<label *ngIf="feesper==1"><span>Maker ({{makerfee | number:'.2'}}%) :</span> {{buy_maker_fees | number:'.8'}}</label>
+								<label *ngIf="feesper!=1"><span>Maker ({{makerfee | number:'.2'}}) :</span> {{buy_maker_fees | number:'.8'}}</label>
+								<label *ngIf="feesper==1"><span>Taker ({{takerfee | number:'.2'}}%) :</span> {{buy_taker_fees | number:'.8'}}</label>
+								<label *ngIf="feesper!=1"><span>Taker ({{takerfee | number:'.2'}}) :</span> {{buy_taker_fees | number:'.8'}}</label>
+								<label><span>Total : {{toCurrency}}</span> {{buy_total | number:'.8'}} </label>
+							</div>
+							<div class="col-4 d-flex">
+								<div class="mt-3 ml-auto">
+									<button *ngIf='!buyinstantbtn' (click)="order_placed(orderType['buy'].type,'buy');" class="btn btn-success ml-auto">Buy {{fromCurrency}}</button>
+	                <button *ngIf='buyinstantbtn' class="btn btn-success ml-auto" disabled>Placing your trade... <i class="fa fa-cog fa-spin" aria-hidden="true"></i></button>   
+
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="tab-pane container-fluid fade px-0" id="sellform">
+			<ul class="nav nav-tabs justify-content-around limit-market-tab">
+			  <li class="nav-item">
+			    <a class="nav-link active" data-toggle="tab" id="sell_limittab" href="#sell1" (click)="change_type('limit','sell')">Limit</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" data-toggle="tab" href="#sell2" (click)="change_type('instant','sell')" >Market</a>
+			  </li>
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane container-fluid active px-0" id="sell1">
+					<form class="">
+						<div class="form-row">
+							<div class="d-flex col-12 px-0 mb-2">
+								<label>Price</label>
+								<label class="value-label ml-auto">{{fromCurrency}} : Balance {{frombal| number:'.8'}}</label>
+							</div>
+							<div class="input-group">
+								<input type="text" class="form-control" aria-label="Text input with dropdown button"  appvalidDecimal autocomplete="off" placeholder="" [(ngModel)]="TradeDetails.sell_price" name="sell_price" #sell_price="ngModel" (input)="calculation(orderType['sell'].type,'sell');" onkeypress="return (event.charCode == 8 || event.charCode == 46) ? null : event.charCode >= 48 && event.charCode <= 57">
+								<div class="input-group-append">
+									<div class="input-group-text">{{toCurrency}}</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-row">
+							<label class="mb-2">Amount</label>
+							<div class="input-group">
+								<input type="text" class="form-control" aria-label="Text input with dropdown button" id="buyamount" appvalidDecimal autocomplete="off" placeholder="" [(ngModel)]="TradeDetails.sell_amount" name="sell_amount" #sell_amount="ngModel" (input)="calculation(orderType['sell'].type,'sell');" onkeypress="return (event.charCode == 8 || event.charCode == 46) ? null : event.charCode >= 48 && event.charCode <= 57">
+								<div class="input-group-append">
+									<div class="input-group-text">{{fromCurrency}}</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-row d-flex row">
+							<div class="col-8">
+								<label *ngIf="feesper==1"><span>Maker ({{makerfee | number:'.2'}}%) :</span> {{sell_maker_fees | number:'.8'}}</label>
+								<label *ngIf="feesper!=1"><span>Maker ({{makerfee | number:'.2'}}) :</span> {{sell_maker_fees | number:'.8'}}</label>
+								<label *ngIf="feesper==1"><span>Taker ({{takerfee | number:'.2'}}%) :</span> {{sell_taker_fees | number:'.8'}}</label>
+								<label *ngIf="feesper!=1"><span>Taker ({{takerfee | number:'.2'}}) :</span> {{sell_taker_fees | number:'.8'}}</label>
+								<label><span>Total : {{toCurrency}}</span> {{sell_total | number:'.8'}} </label>
+							</div>
+							<div class="col-4 d-flex">
+								<div class="mt-3 ml-auto">
+									<button *ngIf='!selllimitbtn' (click)="order_placed(orderType['sell'].type,'sell');" class="btn btn-danger ml-auto">Sell {{fromCurrency}}</button>
+									<button *ngIf='selllimitbtn' class="btn btn-danger ml-auto" disabled>Placing your trade... <i class="fa fa-cog fa-spin" aria-hidden="true"></i></button>
+
+									
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="tab-pane container-fluid fade px-0" id="sell2">
+					<form class="">
+						<div class="form-row">
+							<div class="d-flex col-12 px-0 mb-2">
+								<label>Amount</label>
+								<label class="value-label ml-auto">{{fromCurrency}} : Balance {{frombal | number:'.8'}}</label>
+							</div>
+							<div class="input-group">
+								 <input type="text" class="form-control" aria-label="Text input with dropdown button" id="buyamount" appvalidDecimal autocomplete="off" placeholder="" [(ngModel)]="TradeDetails.sell_amount" name="sell_amount" #sell_amount="ngModel" (input)="calculation(orderType['sell'].type,'sell');" onkeypress="return (event.charCode == 8 || event.charCode == 46) ? null : event.charCode >= 48 && event.charCode <= 57">
+								<div class="input-group-append">
+									<div class="input-group-text">{{fromCurrency}}</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-row d-flex row">
+							<div class="col-8">
+								<label *ngIf="feesper==1"><span>Maker ({{makerfee | number:'.2'}}%) :</span> {{sell_maker_fees | number:'.8'}}</label>
+								<label *ngIf="feesper!=1"><span>Maker ({{makerfee | number:'.2'}}) :</span> {{sell_maker_fees | number:'.8'}}</label>
+								<label *ngIf="feesper==1"><span>Taker ({{takerfee | number:'.2'}}%) :</span> {{sell_taker_fees | number:'.8'}}</label>
+								<label *ngIf="feesper!=1"><span>Taker ({{takerfee | number:'.2'}}) :</span> {{sell_taker_fees | number:'.8'}}</label>
+								<label><span>Total : {{toCurrency}}</span> {{sell_total | number:'.8'}} </label>
+							</div>
+							<div class="col-4 d-flex">
+								<div class="mt-3 ml-auto">
+									<button *ngIf='!sellinstantbtn' (click)="order_placed(orderType['sell'].type,'sell');" class="btn btn-danger ml-auto">Sell {{fromCurrency}}</button>
+									<button *ngIf='sellinstantbtn' class="btn btn-danger ml-auto" disabled>Placing your trade... <i class="fa fa-cog fa-spin" aria-hidden="true"></i></button>
+									
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="market-table-cnt mobile-table">
+	<!-- Nav tabs -->
+	<ul class="nav nav-tabs justify-content-around">
+	  <li class="nav-item">
+	    <a class="nav-link active" data-toggle="tab" href="#buysell">Order book</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" data-toggle="tab" href="#trd-hist">Trade History</a>
+	  </li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-pane container-fluid active px-0" id="buysell">
+			<div class="table-responsive">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>Amount ({{fromCurrency}})</th>
+							<th>Price ({{toCurrency}})</th>
+							<th>Total ({{toCurrency}})</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let buy of buyOrders; let buyindex = index" (click)="placeOrder(buy.Amount - buy.filledAmount,buy._id,'sell',buyindex)">
+							<td><span class="text-success">{{buy.Amount - buy.filledAmount | number:'1.8-8'}} </span></td>
+							<td><span class="text-success">{{buy._id | number:'1.8-8' }} </span></td>
+							<td><span class="text-success">{{calculateTotal((buy._id) * (buy.Amount - buy.filledAmount),'buy',buyindex)| number:'1.8-8'}}</span></td>
+
+							
+						</tr>
+						
+					</tbody>
+					
+					<tbody *ngIf="buyOrders.length == 0">
+						<tr>
+							<td colspan="3"  style="text-align: center;">
+								<span class="text-success " >No buy Orders Available</span>
+								
+							</td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr class="trd-value-cnt">
+							<td colspan="3" style="text-align: center;">
+								<span  >{{price | number:'1.8-8'}}</span>
+
+							</td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr  *ngFor="let sell of sellOrders; let sellindex = index" (click)="placeOrder(rounds(sell.Amount - sell.filledAmount),rounds(sell._id),'buy',sellindex)">
+							<td><span class="text-danger"> {{sell.Amount - sell.filledAmount| number:'1.8-8'}}</span></td>
+							<td><span >{{sell._id | number:'1.8-8'}}</span></td>
+							<td><span>{{calculateTotal((sell._id) * (sell.Amount - sell.filledAmount),'sell',sellindex) | number:'.8'}}</span></td>
+						</tr>
+					</tbody>
+
+					<tbody *ngIf="sellOrders.length == 0">
+						<tr>
+							<td colspan="3"  style="text-align: center;">
+								<span class="text-danger " >No Sell Orders Available</span>
+								
+							</td>
+						</tr>
+					</tbody>
+
+				</table>
+			</div>
+		</div>
+
+		<div class="tab-pane container-fluid fade px-0" id="trd-hist">
+			<div class="table-responsive">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+						
+						<th scope="col" class="text-left">Date & time</th>
+						<th scope="col" class="text-center">Amount ({{fromCurrency}})</th>
+						<th scope="col" class="text-right">Price ({{toCurrency}})</th>
+						</tr>
+					</thead>
+					<tbody>
+
+<tr  *ngFor="let tradeHis of tradeHistory; let tradeindex = index">
+<td>{{tradeHis.datetime | date:'short'}}</td>
+<td>
+<span class="text-success" *ngIf='tradeHis.ordertype == "Buy"'>{{tradeHis.filledAmount | number:'.8'}}</span>
+<span class="text-danger" *ngIf='tradeHis.ordertype == "Sell"'>{{tradeHis.filledAmount | number:'.8'}}</span>
+</td>
+<td >{{tradeHis.tradePrice | number:'.8'}}</td>
+<!-- <td class="crypt-down align-middle text-right">{{calculateTotal((tradeHis.tradePrice) *
+(tradeHis.filledAmount),'trade',tradeindex) | number:'.8'}}
+</td> -->
+</tr>
+
+
+					</tbody>
+
+					<tbody *ngIf="tradeHistory.length == 0">
+						<tr>
+							<td colspan="3"  style="text-align: center;">
+								<span class="text-danger " >No Orders Available</span>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade home-search-modal" bsModal #staticModal="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <!-- <div class="modal-header">
+        <input type="text" placeholder="Search">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> -->
+      <div class="top-header d-flex justify-content-between">
+			<div class="topheader-icon-cnt close" aria-label="Close" id="close" (click)="staticModal.hide()"><img src="assets/images/back.png" class="img-fluid"></div>
+			<!-- <h3 class="header-heading">Markets</h3> -->
+			<!-- Nav tabs -->
+			<ul class="nav nav-tabs justify-content-around">
+			  <li class="nav-item">
+			    <a class="nav-link active" data-toggle="tab" href="#btc">BTC</a>
+			  </li>
+			  <!-- <li class="nav-item">
+			    <a class="nav-link" data-toggle="tab" href="#eth">ETH</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" data-toggle="tab" href="#eos">EOS</a>
+			  </li> -->
+			</ul>
+			<div></div>
+		</div>
+      <div class="modal-body px-0">
+      	<div class="market-table-cnt mobile-table">
+			<div class="tab-content">
+				<div class="tab-pane container-fluid active px-0" id="btc">
+					<div class="table-responsive">
+						<table class="table table-hover  mkt-table">
+							<thead>
+								<tr>
+									<th>Currency</th>
+									<th class="text-left">Price/Vol</th>
+									<th>+/-</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- <tr>
+									<td>
+										<span class="white-txt"><img class="mr-2" src="assets/images/btc-icon.png">ETH</span>
+									</td>
+									<td class="text-left">
+										<span class="white-txt">$8820.00500000 / $7720.00500000</span>
+									</td>
+									<td>
+										<span class="text-success">1.20%</span>
+									</td>
+								</tr>
+								 -->
+
+								 <tr *ngFor="let Pairscheck of showpair;  let paircindex = index" (click)="change_pair(Pairscheck.fromCurrency.currencySymbol+'_'+Pairscheck.toCurrency.currencySymbol)" [class.active]="Pairscheck.fromCurrency.currencySymbol == fromCurrency && Pairscheck.toCurrency.currencySymbol == toCurrency">
+<td>
+<span class="white-txt"><img class="mr-2"src="{{Pairscheck.fromCurrency.image}}" alt="{{Pairscheck.fromCurrency.currencySymbol}}">{{Pairscheck.fromCurrency.currencySymbol}}</span>
+</td>
+<td class="text-left">
+<span class="white-txt" *ngIf="Pairscheck.price > 0">{{Pairscheck.price| number:'1.8-8'}} / {{Pairscheck.volume | number:'1.8-8' }}</span>
+<span  class="white-txt" *ngIf="Pairscheck.price <= 0">{{Pairscheck.marketPrice| number:'1.8-8'}} / {{Pairscheck.volume | number:'1.8-8' }}</span>
+
+<!-- <span class="white-txt">$8820.00500000 / $7720.00500000</span> -->
+</td>
+<td>
+
+<span class="text-success" *ngIf="Pairscheck.change < 0" class="text-danger"> {{Pairscheck.change| number:'1.2-2'}} %</span>
+<span class="text-success" *ngIf="Pairscheck.change >= 0" class="text-success"> <span class="text-success" *ngIf="Pairscheck.change > 0">+</span>{{Pairscheck.change| number:'1.2-2'}} %</span>
+
+</td>
+</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="tab-pane container-fluid fade px-0" id="eth">
+					<div class="table-responsive">
+						<table class="table table-hover mkt-table">
+						<thead>
+								<tr>
+									<th>Currency</th>
+									<th class="text-left">Price/Vol</th>
+									<th>+/-</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<span class="white-txt"><img class="mr-2" src="assets/images/btc-icon.png">ETH</span>
+									</td>
+									<td class="text-left">
+										<span class="white-txt">$8820.00500000 / $7720.00500000</span>
+									</td>
+									<td>
+										<span class="text-success">1.20%</span>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<span class="white-txt"><img class="mr-2" src="assets/images/btc-icon.png">ETH</span>
+									</td>
+									<td class="text-left">
+										<span class="white-txt">$8820.00500000 / $7720.00500000</span>
+									</td>
+									<td>
+										<span class="text-success">1.20%</span>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<span class="white-txt"><img class="mr-2" src="assets/images/btc-icon.png">ETH</span>
+									</td>
+									<td class="text-left">
+										<span class="white-txt">$8820.00500000 / $7720.00500000</span>
+									</td>
+									<td>
+										<span class="text-success">1.20%</span>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<span class="white-txt"><img class="mr-2" src="assets/images/btc-icon.png">ETH</span>
+									</td>
+									<td class="text-left">
+										<span class="white-txt">$8820.00500000 / $7720.00500000</span>
+									</td>
+									<td>
+										<span class="text-success">1.20%</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="tab-pane container-fluid fade px-0" id="eos">
+					<div class="table-responsive">
+						<table class="table table-hover mkt-table">
+						<thead>
+								<tr>
+									<th>Currency</th>
+									<th class="text-left">Price/Vol</th>
+									<th>+/-</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<span class="white-txt"><img class="mr-2" src="assets/images/btc-icon.png">ETH</span>
+									</td>
+									<td class="text-left">
+										<span class="white-txt">$8820.00500000 / $7720.00500000</span>
+									</td>
+									<td>
+										<span class="text-success">1.20%</span>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<span class="white-txt"><img class="mr-2" src="assets/images/btc-icon.png">ETH</span>
+									</td>
+									<td class="text-left">
+										<span class="white-txt">$8820.00500000 / $7720.00500000</span>
+									</td>
+									<td>
+										<span class="text-success">1.20%</span>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<span class="white-txt"><img class="mr-2" src="assets/images/btc-icon.png">ETH</span>
+									</td>
+									<td class="text-left">
+										<span class="white-txt">$8820.00500000 / $7720.00500000</span>
+									</td>
+									<td>
+										<span class="text-success">1.20%</span>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<span class="white-txt"><img class="mr-2" src="assets/images/btc-icon.png">ETH</span>
+									</td>
+									<td class="text-left">
+										<span class="white-txt">$8820.00500000 / $7720.00500000</span>
+									</td>
+									<td>
+										<span class="text-success">1.20%</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+      </div>
+    </div>
+  </div>
+</div>
