@@ -1,0 +1,48 @@
+(node:30488) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+(node:30726) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+(node:30922) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+(node:31195) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+(node:31268) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+(node:931) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+(node:1760) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+(node:2425) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+(node:2759) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+(node:4465) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+You have triggered an unhandledRejection, you may have forgotten to catch a Promise rejection:
+Error: connect ETIMEDOUT 40.115.22.134:443
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+(node:18266) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+You have triggered an unhandledRejection, you may have forgotten to catch a Promise rejection:
+Error: connect ETIMEDOUT 40.115.22.134:443
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+(node:4170) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+You have triggered an unhandledRejection, you may have forgotten to catch a Promise rejection:
+Error: getaddrinfo EAI_AGAIN min-api.cryptocompare.com min-api.cryptocompare.com:443
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:57:26)
+(node:4170) UnhandledPromiseRejectionWarning: Error: getaddrinfo EAI_AGAIN min-api.cryptocompare.com min-api.cryptocompare.com:443
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:57:26)
+(node:4170) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 2)
+(node:4170) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+(node:4170) UnhandledPromiseRejectionWarning: Error: getaddrinfo EAI_AGAIN min-api.cryptocompare.com min-api.cryptocompare.com:443
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:57:26)
+(node:4170) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 3)
+(node:4170) UnhandledPromiseRejectionWarning: Error: getaddrinfo EAI_AGAIN min-api.cryptocompare.com min-api.cryptocompare.com:443
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:57:26)
+(node:4170) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 4)
+(node:4170) UnhandledPromiseRejectionWarning: Error: getaddrinfo EAI_AGAIN min-api.cryptocompare.com min-api.cryptocompare.com:443
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:57:26)
+(node:4170) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 5)
+(node:4170) UnhandledPromiseRejectionWarning: Error: getaddrinfo EAI_AGAIN api-ropsten.etherscan.io api-ropsten.etherscan.io:443
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:57:26)
+(node:4170) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 6)
+(node:4170) UnhandledPromiseRejectionWarning: Error: getaddrinfo EAI_AGAIN min-api.cryptocompare.com min-api.cryptocompare.com:443
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:57:26)
+(node:4170) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 7)
+(node:4170) UnhandledPromiseRejectionWarning: Error: getaddrinfo EAI_AGAIN min-api.cryptocompare.com min-api.cryptocompare.com:443
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:57:26)
+(node:4170) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 8)
+(node:4653) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+(node:31051) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+(node:20114) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+(node:26795) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+(node:28433) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.

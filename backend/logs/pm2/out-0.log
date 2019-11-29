@@ -1,0 +1,2023 @@
+Mongoose default connection disconnected 2019-11-27T10:25:30.260Z
+Mongoose default connection disconnected through app termination
+DB connection: mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf PORT 2095
+ContractTrade 6379
+Express server running on port 2095
+Mongoose default connection open to mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf
+Mongoose default connection open to DATEWed Nov 27 2019 15:55:37 GMT+0530 (India Standard Time)
+connection successful
+socket connected
+jeganathan = ======================>
+socket connected
+jeganathan = ======================>
+socket connected
+jeganathan = ======================>
+socket connected
+jeganathan = ======================>
+socket connected
+jeganathan = ======================>
+Mongoose default connection disconnected 2019-11-27T10:26:52.046Z
+Mongoose default connection disconnected through app termination
+DB connection: mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf PORT 2095
+ContractTrade 6379
+Express server running on port 2095
+Mongoose default connection open to mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf
+Mongoose default connection open to DATEWed Nov 27 2019 15:56:56 GMT+0530 (India Standard Time)
+connection successful
+socket connected
+socket connected
+socket connected
+socket connected
+socket connected
+Mongoose default connection disconnected 2019-11-27T10:27:57.631Z
+Mongoose default connection disconnected through app termination
+DB connection: mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf PORT 2095
+ContractTrade 6379
+Express server running on port 2095
+Mongoose default connection open to mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf
+Mongoose default connection open to DATEWed Nov 27 2019 15:58:01 GMT+0530 (India Standard Time)
+connection successful
+socket connected
+socket connected
+socket connected
+socket connected
+socket connected
+socket connected
+socket connected
+Mongoose default connection disconnected 2019-11-27T10:29:33.518Z
+Mongoose default connection disconnected through app termination
+DB connection: mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf PORT 2095
+ContractTrade 6379
+Express server running on port 2095
+Mongoose default connection open to mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf
+Mongoose default connection open to DATEWed Nov 27 2019 15:59:37 GMT+0530 (India Standard Time)
+connection successful
+Mongoose default connection disconnected 2019-11-27T10:29:38.706Z
+Mongoose default connection disconnected through app termination
+DB connection: mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf PORT 2095
+ContractTrade 6379
+Express server running on port 2095
+Mongoose default connection open to mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf
+Mongoose default connection open to DATEWed Nov 27 2019 15:59:42 GMT+0530 (India Standard Time)
+connection successful
+[0mGET / [32m200 [0m6.575 ms - 7[0m
+[0mGET /getcurrency_usd [32m200 [0m13.470 ms - 417[0m
+[0mGET /trade/PairsGet [32m200 [0m89.866 ms - 17542[0m
+[0mGET /trade/chart/config [32m200 [0m3.664 ms - -[0m
+[0mGET /trade/PairsGet [36m304 [0m76.075 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.882 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m8.064 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m21.403 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m7.590 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m8.705 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m20.124 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.802 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m25.011 ms - -[0m
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+[0mPOST /BdAMx4fdex/getusr [32m200 [0m12.493 ms - 4[0m
+[0mPOST /trade/checkPair [32m200 [0m4.898 ms - 1544[0m
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+[0mPOST /trade/get_cancelled [32m200 [0m3.017 ms - 2[0m
+jeganathan = ======================>
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 6934.04,
+    market_cap: 125212318570,
+    market_cap_rank: 1,
+    total_volume: 25271653978,
+    high_24h: 7185.5,
+    low_24h: 6879.98,
+    price_change_24h: -218.54337655,
+    price_change_percentage_24h: -3.05545,
+    market_cap_change_24h: -4496746505.75874,
+    market_cap_change_percentage_24h: -3.46679,
+    circulating_supply: 18069775,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -64.75737,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T10:44:46.322Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m460.541 ms - 657[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 6934.04,
+    market_cap: 125212318570,
+    market_cap_rank: 1,
+    total_volume: 25271653978,
+    high_24h: 7185.5,
+    low_24h: 6879.98,
+    price_change_24h: -218.54337655,
+    price_change_percentage_24h: -3.05545,
+    market_cap_change_24h: -4496746505.75874,
+    market_cap_change_percentage_24h: -3.46679,
+    circulating_supply: 18069775,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -64.75737,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T10:44:46.322Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m429.530 ms - 657[0m
+[0mGET /trade/chart/time [32m200 [0m1.501 ms - -[0m
+[0mGET /trade/chart/symbols?symbol=ETH_BTC [32m200 [0m1.408 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m38.674 ms - -[0m
+[0mGET /trade/PairsGet [36m304 [0m81.402 ms - -[0m
+[0mGET /trade/chart/config [32m200 [0m1.133 ms - -[0m
+[0mGET /trade/PairsGet [36m304 [0m46.716 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m9.387 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m9.198 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m13.619 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m17.009 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m41.874 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m18.516 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m11.183 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m7.188 ms - -[0m
+[0mPOST /BdAMx4fdex/getusr [32m200 [0m3.417 ms - 4[0m
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+[0mPOST /trade/checkPair [32m200 [0m3.222 ms - 1544[0m
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+[0mPOST /trade/get_cancelled [32m200 [0m2.290 ms - 2[0m
+jeganathan = ======================>
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 6934.04,
+    market_cap: 125212318570,
+    market_cap_rank: 1,
+    total_volume: 25271653978,
+    high_24h: 7185.5,
+    low_24h: 6879.98,
+    price_change_24h: -218.54337655,
+    price_change_percentage_24h: -3.05545,
+    market_cap_change_24h: -4496746505.75874,
+    market_cap_change_percentage_24h: -3.46679,
+    circulating_supply: 18069775,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -64.75737,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T10:44:46.322Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m402.244 ms - 657[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 6934.04,
+    market_cap: 125212318570,
+    market_cap_rank: 1,
+    total_volume: 25271653978,
+    high_24h: 7185.5,
+    low_24h: 6879.98,
+    price_change_24h: -218.54337655,
+    price_change_percentage_24h: -3.05545,
+    market_cap_change_24h: -4496746505.75874,
+    market_cap_change_percentage_24h: -3.46679,
+    circulating_supply: 18069775,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -64.75737,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T10:44:46.322Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m368.156 ms - 657[0m
+[0mGET /trade/chart/time [32m200 [0m1.413 ms - -[0m
+[0mGET /trade/chart/symbols?symbol=ETH_BTC [32m200 [0m0.788 ms - -[0m
+Mongoose default connection disconnected 2019-11-27T10:49:55.549Z
+Mongoose default connection disconnected through app termination
+DB connection: mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf PORT 2095
+ContractTrade 6379
+Express server running on port 2095
+Mongoose default connection open to mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf
+Mongoose default connection open to DATEWed Nov 27 2019 16:19:58 GMT+0530 (India Standard Time)
+connection successful
+[0mGET /getcurrency_usd [32m200 [0m64.637 ms - 416[0m
+[0mGET /trade/PairsGet [32m200 [0m103.118 ms - 17539[0m
+[0mGET /trade/chart/config [32m200 [0m6.553 ms - -[0m
+[0mGET /trade/PairsGet [36m304 [0m46.785 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m8.843 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m8.974 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m10.744 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m9.158 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m19.857 ms - -[0m
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+[0mPOST /BdAMx4fdex/getusr [32m200 [0m12.516 ms - 4[0m
+[0mGET /getcurrency_usd [36m304 [0m34.956 ms - -[0m
+[0mPOST /trade/checkPair [32m200 [0m3.931 ms - 1544[0m
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+[0mGET /getcurrency_usd [36m304 [0m10.026 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m8.258 ms - -[0m
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+[0mPOST /trade/get_cancelled [32m200 [0m2.511 ms - 2[0m
+jeganathan = ======================>
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 6935,
+    market_cap: 125212318570,
+    market_cap_rank: 1,
+    total_volume: 25271148415,
+    high_24h: 7185.5,
+    low_24h: 6879.98,
+    price_change_24h: -218.0096098,
+    price_change_percentage_24h: -3.0478,
+    market_cap_change_24h: -4496746505.75874,
+    market_cap_change_percentage_24h: -3.46679,
+    circulating_supply: 18069775,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -64.75737,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T10:45:42.318Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m643.086 ms - 652[0m
+[0mGET /trade/chart/time [32m200 [0m1.218 ms - -[0m
+[0mGET /trade/chart/symbols?symbol=ETH_BTC [32m200 [0m1.492 ms - -[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 6935,
+    market_cap: 125212318570,
+    market_cap_rank: 1,
+    total_volume: 25271148415,
+    high_24h: 7185.5,
+    low_24h: 6879.98,
+    price_change_24h: -218.0096098,
+    price_change_percentage_24h: -3.0478,
+    market_cap_change_24h: -4496746505.75874,
+    market_cap_change_percentage_24h: -3.46679,
+    circulating_supply: 18069775,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -64.75737,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T10:45:42.318Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m1551.661 ms - 652[0m
+Mongoose default connection disconnected 2019-11-27T10:55:00.448Z
+Mongoose default connection disconnected through app termination
+DB connection: mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf PORT 2095
+ContractTrade 6379
+Express server running on port 2095
+Mongoose default connection open to mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf
+Mongoose default connection open to DATEWed Nov 27 2019 16:25:03 GMT+0530 (India Standard Time)
+connection successful
+[0mGET /getcurrency_usd [32m200 [0m55.714 ms - 417[0m
+[0mGET /trade/PairsGet [32m200 [0m180.677 ms - 17542[0m
+[0mGET /trade/chart/config [32m200 [0m19.934 ms - -[0m
+[0mGET /trade/PairsGet [36m304 [0m62.087 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m12.220 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m9.385 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m12.602 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m29.899 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m30.361 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m8.068 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m14.676 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m7.990 ms - -[0m
+[0mPOST /BdAMx4fdex/getusr [32m200 [0m8.892 ms - 4[0m
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+[0mPOST /trade/checkPair [32m200 [0m4.537 ms - 1544[0m
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+[0mPOST /trade/get_cancelled [32m200 [0m3.171 ms - 2[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 6938.37,
+    market_cap: 125212318570,
+    market_cap_rank: 1,
+    total_volume: 25280750237,
+    high_24h: 7185.5,
+    low_24h: 6879.98,
+    price_change_24h: -214.64046002,
+    price_change_percentage_24h: -3.0007,
+    market_cap_change_24h: -4496746505.75874,
+    market_cap_change_percentage_24h: -3.46679,
+    circulating_supply: 18069775,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -64.75737,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T10:49:22.353Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m475.918 ms - 656[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 6938.37,
+    market_cap: 125212318570,
+    market_cap_rank: 1,
+    total_volume: 25280750237,
+    high_24h: 7185.5,
+    low_24h: 6879.98,
+    price_change_24h: -214.64046002,
+    price_change_percentage_24h: -3.0007,
+    market_cap_change_24h: -4496746505.75874,
+    market_cap_change_percentage_24h: -3.46679,
+    circulating_supply: 18069775,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -64.75737,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T10:49:22.353Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m479.212 ms - 656[0m
+[0mGET /trade/chart/time [32m200 [0m1.761 ms - -[0m
+[0mGET /trade/chart/symbols?symbol=ETH_BTC [32m200 [0m1.842 ms - -[0m
+[0mGET /trade/PairsGet [32m200 [0m63.510 ms - 17542[0m
+[0mGET /getcurrency_usd [32m200 [0m23.301 ms - 417[0m
+[0mGET /trade/chart/config [32m200 [0m1.080 ms - -[0m
+[0mGET /trade/PairsGet [36m304 [0m42.022 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m7.950 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m9.022 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m11.114 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m8.429 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m8.898 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m8.848 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m8.480 ms - -[0m
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+[0mPOST /BdAMx4fdex/getusr [32m200 [0m5.121 ms - 4[0m
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+[0mGET /getcurrency_usd [36m304 [0m14.026 ms - -[0m
+[0mPOST /trade/checkPair [32m200 [0m18.045 ms - 1544[0m
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+[0mPOST /trade/get_cancelled [32m200 [0m2.574 ms - 2[0m
+[0mGET /trade/chart/time [32m200 [0m0.762 ms - -[0m
+[0mGET /trade/chart/symbols?symbol=ETH_BTC [32m200 [0m0.806 ms - -[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 6937.4,
+    market_cap: 125357328628,
+    market_cap_rank: 1,
+    total_volume: 25279946366,
+    high_24h: 7185.5,
+    low_24h: 6879.98,
+    price_change_24h: -209.86547925,
+    price_change_percentage_24h: -2.9363,
+    market_cap_change_24h: -3870859633.99019,
+    market_cap_change_percentage_24h: -2.99537,
+    circulating_supply: 18069775,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -64.75737,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T10:50:09.094Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m1650.220 ms - 655[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 6937.4,
+    market_cap: 125357328628,
+    market_cap_rank: 1,
+    total_volume: 25279946366,
+    high_24h: 7185.5,
+    low_24h: 6879.98,
+    price_change_24h: -209.86547925,
+    price_change_percentage_24h: -2.9363,
+    market_cap_change_24h: -3870859633.99019,
+    market_cap_change_percentage_24h: -2.99537,
+    circulating_supply: 18069775,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -64.75737,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T10:50:09.094Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m5436.085 ms - 655[0m
+[0mGET /trade/PairsGet [32m200 [0m68.785 ms - 17541[0m
+[0mGET /getcurrency_usd [32m200 [0m14.823 ms - 417[0m
+[0mGET /trade/chart/config [32m200 [0m1.335 ms - -[0m
+[0mGET /trade/PairsGet [36m304 [0m53.279 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m23.665 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m10.231 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.468 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.501 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m7.164 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m7.103 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m7.364 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.830 ms - -[0m
+[0mPOST /BdAMx4fdex/getusr [32m200 [0m2.926 ms - 4[0m
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+[0mPOST /trade/checkPair [32m200 [0m3.773 ms - 1544[0m
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+[0mPOST /trade/get_cancelled [32m200 [0m2.895 ms - 2[0m
+[0mGET /trade/chart/time [32m200 [0m1.251 ms - -[0m
+[0mGET /trade/chart/symbols?symbol=ETH_BTC [32m200 [0m1.133 ms - -[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 6926.3,
+    market_cap: 125357328628,
+    market_cap_rank: 1,
+    total_volume: 25288347190,
+    high_24h: 7185.5,
+    low_24h: 6879.98,
+    price_change_24h: -220.96842531,
+    price_change_percentage_24h: -3.09165,
+    market_cap_change_24h: -3870859633.99019,
+    market_cap_change_percentage_24h: -2.99537,
+    circulating_supply: 18069775,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -64.75737,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T10:52:57.011Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m1661.598 ms - 656[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 6926.3,
+    market_cap: 125357328628,
+    market_cap_rank: 1,
+    total_volume: 25288347190,
+    high_24h: 7185.5,
+    low_24h: 6879.98,
+    price_change_24h: -220.96842531,
+    price_change_percentage_24h: -3.09165,
+    market_cap_change_24h: -3870859633.99019,
+    market_cap_change_percentage_24h: -2.99537,
+    circulating_supply: 18069775,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -64.75737,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T10:52:57.011Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m1617.355 ms - 656[0m
+[0mGET /getcurrency_usd [32m200 [0m41.323 ms - 417[0m
+[0mGET /trade/PairsGet [32m200 [0m97.338 ms - 17541[0m
+[0mGET /trade/chart/config [32m200 [0m1.372 ms - -[0m
+[0mGET /trade/PairsGet [36m304 [0m52.349 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m7.505 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m20.130 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m30.807 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m8.858 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m7.402 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m7.246 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.755 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m10.256 ms - -[0m
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+[0mPOST /BdAMx4fdex/getusr [32m200 [0m6.589 ms - 4[0m
+[0mPOST /trade/checkPair [32m200 [0m6.609 ms - 1544[0m
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+[0mPOST /trade/get_cancelled [32m200 [0m2.637 ms - 2[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 6916.67,
+    market_cap: 125357328628,
+    market_cap_rank: 1,
+    total_volume: 25361652050,
+    high_24h: 7185.5,
+    low_24h: 6879.98,
+    price_change_24h: -247.47956502,
+    price_change_percentage_24h: -3.45442,
+    market_cap_change_24h: -3870859633.99019,
+    market_cap_change_percentage_24h: -2.99537,
+    circulating_supply: 18069775,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -64.75737,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T10:55:03.099Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m1604.961 ms - 657[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 6916.67,
+    market_cap: 125357328628,
+    market_cap_rank: 1,
+    total_volume: 25361652050,
+    high_24h: 7185.5,
+    low_24h: 6879.98,
+    price_change_24h: -247.47956502,
+    price_change_percentage_24h: -3.45442,
+    market_cap_change_24h: -3870859633.99019,
+    market_cap_change_percentage_24h: -2.99537,
+    circulating_supply: 18069775,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -64.75737,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T10:55:03.099Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m1567.724 ms - 657[0m
+Mongoose default connection disconnected 2019-11-27T10:58:14.140Z
+Mongoose default connection disconnected through app termination
+DB connection: mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf PORT 2095
+ContractTrade 6379
+Express server running on port 2095
+Mongoose default connection open to mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf
+Mongoose default connection open to DATEWed Nov 27 2019 16:28:19 GMT+0530 (India Standard Time)
+connection successful
+[0mGET /getcurrency_usd [36m304 [0m74.722 ms - -[0m
+[0mGET /trade/chart/config [32m200 [0m20.870 ms - -[0m
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+[0mPOST /trade/checkPair [32m200 [0m13.467 ms - 1544[0m
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+[0mPOST /trade/get_cancelled [32m200 [0m100.716 ms - 2[0m
+[0mPOST /BdAMx4fdex/getusr [32m200 [0m264.979 ms - 4[0m
+[0mGET /trade/PairsGet [36m304 [0m645.706 ms - -[0m
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+[0mGET /trade/PairsGet [36m304 [0m91.127 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m29.513 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m30.213 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m31.887 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m36.339 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m29.564 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m26.342 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m26.509 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m26.993 ms - -[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 6916.67,
+    market_cap: 125357328628,
+    market_cap_rank: 1,
+    total_volume: 25361652050,
+    high_24h: 7185.5,
+    low_24h: 6879.98,
+    price_change_24h: -247.47956502,
+    price_change_percentage_24h: -3.45442,
+    market_cap_change_24h: -3870859633.99019,
+    market_cap_change_percentage_24h: -2.99537,
+    circulating_supply: 18069775,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -64.75737,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T10:55:03.099Z' } ]
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 6916.67,
+    market_cap: 125357328628,
+    market_cap_rank: 1,
+    total_volume: 25361652050,
+    high_24h: 7185.5,
+    low_24h: 6879.98,
+    price_change_24h: -247.47956502,
+    price_change_percentage_24h: -3.45442,
+    market_cap_change_24h: -3870859633.99019,
+    market_cap_change_percentage_24h: -2.99537,
+    circulating_supply: 18069775,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -64.75737,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T10:55:03.099Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m781.294 ms - 657[0m
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m736.625 ms - 657[0m
+[0mGET /trade/chart/time [32m200 [0m1.218 ms - -[0m
+[0mGET /trade/chart/symbols?symbol=ETH_BTC [32m200 [0m1.767 ms - -[0m
+Mongoose default connection disconnected 2019-11-27T10:59:37.174Z
+Mongoose default connection disconnected through app termination
+DB connection: mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf PORT 2095
+ContractTrade 6379
+Express server running on port 2095
+Mongoose default connection open to mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf
+Mongoose default connection open to DATEWed Nov 27 2019 16:29:41 GMT+0530 (India Standard Time)
+connection successful
+[0mGET /getcurrency_usd [32m200 [0m46.876 ms - 414[0m
+[0mGET /trade/chart/config [32m200 [0m20.258 ms - -[0m
+[0mGET /trade/PairsGet [32m200 [0m177.523 ms - 17529[0m
+[0mGET /trade/PairsGet [36m304 [0m67.345 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m10.003 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m16.981 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m8.723 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m10.548 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m16.233 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m8.545 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m12.571 ms - -[0m
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+[0mPOST /BdAMx4fdex/getusr [32m200 [0m15.227 ms - 4[0m
+[0mGET /getcurrency_usd [36m304 [0m14.483 ms - -[0m
+[0mPOST /trade/checkPair [32m200 [0m16.828 ms - 1542[0m
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+[0mPOST /trade/get_cancelled [32m200 [0m3.301 ms - 2[0m
+J+++++++++++++++++++++++++++
+[0mGET /trade/chart/time [32m200 [0m1.121 ms - -[0m
+[0mGET /trade/chart/symbols?symbol=ETH_BTC [32m200 [0m1.296 ms - -[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 6916.67,
+    market_cap: 125357328628,
+    market_cap_rank: 1,
+    total_volume: 25361652050,
+    high_24h: 7185.5,
+    low_24h: 6879.98,
+    price_change_24h: -247.47956502,
+    price_change_percentage_24h: -3.45442,
+    market_cap_change_24h: -3870859633.99019,
+    market_cap_change_percentage_24h: -2.99537,
+    circulating_supply: 18069775,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -64.75737,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T10:55:03.099Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m6225.870 ms - 657[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 6916.67,
+    market_cap: 125357328628,
+    market_cap_rank: 1,
+    total_volume: 25361652050,
+    high_24h: 7185.5,
+    low_24h: 6879.98,
+    price_change_24h: -247.47956502,
+    price_change_percentage_24h: -3.45442,
+    market_cap_change_24h: -3870859633.99019,
+    market_cap_change_percentage_24h: -2.99537,
+    circulating_supply: 18069775,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -64.75737,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T10:55:03.099Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m8367.736 ms - 657[0m
+[0mGET /getcurrency_usd [32m200 [0m47.910 ms - 415[0m
+[0mGET /trade/PairsGet [32m200 [0m80.834 ms - 17532[0m
+[0mGET /trade/chart/config [32m200 [0m3.741 ms - -[0m
+[0mGET /trade/PairsGet [36m304 [0m63.243 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m10.455 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m11.333 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m7.049 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.851 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m8.213 ms - -[0m
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+[0mPOST /BdAMx4fdex/getusr [32m200 [0m12.071 ms - 4[0m
+[0mPOST /trade/checkPair [32m200 [0m11.667 ms - 1542[0m
+[0mGET /getcurrency_usd [36m304 [0m20.931 ms - -[0m
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+[0mGET /getcurrency_usd [36m304 [0m7.280 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m9.616 ms - -[0m
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+[0mPOST /trade/get_cancelled [32m200 [0m2.768 ms - 2[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 6916.67,
+    market_cap: 125357328628,
+    market_cap_rank: 1,
+    total_volume: 25361652050,
+    high_24h: 7185.5,
+    low_24h: 6879.98,
+    price_change_24h: -247.47956502,
+    price_change_percentage_24h: -3.45442,
+    market_cap_change_24h: -3870859633.99019,
+    market_cap_change_percentage_24h: -2.99537,
+    circulating_supply: 18069775,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -64.75737,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T10:55:03.099Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m339.888 ms - 657[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 6916.67,
+    market_cap: 125357328628,
+    market_cap_rank: 1,
+    total_volume: 25361652050,
+    high_24h: 7185.5,
+    low_24h: 6879.98,
+    price_change_24h: -247.47956502,
+    price_change_percentage_24h: -3.45442,
+    market_cap_change_24h: -3870859633.99019,
+    market_cap_change_percentage_24h: -2.99537,
+    circulating_supply: 18069775,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -64.75737,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T10:55:03.099Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m462.325 ms - 657[0m
+J+++++++++++++++++++++++++++
+[0mGET /trade/chart/time [32m200 [0m0.917 ms - -[0m
+[0mGET /trade/chart/symbols?symbol=ETH_BTC [32m200 [0m0.833 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m43.905 ms - -[0m
+[0mGET /trade/PairsGet [36m304 [0m75.675 ms - -[0m
+[0mGET /trade/chart/config [32m200 [0m1.043 ms - -[0m
+[0mGET /trade/PairsGet [36m304 [0m45.329 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m7.567 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m7.974 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m25.237 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m8.425 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m7.273 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m7.584 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.829 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.614 ms - -[0m
+[0mPOST /BdAMx4fdex/getusr [32m200 [0m2.743 ms - 4[0m
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+[0mPOST /trade/checkPair [32m200 [0m4.060 ms - 1542[0m
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+[0mPOST /trade/get_cancelled [32m200 [0m2.403 ms - 2[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 6916.67,
+    market_cap: 125357328628,
+    market_cap_rank: 1,
+    total_volume: 25361652050,
+    high_24h: 7185.5,
+    low_24h: 6879.98,
+    price_change_24h: -247.47956502,
+    price_change_percentage_24h: -3.45442,
+    market_cap_change_24h: -3870859633.99019,
+    market_cap_change_percentage_24h: -2.99537,
+    circulating_supply: 18069775,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -64.75737,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T10:55:03.099Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m322.150 ms - 657[0m
+J+++++++++++++++++++++++++++
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 6916.67,
+    market_cap: 125357328628,
+    market_cap_rank: 1,
+    total_volume: 25361652050,
+    high_24h: 7185.5,
+    low_24h: 6879.98,
+    price_change_24h: -247.47956502,
+    price_change_percentage_24h: -3.45442,
+    market_cap_change_24h: -3870859633.99019,
+    market_cap_change_percentage_24h: -2.99537,
+    circulating_supply: 18069775,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -64.75737,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T10:55:03.099Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m414.129 ms - 657[0m
+[0mGET /trade/chart/time [32m200 [0m1.087 ms - -[0m
+[0mGET /trade/chart/symbols?symbol=ETH_BTC [32m200 [0m1.071 ms - -[0m
+Mongoose default connection disconnected 2019-11-27T11:16:56.346Z
+Mongoose default connection disconnected through app termination
+DB connection: mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf PORT 2095
+ContractTrade 6379
+Express server running on port 2095
+Mongoose default connection open to mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf
+Mongoose default connection open to DATEWed Nov 27 2019 16:47:00 GMT+0530 (India Standard Time)
+connection successful
+[0mGET /getcurrency_usd [32m200 [0m53.156 ms - 416[0m
+[0mGET /trade/PairsGet [32m200 [0m176.503 ms - 17537[0m
+[0mGET /trade/chart/config [32m200 [0m20.793 ms - -[0m
+[0mGET /trade/PairsGet [36m304 [0m62.352 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m11.617 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m8.478 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m8.829 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m15.759 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m15.977 ms - -[0m
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+[0mPOST /BdAMx4fdex/getusr [32m200 [0m18.678 ms - 4[0m
+[0mGET /getcurrency_usd [36m304 [0m20.777 ms - -[0m
+[0mPOST /trade/checkPair [32m200 [0m16.826 ms - 1543[0m
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+[0mGET /getcurrency_usd [36m304 [0m13.067 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m11.545 ms - -[0m
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+[0mPOST /trade/get_cancelled [32m200 [0m3.399 ms - 2[0m
+jega++++++++++++++++++++++++++++
+J+++++++++++++++++++++++++++
+[0mGET /trade/chart/time [32m200 [0m1.710 ms - -[0m
+[0mGET /trade/chart/symbols?symbol=ETH_BTC [32m200 [0m1.558 ms - -[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 6950.67,
+    market_cap: 125596261137,
+    market_cap_rank: 1,
+    total_volume: 25315128788,
+    high_24h: 7185.5,
+    low_24h: 6879.98,
+    price_change_24h: -139.07868261,
+    price_change_percentage_24h: -1.96169,
+    market_cap_change_24h: -2790051627.57373,
+    market_cap_change_percentage_24h: -2.17317,
+    circulating_supply: 18069800,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -64.78266,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T11:10:50.191Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m1215.427 ms - 657[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 6950.67,
+    market_cap: 125596261137,
+    market_cap_rank: 1,
+    total_volume: 25315128788,
+    high_24h: 7185.5,
+    low_24h: 6879.98,
+    price_change_24h: -139.07868261,
+    price_change_percentage_24h: -1.96169,
+    market_cap_change_24h: -2790051627.57373,
+    market_cap_change_percentage_24h: -2.17317,
+    circulating_supply: 18069800,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -64.78266,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T11:10:50.191Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m5749.830 ms - 657[0m
+[0mPOST /trade/get_cancelled [32m200 [0m3.014 ms - 2[0m
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 6942.76,
+    market_cap: 125454373133,
+    market_cap_rank: 1,
+    total_volume: 24683385304,
+    high_24h: 7185.5,
+    low_24h: 6879.98,
+    price_change_24h: -121.51796669,
+    price_change_percentage_24h: -1.72017,
+    market_cap_change_24h: -2613635280.8166,
+    market_cap_change_percentage_24h: -2.04082,
+    circulating_supply: 18069800,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -64.69631,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T11:20:10.570Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m277.779 ms - 656[0m
+[0mGET /favicon.ico [33m404 [0m5.221 ms - 150[0m
+req.body.pair { pair: 'OMG_BTC', currency: 'BTC' }
+[0mPOST /trade/checkPair [32m200 [0m4.547 ms - 1629[0m
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+req.body.pair { pair: 'OMG_BTC', currency: 'BTC' }
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+[0mPOST /trade/get_cancelled [32m200 [0m2.688 ms - 2[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 7145.06,
+    market_cap: 129098927001,
+    market_cap_rank: 1,
+    total_volume: 25453337875,
+    high_24h: 7178.59,
+    low_24h: 6879.98,
+    price_change_24h: -33.5319187,
+    price_change_percentage_24h: -0.46711,
+    market_cap_change_24h: -605310427.715378,
+    market_cap_change_percentage_24h: -0.46669,
+    circulating_supply: 18069875,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -63.66684,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T12:00:30.253Z' } ]
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 7145.06,
+    market_cap: 129098927001,
+    market_cap_rank: 1,
+    total_volume: 25453337875,
+    high_24h: 7178.59,
+    low_24h: 6879.98,
+    price_change_24h: -33.5319187,
+    price_change_percentage_24h: -0.46711,
+    market_cap_change_24h: -605310427.715378,
+    market_cap_change_percentage_24h: -0.46669,
+    circulating_supply: 18069875,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -63.66684,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T12:00:30.253Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m328.075 ms - 656[0m
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m300.351 ms - 656[0m
+jega++++++++++++++++++++++++++++
+J+++++++++++++++++++++++++++
+[0mGET /trade/chart/time [32m200 [0m1.745 ms - -[0m
+[0mGET /trade/chart/symbols?symbol=OMG_BTC [32m200 [0m1.080 ms - -[0m
+[0mGET /getcurrency_usd [32m200 [0m16.714 ms - 417[0m
+[0mGET /trade/PairsGet [32m200 [0m55.226 ms - 17588[0m
+[0mGET /trade/chart/config [32m200 [0m1.759 ms - -[0m
+[0mGET /trade/PairsGet [36m304 [0m44.807 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.534 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.382 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m8.471 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m5.420 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m5.999 ms - -[0m
+req.body.pair { pair: 'OMG_ETH', currency: 'BTC' }
+[0mPOST /BdAMx4fdex/getusr [32m200 [0m4.446 ms - 4[0m
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+[0mPOST /trade/checkPair [32m200 [0m3.402 ms - 6923[0m
+[0mGET /getcurrency_usd [36m304 [0m5.880 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.440 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.743 ms - -[0m
+req.body.pair { pair: 'OMG_ETH', currency: 'BTC' }
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 7259.28,
+    market_cap: 130810285120,
+    market_cap_rank: 1,
+    total_volume: 26968973199,
+    high_24h: 7289.01,
+    low_24h: 6879.98,
+    price_change_24h: 108.91,
+    price_change_percentage_24h: 1.52317,
+    market_cap_change_24h: 1827573514,
+    market_cap_change_percentage_24h: 1.41691,
+    circulating_supply: 18069900,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -63.18529,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T12:44:57.943Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m217.162 ms - 642[0m
+[0mPOST /trade/get_cancelled [32m200 [0m3.641 ms - 2[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 7259.28,
+    market_cap: 130810285120,
+    market_cap_rank: 1,
+    total_volume: 26968973199,
+    high_24h: 7289.01,
+    low_24h: 6879.98,
+    price_change_24h: 108.91,
+    price_change_percentage_24h: 1.52317,
+    market_cap_change_24h: 1827573514,
+    market_cap_change_percentage_24h: 1.41691,
+    circulating_supply: 18069900,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -63.18529,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T12:44:57.943Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m188.193 ms - 642[0m
+jega++++++++++++++++++++++++++++
+J+++++++++++++++++++++++++++
+[0mGET /trade/chart/time [32m200 [0m0.840 ms - -[0m
+[0mGET /trade/chart/symbols?symbol=OMG_ETH [32m200 [0m1.029 ms - -[0m
+[0mGET /getcurrency_usd [32m200 [0m6.584 ms - 416[0m
+[0mGET /trade/PairsGet [32m200 [0m37.104 ms - 17588[0m
+[0mGET /getcurrency_usd [36m304 [0m5.280 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.787 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.140 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.673 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m5.771 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m5.998 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.502 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m4.814 ms - -[0m
+[0mGET /getcurrency_usd [32m200 [0m7.890 ms - 416[0m
+[0mGET /trade/PairsGet [32m200 [0m69.961 ms - 17582[0m
+[0mGET /getcurrency_usd [36m304 [0m9.633 ms - -[0m
+[0mGET /trade/PairsGet [36m304 [0m48.094 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.079 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.839 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.182 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.004 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m5.978 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m5.423 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.469 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m5.837 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m5.948 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m27.376 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m5.015 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m5.900 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m5.146 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m4.648 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.166 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m14.148 ms - -[0m
+[0mGET /trade/chart/config [32m200 [0m1.463 ms - -[0m
+[0mGET /trade/PairsGet [32m200 [0m26.815 ms - 17588[0m
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+[0mPOST /BdAMx4fdex/getusr [32m200 [0m4.756 ms - 4[0m
+[0mPOST /trade/checkPair [32m200 [0m2.198 ms - 1591[0m
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+[0mPOST /trade/get_cancelled [32m200 [0m2.548 ms - 2[0m
+jega++++++++++++++++++++++++++++
+J+++++++++++++++++++++++++++
+[0mGET /trade/chart/time [32m200 [0m1.297 ms - -[0m
+[0mGET /trade/chart/symbols?symbol=ETH_BTC [32m200 [0m0.776 ms - -[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 7248.01,
+    market_cap: 130963076687,
+    market_cap_rank: 1,
+    total_volume: 26489083808,
+    high_24h: 7289.01,
+    low_24h: 6879.98,
+    price_change_24h: 143.48,
+    price_change_percentage_24h: 2.01951,
+    market_cap_change_24h: 2839535669,
+    market_cap_change_percentage_24h: 2.21625,
+    circulating_supply: 18069912,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -63.14364,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T13:29:23.510Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m1669.746 ms - 642[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 7248.01,
+    market_cap: 130963076687,
+    market_cap_rank: 1,
+    total_volume: 26489083808,
+    high_24h: 7289.01,
+    low_24h: 6879.98,
+    price_change_24h: 143.48,
+    price_change_percentage_24h: 2.01951,
+    market_cap_change_24h: 2839535669,
+    market_cap_change_percentage_24h: 2.21625,
+    circulating_supply: 18069912,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -63.14364,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T13:29:23.510Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m1694.466 ms - 642[0m
+[0mPOST /trade/get_cancelled [32m200 [0m2.258 ms - 2[0m
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 7248.01,
+    market_cap: 130963076687,
+    market_cap_rank: 1,
+    total_volume: 26489083808,
+    high_24h: 7289.01,
+    low_24h: 6879.98,
+    price_change_24h: 143.48,
+    price_change_percentage_24h: 2.01951,
+    market_cap_change_24h: 2839535669,
+    market_cap_change_percentage_24h: 2.21625,
+    circulating_supply: 18069912,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -63.14364,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T13:29:23.510Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m18047.625 ms - 642[0m
+Mongoose default connection disconnected 2019-11-27T14:13:38.655Z
+Mongoose default connection disconnected through app termination
+DB connection: mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf PORT 2095
+ContractTrade 6379
+Express server running on port 2095
+Mongoose default connection open to mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf
+Mongoose default connection open to DATEWed Nov 27 2019 19:43:41 GMT+0530 (India Standard Time)
+connection successful
++++++++++++++++++++++++++ { amount: 0.000001,
+  price: 20.5,
+  pair: '5ca3310f7e426d406a8f56d5',
+  ordertype: 'limit',
+  type: 'buy',
+  user_id: '2MwRHXPCqHv8sypTFbNNXF2xwBZkekDM7aC' }
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+[0mPOST /trade/get_cancelled [32m200 [0m7.648 ms - 2[0m
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 7236.36,
+    market_cap: 130788486824,
+    market_cap_rank: 1,
+    total_volume: 26443021820,
+    high_24h: 7289.01,
+    low_24h: 6879.98,
+    price_change_24h: 135.2,
+    price_change_percentage_24h: 1.90389,
+    market_cap_change_24h: 2390327122,
+    market_cap_change_percentage_24h: 1.86165,
+    circulating_supply: 18069975,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -63.16178,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T14:13:04.249Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m1603.610 ms - 641[0m
+[0mGET /getcurrency_usd [32m200 [0m16.656 ms - 417[0m
+[0mGET /trade/PairsGet [32m200 [0m62.915 ms - 17589[0m
+[0mGET /trade/chart/config [32m200 [0m3.166 ms - -[0m
+[0mGET /trade/PairsGet [36m304 [0m43.744 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m10.072 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m7.841 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m7.387 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m8.566 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.301 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m9.164 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m7.442 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m10.226 ms - -[0m
+[0mPOST /BdAMx4fdex/getusr [32m200 [0m5.787 ms - 4[0m
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+[0mPOST /trade/checkPair [32m200 [0m8.443 ms - 1591[0m
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+[0mPOST /trade/get_cancelled [32m200 [0m2.662 ms - 2[0m
+jega++++++++++++++++++++++++++++
+J+++++++++++++++++++++++++++
+[0mGET /trade/chart/time [32m200 [0m2.878 ms - -[0m
+[0mGET /trade/chart/symbols?symbol=ETH_BTC [32m200 [0m1.683 ms - -[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 7201.39,
+    market_cap: 130725908798,
+    market_cap_rank: 1,
+    total_volume: 26298719320,
+    high_24h: 7289.01,
+    low_24h: 6879.98,
+    price_change_24h: 97.16,
+    price_change_percentage_24h: 1.36767,
+    market_cap_change_24h: 2380988947,
+    market_cap_change_percentage_24h: 1.85515,
+    circulating_supply: 18070000,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -63.21245,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T14:25:51.520Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m1464.975 ms - 641[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 7201.39,
+    market_cap: 130725908798,
+    market_cap_rank: 1,
+    total_volume: 26298719320,
+    high_24h: 7289.01,
+    low_24h: 6879.98,
+    price_change_24h: 97.16,
+    price_change_percentage_24h: 1.36767,
+    market_cap_change_24h: 2380988947,
+    market_cap_change_percentage_24h: 1.85515,
+    circulating_supply: 18070000,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -63.21245,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T14:25:51.520Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m1440.072 ms - 641[0m
++++++++++++++++++++++++++ { amount: 1e-7,
+  price: 20.5,
+  pair: '5ca3310f7e426d406a8f56d5',
+  ordertype: 'limit',
+  type: 'buy',
+  user_id: '2MwRHXPCqHv8sypTFbNNXF2xwBZkekDM7aC' }
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+[0mPOST /trade/get_cancelled [32m200 [0m2.681 ms - 2[0m
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 7201.39,
+    market_cap: 130725908798,
+    market_cap_rank: 1,
+    total_volume: 26298719320,
+    high_24h: 7289.01,
+    low_24h: 6879.98,
+    price_change_24h: 97.16,
+    price_change_percentage_24h: 1.36767,
+    market_cap_change_24h: 2380988947,
+    market_cap_change_percentage_24h: 1.85515,
+    circulating_supply: 18070000,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -63.21245,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T14:25:51.520Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m512.571 ms - 641[0m
+[0mGET /trade/PairsGet [32m200 [0m36.883 ms - 17590[0m
+[0mGET /getcurrency_usd [32m200 [0m13.219 ms - 417[0m
+[0mGET /trade/chart/config [32m200 [0m0.942 ms - -[0m
+[0mGET /trade/PairsGet [36m304 [0m30.707 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.692 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m9.376 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m7.534 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m7.603 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m10.008 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.908 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m10.565 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.790 ms - -[0m
+[0mPOST /BdAMx4fdex/getusr [32m200 [0m2.880 ms - 4[0m
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+[0mPOST /trade/checkPair [32m200 [0m3.543 ms - 1592[0m
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+[0mPOST /trade/get_cancelled [32m200 [0m2.497 ms - 2[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 7201.39,
+    market_cap: 130725908798,
+    market_cap_rank: 1,
+    total_volume: 26298719320,
+    high_24h: 7289.01,
+    low_24h: 6879.98,
+    price_change_24h: 97.16,
+    price_change_percentage_24h: 1.36767,
+    market_cap_change_24h: 2380988947,
+    market_cap_change_percentage_24h: 1.85515,
+    circulating_supply: 18070000,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -63.21245,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T14:25:51.520Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m294.223 ms - 641[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 7201.39,
+    market_cap: 130725908798,
+    market_cap_rank: 1,
+    total_volume: 26298719320,
+    high_24h: 7289.01,
+    low_24h: 6879.98,
+    price_change_24h: 97.16,
+    price_change_percentage_24h: 1.36767,
+    market_cap_change_24h: 2380988947,
+    market_cap_change_percentage_24h: 1.85515,
+    circulating_supply: 18070000,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -63.21245,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T14:25:51.520Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m270.608 ms - 641[0m
+jega++++++++++++++++++++++++++++
+J+++++++++++++++++++++++++++
+[0mGET /trade/chart/time [32m200 [0m1.113 ms - -[0m
+[0mGET /trade/chart/symbols?symbol=ETH_BTC [32m200 [0m1.071 ms - -[0m
++++++++++++++++++++++++++ { amount: 0.000001,
+  price: 20.5,
+  pair: '5ca3310f7e426d406a8f56d5',
+  ordertype: 'limit',
+  type: 'buy',
+  user_id: '2MwRHXPCqHv8sypTFbNNXF2xwBZkekDM7aC' }
+[0mPOST /trade/get_cancelled [32m200 [0m2.428 ms - 2[0m
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 7201.39,
+    market_cap: 130725908798,
+    market_cap_rank: 1,
+    total_volume: 26298719320,
+    high_24h: 7289.01,
+    low_24h: 6879.98,
+    price_change_24h: 97.16,
+    price_change_percentage_24h: 1.36767,
+    market_cap_change_24h: 2380988947,
+    market_cap_change_percentage_24h: 1.85515,
+    circulating_supply: 18070000,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -63.21245,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-27T14:25:51.520Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m601.231 ms - 641[0m
+DB connection: mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf PORT 2095
+ContractTrade 6379
+Express server running on port 2095
+Mongoose default connection open to mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf
+Mongoose default connection open to DATEThu Nov 28 2019 11:10:48 GMT+0530 (India Standard Time)
+connection successful
+Mongoose default connection disconnected 2019-11-28T05:45:35.037Z
+Mongoose default connection disconnected through app termination
+DB connection: mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf PORT 2095
+ContractTrade 6379
+Express server running on port 2095
+Mongoose default connection open to mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf
+Mongoose default connection open to DATEThu Nov 28 2019 11:15:38 GMT+0530 (India Standard Time)
+connection successful
+Mongoose default connection disconnected 2019-11-28T05:45:55.495Z
+Mongoose default connection disconnected through app termination
+DB connection: mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf PORT 2095
+ContractTrade 6379
+Express server running on port 2095
+Mongoose default connection open to mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf
+Mongoose default connection open to DATEThu Nov 28 2019 16:47:24 GMT+0530 (India Standard Time)
+connection successful
+[0mPOST /LogOTPSend [32m200 [0m51.575 ms - 58[0m
+[0mPOST /LogOTPSend [32m200 [0m14.442 ms - 58[0m
+[0mPOST /logintosite [32m200 [0m3.270 ms - 53[0m
+[0mGET /trade/chart/config [32m200 [0m4.017 ms - -[0m
+[0mGET /trade/PairsGet [32m200 [0m69.131 ms - 17604[0m
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+[0mPOST /trade/checkPair [32m200 [0m3.598 ms - 1606[0m
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+[0mPOST /trade/get_cancelled [32m200 [0m3.825 ms - 2[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 7480.47,
+    market_cap: 135187224395,
+    market_cap_rank: 1,
+    total_volume: 27401914667,
+    high_24h: 7605.55,
+    low_24h: 6942.61,
+    price_change_24h: 531.2,
+    price_change_percentage_24h: 7.64403,
+    market_cap_change_24h: 9590963257,
+    market_cap_change_percentage_24h: 7.63634,
+    circulating_supply: 18071725,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -62.00214,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-28T11:10:26.085Z' } ]
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 7480.47,
+    market_cap: 135187224395,
+    market_cap_rank: 1,
+    total_volume: 27401914667,
+    high_24h: 7605.55,
+    low_24h: 6942.61,
+    price_change_24h: 531.2,
+    price_change_percentage_24h: 7.64403,
+    market_cap_change_24h: 9590963257,
+    market_cap_change_percentage_24h: 7.63634,
+    circulating_supply: 18071725,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -62.00214,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-28T11:10:26.085Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m372.839 ms - 641[0m
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m423.651 ms - 641[0m
+jega++++++++++++++++++++++++++++
+J+++++++++++++++++++++++++++
+[0mGET /trade/chart/time [32m200 [0m1.573 ms - -[0m
+[0mGET /trade/chart/symbols?symbol=ETH_BTC [32m200 [0m1.124 ms - -[0m
+[0mGET /getcurrency_usd [32m200 [0m11.762 ms - 417[0m
+[0mGET /trade/PairsGet [36m304 [0m70.285 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m10.898 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m9.329 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m8.446 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m13.809 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m7.973 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m8.339 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m10.431 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m7.277 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m5.532 ms - -[0m
+[0mGET /trade/PairsGet [36m304 [0m61.917 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m56.717 ms - -[0m
+[0mGET /trade/PairsGet [36m304 [0m73.888 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m8.844 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.504 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m8.182 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m8.588 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m7.604 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m11.717 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.938 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m8.564 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m7.377 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m7.699 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m7.434 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m8.372 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m7.095 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m5.956 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.498 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m8.971 ms - -[0m
+[0mPOST /LogOTPSend [32m200 [0m11.456 ms - 58[0m
+[0mPOST /logintosite [32m200 [0m2.702 ms - 154[0m
+[0mGET /currencyDetails/currencyget [32m200 [0m8.333 ms - 4262[0m
+[ { curnType: 1,
+    feetype: 1,
+    status: 1,
+    decimals: 18,
+    TokenId: 0,
+    contractAddress: '',
+    abiArray: '',
+    balance: 0,
+    walletBalance: 'Press Query',
+    hold: 0,
+    baseCoin: 'ETH',
+    _id: 5ca32fe67e426d406a8f56d4,
+    currencyName: 'Ethereum',
+    currencySymbol: 'ETH',
+    image:
+     'https://res.cloudinary.com/dz7fyhpef/image/upload/v1572762723/os2jpp0idxulfdqi5pxx.png',
+    coinImage:
+     'https://res.cloudinary.com/dz7fyhpef/image/upload/v1572004334/efzv5o3ghbabi1ldvqlp.png',
+    minwithamt: 0.0003,
+    maxwithamt: 100,
+    withdrawfee: 0.1,
+    EstimatedBTC: 100,
+    EstimatedUSD: 151.24016939 },
+  { curnType: 1,
+    feetype: 1,
+    status: 1,
+    decimals: 18,
+    TokenId: 0,
+    contractAddress: '',
+    abiArray: '',
+    balance: 0.00011,
+    walletBalance: 'Press Query',
+    hold: 0,
+    baseCoin: 'BTC',
+    _id: 5d31c6b53949860f7e23b2c1,
+    currencyName: 'Bitcoin',
+    currencySymbol: 'BTC',
+    image:
+     'https://res.cloudinary.com/dz7fyhpef/image/upload/v1572762339/of77com5kykp1izzvyzl.png',
+    coinImage:
+     'https://res.cloudinary.com/dz7fyhpef/image/upload/v1572004370/vhamat6hqp2lxlmtrnsp.png',
+    minwithamt: 0.00002,
+    maxwithamt: 100,
+    withdrawfee: 0.1,
+    EstimatedBTC: 100,
+    EstimatedUSD: 8643.04235091 },
+  { curnType: 1,
+    feetype: 1,
+    status: 1,
+    decimals: 18,
+    TokenId: 0,
+    contractAddress: '',
+    abiArray: '',
+    balance: 0,
+    walletBalance: 'Press Query',
+    hold: 0,
+    baseCoin: 'EOS',
+    _id: 5d3ac0815ae2ee36fe186caf,
+    currencyName: 'EOS',
+    currencySymbol: 'EOS',
+    image:
+     'https://res.cloudinary.com/dz7fyhpef/image/upload/v1571981380/jgpesn0e57eb4k8zlevb.png',
+    coinImage:
+     'https://res.cloudinary.com/dz7fyhpef/image/upload/v1572004394/gjyirrjrtynwq2ht7y3a.png',
+    minwithamt: 0.0002,
+    maxwithamt: 100,
+    withdrawfee: 0.1,
+    EstimatedBTC: 100,
+    EstimatedUSD: 2.67308206 },
+  { curnType: 2,
+    feetype: 1,
+    status: 1,
+    decimals: 18,
+    TokenId: 1,
+    contractAddress: '',
+    abiArray: '',
+    balance: 0,
+    walletBalance: 'Press Query',
+    hold: 0,
+    baseCoin: 'EOS',
+    _id: 5d5d2a623c55042645e68124,
+    currencyName: 'KASDAC',
+    currencySymbol: 'KASDAC',
+    image:
+     'https://res.cloudinary.com/dz7fyhpef/image/upload/v1571981380/jgpesn0e57eb4k8zlevb.png',
+    coinImage:
+     'https://res.cloudinary.com/dz7fyhpef/image/upload/v1572004440/oqdazqzswfbrzwcv4ppg.png',
+    minwithamt: 0.1,
+    maxwithamt: 100,
+    withdrawfee: 1,
+    EstimatedBTC: 0,
+    EstimatedUSD: 1.15982371,
+    __v: 0 },
+  { curnType: 2,
+    feetype: 1,
+    status: 1,
+    decimals: 18,
+    TokenId: 1,
+    contractAddress: '0x4bfba4a8f28755cb2061c413459ee562c6b9c51b',
+    abiArray: '',
+    balance: 0,
+    walletBalance: 'Press Query',
+    hold: 0,
+    baseCoin: 'ETH',
+    _id: 5d8c736a9113ae20e22eb139,
+    currencyName: 'OmiseGO',
+    currencySymbol: 'OMG',
+    image:
+     'https://res.cloudinary.com/dz7fyhpef/image/upload/v1571981335/evvgjrxio8dfdymgdxpm.png',
+    coinImage:
+     'https://res.cloudinary.com/dz7fyhpef/image/upload/v1572004470/irilytad2udosj9ett0z.png',
+    minwithamt: 0.001,
+    maxwithamt: 100,
+    withdrawfee: 0.1,
+    EstimatedBTC: 0,
+    EstimatedUSD: 0.78064012,
+    __v: 0 },
+  { curnType: 2,
+    feetype: 1,
+    status: 1,
+    decimals: 18,
+    TokenId: 2,
+    contractAddress: '0xdb0040451f373949a4be60dcd7b6b8d6e42658b6',
+    abiArray: '',
+    balance: 0,
+    walletBalance: 'Press Query',
+    hold: 0,
+    baseCoin: 'ETH',
+    _id: 5dbfc16d0960b8233b740285,
+    currencyName: 'BAT',
+    currencySymbol: 'BAT',
+    image:
+     'https://res.cloudinary.com/dz7fyhpef/image/upload/v1572847962/wxxv8jr62xfzzxjck6ra.png',
+    minwithamt: 0.1,
+    maxwithamt: 100,
+    withdrawfee: 1,
+    EstimatedBTC: 0,
+    EstimatedUSD: 0.20512821,
+    __v: 0 },
+  { curnType: 2,
+    feetype: 1,
+    status: 1,
+    decimals: 18,
+    TokenId: 0,
+    contractAddress: '0xad6d458402f60fd3bd25163575031acdce07538d',
+    abiArray: '',
+    balance: 0,
+    walletBalance: 'Press Query',
+    hold: 0,
+    baseCoin: 'ETH',
+    _id: 5dcbdc1f6dfe9d5e0294de4f,
+    currencyName: 'DAI',
+    currencySymbol: 'DAI',
+    image:
+     'https://res.cloudinary.com/dz7fyhpef/image/upload/v1573641234/kluy8r2v5yhwn6gegmtw.png',
+    minwithamt: 1,
+    maxwithamt: 5,
+    withdrawfee: 0.001,
+    EstimatedBTC: 0,
+    EstimatedUSD: 1.00050025,
+    __v: 0 },
+  { curnType: 2,
+    feetype: 1,
+    status: 1,
+    decimals: 18,
+    TokenId: 4,
+    contractAddress: '0x4e470dc7321e84ca96fcaedd0c8abcebbaeb68c6',
+    abiArray: '',
+    balance: 0,
+    walletBalance: 'Press Query',
+    hold: 0,
+    baseCoin: 'ETH',
+    _id: 5dcbe65a4f21e26ccf614881,
+    currencyName: 'KNC',
+    currencySymbol: 'KNC',
+    image:
+     'https://res.cloudinary.com/dz7fyhpef/image/upload/v1573643852/nx0ipqj5mcv4hz4r3eex.png',
+    minwithamt: 1,
+    maxwithamt: 10,
+    withdrawfee: 0.0001,
+    EstimatedBTC: 0,
+    EstimatedUSD: 0.17559263,
+    __v: 0 } ] 'curencyresponse'
+[0mPOST /trade/getCurrency [32m200 [0m21.044 ms - 4267[0m
+[0mPOST /trade/get_deposit [32m200 [0m8.497 ms - 2[0m
+[0mPOST /trade/get_withdraw [32m200 [0m8.357 ms - 2[0m
+[0mGET /getcurrency_usd [32m200 [0m10.080 ms - 413[0m
+[0mGET /trade/PairsGet [32m200 [0m48.037 ms - 17595[0m
+[0mGET /getcurrency_usd [36m304 [0m6.613 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m5.847 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.864 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.003 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.727 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m6.133 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m5.859 ms - -[0m
+[0mGET /getcurrency_usd [36m304 [0m7.030 ms - -[0m
+[0mGET /trade/chart/config [32m200 [0m1.295 ms - -[0m
+[0mGET /trade/PairsGet [36m304 [0m49.846 ms - -[0m
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+[0mPOST /BdAMx4fdex/getusr [32m200 [0m6.976 ms - 4[0m
+[0mPOST /trade/checkPair [32m200 [0m3.477 ms - 1605[0m
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+req.body.pair { pair: 'ETH_BTC', currency: 'BTC' }
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+[0mPOST /trade/get_cancelled [32m200 [0m2.723 ms - 2[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 7448.24,
+    market_cap: 134444919814,
+    market_cap_rank: 1,
+    total_volume: 27513371227,
+    high_24h: 7605.55,
+    low_24h: 7192.35,
+    price_change_24h: 209.12,
+    price_change_percentage_24h: 2.8887,
+    market_cap_change_24h: 3156665499,
+    market_cap_change_percentage_24h: 2.40438,
+    circulating_supply: 18071825,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -62.07,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-28T12:35:21.743Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m207.858 ms - 638[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 7448.24,
+    market_cap: 134444919814,
+    market_cap_rank: 1,
+    total_volume: 27513371227,
+    high_24h: 7605.55,
+    low_24h: 7192.35,
+    price_change_24h: 209.12,
+    price_change_percentage_24h: 2.8887,
+    market_cap_change_24h: 3156665499,
+    market_cap_change_percentage_24h: 2.40438,
+    circulating_supply: 18071825,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -62.07,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-28T12:35:21.743Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m217.533 ms - 638[0m
+jega++++++++++++++++++++++++++++
+J+++++++++++++++++++++++++++
+[0mGET /trade/chart/time [32m200 [0m1.182 ms - -[0m
+[0mGET /trade/chart/symbols?symbol=ETH_BTC [32m200 [0m0.748 ms - -[0m
+req.body.pair { pair: 'OMG_BTC', currency: 'BTC' }
+[0mPOST /trade/checkPair [32m200 [0m4.077 ms - 1629[0m
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+req.body.pair { pair: 'OMG_BTC', currency: 'BTC' }
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=100&page=1&sparkline=false
+[0mPOST /trade/get_cancelled [32m200 [0m2.443 ms - 2[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 7448.24,
+    market_cap: 134444919814,
+    market_cap_rank: 1,
+    total_volume: 27513371227,
+    high_24h: 7605.55,
+    low_24h: 7192.35,
+    price_change_24h: 209.12,
+    price_change_percentage_24h: 2.8887,
+    market_cap_change_24h: 3156665499,
+    market_cap_change_percentage_24h: 2.40438,
+    circulating_supply: 18071825,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -62.07,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-28T12:35:21.743Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m257.926 ms - 638[0m
+string
+[ { id: 'bitcoin',
+    symbol: 'btc',
+    name: 'Bitcoin',
+    image:
+     'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    current_price: 7448.24,
+    market_cap: 134444919814,
+    market_cap_rank: 1,
+    total_volume: 27513371227,
+    high_24h: 7605.55,
+    low_24h: 7192.35,
+    price_change_24h: 209.12,
+    price_change_percentage_24h: 2.8887,
+    market_cap_change_24h: 3156665499,
+    market_cap_change_percentage_24h: 2.40438,
+    circulating_supply: 18071825,
+    total_supply: 21000000,
+    ath: 19665.39,
+    ath_change_percentage: -62.07,
+    ath_date: '2017-12-16T00:00:00.000Z',
+    roi: null,
+    last_updated: '2019-11-28T12:35:21.743Z' } ]
+[]
+[] 'getdata'
+[0mPOST /get_pair_chart [32m200 [0m280.817 ms - 638[0m
+jega++++++++++++++++++++++++++++
+J+++++++++++++++++++++++++++
+[0mGET /trade/chart/time [32m200 [0m1.362 ms - -[0m
+[0mGET /trade/chart/symbols?symbol=OMG_BTC [32m200 [0m1.031 ms - -[0m
+DB connection: mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf PORT 2095
+ContractTrade 6379
+Express server running on port 2095
+Mongoose default connection open to mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf
+Mongoose default connection open to DATEFri Nov 29 2019 12:42:25 GMT+0530 (India Standard Time)
+connection successful
++++++++++++++++++++++++++ {"user_id":"2MwzKRU8iLSPRPmr9TrohsXgUcu8CMtfYUF","amount":2,"price":3,"pair":"5ca3310f7e426d406a8f56d5","ordertype":"limit","type":"buy"}
+socketdataaaadata {"user_id":"2MwzKRU8iLSPRPmr9TrohsXgUcu8CMtfYUF","amount":2,"price":3,"pair":"5ca3310f7e426d406a8f56d5","ordertype":"limit","type":"buy"}
+Mongoose default connection disconnected 2019-11-29T08:14:10.538Z
+Mongoose default connection disconnected through app termination
+DB connection: mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf PORT 2095
+ContractTrade 6379
+Express server running on port 2095
+Mongoose default connection open to mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf
+Mongoose default connection open to DATEFri Nov 29 2019 13:44:14 GMT+0530 (India Standard Time)
+connection successful
++++++++++++++++++++++++++ {"user_id":"2MwzKRU8iLSPRPmr9TrohsXgUcu8CMtfYUF","amount":2,"price":3,"pair":"5ca3310f7e426d406a8f56d5","ordertype":"limit","type":"buy"}
+socketdataaaadata {"user_id":"2MwzKRU8iLSPRPmr9TrohsXgUcu8CMtfYUF","amount":2,"price":3,"pair":"5ca3310f7e426d406a8f56d5","ordertype":"limit","type":"buy"}
+errors [ { parameter: undefined,
+    value: undefined,
+    message: 'Incorrect type. Expected object.' } ]
+Mongoose default connection disconnected 2019-11-29T08:25:46.010Z
+Mongoose default connection disconnected through app termination
+DB connection: mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf PORT 2095
+ContractTrade 6379
+Express server running on port 2095
+Mongoose default connection open to mongodb://gseytryhdfgd:ghdftdetyhfdfrrt@192.168.1.75:15897/greygdfhdf
+Mongoose default connection open to DATEFri Nov 29 2019 13:55:49 GMT+0530 (India Standard Time)
+connection successful
++++++++++++++++++++++++++ {"user_id":"2MwzKRU8iLSPRPmr9TrohsXgUcu8CMtfYUF","amount":2,"price":3,"pair":"5ca3310f7e426d406a8f56d5","ordertype":"limit","type":"buy"}
+socketdataaaadata {"user_id":"2MwzKRU8iLSPRPmr9TrohsXgUcu8CMtfYUF","amount":2,"price":3,"pair":"5ca3310f7e426d406a8f56d5","ordertype":"limit","type":"buy"} undefined undefined undefined undefined undefined undefined
+errors [ { parameter: undefined,
+    value: undefined,
+    message: 'Incorrect type. Expected object.' } ]
++++++++++++++++++++++++++ {"user_id":"2MwzKRU8iLSPRPmr9TrohsXgUcu8CMtfYUF","amount":2,"price":3,"pair":"5ca3310f7e426d406a8f56d5","ordertype":"limit","type":"buy"}
+socketdataaaadata {"user_id":"2MwzKRU8iLSPRPmr9TrohsXgUcu8CMtfYUF","amount":2,"price":3,"pair":"5ca3310f7e426d406a8f56d5","ordertype":"limit","type":"buy"} undefined undefined undefined undefined undefined undefined
+errors [ { parameter: undefined,
+    value: undefined,
+    message: 'Incorrect type. Expected object.' } ]
