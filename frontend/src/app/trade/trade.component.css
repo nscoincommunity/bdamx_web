@@ -1,0 +1,127 @@
+body{font-family:  'Poppins', sans-serif;}
+.trade_header,.trade_page{color:#d6dbe2;}
+.buy-sell-order-cnt ul.top-tabs li{width:50%;}
+.buy-sell-order-cnt ul.top-tabs li a{background:transparent;border:2px solid #fff;border-radius:25px;width:100%;padding:0px 8px;display: block;color:#fff;}
+.buy-sell-order-cnt ul.top-tabs li a:hover{text-decoration:none;}
+.buy-sell-order-cnt ul.top-tabs li:first-child a{border-radius:5px;}
+.buy-sell-order-cnt ul.top-tabs li:last-child a{border-radius:5px;}
+.buy-sell-order-cnt ul.top-tabs li a.buy-tab{border-color:#00e461;}
+.buy-sell-order-cnt ul.top-tabs li a.sell-tab{border-color:#e40026;}
+.buy-sell-order-cnt ul.top-tabs li a.buy-tab.active{background:#00e461;}
+.buy-sell-order-cnt ul.top-tabs li a.sell-tab.active{background:#e40026;}
+.buy-sell-order-cnt ul.lmt-tab{margin-bottom:5px;/*margin-top:5px;*/}
+.buy-sell-order-cnt ul.lmt-tab li{width:50%;padding:0 5px;}
+.buy-sell-order-cnt ul.lmt-tab li a{padding:2px 5px;color:#fff;border-bottom:2px solid transparent;text-transform: uppercase;display:block;font-size:12px;font-weight:500;text-align:center;}
+.buy-sell-order-cnt ul.lmt-tab li a.active{background:rgba(0,0,0,0.2);/*border-bottom:2px solid #6713d2;*/border-radius:5px;}
+.buy-sell-order-cnt .form-group label{font-size:12px;}
+.buy-sell-order-cnt .form-group input{height:30px;background:#2d384a;font-size:12px;color:#fff;border:none;border-radius:3px;}
+.market-list ul,.market-list2 ul{padding-left:0px;}
+.market-list ul li,.market-list2 ul li{list-style-type: none;display: inline-block;margin-right:5px;}
+.market-list ul li a,.market-list2 ul li a{padding:2px 5px;color:#fff;font-size:12px;border:1px solid #fff;}
+.buy-sell-order-cnt p{font-size:12px;margin-bottom:0.25rem;}
+.crypt-button-green-full{background:#00e461;border:none;color:#fff;border-radius:5px;padding:5px 7px;}
+.crypt-button-red-ful{background:#e40026;border:none;color:#fff;border-radius:5px;padding:5px 7px;}
+.buy-sell-order-cnt h4{font-size:18px;margin-bottom:8px;}
+#chartdiv{height:100% ! important;}
+.trade_price li span{font-size:12px;padding:0 5px;}
+.trade_price label{padding:0 5px;}
+.trade_header .btn-group .btn{padding:5px;}
+
+.trade_top{height:calc(100% - 300px);}
+.trade_bottom{height:300px;}
+.trade_price li{margin-right:10px;}
+
+.buy-sell-order-cnt .input-group-text{
+border: none;
+background: rgba(0,0,0,0.2);
+color:#fff;
+height: 30px;
+font-size:12px;
+min-width:72px;text-align:center;
+}
+.buy-sell-order-cnt .form-group{margin-bottom:0.3rem;}
+.trade_his_blk .table thead th{white-space: nowrap;}
+.trade_left .table-responsive{overflow-y:hidden;}
+.trade_left .table thead th{text-align:left ! important;}
+.trade_order_blk .table th{white-space: nowrap;text-align:right;}
+.trade_order_blk .table td{text-align:right;}
+.table tbody+tbody{border:none;}
+.trade_left .nav-tabs .nav-link{padding:0.2rem 10px;}
+.trade_order_blk .table-responsive{overflow-y:hidden;}
+.trd-modal .close{position:absolute;right:12px;top:15px;left:auto;}
+.trd-modal{color:#fff;}
+
+
+
+@media(max-width:1200px){
+.trade_img_gr{max-width:100%;flex: 0 0 100%;}
+.trade_top, .trade_bottom {
+    position: unset;
+    height: auto;
+}
+#chartdiv{height:350px ! important;}
+}
+
+.trade_img_gr{width:100%;height:100%;}
+.trade_img_gr highcharts-chart{width:100%;height:100%;background:#0B1433;}
+.trade_img_gr highcharts-chart .highcharts-container{width:100% ! important;height:100% ! important;}
+.highchart-values{display:block;height:50px;width:calc(100%);text-align:center;font-size:12px;background:#0B1433;padding:5px 15px;}
+.highchart-values li{list-style-type: none;}
+.fst-dd::after{display:none;}
+app-header.trade-appheader > nav.navbar.navbar-expand-lg.navbar-light.bg-light.fixed-top{opacity: 0;}
+.price-full-scroll{height:calc(100% - 60px);display:block;}
+/*flex-sell-buy-cnt*/
+.flex-buy-sell-cnt{display:block;width:100%;}
+.flex-thead{display:flex;flex-direction: row;height:25px;}
+.flex-thead > span{text-align:right;display:inline-block;max-width:33.33%;width:33.33%;font-size: 11px;color:#a6aebb;font-weight: normal;border-bottom: none; padding:5px 5px;}
+.flex-thead span{text-align:center;}
+.flex-thead span:first-child,.flex-tbody .flex-tbody-row span:first-child{text-align:left;}
+.flex-thead span:last-child,.flex-tbody .flex-tbody-row span:last-child{text-align:right;}
+.flex-tbody{display:flex;flex-direction:column;flex-grow:1;transition:max-height 0.2s;overflow:hidden;height:100%;}
+
+.flex-tbody-cnt{height:calc((100% - 70px) / 2);position:relative;}
+.flex-tbody.top-flex-tbody{justify-content:flex-end;}
+.flex-tbody .flex-tbody-row{/*display:flex;*/flex-direction: row;}
+.flex-tbody .flex-tbody-row:hover{background-color:rgba(255,255,255,0.1);}
+.flex-tbody .flex-tbody-row > span{text-align:center;display:inline-block;max-width:33.33%;width:33.33%;font-size: 11px;color: #a6aebb;padding: 1px 5px;border: none;}
+.flex-tbody .flex-tbody-row > span.no-data-span{width:100%;max-width:unset;text-align:center;}
+.trade-order-info-cnt{height:30px;display: flex;justify-content:space-evenly;background:#151e2e;}
+.trade-order-info-cnt span{padding-top:3px;font-size:12px;color:#a6aebb;}
+.flex-tbody.bs-ord-cnt{display:unset;}
+[hidden] {
+display: none!important;
+}
+/*E O flex-sell-buy-cnt*/
+button:hover{cursor:pointer;}
+#plugin,.tradingview-widget-container,#tradingview_676bb{width:100%;height:100%;}
+#tradingview_676bb > div{width:100% ! important;height:100% ! important;}
+
+@media(max-width:767px){
+.trade_graph #plugin{height:350px;}
+}
+.fst-dd{min-width:75px;}
+
+
+/******** New Comments *******/
+.buy-sell-order-cnt ul.top-tabs li a.buy-tab{border-color:#26a69a;background:rgba(0,0,0,0.2);}
+.buy-sell-order-cnt ul.top-tabs li a.sell-tab{border-color:#ef5350;background:rgba(0,0,0,0.2);}
+.buy-sell-order-cnt ul.top-tabs li a.buy-tab.active, .crypt-button-green-full{background:#26a69a;}
+.buy-sell-order-cnt ul.top-tabs li a.sell-tab.active, .crypt-button-red-ful{background:#ef5350;}
+.buy-sell-order-cnt ul.top-tabs li{margin: 0 0px 8px;padding:0 5px;}
+.buy-sell-order-cnt ul.top-tabs li a{padding: 3px 8px;}
+.buy-sell-order-cnt ul.lmt-tab li a{padding: 5px;}
+.buy-sell-order-cnt .form-group{align-items: center; margin: 0 0 0.6rem;}
+.buy-sell-order-cnt .form-group label{padding: 0;}
+.bal_trade{display: block; text-align: center; margin: 0 auto 0; padding: 5px 0 10px;}
+.flex-thead > span{font-size: 12px;}
+.trade_price li span{font-size:13px;}
+.flex-tbody .flex-tbody-row > span{font-size: 12px;}
+.trade-order-info-cnt span{font-size: 13px;}
+/******** New Comments *******/
+.neg_val,.pos_val{position:relative;}
+.neg_val .bg-color{position:absolute;left:0px;top:0px;height:100%;width:0%!important;min-width:0%;max-width:0%!important;padding:0px!important;background:rgba(239,83,80,0.3);}
+.pos_val .bg-color{position:absolute;left:0px;top:0px;height:100%;width:0%!important;min-width:0%;max-width:0%!important;padding:0px!important;background:rgba(38,166,154,0.3);}
+.trade_left table tr:hover{cursor:pointer;background:rgba(255,255,255,0.1);}
+
+
+

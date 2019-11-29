@@ -1,0 +1,171 @@
+<app-header></app-header>
+<div class="container-fluid static-content-section1">
+  <div class="container-fluid static-content"> 
+    
+    <!-- Header Section Starts Here -->
+  
+   
+    <div class="terms_sec1 coin_market_tab">
+      <h1>User Orders</h1>
+      
+      <!-- market tabs table -->
+      <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link active show" data-toggle="tab" data-target="#btc" href="#">Open Order</a> </li>
+        <li class="nav-item"> <a class="nav-link" data-toggle="tab" data-target="#usdt" href="#">Order History</a> </li>
+        <li class="nav-item"> <a class="nav-link" data-toggle="tab" data-target="#sfcp" href="#">Deposit History</a> </li>
+         <li class="nav-item"> <a class="nav-link" data-toggle="tab" data-target="#withhis" href="#">Withdraw History</a> </li>
+        <li class="search_cont">
+        
+        </li>
+      </ul>
+      
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div class="tab-pane active show coin_market" id="btc">
+        <div class="container-fluid terms_sec mt-5">
+           <div class="row pr-4 pl-4 pt-0 pb-4 table-responsive">
+                <table class="table table-hover table-borderless market-table">
+                  <thead>
+                    <tr>
+                      <th width="16%">Order Time </th>
+                      <th width="16%">Trading Pairs</th>
+                      <th width="16%">Order Type</th>
+                      <th width="16%">Order Price</th>
+                      <th width="14%">Order Amount</th>
+                      <th width="10%">Total</th>
+                      <th width="10%">Type</th>
+                      <th width="10%">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody class="no_pad">
+                    <tr *ngFor="let openOrders of activeorders; let activeindex = index">
+                      <td>{{openOrders.datetime | date:'medium'}}</td>
+                      <td>{{openOrders.pair}}</td>
+                      <td class="grn">{{openOrders.ordertype | titlecase }}</td>
+                        <td>{{openOrders.Price | number:'.8'}}</td>
+                      <td>{{openOrders.Amount | number:'.8'}}</td>
+                      <td>{{openOrders.Total | number:'.8'}}</td>
+
+                      <td class="text-right" style="color: #4eff5f" *ngIf="openOrders.Type  == 'buy'">{{openOrders.Type | titlecase }}</td>
+                       <td class="text-right" style="color: #ff4b4b" *ngIf="openOrders.Type  == 'sell'">{{openOrders.Type | titlecase }}</td>
+                      <td>{{openOrders.status | titlecase }}</td>
+
+                  
+
+                    </tr>
+                  </tbody>
+                </table>
+                <div *ngIf="activeorders.length <= 0" style="text-align: center">
+                  No Open Orders Found
+                </div>
+             </div>
+        </div>
+        </div>
+        <div class="tab-pane container-fluid fade coin_market" id="usdt">
+          <div class="container-fluid terms_sec mt-5">
+             <div class="row pr-4 pl-4 pt-0 pb-4 table-responsive">
+                <table class="table table-hover table-borderless market-table">
+                <thead>
+                  <tr>
+                    <th width="16%">Order Time </th>
+                    <th width="16%">Trading Pairs</th>
+                    <th width="16%">Trade Price</th>
+                    <th width="16%">Trade Amount</th>
+                    <th width="14%">Total</th>
+                    <th width="10%">Fee</th>
+                    <th width="10%">Type</th>
+                  </tr>
+                </thead>
+                <tbody class="no_pad">
+                  <tr *ngFor="let tradeHis of historyorders; let activeindex = index">
+                    <td>{{tradeHis.datetime | date:'short'}}</td>
+                    <td>{{tradeHis.pair}}</td>
+                    <td>{{tradeHis.tradePrice | number:'.8'}}</td>
+                    <td>{{tradeHis.filledAmount | number:'.8'}}</td>
+                    <td>{{tradeHis.total | number:'.8'}}</td>
+                    <td>{{tradeHis.fee | number:'.8'}}</td>
+                    <td>{{tradeHis.type}}</td>
+                  </tr>
+                  <tr *ngIf="historyorders.length <= 0" >
+                  <td colspan="7" style="text-align: center">
+                    No History Orders Found
+                  </td>
+                </tbody>
+                </table>
+               </div>
+            </div>
+        </div>
+        <div class="tab-pane container-fluid fade coin_market" id="sfcp">
+         <div class="container-fluid terms_sec mt-5">
+            <div class="row pr-4 pl-4 pt-0 pb-4 table-responsive">
+              <table class="table table-hover table-borderless market-table">
+              <thead>
+                <tr>
+                  <th width="16%">Order Time </th>
+                  <th width="16%">Currency</th>
+                  <th width="16%">Amount</th>
+                  <th width="16%">Transation ID</th>
+                  <th width="10%">Status</th>
+                </tr>
+              </thead>
+              <tbody class="no_pad">
+                <tr *ngFor="let deposites of deposit_data; let activeindex = index">
+                  <td>{{deposites.createddate | date:'medium'}}</td>
+                  <td>{{deposites.toCurrency}}</td>
+                  <td>{{deposites.depamt| number:'.8'}}</td>
+                  <td><a href="{{txUrl}}{{deposites.txnid}}" style="text-decoration: none;color: white;" target="_blank">{{deposites.txnid}}</a></td>           
+                  <td>{{deposites.depstatus}}</td>
+                </tr>
+                <tr *ngIf="deposit_data.length <= 0" >
+                  <td colspan="5" style="text-align: center">
+                    No Deposit Found
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+         <div class="tab-pane container-fluid fade coin_market" id="withhis">
+            <div class="container-fluid terms_sec mt-5">
+             <div class="row pr-4 pl-4 pt-0 pb-4 table-responsive">
+                <table class="table table-hover table-borderless market-table">
+                <thead>
+                  <tr>
+                    <th width="16%">Order Time </th>
+                    <th width="16%">Currency</th>
+                    <th width="16%">Total Amount</th>
+                    <th width="16%">Withdraw fee</th>
+                    <th width="16%">Received amount</th> 
+                    <th width="16%">Transation ID</th>
+                    <th width="10%">Status</th>
+                  </tr>
+                </thead>
+                <tbody class="no_pad">
+                  <tr *ngFor="let withdraws of withdraw_data; let activeindex = index">
+                    <td>{{withdraws.datetime | date:'medium'}}</td>
+                    <td>{{withdraws.toCurrency}}</td>
+                    <td>{{withdraws.withamount | number:'.8'}}</td>
+                    <td>{{withdraws.withfee | number:'.8'}}</td>
+                    <td>{{withdraws.receiveamount | number:'.8'}}  </td>
+                    <td><a href="{{txUrl}}{{withdraws.txid}}" style="text-decoration: none;color: white;" target="_blank">{{withdraws.txid}}</a></td>
+                    <td>{{withdraws.status}}</td>
+                  </tr>
+                  <tr *ngIf="withdraw_data.length <= 0" >
+                  <td colspan="7" style="text-align: center">
+                    No Withdraw Found
+                  </td>
+                </tr>
+                </tbody>
+                </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Coin Market Section Ends Here --> 
+    
+  </div>
+</div>
+
+<app-footer></app-footer>

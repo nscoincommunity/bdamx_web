@@ -1,0 +1,23 @@
+<app-header></app-header>
+<div class="static-content-section">
+  <div class="static-content"> 
+    
+
+    <!-- Banner Under Content Ends Here --> 
+    <!-- Recommend Section Starts Here -->
+    <div class="terms_sec1">
+      <h1>News</h1>
+       <div class="container-fluid">
+        <div class="col-md-12">
+               <div class="terms_sec mt-2" *ngFor="let news of newsContent">
+                <h3>{{news.title}}: {{news.description}}<span>{{news.modifieddate | date:'medium'}}</span></h3>
+                <p>{{news.content}}</p>             
+               </div>
+            </div>
+          </div>
+    </div>
+
+    
+  </div>
+</div>
+<app-footer></app-footer>

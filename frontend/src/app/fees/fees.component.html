@@ -1,0 +1,66 @@
+<app-header></app-header>
+<section id="fees">
+<div class="container">
+    <h4 class="text-center">Fees</h4>
+    <hr>
+    <div [innerHtml]="feeDetails.feeheader"></div>
+    <div class="withdrawalfees p-4 px-5">
+ 
+        <h5 class="text-center py-4">Fee Details</h5>
+        <div class="row d-flex justify-content-between ml-0 mr-0 fee_blk">
+            <div class="col-lg-5 card leftcard shadow rounded">
+                <div class="card-body">
+                  <h5 class="card-title">Deposit fee</h5>
+                  <div class="d-flex justify-content-between">
+                  <div [innerHtml]="feeDetails.feedeposit"></div>
+                <div [innerHtml]="feeDetails.feedepositvalue"></div>
+            </div>
+              </div>
+            </div>
+            <div class="col-lg-5 card rightcard shadow rounded">
+                <div class="card-body">
+                  <h5 class="card-title">Trading fee</h5>
+                  <div class="d-flex justify-content-between">
+                 <div [innerHtml]="feeDetails.feetrade"></div>
+                
+                </div>
+              </div>
+            </div>
+          </div>
+          <h5 class="text-center py-4">Cash Withdrawal Minimum Amount</h5>
+          <div class="row d-flex justify-content-between">
+          <table class="table table-striped table-borderless table-dark col-sm-5">
+            <thead>
+              <tr>
+                <th scope="col">Currency</th>
+                <th scope="col">Minimum Withdrawal Amount</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="rounded" *ngFor="let currencies of currencyData">
+                <td>{{currencies.currencySymbol}}</td>
+                <td>{{currencies.minwithamt}} ({{currencies.currencySymbol}})</td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table table-striped table-borderless table-dark col-sm-5">
+            <thead>
+              <tr>
+                <th scope="col">Currency</th>
+                <th scope="col">Withdrawal Fee</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+                    <tr class="rounded" *ngFor="let currencies of currencyData">
+                      <td>{{currencies.currencySymbol}}</td>
+                      <td>{{currencies.withdrawfee}} ({{currencies.currencySymbol}})</td>
+                    </tr>
+            </tbody>
+          </table>
+          </div>
+    </div>
+</div>
+</section>
+<app-footer></app-footer>

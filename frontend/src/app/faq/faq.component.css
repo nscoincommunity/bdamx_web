@@ -1,0 +1,334 @@
+section {
+	padding: 60px 0;
+}
+#accordion-style-1 .btn-link {
+	color: #1e2832;
+	background-color: transparent;
+	text-decoration: none !important;
+	font-size: 16px;
+}
+#accordion-style-1 .card-body {
+	padding-left: 50px;
+	padding-top: 0.75rem;
+}
+#accordion-style-1 .card-header .btn.collapsed .fa.main {
+	display: none;
+}
+#accordion-style-1 .card-header .btn .fa.main {
+	background: #007b5e;
+	padding: 13px 11px;
+	color: #ffffff;
+	width: 35px;
+	height: 41px;
+	position: absolute;
+	left: -1px;
+	top: 10px;
+	border-top-right-radius: 7px;
+	border-bottom-right-radius: 7px;
+	display: block;
+}
+.accordion .card-header {
+	background-color: #ffffff;
+	padding: 0;
+	border: none;
+}
+.accordion .card {
+	border: none;
+	-webkit-box-shadow: 1px 3px 5px 0px rgba(0,0,0,0.15);
+	-moz-box-shadow: 1px 3px 5px 0px rgba(0,0,0,0.15);
+	box-shadow: 1px 3px 5px 0px rgba(0,0,0,0.15);
+	margin-bottom: 15px;
+}
+.card-header .fa-plus-circle, .card-header .fa-minus-circle {
+	margin-right: 15px;
+	font-size: 24px;
+}
+#accordion-style-1 .btn-link .fa-plus-circle {
+	color: #96a0aa;
+}
+#accordion-style-1 .btn-link .fa-minus-circle {
+	color: #00887a;
+}
+.accordion-bg, .card .collapse.show {
+	background-color: #edfdfd;
+}
+
+.faq_wrapper .media p
+
+{
+line-height: 24px;
+text-align: justify;
+color: #000;
+font-size: 15px;
+    padding: 20px;
+    margin-bottom: 0;
+}
+.faq_wrapper .cust_accor .panel p
+{
+	color: #000;
+	text-transform: capitalize;
+	font-size: 14px;
+	padding: 20px;
+	    margin-bottom: 0;
+}
+.cust_accor .panel ul li
+{
+	list-style: none;
+	display: inline-block;
+}
+.cust_accor .panel ul
+{
+padding-left: 0;
+}
+
+
+.faq_wrapper span {
+    text-transform: capitalize;
+    display: block;
+    vertical-align: middle;
+    padding-top: 10px;
+    padding-left: 65px;
+    padding-bottom: 12px;
+}
+.panel .card .panel-default {
+	background-color: #252d3a;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 0;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+    margin-bottom: 0;
+    width: 100%;
+    position: relative;
+    font-weight: bold;
+}
+
+.cust_accor3 .accordion {
+    background-color: #252d3a;
+    color: #ffffff;
+    cursor: pointer;
+    padding:0;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+  margin-bottom: 0;
+    width: 100%;
+    position: relative;
+   
+    font-weight: bold;
+}
+.cust_accor3 .accordion:after {
+   content: '\f106';
+    color: #fff;
+    font-weight: bold;
+  
+    margin-right: 22px;
+    background-color: #d37aef;
+    padding: 4px 15px;
+    margin: 0;
+    font-size: 24px;
+    font-family:'FontAwesome';
+        position: absolute;
+    left: 0;
+    top: 0;
+}
+.panel {
+    padding: 0 18px;
+    background-color: #fff;
+    max-height: 0;
+    overflow: hidden;
+    margin-bottom: 13px;
+    transition: max-height 0.2s ease-out;
+}
+.cust_accor3 .active:after {
+    content: "\f107";
+    color: #fff;
+    font-family:'FontAwesome';
+}
+
+
+
+
+.cust_accor0 .accordion {
+    background-color: #252d3a;
+    color: #ffffff;
+    cursor: pointer;
+    padding:0;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+  margin-bottom: 0;
+    width: 100%;
+    position: relative;
+   
+    font-weight: bold;
+}
+.cust_accor0 .accordion:after {
+   content: '\f106';
+    color: #fff;
+    font-weight: bold;
+  
+    margin-right: 22px;
+    background-color: #93c9f0;
+    padding: 4px 15px;
+    margin: 0;
+    font-size: 24px;
+    font-family:'FontAwesome';
+        position: absolute;
+    left: 0;
+    top: 0;
+}
+.cust_accor0 .active:after {
+    content: "\f107";
+    color: #fff;
+    font-family:'FontAwesome';
+}
+
+
+
+
+.cust_accor1 .accordion {
+    background-color: #252d3a;
+    color: #ffffff;
+    cursor: pointer;
+    padding:0;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+  margin-bottom: 0;
+    width: 100%;
+    position: relative;
+   
+    font-weight: bold;
+}
+.cust_accor1 .accordion:after {
+   content: '\f106';
+    color: #fff;
+    font-weight: bold;
+  
+    margin-right: 22px;
+    background-color: #ce668c;
+    padding: 4px 15px;
+    margin: 0;
+    font-size: 24px;
+    font-family:'FontAwesome';
+        position: absolute;
+    left: 0;
+    top: 0;
+}
+.cust_accor1 .active:after {
+    content: "\f107";
+    color: #fff;
+    font-family:'FontAwesome';
+}
+
+
+
+
+.cust_accor2 .accordion {
+    background-color: #252d3a;
+    color: #ffffff;
+    cursor: pointer;
+    padding:0;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+  margin-bottom: 0;
+    width: 100%;
+    position: relative;
+   
+    font-weight: bold;
+}
+.cust_accor2 .accordion:after {
+   content: '\f106';
+    color: #fff;
+    font-weight: bold;
+  
+    margin-right: 22px;
+    background-color: #f5a683;
+    padding: 4px 15px;
+    margin: 0;
+    font-size: 24px;
+    font-family:'FontAwesome';
+        position: absolute;
+    left: 0;
+    top: 0;
+}
+.cust_accor2 .active:after {
+    content: "\f107";
+    color: #fff;
+    font-family:'FontAwesome';
+}
+
+
+.faq_wrapper .media p
+
+{
+line-height: 24px;
+text-align: justify;
+color: #000;
+font-size: 15px;
+    padding: 20px;
+    margin-bottom: 0;
+}
+.faq_wrapper .cust_accor .panel p
+{
+	color: #000;
+	text-transform: capitalize;
+	font-size: 14px;
+	padding: 20px;
+	    margin-bottom: 0;
+}
+.cust_accor .panel ul li
+{
+	list-style: none;
+	display: inline-block;
+}
+.cust_accor .panel ul
+{
+padding-left: 0;
+}
+
+
+.faq_wrapper span {
+    text-transform: capitalize;
+    display: block;
+    vertical-align: middle;
+    padding-top: 10px;
+    padding-left: 65px;
+    padding-bottom: 12px;
+}
+
+.animate_height{
+    max-height: 136px;
+}
+
+.faq_ans
+{
+
+    margin: 20px 20px 20px 20px;
+}
+
+.faq_img
+{
+    margin-bottom: 1rem;
+}
+
+
+.animate_height{max-height: 100%;}

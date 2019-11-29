@@ -1,0 +1,273 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container-fluid"> <a class="navbar-brand" routerLink="/" *ngIf="siteLogo"><img [src]="siteLogo" class="logo" width="200"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item " [ngClass]="{'active': homeActive === true}"><a class="nav-link" routerLink="">Home</a></li>
+        <li class="nav-item dropdown nav-dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             Trade
+          </a>
+          <div class="dropdown-menu nav-dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" routerLink="/trade/KASDAC_EOS"> EOS Trading Zone</a>
+            <a class="dropdown-item" routerLink="/trade/OMG_ETH"> ETH Trading Zone</a>
+            <a class="dropdown-item" routerLink="/trade/ETH_BTC"> BTC Trading Zone</a>
+            
+          </div>
+        </li>  
+        <li class="nav-item" [routerLinkActive]="['active']"><a  class="nav-link" routerLink="/faq">FAQ</a></li>
+        <li class="nav-item" [routerLinkActive]="['active']" *ngIf="show_login_btn"><a  class="nav-link"  routerLink="/orders">Orders</a></li>
+        <li class="nav-item" [routerLinkActive]="['active']" *ngIf="show_login_btn"><a  class="nav-link"  routerLink="/funds">My balance</a></li>
+     
+        <li class="nav-item dropdown nav-dropdown fnds-link" *ngIf="show_login_btn">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             {{basecoin}} wallet
+          </a>
+          <div class="dropdown-menu nav-dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" routerLink='/funds'>{{user_id}}</a>
+            <a class="dropdown-item" (click)='logoutuser()'>Logout</a>
+            
+          </div>
+        </li>   
+        <li class="nav-item"><a class="nav-link" data-toggle="modal" data-target="#exampleModalCenter" *ngIf="!show_login_btn" style="cursor: pointer;" id="wallet_btn">Login/Wallet Login</a>
+        <a class="nav-link" data-toggle="modal" data-target="#exampleModalCenter" style="display: none" id="wallet_btn"></a>
+      </li>
+        <li class="nav-item">
+         <!--  <div class="day_night"> <a href="#" class="day"><img src="assets/images/day-icon.png" class="flag-icon"></a> </div> -->
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" *ngIf='display'>
+      <div class="modal-header">
+        <h5 class="modal-title text-center text-light py-3 px-3 " id="exampleModalCenterTitle">Please user your EOS, ETH, BTC 
+          <br>wallet to login</h5>
+        <button type="button" class="close " data-dismiss="modal" (click)='close_model()' id="cls_btn">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body  mx-3">
+        <div class="row d-flex justify-content-between py-3">
+      <div class="walletoption walletoption1"  id="EOS_login" (click)="radioChange('EOS')">
+        <!-- <input type="radio" id="ETH_login" name="customRadio" class="custom-control-input" (click)="radioChange('EOS')"> -->
+         <a class="btn">
+          <label class="radiocontainer">
+            <input type="radio" value="EOS" id="EOS_login" name="walletSeleted" [(ngModel)]="walletSeleted"> 
+            <span class="checkmark1"></span>
+          </label>
+         <img  src="assets/images/graph-3.png">
+         <h6 class="text-center">EOS</h6>
+         </a>
+         
+      </div>
+      <div class="walletoption walletoption2" id="ETH_login" (click)="radioChange('ETH')">
+        <!-- <input type="radio" id="ETH_login" name="customRadio" class="custom-control-input" (click)="radioChange('ETH')"> -->
+        <a class="btn">
+          <label class="radiocontainer">
+            <input type="radio" value="ETH" id="ETH_login" name="walletSeleted" [(ngModel)]="walletSeleted"> 
+            <span class="checkmark2"></span>
+          </label>
+        <img  src="assets/images/graph-1.png">
+        <h6 class="text-center">ETH</h6>
+      </a>
+      </div>
+      <div class="walletoption walletoption3" id="BTC_login" (click)="radioChange('BTC')">
+        <!-- <input type="radio" id="ETH_login" name="customRadio" class="custom-control-input" (click)="radioChange('BTC')"> -->
+        <a class="btn">
+          <label class="radiocontainer">
+            <input type="radio" value="BTC" id="BTC_login" name="walletSeleted" [(ngModel)]="walletSeleted"> 
+            <span class="checkmark3"></span>
+          </label>
+        <img  src="assets/images/graph-2.png">
+        <h6 class="text-center">BTC</h6>
+      </a>
+      </div>
+    </div>
+      <button type="button" (click)="submitwallet()" id="move_next" class="btn btn-secondary px-5">Next</button>
+
+      <h5 class="text-center py-2">Reminder</h5>
+
+      <h6 class="text-center">As an asset-safe decentralized exchange, bdamx.net will not
+have private keys of users in any cases</h6>
+      </div>
+    </div>
+     <div class="modal-content" *ngIf='display1'>
+        <div class="modal-header">
+          <h4 class="modal-title text-center text-light py-3 px-3">{{walletType}} wallet</h4>
+           <button type="button" class="close p-3" data-dismiss="modal" (click)='close_model()' id="cls_btn">&times;</button>
+        </div>
+        <div class="modal-body" id="wallet_modl">
+          <div class="row wallet_mod_mask" *ngIf="walletoption == 'ETH'">
+            <div class="col-md-4 text-center">
+              <div class="custom-control custom-radio">
+                <input type="radio" id="customRadio4" name="customRadio_wallet" class="custom-control-input" (click)="walletoptions('metamask')">
+                <label class="custom-control-label pt-1 cursor" for="customRadio4">Metamask</label>
+              </div>
+            </div>
+            <div class="col-md-4 text-center">
+              <div class="custom-control custom-radio">
+                <input type="radio" id="customRadio5" name="customRadio_wallet" class="custom-control-input" (click)="walletoptions('trezor')">
+                <label class="custom-control-label pt-1 cursor" for="customRadio5">Trezor</label>
+              </div>
+            </div>
+            <div class="col-md-4 text-center">
+              <div class="custom-control custom-radio">
+                <input type="radio" id="customRadio6" name="customRadio_wallet" class="custom-control-input" (click)="walletoptions('ledger')">
+                <label class="custom-control-label pt-1 cursor" for="customRadio6">Ledger</label>
+              </div>
+            </div>
+             <!-- <div class="col-md-4 text-center">
+              <div class="custom-control custom-radio">
+                <input type="radio" id="customRadio7" name="customRadio_wallet" class="custom-control-input" (click)="walletoptions('keystoreFile')">
+                <label class="custom-control-label pt-1 cursor" for="customRadio7">KeyStore File</label>
+              </div>
+            </div> -->
+            <!-- //keystore -->
+           <!--  <div *ngIf="wallettype == 'keystoreFile'">
+              hiiiiiii.....
+               <input type ="file" onclick="this.value = null" (change)="onFileChange($event)">
+                <label class="btn">Choose File</label>
+                <label class="btn">Enter Password</label>
+                <input type="password" class="form-control" [(ngModel)]="keyStorePassword" name="keyStorePassword">
+                 <button type="button" class="btn btn-success mt-10" (click)="keystore_unlock()">
+                  Submit
+                  </button>
+            </div> -->
+
+
+            <div id="ledger_wallet_box" class="row m-3" *ngIf="wallettype == 'ledger'">
+              <div class="col-md-12 m-2">
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" value="m/44'/60'/0'"  (input)="onLedgerChanged($event)" [checked]='checkPath(1)' id="customRadio7" name="customRadio">
+                  <label class="custom-control-label pt-1 cursor" style="font-size: 15px;" for="customRadio7"><b>m/44'/60'/0'</b><br/>Ledger (ETH)</label>
+                </div>              
+              </div>
+              <div class="col-md-12 m-2">
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input"  value="m/44'/60'/0'/0" [checked]='checkPath(2)' (input)="onLedgerChanged($event)" id="customRadio8" name="customRadio">
+                  <label class="custom-control-label pt-1 cursor" style="font-size: 15px;" for="customRadio8"><b>m/44'/60'/0'/0</b><br/>Ledger Live (ETH)</label>
+                </div>              
+              </div>              
+              <div class="col-md-12 m-2">
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" value="custom" [checked]='checkPath(3)' (input)="onLedgerChanged($event)" id="customRadio9-1" name="customRadio">
+                  <label class="custom-control-label pt-1 cursor" style="font-size: 15px;" for="customRadio9-1"><b>Custom HD Path</b></label>
+                </div>                  
+                  <input class="form-control" type="textarea" readOnly={{readOnly}} (input)="onDerivationChanged()" rows="3" />
+              </div>
+            </div>
+
+            <div id="ledger_wallet_box" *ngIf="address.length > 0" class="ledger_box">
+              <!-- <p *ngFor="let listaddress of address; let key = index" className="unlock_ledger_note">
+                <input class="custom-control-input" type="radio" value="{{key}}" [checked]='checkKey(key)' (input)="onNewDerivationChanged(key)" id="customRadio9" name="customRadio1"/>
+                <label><b>{{listaddress.address}}</b></label>
+              </p> -->
+              <div class="ledger_box_scroll"  malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+                    <div class="custom-control custom-radio" *ngFor="let listaddress of address; let key = index">
+                      <input type="radio" class="custom-control-input" value="{{key}}" [checked]='checkKey(key)' (input)="onNewDerivationChanged(key)" id="customRadio{{key}}" name="customRadio1">
+                    <label class="custom-control-label" for="customRadio{{key}}">{{listaddress.address}}</label>
+                  </div> 
+                </div>
+                <div class="text-center">
+              <Button variant="primary" type="submit" className="site_btn" (click)="addMore()" >Add More</Button>
+              <Button variant="primary" type="submit" className="site_btn" (click)="submitWalletForm()" >Unlock</Button>
+            </div>
+            </div>
+            <!-- Trezor -->
+            <div id="ledger_wallet_box" *ngIf="wallettype == 'trezor'"  class="ledger_box">
+              <div id="ledger_wallet_box" *ngIf="treaddresss.length > 0"  class="ledger_box">
+             <!--    <p *ngFor="let listaddress of treaddresss; let key1 = index" className="unlock_ledger_note"> -->
+                 <!--  <input class="custom-control-input" type="radio" [value]="listaddress.address" (change)='onNewDerivationChanged1(key1)' id="customRadio{{key1}}" name="customRadio2"/>
+                  <label><b>{{listaddress.address}}</b></label> -->
+                  <div class="ledger_box_scroll"  malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+                    <div class="custom-control custom-radio" *ngFor="let listaddress of treaddresss; let key1 = index">
+                      <input type="radio" class="custom-control-input" [value]="listaddress.address" (change)='onNewDerivationChanged1(key1)' id="customRadio{{key1}}" name="customRadio2">
+                    <label class="custom-control-label" for="customRadio{{key1}}">{{listaddress.address}}</label>
+                  </div> 
+                </div>
+            <!--     </p> -->
+            <div class="text-center">
+                <Button variant="primary" type="submit" className="site_btn" (click)="TreaddMore()">Load more </Button>
+                <Button variant="primary" type="submit" className="site_btn" (click)="submitWalletForm()">Confirm</Button>
+              </div>
+              </div>
+            </div>            
+          </div>
+          <div class="row" *ngIf="walletoption == 'EOS'">
+            <div class="col-md-12 text-center mb-3"><img src="assets/images/scatter.png" style="height: 100px"></div>
+            <div class="col-md-4 text-center mb-3">
+              <button type="button" (click)="scatterfun()" class="btn btn-secondary px-5">Login</button>
+            </div>
+          </div>
+          <div class="btc_wal_pop custom-control custom-radio" *ngIf="walletType == 'BTC'">
+            <form [formGroup]="loginForm" (ngSubmit)="loginOTP(loginForm.controls)" *ngIf="useroption == 1">
+            <div class="form-group" *ngIf="otpstatus == 0">
+              <label>Email</label>
+              <input type="email" formControlName="email" class="form-control" pattern=".+@.+\..+" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email is required</div>
+                <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+              </div>
+            </div>
+            <div class="form-group captcha_header" *ngIf="otpstatus == 0">
+              <re-captcha [(ngModel)]="captcha" name="captcha" (resolved)="resolved($event)" siteKey="6LdMbr8UAAAAAAfO3IJlwy4KO2Mr_1lOWQwRSSf3" [ngModelOptions]="{standalone: true}"></re-captcha>
+            </div>
+            <div class="form-group" *ngIf="otpstatus == 1">
+              <label>OTP</label>
+              <input type="text" formControlName="otp" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.otp.errors }" />
+              <div *ngIf="submitted && f.otp.errors" class="invalid-feedback">
+                <div *ngIf="f.otp.errors.required">OTP is required</div>
+              </div>
+            </div>
+            <div class="form-group otp-btn mt-2 text-center"  *ngIf="otpstatus == 0">
+              <button class="next-gradiant my-2"  type="button" *ngIf='logotp' disabled="">Sending OTP  <i class="fa fa-cog fa-spin" aria-hidden="true"></i></button>            
+              <button class="next-gradiant my-2"  type="submit" [disabled]="!f.email.valid" *ngIf='!logotp'>Send OTP</button>
+              <button class="next-gradiant my-2" *ngIf='!logotp' (click)="Changeuser(0)">New user click here</button>
+            </div>
+            <div class="form-group"  *ngIf="otpstatus == 1">
+              <button class="next-gradiant"  type="button" *ngIf='logotp1' disabled="">Loging in  <i class="fa fa-cog fa-spin" aria-hidden="true"></i></button>
+              <button class="next-gradiant"  type="button" *ngIf='!logotp1' (click)="loginsite(loginForm.controls)">Login</button>
+            </div>
+            </form>
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmitreg()"  *ngIf="useroption == 0">
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" formControlName="email" class="form-control" pattern=".+@.+\..+" [ngClass]="{ 'is-invalid': submitted1 && f1.email.errors }" />
+              <div *ngIf="submitted1 && f1.email.errors" class="invalid-feedback">
+                <div *ngIf="f1.email.errors.required">Email is required</div>
+                <div *ngIf="f1.email.errors.email">Email must be a valid email address</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <Button *ngIf='regotp' variant="primary" type="button" class="next-gradiant my-1" (click)="OTPSend(registerForm.controls)"  [disabled]="!f1.email.valid">Send OTP</Button>
+              <Button *ngIf='regotp1' type="button" class="next-gradiant my-1" disabled >Sending OTP  <i class="fa fa-cog fa-spin" aria-hidden="true"></i></Button>              
+              
+            </div>
+            <div class="form-group">
+              <label>OTP</label>
+              <input type="text" formControlName="otp" class="form-control" [ngClass]="{ 'is-invalid': submitted1 && f1.otp.errors }" />
+              <div *ngIf="submitted1 && f1.otp.errors" class="invalid-feedback">
+                <div *ngIf="f1.otp.errors.required">OTP is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button class="next-gradiant my-1" *ngIf='!regotp2' disabled="">Registering  <i class="fa fa-cog fa-spin" aria-hidden="true"></i></button>
+              <button class="next-gradiant my-1" *ngIf='regotp2'  [disabled]="!f1.email.valid && !f1.otp.valid">Register</button>
+              <button class="next-gradiant my-1"  *ngIf='regotp2' (click)="Changeuser(1)">Already existing user? Login here</button>
+            </div>
+            </form>
+          </div>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" (click)='close_model()' >Close</button>
+        </div> -->
+      </div>
+  </div>
+</div>
+
+<!-- Next procedure -->
+
+     

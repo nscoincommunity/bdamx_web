@@ -1,0 +1,108 @@
+/* Fees Section Style Starts */
+#fees{
+	background: #2e3849;
+	color: #fff;
+}
+#fees h4{
+	color: #fff;
+	font-size: 30px; margin-top: 20px;
+}
+#fees h5{
+	font-size: 22px;
+}
+#fees hr{
+	background: #48485e;
+}
+#fees p{
+	font-size: 16px;
+}
+#fees .withdrawalfees{
+	background: #252d3a;
+	border-radius: 25px;
+	
+}
+.withdrawalfees .card{
+	background: #2e3849;
+	/*height: 119px;*/
+}
+.withdrawalfees .card .card-title{
+	color: #ff85ca;
+	font-size: 24px;
+}
+.withdrawalfees .card .card-body p{
+	font-size: 14px;
+}
+.withdrawalfees .card .card-body h3{
+	font-size: 30px;
+}
+.withdrawalfees .leftcard{
+	border-top-right-radius: .5rem !important;
+	border-top-left-radius: 0rem !important;
+	border-bottom-left-radius: 0rem !important;
+	border-bottom-right-radius: 0rem !important;
+}
+.withdrawalfees .rightcard{
+	border-top-right-radius: 0rem !important;
+	border-top-left-radius: .5rem !important;
+	border-bottom-left-radius: 0rem !important;
+	border-bottom-right-radius: 0rem !important;
+}
+.table-dark{
+	background-color: #2e3849;
+	font-size: 16px;
+}
+.table-dark.table-striped tbody tr:nth-of-type(2n+1){
+	background-color: #252d3a;
+	
+	/* border-top-left-radius: .5rem !important; */
+}
+.table-dark thead{
+	background-color: #252d3a;
+	color: #ff85ca;
+}
+.table-dark tr{
+	border-collapse: separate;
+    border-radius: 10px;
+}
+
+.fees-table .nav-tabs {
+	margin: 0px auto 2px;
+	border: none;
+}
+.fees-table .nav-tabs li.nav-item a.nav-link {
+	background: transparent;
+	border: none;
+	font-size: 16px;
+	color: #646e78;
+}
+.fees-table .nav-tabs li.nav-item a.nav-link.active {
+	border-bottom: 2px solid #efa406;
+	color: #1e2832;
+}
+.fees-table .tab-content {
+	padding: 0;
+}
+.fees-table .card-div-cnt {
+	padding: 0;
+}
+.fees-table table {
+	color: #fff;
+}
+.fees-table table thead {
+	background-color: #f5f7f5;
+	color: #00887a;
+}
+
+.withdrawalfees .table td, .withdrawalfees .table th{white-space: nowrap;}
+.fee_blk .card-body{padding: 1.25rem 0;}
+
+@media screen and (max-width: 1200px){
+#fees .withdrawalfees{padding: 0 20px !important;}
+}
+
+@media screen and (max-width: 767px){
+.fee_blk .card-body .d-flex{display: block !important;}
+.withdrawalfees .card .card-body h3{font-size: 20px;}
+#fees h5{font-size: 18px;}
+.withdrawalfees .table td{font-size: 15px;}
+}

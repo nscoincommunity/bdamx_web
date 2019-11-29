@@ -1,0 +1,103 @@
+<app-header></app-header>
+<div class="static-content-section1">
+  <div class="static-content"> 
+    
+
+    <!-- Banner Under Content Ends Here --> 
+    <!-- Recommend Section Starts Here -->
+    <div class="terms_sec1">
+      <h1>Contact</h1>
+       <div class="container-fluid">
+        <div class="col-md-12">
+          <div class="terms_sec adrs mb-4">
+          <div class="row">
+              <div class="col-md-6 p-4">
+               <div class="">
+
+               <form (ngSubmit)="contactUs(data)" name="form" #data="ngForm">
+				  	<div class="form-group">
+				   
+				    <input type="text" class="form-control" placeholder="Your Name" [minlength]="4" [maxlength]="20" [(ngModel)]="model.name" name="name" pattern="[A-Za-z]+" #name="ngModel" [class.form-control-danger]="name.invalid && name.touched" required>
+				 	<span class="errr" *ngIf="name.invalid && name.touched && name.errors?.required">Name is required</span>                     
+				            <span class="errr" *ngIf="name.invalid && name.touched && name.errors?.minlength">Name should have minimum 4 characters</span>
+				            <span class="errr" *ngIf="name.invalid && name.touched && name.errors?.pattern">Only letters are allowed</span>
+				  </div>
+				<div class="form-group">
+				   
+				    <input type="email" class="form-control" placeholder="Your Email" [(ngModel)]="model.email" name="email" pattern=".+@.+\..+"  #email="ngModel" [class.form-control-danger]="email.invalid && email.touched" required >
+				    <span class="errr" *ngIf="email.invalid && email.touched && email.errors?.required">Email is required</span>
+				            <span class="errr" *ngIf="email.invalid && email.touched && email.errors?.pattern">Must be a valid email address</span>
+				 
+				  </div>
+				  <div class="form-group">
+				   
+				    <input type="text" class="form-control" placeholder="Your Subject" [(ngModel)]="model.subject" name="subject" #subject="ngModel" [class.form-control-danger]="subject.invalid && subject.touched" required >
+				    <span class="errr" *ngIf="subject.invalid && subject.touched && subject.errors?.required">Subject is required</span>
+				 
+				  </div>
+				    <div class="form-group">
+				   
+				    <textarea class="form-control multi_txt" placeholder="Your Message" [(ngModel)]="model.message" name="message" #message="ngModel" [class.form-control-danger]="message.invalid && message.touched" required rows="3" pattern="[a-zA-Z0-9\s_@.,]+"></textarea>
+				    <span class="errr" *ngIf="message.invalid && message.touched && message.errors?.required">Message is required</span>
+            <span class="errr" *ngIf="message.errors?.pattern">Please Enter Valid Value</span>
+          
+				  </div>
+				  <div class="form-group">
+				   
+				   <re-captcha #captchaControl="ngModel" [(ngModel)]="captcha" name="captcha" (resolved)="resolved($event)" siteKey="6LdMbr8UAAAAAAfO3IJlwy4KO2Mr_1lOWQwRSSf3" ></re-captcha>  
+				   <!-- <img src="assets/images/capcha.jpg"> -->
+				   <button type="submit" class="btn btn-lg btn-change trading-btn ml-3 submitbtn" *ngIf='data.valid'>Submit</button>
+				   <button type="submit" class="btn btn-lg btn-change trading-btn ml-3 submitbtn" *ngIf='!data.valid'>Submit</button>
+				  </div>  
+			</form>
+             </div>
+               </div>
+                <div class="col-md-6 p-4">
+
+                  <div class="map_sec">
+ 					<iframe [src]="sanitizer.bypassSecurityTrustResourceUrl(map_address)" width="100%" height="350px" frameborder="0" style="border:0;border-radius: 11px;" allowfullscreen=""></iframe>
+					</div>
+        
+               <div class="row">
+
+                <div class="col-md-6">
+                  <div class="con_li mt-3">
+                  <h3>Where to find us?</h3>
+                  <div class="admin_add" [innerHtml]="adminAddress"></div>
+                  <!-- <ul> 
+                   <li>{{adminAddress}}</li>
+
+
+
+
+                  </ul> -->
+</div>
+                </div>
+                <div class="col-md-6">
+ <div class="con_li">
+             
+<ul class="mt-4">
+  <li>{{adminMail}}</li>
+  <li>{{adminPhone}}</li>
+
+
+</ul>
+       </div>
+
+              
+             </div>
+               </div>
+
+               
+
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+    
+  </div>
+</div>
+</div>
+<app-footer></app-footer>

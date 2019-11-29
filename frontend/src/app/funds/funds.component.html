@@ -1,0 +1,415 @@
+<app-header></app-header>
+<div class="container-fluid static-content-section1">
+  <div class="container-fluid static-content"> 
+    <!-- Header Section Starts Here -->
+      <div class="terms_sec1 coin_market_tab">
+      <h1>Funds</h1>
+      <!-- market tabs table -->
+      <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link active show" data-toggle="tab" data-target="#btc" href="#"><img src="assets/images/w1.png" alt="">Funds</a> </li>
+        <li class="nav-item"> <a class="nav-link" data-toggle="tab" data-target="#usdt" (click)="deposit()" id="deposit-tab" href="#" ><img src="assets/images/w2.png" alt="" >Deposit</a> </li>
+        <li class="nav-item"> <a class="nav-link" data-toggle="tab" data-target="#sfcp" (click)="withdraw()" id="withdraw-tab" href="#"><img src="assets/images/w3.png" alt="">Withdraw</a> </li>
+        <li class="search_cont">
+        </li>
+      </ul>
+      
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div class="tab-pane active show coin_market" id="btc">
+          <div class="container-fluid terms_sec mt-5">
+             <div class="row pr-4 pl-4 pt-0 pb-4 table-responsive">
+                <table class="table table-hover table-borderless market-table">
+                  <thead>
+                    <tr>
+                      <th width="16%">Asset <img src="assets/images/top_down.png" *ngIf="showSorting" (click)="sorting('currencySymbol')"></th>
+                      <th width="16%">Name <img src="assets/images/top_down.png" *ngIf="showSorting" (click)="sorting('currencyName')"></th>
+                      <th width="16%"  *ngIf='Basecoin != "BTC"'>Wallet Balance</th>
+                      <th width="16%" *ngIf='Basecoin != "BTC"'><a style="cursor: pointer;"  (click)="getAllBalance()">Query All</a></th>
+                      <th width="14%">BDAMX Balance <img src="assets/images/top_down.png" *ngIf="showSorting" (click)="sorting('balance')"></th>
+                      <th width="10%">On Order <img src="assets/images/top_down.png" *ngIf="showSorting" (click)="sorting('hold')"></th>
+                      <th width="7">Action</th>
+                      <th width=""></th>
+                      <th width=""></th>
+                    </tr>
+                  </thead>
+                  <tbody class="no_pad">
+                    <tr *ngFor="let currency of listCurrency | sortBy: asc : type ; let i = index">
+                      <td *ngIf='Basecoin == currency.baseCoin'>{{currency.currencySymbol}}</td>
+                      <td *ngIf='Basecoin == currency.baseCoin'> {{currency.currencyName}}</td>
+                      <td *ngIf='Basecoin == currency.baseCoin && Basecoin != "BTC"'>{{query[i] ? roundsof(currency.walletBalance,8) : 'Query'}}</td>
+                      <td *ngIf='Basecoin == currency.baseCoin && Basecoin != "BTC"'><button class="purple none_class" (click)="getBalance(i)">Query</button></td>
+                      <td *ngIf='Basecoin == currency.baseCoin'>{{roundsof(currency.balance,8)}}</td>
+                      <td *ngIf='Basecoin == currency.baseCoin'>{{roundsof(currency.hold,8)}}</td>
+                      <td class="no_pad" *ngIf='Basecoin == currency.baseCoin'>
+                        <button type="button" class="btn btn-lg grn-btn" (click)="changetab('deposit-tab',currency,i)">Deposit</button>
+                      </td>
+                       <td *ngIf='Basecoin == currency.baseCoin'>
+                        <button type="button" class="btn btn-lg red-btn" (click)="changetab('withdraw-tab',currency,i)">Withdraw</button>
+                      </td >
+                      <td *ngIf='Basecoin == currency.baseCoin'><img src="assets/images/trade.png" alt="" (click)="tradenavigate(currency)"></td>
+                      </tr>
+                  </tbody>
+              </table>
+             </div>
+          </div>
+        </div>
+        <div class="tab-pane container-fluid fade" id="usdt">
+           <div class="container-fluid terms_sec mt-5">
+             <div class="row p-5 fund_blk">
+               <div class="col-md-12" *ngIf="showDeposit">
+                 <div class="row">
+                  <div class="col-md-5"> 
+                    <div class="sel_sec" *ngIf='Basecoin != "BTC"'> 
+                      <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="exchange" [ngModelOptions]="{standalone: true}" (ngModelChange)='onChangedep($event)'>
+                          <option [ngValue]="undefined" disabled  selected hidden> Select Option </option>
+                            <ng-container *ngFor="let currency of listCurrency; let i = index">
+                                <option [ngValue]="i" *ngIf='Basecoin == currency.baseCoin' >{{currency.currencySymbol}}</option>
+                            </ng-container>
+                        </select>
+                        </div>
+                        <div class="sel_sec" *ngIf='Basecoin == "BTC"'> 
+                          <h3 class="col-lg-12 text-left">BTC</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-7 text-right">
+                      <div class="with_right d-flex" *ngIf='Basecoin != "BTC"'>
+                      <p>Balance  {{Mywalbal|number:'.8'}} {{Mycurn}} </p>      <p > Available  {{MyDBbal|number:'.8'}} {{Mycurn}}</p>      <p> Frozen  {{MyDBhold|number:'.8'}} {{Mycurn}}</p>
+                      </div>
+                      <div class="with_right d-flex" *ngIf='Basecoin == "BTC"'>
+                      <p>Balance  {{Mywalbal|number:'.8'}} BTC </p>      <p> Frozen  {{MyDBhold|number:'.8'}} BTC</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="Reminder_sec mt-3" *ngIf='Basecoin != "BTC"'>
+                      <h4>Reminder</h4>
+
+                      <div [innerHtml]="cmsContent['deposit']"></div>
+                  </div>
+                  <div class="row justify-content-center text-center p-2 m-2 white-bg" *ngIf='Basecoin == "BTC"'>
+                    <div class="col-lg-12">
+                       <div class="">
+                          <img src="{{img_qr}}" class="img-fluid">
+                       </div>
+                       <div class="col-lg-12">
+                          <h5>Send your Bitcoin to this Address</h5>
+                          <p>{{originaladdress}} <i class="fa fa-copy" style='cursor:pointer' (click)="copyText(btc_address)"></i></p>
+                       </div>
+                    </div>
+                  </div>    
+  <div class="gray_bg" *ngIf='Basecoin != "BTC"'>
+<form [formGroup]="depositForm">
+  <div class="form-group row">
+    <label for="staticEmail" class="col-sm-6 col-form-label"><p>Associated  </p></label>
+    <div class="col-sm-6 text-right">
+      <p> {{localaddr}}</p>
+    </div>
+  </div>
+
+
+   <div class="form-group row">
+    <label for="staticEmail" class="col-sm-6 col-form-label"><p>Wallet Balance ( {{Mycurn}} ) </p></label>
+   <div class="col-sm-6 text-right">
+      <p> {{Mywalbal |number:'.8'}} {{Mycurn}} </p>
+    </div>
+  </div>
+  <div class="form-group row justify-content-end">
+  <div class="col-sm-6 text-right">
+      <button class="btn btn-lg btn-change trading-btn2 fund-btn" (click)="sendMaxAmount()">Max</button>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="staticEmail" class="col-sm-6 col-form-label"><p>Deposit Amount </p></label>
+    <div class="col-sm-6 withdraw_fm">
+      <div class="form-group">
+   
+    <input type="text" formControlName="depamount" class="form-control" id="exampleInputEmail1" placeholder="Enter Deposit Amount" [ngClass]="{ 'is-invalid': submitted && f.depamount.errors }"  (keypress)="isNumber($event)">
+
+    <div *ngIf="submitted && f.depamount.errors" class="invalid-feedback">
+      <div *ngIf="f.depamount.errors.required">Deposit amount  is required</div>
+      <div *ngIf="f.depamount.errors.pattern">Number only allowed</div>
+    </div>
+ 
+  </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputPassword" class="col-sm-6 col-form-label"><p>Note : While deposit please connect your wallet which you have been unlock.</p><p>Your deposited amount will reflect to your wallet within 3 to  5 mins</p></label>
+        
+   <div class="col-sm-6 withdraw_fm">
+      <div class="form-group text-right">
+   
+<!--   <button type="button" class="btn btn-lg grad-btn ml-3">Deposit</button> -->
+
+        <button type="button" class="btn btn-lg grad-btn ml-3" (click)="depositsite(depositForm.controls,depositForm)"  *ngIf='submitloaderdep == 0'  >Deposit</button>
+        <button type="button" class="btn btn-lg grad-btn ml-3" disabled  *ngIf='submitloaderdep == 1' >loading...</button>
+ 
+  </div>
+    </div>
+  </div>
+
+ 
+</form>
+  </div>
+    </div>
+     <div *ngIf="!showDeposit">
+      <p style="text-align: center;">
+      Currently Deposit is disabled. Try again after some time ...
+    </p>
+    </div>
+    </div>
+
+           
+    </div>
+         
+        </div>
+        <div class="tab-pane container-fluid fade" id="sfcp" >
+
+           <div class="container-fluid terms_sec mt-5">
+    
+             <div class="row p-5 fund_blk" >
+
+               <div class="col-md-12" *ngIf="showWithdraw">
+                 <div class="row">
+
+<div class="col-md-5"> 
+<div class="sel_sec" *ngIf='Basecoin != "BTC"'> 
+<select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="exchange" [ngModelOptions]="{standalone: true}" (ngModelChange)='onChangewith($event)'>
+            <option [ngValue]="undefined" disabled  selected hidden> Select Option </option>
+            <ng-container *ngFor="let currency of listCurrency; let i = index">
+              <option [ngValue]="i" *ngIf='Basecoin == currency.baseCoin' >{{currency.currencySymbol}}</option>
+            </ng-container>
+      </select>
+    </div>
+    <div class="sel_sec" *ngIf='Basecoin == "BTC"'> 
+     <h3 class="col-lg-12 text-left">BTC</h3>
+    </div>
+    </div>
+<div class="col-md-7 text-right">
+  <div class="with_right d-flex" *ngIf='Basecoin != "BTC"'>
+  <p>Balance  {{Mywalbal|number:'.8'}} {{Mycurn}} </p>      <p > Available  {{MyDBbal|number:'.8'}} {{Mycurn}}</p>      <p> Frozen  {{MyDBhold|number:'.8'}} {{Mycurn}}</p>
+</div>
+<div class="with_right d-flex" *ngIf='Basecoin == "BTC"'>
+  <p>Balance  {{Mywalbal|number:'.8'}} BTC </p>      <p> Frozen  {{MyDBhold|number:'.8'}} BTC</p>
+</div>
+</div>
+
+</div>
+
+
+<div class="Reminder_sec mt-3">
+<h4>Reminder</h4>
+
+  <div [innerHtml]="cmsContent['withdraw']"></div><br/>
+
+  </div>
+  <div class="gray_bg">
+
+
+<form [formGroup]="withdrawForm">
+  <div *ngIf='Basecoin != "BTC"'>
+  <div class="form-group row">
+    <label for="staticEmail" class="col-sm-6 col-form-label"><p>Withdrawal Wallet</p></label>
+    <div class="col-sm-6 text-right">
+      <p> {{localaddr}}</p>
+    </div>
+  </div>
+    <div class="row">
+    <label for="staticEmail" class="col-sm-6 col-form-label"><p>Minimum Withdrawal Amount </p></label>
+    <div class="col-sm-6 withdraw_fm">
+      <div class="">
+   
+  <label for="staticEmail" class="col-sm-12 col-form-label text-right"><p> {{minWithdrawAmt |number:'.8'}} {{Mycurn}} </p></label>
+ 
+  </div>
+    </div>
+  </div>
+  <div class="row">
+    <label for="staticEmail" class="col-sm-6 col-form-label"><p>Maximum Withdrawal Amount </p></label>
+    <div class="col-sm-6 withdraw_fm">
+      <div class="">
+   
+  <label for="staticEmail" class="col-sm-12 col-form-label text-right"><p> {{maxWithdrawAmt |number:'.8'}} {{Mycurn}} </p></label>
+ 
+  </div>
+    </div>
+  </div>
+  <div class="row justify-content-end ">
+  <div class="col-sm-12 col-form-label text-right">
+      <button class="btn btn-lg btn-change trading-btn2 fund-btn" (click)="sendMaxWithAmount()">Max</button>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="staticEmail" class="col-sm-6 col-form-label"><p>Withdraw Amount</p></label>
+    <div class="col-sm-6 withdraw_fm">
+      <div class="form-group">
+
+    <input type="text" formControlName="withamount" class="form-control" id="exampleInputEmail1" [ngClass]="{ 'is-invalid': submitted && f1.withamount.errors }" (keypress)="isNumber($event)" (input)="withcalc($event.target.value)" placeholder="Enter Withdrawal Amount" />
+ 
+  </div>
+    </div>
+  </div>
+  
+
+   <div class="row">
+    <label for="staticEmail" class="col-sm-6 col-form-label"><p>Withdrawal Fee </p></label>
+    <div class="col-sm-6 withdraw_fm">
+      <div class="">
+   
+  <label for="staticEmail" class="col-sm-12 col-form-label text-right"><p> {{feeamt |number:'.8'}} {{Mycurn}} </p></label>
+ 
+  </div>
+    </div>
+  </div>
+
+
+   <div class="row">
+    <label for="staticEmail" class="col-sm-6 col-form-label"><p>Actual Received</p></label>
+    <div class="col-sm-6 withdraw_fm">
+      <div class="form-group">
+   
+  <label for="staticEmail" class="col-sm-12 col-form-label text-right"><p> {{receiveamt | number:'.8'}} {{Mycurn}} </p></label>
+ 
+  </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputPassword" class="col-sm-6 col-form-label"></label>
+    <div class="col-sm-6 d-flex justify-content-end">
+    <div class="capcha_img">
+   
+   <re-captcha formControlName="captcha" (resolved)="resolved($event)" siteKey="6LdMbr8UAAAAAAfO3IJlwy4KO2Mr_1lOWQwRSSf3" ></re-captcha> 
+  </div>
+    </div>
+  </div>
+   <div class="row">
+    <label for="staticEmail" class="col-sm-6 col-form-label"></label>
+    <div class="col-sm-6 withdraw_fm">
+      <div class="form-group text-right">
+   
+ <button type="button" class="btn btn-lg grad-btn ml-3" (click)="withdrawsite(withdrawForm.controls,withdrawForm,'other')"  *ngIf='submitloader == 0' >Withdraw</button>
+  <button type="button" class="btn btn-lg grad-btn ml-3" disabled  *ngIf='submitloader == 1' >loading...</button>
+ 
+  </div>
+    </div>
+  </div>
+</div>
+<div *ngIf='Basecoin == "BTC"'>
+<div class="form-group row">
+    <label for="staticEmail" class="col-sm-6 col-form-label"><p>Withdrawal Wallet</p></label>
+    <div class="col-sm-6 text-right">
+      <p> {{originaladdress}}</p>
+    </div>
+  </div>
+      <div class="row">
+    <label for="staticEmail" class="col-sm-6 col-form-label"><p>Minimum Withdrawal Amount </p></label>
+    <div class="col-sm-6 withdraw_fm">
+      <div class="">
+   
+  <label for="staticEmail" class="col-sm-12 col-form-label text-right"><p> {{minWithdrawAmt |number:'.8'}} BTC </p></label>
+ 
+  </div>
+    </div>
+  </div>
+  <div class="row">
+    <label for="staticEmail" class="col-sm-6 col-form-label"><p>Maximum Withdrawal Amount </p></label>
+    <div class="col-sm-6 withdraw_fm">
+      <div class="">
+   
+  <label for="staticEmail" class="col-sm-12 col-form-label text-right"><p> {{maxWithdrawAmt |number:'.8'}} BTC</p></label>
+ 
+  </div>
+    </div>
+  </div>
+  <div class="row justify-content-end ">
+  <div class="col-sm-12 col-form-label text-right">
+      <button class="btn btn-lg btn-change trading-btn2 fund-btn" (click)="sendMaxWithAmount()">Max</button>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="staticEmail" class="col-sm-6 col-form-label"><p>Withdraw Amount</p></label>
+    <div class="col-sm-6 withdraw_fm">
+      <div class="form-group">
+
+    <input type="text" formControlName="withamount" class="form-control" id="exampleInputEmail1" [ngClass]="{ 'is-invalid': submitted && f1.withamount.errors }" (keypress)="isNumber($event)" (input)="withcalc($event.target.value)" placeholder="Enter Withdrawal Amount" pattern="[a-zA-Z0-9\s_@.,]+" />
+
+ 
+  </div>
+    </div>
+  </div>
+
+   <div class="form-group row">
+    <label for="staticEmail" class="col-sm-6 col-form-label"><p>Receiver address</p></label>
+    <div class="col-sm-6 withdraw_fm">
+      <div class="form-group">
+
+    <input type="text" formControlName="privatekey" class="form-control" id="exampleInputEmail1" [ngClass]="{ 'is-invalid': submitted && f1.privatekey.errors }" pattern="[a-zA-Z0-9\s_@.,]+" />
+      <!-- <span class="error_class" *ngIf="message.errors?.pattern">Please Enter Valid Value</span> -->
+
+
+ 
+  </div>
+    </div>
+  </div>
+
+
+  
+
+   <div class="row">
+    <label for="staticEmail" class="col-sm-6 col-form-label"><p>Withdrawal Fee </p></label>
+    <div class="col-sm-6 withdraw_fm">
+      <div class="">
+   
+  <label for="staticEmail" class="col-sm-12 col-form-label text-right"><p> {{feeamt |number:'.8'}} BTC </p></label>
+ 
+  </div>
+    </div>
+  </div>
+
+   <div class="row">
+    <label for="staticEmail" class="col-sm-6 col-form-label"><p>Actual Received</p></label>
+    <div class="col-sm-6 withdraw_fm">
+      <div class="form-group">
+   
+  <label for="staticEmail" class="col-sm-12 col-form-label text-right"><p> {{receiveamt | number:'.8'}} BTC </p></label>
+ 
+  </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputPassword" class="col-sm-6 col-form-label"></label>
+    <div class="col-sm-6 d-flex justify-content-end">
+      <div class="capcha_img">
+          <re-captcha formControlName="captcha" (resolved)="resolved($event)" siteKey="6LdMbr8UAAAAAAfO3IJlwy4KO2Mr_1lOWQwRSSf3" ></re-captcha> 
+      </div>
+    </div>
+  </div>
+   <div class="row">
+    <label for="staticEmail" class="col-sm-6 col-form-label"></label>
+    <div class="col-sm-6 withdraw_fm">
+      <div class="form-group text-right">
+   
+ <button type="button" class="btn btn-lg grad-btn ml-3" (click)="withdrawsite(withdrawForm.controls,withdrawForm,'BTC')"  *ngIf='submitloader == 0' >Withdraw</button>
+  <button type="button" class="btn btn-lg grad-btn ml-3" disabled  *ngIf='submitloader == 1' >loading...</button>
+ 
+  </div>
+    </div>
+  </div>
+</div>
+</form>
+  </div>
+    </div>
+    <div *ngIf="!showWithdraw">
+      <p style="text-align: center;">
+      Currently Withdraw is disabled. Try again after some time ...
+    </p>
+    </div>
+      </div>
+    </div>
+        </div>
+      </div>
+    </div>
+    <!-- Coin Market Section Ends Here --> 
+    
+  </div>
+</div>
+<app-footer></app-footer>
