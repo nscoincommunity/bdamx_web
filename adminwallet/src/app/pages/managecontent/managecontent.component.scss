@@ -1,0 +1,91 @@
+.logo input[type="file"]{
+	display: block !important;
+}
+// .tex textarea:hover{
+// 	color:blue;
+
+	
+// }
+// h6{
+// 	color:#191970;
+// }
+// .label label{
+// 	color:#191970
+// }
+.col-sm-9 textarea{
+	border-color:#30CE6A;
+	padding:4px;
+}
+.form-group row img{
+	margin-left:70px;
+}
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input::before {
+  content: 'choose file';
+  display: inline-block;
+  /*background: linear-gradient(top, #f9f9f9, #e3e3e3);*/
+  border: 2px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+}
+.custom-file-input:hover::before {
+  border-color:  #e68a00;
+  color:black;
+}
+.note p{
+margin-left:60px;
+  color:black;
+}
+.errr{
+  color: red
+}
+.lang_text{padding:5px 10px !important;margin-bottom:20px;}
+.lang_text + select{padding: 0 10px;}
+
+
+
+  ::ng-deep .managecomponent_data.ngx-datatable .datatable-scroll .datatable-body-row .datatable-body-cell:first-child,
+  ::ng-deep .managecomponent_data.ngx-datatable .datatable-header .datatable-header-inner .datatable-header-cell:first-child {
+      width: 7% !important;
+  }
+  ::ng-deep .managecomponent_data.ngx-datatable .datatable-scroll .datatable-body-row .datatable-body-cell:nth-child(2),
+  ::ng-deep .managecomponent_data.ngx-datatable .datatable-header .datatable-header-inner .datatable-header-cell:nth-child(2) {
+      width: 30% !important;
+  }
+  ::ng-deep .managecomponent_data.ngx-datatable .datatable-scroll .datatable-body-row .datatable-body-cell:nth-child(3),
+  ::ng-deep .managecomponent_data.ngx-datatable .datatable-header .datatable-header-inner .datatable-header-cell:nth-child(3) {
+      width: 20% !important;
+  }
+  ::ng-deep .managecomponent_data.ngx-datatable .datatable-scroll .datatable-body-row .datatable-body-cell:nth-child(4),
+  ::ng-deep .managecomponent_data.ngx-datatable .datatable-header .datatable-header-inner .datatable-header-cell:nth-child(4) {
+      width: 20% !important;
+  }
+  ::ng-deep .managecomponent_data.ngx-datatable .datatable-scroll .datatable-body-row .datatable-body-cell:nth-child(5),
+  ::ng-deep .managecomponent_data.ngx-datatable .datatable-header .datatable-header-inner .datatable-header-cell:nth-child(5) {
+      width: 10% !important;
+  }
+  ::ng-deep .managecomponent_data.ngx-datatable .datatable-scroll .datatable-body-row .datatable-body-cell:nth-child(6),
+  ::ng-deep .managecomponent_data.ngx-datatable .datatable-header .datatable-header-inner .datatable-header-cell:nth-child(6) {
+      width: 13% !important;
+  }
+
+
+  @media (max-width:991px){
+  ::ng-deep .managecomponent_data.ngx-datatable .datatable-header .datatable-header-inner,
+  ::ng-deep .managecomponent_data.ngx-datatable.bootstrap .datatable-body .datatable-body-row,
+  ::ng-deep .managecomponent_data.ngx-datatable .datatable-row-center,
+  ::ng-deep .managecomponent_data.ngx-datatable .datatable-header,
+  ::ng-deep .managecomponent_data.ngx-datatable.material .datatable-footer,
+  .ngx-datatable .datatable-body .datatable-body-row
+  {width:100% !important;min-width:990px;}
+  ::ng-deep .managecomponent_data.ngx-datatable.bootstrap,::ng-deep .support_list_component.ngx-datatable.bootstrap{overflow-x:auto;}
+}

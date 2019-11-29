@@ -1,0 +1,150 @@
+<div class="row">
+  <div class="col-md-24 col-lg-12">
+    <nb-card size="big">
+      <nb-tabset>
+        <nb-tab tabTitle="Contact us details">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="tabcntcls" style=" -webkit-transition: all 1s ease;transition: all 1s ease;padding: 25px 25px 25px 25px;">
+                <div class="row">
+                  <div class="col-md-7" style="display: inline-flex;padding-left: 0px;">
+                    <span style="line-height: 58px;margin-top:-11px;">Display : </span>
+                    <select (change)="changeRowLimits_news($event)" style="width: 8%;background: transparent;height: 31px;padding:2px;margin-left: 5px;margin-top:0px;">
+                    <option *ngFor="let limit of rowLimits_news" [value]="limit.value">{{limit.key}}</option>
+                    </select>
+                    <div class="input-group-btn" style="margin-left: 10px;">
+                      <button class="btn btn-primary" style="cursor:pointer;background-color:#30CE6A;padding:5px;height:34px;" type="submit" (click)="resetnewslist()">
+                      <i class="fas fa-sync" style="background-color:#30CE6A;color:white;"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-md-4" style="display: inline-flex;position: relative;left: 23px;">
+                    <div class="input-group">
+                      <input type="text" [(ngModel)]="defsearch_news" class="form-control" placeholder="Search" id="txtSearch" (keyup.enter)="updateFilter_news()"/>
+                      <div class="input-group-btn">
+                        <button class="btn btn-primary" style="cursor:pointer;background-color:#30CE6A;padding:18px;height:34px;" type="submit" (click)="updateFilter_news()">
+                        <span class="fa fa-search"></span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="table-responsive tab_top">
+                  <ngx-datatable #newstable class="bootstrap table table-bordered table-striped mb-0 material content_manage_tab"
+                  [columnMode]="'force'"
+                  [headerHeight]="50"
+                  [footerHeight]="50"
+                  [rowHeight]="'auto'" [(limit)]="limit_banner" [rows]='bannerblocktemp' [externalPaging]="true"
+                  [count]="page_banner.totalElements"
+                  [offset]="page_banner.pageNumber"
+                  [limit]="page_banner.size"
+                  (page)='setPage_banner($event)' [externalSorting]="true" (sort)="onSort_banner($event)" [loadingIndicator]="loading_banner">
+                  <ngx-datatable-column name="S.No" [resizeable]="false" style="font:bold;">
+                    <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>
+                      {{(page_banner.pageNumber*page.size)+(rowIndex + 1)}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Name" prop="name" [resizeable]="false" style="white-space: normal;overflow-wrap: break-word;">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Email" prop="email" [resizeable]="false" style="white-space: normal;overflow-wrap: break-word;">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Subject" prop="subject" [resizeable]="false" style="white-space: normal;overflow-wrap: break-word;">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Message" prop="message" [resizeable]="false" style="white-space: normal;overflow-wrap: break-word;">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value}}
+                    </ng-template>
+                  </ngx-datatable-column>                                                      
+                  <ngx-datatable-column name="Date & time" prop="datetime" [resizeable]="false" ngbTooltip="CreatedDate&Time">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value  | date: 'medium'}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Status" prop="status" [resizeable]="false" ngbTooltip="ModifiedDate&Time">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      <!-- {{value}} -->
+                      <span *ngIf="value == 1"><label class="label label-info">OPEN</label></span>
+                      <span *ngIf="value == 0"><label class="label label-secondary">CLOSE</label></span>
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Action" prop="status" [resizeable]="false">
+                    <ng-template ngx-datatable-cell-template let-value="value" let-row="row" >
+                      <button class="btn btn-link mr-1 mb-1 cursorcls" (click)="openeditmodel(editnewscontent, row)"  ngbTooltip="Edit">
+                      <span *ngIf="value == 1"><label class="label label-info"> <i class="fa fa-edit" style="color:blue"></i></label></span>
+                      <span *ngIf="value == 0"><label class="label label-secondary"> <i class="fa fa-eye" style="color:blue"></i></label></span>                      
+                       
+                      </button>
+                    </ng-template>
+                  </ngx-datatable-column>
+                  </ngx-datatable>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nb-tab>
+      </nb-tabset>
+    </nb-card>
+  </div>
+</div>
+
+<ng-template #editnewscontent let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h6 class="modal-title text-uppercase">View Details</h6>
+    <button type="button" class="close" aria-label="Close"
+      (click)="d('Cross click')" ngbTooltip="Close" id="cls">
+    <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form (ngSubmit)="addreply(add_reply)" #add_reply="ngForm" novalidate>
+	  <div class="modal-body">
+	    <div class="form-group row">
+	      <label for="example-text-input" class="col-2 col-form-label"> <b>Name : </b></label>
+	      <label for="example-text-input" class="col-10 col-form-label"> {{editbanners.name}}</label>
+	    </div> 
+	   <div class="form-group row">
+	      <label for="example-text-input" class="col-2 col-form-label"> <b>Email : </b></label>
+	      <label for="example-text-input" class="col-10 col-form-label"> {{editbanners.email}}</label>
+	    </div>
+	    <div class="form-group row">
+	      <label for="example-text-input" class="col-2 col-form-label"> <b>Subject : </b></label>
+	      <label for="example-text-input" class="col-10 col-form-label"> {{editbanners.subject}}</label>
+	    </div> 
+	    <div class="form-group row">
+	      <label for="example-text-input" class="col-2 col-form-label"> <b>Message : </b></label>
+	      <label for="example-text-input" class="col-10 col-form-label"> {{editbanners.message}}</label>
+	    </div>
+	    <div class="form-group row" *ngIf="editbanners.status == 0">
+	      <label for="example-text-input" class="col-2 col-form-label"> <b>Reply : </b></label>
+	      <label for="example-text-input" class="col-10 col-form-label"> {{editbanners.reply}}</label>
+	    </div>	    
+      <div class="form-group row" *ngIf="editbanners.status == 1">
+        <label for="example-text-input" class="col-2 col-form-label">Reply</label>
+        <div class="col-10">
+          <textarea type="text" name="reply" placeholder="Reply" class="form-control" id="mailtitle" [(ngModel)]="editbanners.reply" #reply="ngModel"[class.form-control-danger]="reply.invalid && reply.touched" required ></textarea>
+
+          <span class="errr" *ngIf="reply.invalid && reply.touched && reply.errors?.required">Reply is required</span> 
+        </div>
+      </div>	      
+	  </div>
+	  <div class="modal-footer" *ngIf="editbanners.status == 1">
+	  <div *ngIf='!loader'>
+	    <button type="submit" *ngIf='add_reply.valid' style="cursor: pointer;background-color:#30CE6A;" class="btn btn-info cursorcls">Submit</button>
+	    <button type="submit" style="cursor: pointer;background-color:#30CE6A;" *ngIf='!add_reply.valid' class="btn btn-info cursorcls" disabled="">Submit</button>
+	  </div>
+    <div class="col-sm-12" *ngIf='loader'>
+      <img src = "/assets/images/loader1.gif" style="height: 20px;width: 20px;float: right;">
+    </div> 
+	  </div> 
+  </form> 
+</ng-template>
+

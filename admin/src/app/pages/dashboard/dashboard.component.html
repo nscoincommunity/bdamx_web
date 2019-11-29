@@ -1,0 +1,153 @@
+<div class="row">
+  <div class="col-xxxl-3 col-md-3 mb-3">
+    <nb-card (click)='gotoo("/pages/History_management/deposite")'>
+      <div class="icon-container cursor">
+        <div class="icon primary d-flex">
+          <img src="/assets/images/deposite.png">
+          <ng-content></ng-content>
+           <div class="details">
+          <div class="title">TOTAL DEPOSIT</div>
+          <div class="status addi">{{deposit}}</div>
+        </div>
+        </div>
+      </div>
+    </nb-card>
+  </div>
+  <div class="col-xxxl-3 col-md-3 mb-3">
+    <nb-card (click)='gotoo("/pages/History_management/withdraw")'>
+      <div class="icon-container cursor">
+        <div class="icon primary d-flex">
+          <img src="/assets/images/withdraw.png">
+          <ng-content></ng-content>
+           <div class="details">
+        <div class="title"><b>TOTAL WITHDRAW</b></div>
+        <div class="status addi">{{withdraw}}</div>
+        </div>
+        </div>
+      </div>
+    </nb-card>
+  </div>
+    <div class="col-xxxl-3 col-md-3 mb-3">
+    <nb-card  (click)='gotoo("/pages/currency_management/currency_details")'>
+      <div class="icon-container cursor">
+        <div class="icon primary d-flex">
+          <img src="/assets/images/curr.png">
+          <ng-content></ng-content>
+            <div class="details">
+        <div class="title">TOTAL CURRENCY</div>
+        <div class="status addi">{{currency}}</div>
+      </div>
+        </div>
+      </div>
+    </nb-card>
+  </div>
+    <div class="col-xxxl-3 col-md-3 mb-3">
+    <nb-card  (click)='gotoo("/pages/users")'>
+      <div class="icon-container cursor">
+        <div class="icon primary d-flex">
+          <img src="/assets/images/deposite.png">
+          <ng-content></ng-content>
+           <div class="details">
+         <div class="title">TOTAL USERS</div>
+        <div class="status addi">{{user}}</div>
+        </div>
+        </div>
+      </div>
+    </nb-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-24 col-lg-12">
+    <nb-card size="big" style="display: -webkit-box ;">
+      <nb-tabset  style="width: 100%">
+        <!--     <nb-tab-heading>Banner Management of Home page</nb-tab-heading>
+          -->
+        <nb-tab tabTitle="Admin Activity">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="tabcntcls" style=" -webkit-transition: all 1s ease;transition: all 1s ease;padding: 25px;">
+                <div class="row ">
+                  <div class="col-md-7" style="display: inline-flex;padding-left: 0px;">
+                    <span style="line-height: 58px;margin-top:-11px;">Display : </span>
+                    <select (change)="changeRowLimits_banner($event)" style="width: 8%;background: transparent;padding:2px;height: 30px;margin-left: 5px;margin-top:3px;">
+                    <option *ngFor="let limit of rowLimits_banner" [value]="limit.value">{{limit.key}}</option>
+                    </select>
+                    <div class="input-group-btn" style="margin-left: 10px;">
+                      <button class="btn btn-primary" style="cursor:pointer;background-color:#30CE6A;padding:5px;height:34px;" type="submit"  (click)="resetbannerlist()">
+                      <i class="fas fa-sync" style="background-color:#30CE6A;color:white;"></i>                 </button>
+                    </div>
+                  </div>
+                  <div class="col-md-4" style="display: inline-flex;position: relative;left: 23px;">
+                    <div class="input-group">
+                      <input type="text" [(ngModel)]="defsearch_banner" class="form-control" placeholder="Search" id="txtSearch">
+                      <div class="input-group-btn">
+                        <button class="btn btn-primary" style="cursor:pointer;background-color:#30CE6A;padding:18px;height:34px;" type="submit" (click)="updateFilter_banner()">
+                        <span class="fa fa-search"></span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+<!--                   <div class="col-md-1">
+                    <div class="add_addre">
+                      <button style="cursor:pointer;border-color:#30CE6A;background-color: white;color:#30CE6A;margin-top:20;"class="btn btn-icon-icon btn-info mb-1 mr-1 cursorcls" (click)="opennewsmodel()" ngbTooltip="Download"><span class="fa fa-download"></span>
+                      </button>
+                    </div>
+                  </div> -->                     
+<!--                   <div class="col-md-1">
+                    <div class="add_addre">
+                      <button style="cursor:pointer;border-color:#30CE6A;background-color: white;color:#30CE6A" class="btn btn-icon-icon btn-info mb-1 mr-1 cursorcls" (click)="addbannerClick();openbannermodel(addbannercontent)" ngbTooltip="Add banner"><span class="fa fa-plus"></span>
+                      </button>
+                    </div>
+                  </div> -->
+                </div>
+                <div class="table-responsive tab_top">
+                  <ngx-datatable #bannertable class="bootstrap table table-bordered table-striped mb-0 material banner_management"
+                  [columnMode]="'force'"
+                  [headerHeight]="50"
+                  [footerHeight]="10"
+                  [rowHeight]="'auto'" [(limit)]="limit_banner" [rows]='bannerblocktemp' [externalPaging]="true"
+                  [count]="page_banner.totalElements"
+                  [offset]="page_banner.pageNumber"
+                  [limit]="page_banner.size"
+                  (page)='setPage_banner($event)' [externalSorting]="true" (sort)="onSort_banner($event)" [loadingIndicator]="loading_banner">
+                  <ngx-datatable-column name="S.No" [resizeable]="false" style="font:bold;">
+                    <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>
+                      {{(page_banner.pageNumber*page.size)+(rowIndex + 1)}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="IP address" prop="ip"  [resizeable]="false">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Browser" prop="browser"  [resizeable]="false">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="OS" prop="os"  [resizeable]="false">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value}}
+                    </ng-template>
+                  </ngx-datatable-column>    
+                  <ngx-datatable-column name="Type" prop="type"  [resizeable]="false">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value}}
+                    </ng-template>
+                  </ngx-datatable-column> 
+                  <ngx-datatable-column name="Date & time" prop="datetime"  [resizeable]="false">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value | date:'medium'}}
+                    </ng-template>
+                  </ngx-datatable-column>                                                   
+                  </ngx-datatable>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nb-tab>
+      </nb-tabset>
+    </nb-card>
+  </div>
+</div>

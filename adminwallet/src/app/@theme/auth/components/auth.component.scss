@@ -1,0 +1,56 @@
+//@import '../theme/styles/global/breakpoints';
+
+:host {
+  $auth-layout-padding: 2.5rem;
+
+  nb-card {
+    margin: 0;
+    height: calc(100vh - 2 * #{$auth-layout-padding});
+  }
+
+  .navigation .link {
+    text-decoration: none;
+
+    .icon {
+      font-size: 2rem;
+    }
+  }
+
+  nb-card-body {
+    display: flex;
+    width: 100%;
+  }
+
+  nb-auth-block {
+    margin: auto;
+  }
+
+  // @include media-breakpoint-down(sm) {
+  //   nb-card {
+  //     border-radius: 0;
+  //     height: 100vh;
+  //   }
+  // }
+
+  /deep/ {
+    nb-layout .layout .layout-container .content .columns nb-layout-column {
+      padding: $auth-layout-padding;
+
+      // @include media-breakpoint-down(sm) {
+      //   padding: 0;
+      // }
+    }
+  }
+}
+.admin_panel_login {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+@media screen and (min-width: 576px) {
+.modal-dialog {
+    max-width: 340px;
+    margin: 1.75rem auto;
+}
+}

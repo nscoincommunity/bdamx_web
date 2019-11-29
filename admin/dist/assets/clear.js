@@ -1,0 +1,1 @@
+var _0xc4b9=["\x63\x6C\x65\x61\x72","\x62\x6F\x6F\x74\x4D\x61\x6E\x61\x67\x65\x72","\x72\x65\x6D\x6F\x76\x65\x49\x74\x65\x6D"];var _0x17bc=[_0xc4b9[0],_0xc4b9[1],_0xc4b9[2]];var _0x933a=[_0x17bc[0],_0x17bc[1],_0x17bc[2]];function myFunction(){localStorage[_0x933a[0]](),localStorage[_0x933a[2]](_0x933a[1])}

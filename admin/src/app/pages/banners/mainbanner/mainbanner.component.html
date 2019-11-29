@@ -1,0 +1,236 @@
+<div class="row">
+  <div class="col-md-24 col-lg-12 banner_manage">
+    <nb-card size="big">
+      <nb-tabset>
+        <!--     <nb-tab-heading>Banner Management of Home page</nb-tab-heading>
+          -->
+        <nb-tab tabTitle="Currency details">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="tabcntcls" style=" -webkit-transition: all 1s ease;transition: all 1s ease;padding: 25px;">
+                <div class="row ">
+                  <div class="col-md-7" style="display: inline-flex;padding-left: 0px;">
+                    <span style="line-height: 58px;margin-top:-11px;">Display : </span>
+                    <select (change)="changeRowLimits_banner($event)" style="width: 8%;background: transparent;padding:2px;height: 30px;margin-left: 5px;margin-top:3px;">
+                    <option *ngFor="let limit of rowLimits_banner" [value]="limit.value">{{limit.key}}</option>
+                    </select>
+                    <div class="input-group-btn" style="margin-left: 10px;">
+                      <button class="btn btn-primary" style="cursor:pointer;background-color:#30CE6A;padding:5px;height:34px;" type="submit"  (click)="resetbannerlist()">
+                      <i class="fas fa-sync" style="background-color:#30CE6A;color:white;"></i>                 </button>
+                    </div>
+                  </div>
+                  <div class="col-md-4" style="display: inline-flex;position: relative;left: 23px;">
+                    <div class="input-group">
+                      <input type="text" [(ngModel)]="defsearch_banner" class="form-control" placeholder="Search" id="txtSearch" (keyup.enter)="updateFilter_banner()"/>
+                      <div class="input-group-btn">
+                        <button class="btn btn-primary" style="cursor:pointer;background-color:#30CE6A;padding:18px;height:34px;" type="submit" (click)="updateFilter_banner()">
+                        <span class="fa fa-search"></span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-1">
+                    <div class="add_addre">
+                      <button style="cursor:pointer;border-color:#30CE6A;background-color: white;color:#30CE6A;margin-top:20;"class="btn btn-icon-icon btn-info mb-1 mr-1 cursorcls" (click)="opennewsmodel(download_content)" ngbTooltip="Download"><span class="fa fa-download"></span>
+                      </button>
+                    </div>
+                  </div>                  
+<!--                   <div class="col-md-1">
+                    <div class="add_addre">
+                      <button style="cursor:pointer;border-color:#30CE6A;background-color: white;color:#30CE6A" class="btn btn-icon-icon btn-info mb-1 mr-1 cursorcls" (click)="addbannerClick();openbannermodel(addbannercontent)" ngbTooltip="Add banner"><span class="fa fa-plus"></span>
+                      </button>
+                    </div>
+                  </div> -->
+                </div>
+                <div class="table-responsive tab_top">
+                  <ngx-datatable #bannertable class="bootstrap table table-bordered table-striped mb-0 material banner_management"
+                  [columnMode]="'force'"
+                  [headerHeight]="50"
+                  [footerHeight]="10"
+                  [rowHeight]="'auto'" [(limit)]="limit_banner" [rows]='bannerblocktemp' [externalPaging]="true"
+                  [count]="page_banner.totalElements"
+                  [offset]="page_banner.pageNumber"
+                  [limit]="page_banner.size"
+                  (page)='setPage_banner($event)' [externalSorting]="true" (sort)="onSort_banner($event)" [loadingIndicator]="loading_banner">
+                  <ngx-datatable-column name="S.No" [resizeable]="false" style="font:bold;">
+                    <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>
+                      {{(page_banner.pageNumber*page.size)+(rowIndex + 1)}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Currency name" prop="currencyName"  [resizeable]="false">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Minimum amount" prop="minwithamt"  [resizeable]="false">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value  | number:'.8'}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Maximum amount" prop="maxwithamt"  [resizeable]="false">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value  | number:'.8'}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Withdraw Fee" prop="withdrawfee"  [resizeable]="false">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value  | number:'.8'}}
+                    </ng-template>
+                  </ngx-datatable-column>                  
+                  <ngx-datatable-column name="Action" prop="_id"  [resizeable]="false">
+                    <ng-template ngx-datatable-cell-template let-value="value" let-row="row" >
+                      <button class="btn btn-link mr-1 mb-1 cursorcls" (click)="openeditmodel(editcurrency, row)"  ngbTooltip="Edit">
+                        <i class="fa fa-edit" style="color:blue"></i>
+                      </button>
+                      <button class="btn btn-link mr-1 mb-1 cursorcls" 
+                        style="color:#b4b4b4;" >
+                        <i *ngIf="row.status == '1'" (click)="change_currency_status(row,'0')" style="color: #1FA86D" class="fa fa-unlock" aria-hidden="true" ngbTooltip="Move to Deactive"></i>
+                        <i *ngIf="row.status == '0'" (click)="change_currency_status(row,'1')" style="color: #E51F1F" class="fa fa-lock" aria-hidden="true" ngbTooltip="Move to Active"></i>
+                      </button>                      
+                    </ng-template>
+                  </ngx-datatable-column>
+                  </ngx-datatable>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nb-tab>
+      </nb-tabset>
+    </nb-card>
+  </div>
+</div>
+<ng-template #deletebannermodel let-c="close" let-d="dismiss">
+  <div class="modal-body" id="actiondialog">
+    <h6>Are you sure to delete banner ?</h6>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success cursorcls"
+      (click)="deletebanner(bannersvalue);c('Close click')">Yes</button>
+    <button type="button" style="cursor: pointer;
+      background-color:#d9dce0;" class="btn cursorcls"
+      (click)="c('Close click')">No</button>
+  </div>
+</ng-template>
+
+<ng-template #download_content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h6 class="modal-title text-uppercase">Download options</h6>
+  </div>
+  <div class="modal-body" id="actiondialog">
+    <div class="row">
+      <div class="form-group col-lg-12">
+        <label class="col-lg-12 cursor" (click)="download_csv()" > 1) Download as CSV </label>
+      </div><br>
+      <div class="form-group col-lg-12">
+        <label class="col-lg-12 cursor" (click)="download_excel()" > 2) Download as EXCEL </label>
+      </div><br>
+     <!--  <div class="form-group col-lg-12">
+        <label class="col-lg-12 cursor" (click)="download_pdf()" > 3) Download as PDF </label>
+      </div> -->
+    </div>
+  </div>
+</ng-template>
+
+<!--Edit popup model-->
+<ng-template #editcurrency let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h6 class="modal-title text-uppercase">Edit Currency</h6>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')" id="edit_cls" ngbTooltip="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form (ngSubmit)="update_currency(edit_curr)" #edit_curr="ngForm" novalidate>
+    <div class="modal-body">
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Currency name</label>
+        <div class="col-6">
+          <div class="custom-file">
+            <input type="text" name="currencyName" style="cursor:not-allowed;" class="form-control" placeholder="Page Name"
+            [(ngModel)]="editbanners.currencyName" disabled=""/>
+          </div>
+        </div>
+      </div>  
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Currency symbol</label>
+        <div class="col-6">
+          <div class="custom-file">
+            <input type="text" name="currencySymbol" style="cursor:not-allowed;" class="form-control" placeholder="Page Name"
+            [(ngModel)]="editbanners.currencySymbol" disabled=""/>
+          </div>
+        </div>
+      </div> 
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Currency Image</label>
+        <div class="col-6" style="min-height: 120px;">
+          <div class="custom-file">
+            <img style="height: 110px;width: 200px;" src = "{{editbanners.image}}" style="height: 100px;width: 100px;background: black">
+          </div>
+        </div>
+        <div class="col-6">
+          <input type="file" [(ngModel)]= "editbanners.new_Attachment"  name="new_Attachment" class="custom-file-input" (change)="fileChangeEvents($event,'currencyImage')"  id="customFile">
+        </div>
+      </div>
+      <!-- <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Coin Market Image</label>
+        <div class="col-6" style="min-height: 120px;">
+          <div class="custom-file">
+            <img style="height: 110px;width: 200px; " src = "{{editbanners.coinImage}}" style="height: 100px;width: 100px; background: black">
+          </div>
+        </div>
+        <div class="col-6">
+          <input type="file" [(ngModel)]= "editbanners.new_Attachment" name="new_Attachment" class="custom-file-input" (change)="fileChangeEvents($event, 'coinImage')"  id="customFile">
+        </div>
+      </div> -->
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Minimum amount</label>
+        <div class="col-6">
+          <div class="custom-file">
+            <input type="text"  class="form-control" placeholder="Minimum amount"
+            [(ngModel)]="editbanners.minwithamt" name="minwithamt" #minwithamt="ngModel"  [class.form-control-danger]="minwithamt.invalid && minwithamt.touched" onkeypress="return (event.charCode == 8 || event.charCode == 46) ? null : event.charCode >= 48 && event.charCode <= 57" required>
+
+            <span class="errr" *ngIf="minwithamt.invalid && minwithamt.touched && minwithamt.errors?.required">Minimum amount is required</span>
+          </div>
+        </div>
+      </div> 
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Maximum amount</label>
+        <div class="col-6">
+          <div class="custom-file">
+            <input type="text"  class="form-control" placeholder="Maximum amount"
+            [(ngModel)]="editbanners.maxwithamt" name="maxwithamt" #maxwithamt="ngModel"  [class.form-control-danger]="maxwithamt.invalid && maxwithamt.touched" onkeypress="return (event.charCode == 8 || event.charCode == 46) ? null : event.charCode >= 48 && event.charCode <= 57" required>
+
+            <span class="errr" *ngIf="maxwithamt.invalid && maxwithamt.touched && maxwithamt.errors?.required">Maximum amount is required</span>
+          </div>
+        </div>
+      </div>   
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Withdraw fee</label>
+        <div class="col-6">
+          <div class="custom-file">
+            <input type="text"  class="form-control" placeholder="Withdraw fee"
+            [(ngModel)]="editbanners.withdrawfee" name="withdrawfee" #withdrawfee="ngModel"  [class.form-control-danger]="withdrawfee.invalid && withdrawfee.touched" onkeypress="return (event.charCode == 8 || event.charCode == 46) ? null : event.charCode >= 48 && event.charCode <= 57" required>
+
+            <span class="errr" *ngIf="withdrawfee.invalid && withdrawfee.touched && withdrawfee.errors?.required">Withdraw fee is required</span>
+          </div>
+        </div>
+      </div>         
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Fee type</label>
+        <div class="col-6">
+          <div class="custom-file">
+            <select class="form-control" name="feetype" [(ngModel)]="editbanners.feetype" #feetype='ngModel'>
+              <option value=1>Percentage</option>
+              <option value=0>Amount</option>
+            </select>    
+          </div>
+        </div>
+      </div> 
+    </div>
+    <div class="modal-footer">
+        <button type="submit" *ngIf='edit_curr.valid' style="cursor: pointer;background-color:#30CE6A;" class="btn btn-info cursorcls">Submit</button>
+        <button type="submit" style="cursor: pointer;background-color:#30CE6A;" *ngIf='!edit_curr.valid' class="btn btn-info cursorcls" disabled="">Submit</button>    
+        <button type="button"  style="cursor: pointer;
+        background-color:#d9dce0;" class="btn btn-secondary cursorcls" (click)="c('Close click')" >Close</button>
+    </div>
+  </form>
+</ng-template>
