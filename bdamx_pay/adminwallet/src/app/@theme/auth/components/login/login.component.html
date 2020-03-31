@@ -1,0 +1,131 @@
+<style>
+  .login_form {
+  width: 310px;
+  }
+  .form-control-group {
+  margin-bottom: 20px;
+  }
+  .forgot-password { 
+  float: right;
+  padding: 0.375rem 0;
+  }
+  .login_form .btn-success {
+  background-image: -webkit-gradient(linear, left top, right top, from(#40dcb2), to(#40dc7e));
+  background-image: linear-gradient(to right, #40dcb2, #40dc7e);
+  -webkit-box-shadow: 0 0 0 0 #37bd83, 0 0 0 0 #40dc98;
+  box-shadow: 0 0 0 0 #37bd83, 0 0 0 0 #40dc98;
+  border-radius: 0.375rem;
+  text-shadow: none;
+  border: none;
+  line-height: calc((1rem * 1.25) + 4px);
+  outline: 0;
+  cursor: pointer;
+  }
+  .btn-block + .btn-block {
+  margin-top: 0;
+  }
+</style>
+<div><img src="{{sitelogo}}"  width="310px"/></div>
+<h1 id="title" class="title"></h1>
+<form (ngSubmit)="onSubmit(content)" #form="ngForm" aria-labelledby="title" class="login_form">
+<div class="form-control-group">
+  <label class="label" for="input-email">Email address:</label>
+  <input nbInput
+  fullWidth
+  [(ngModel)]="user.admin_emailid"
+  #admin_emailid="ngModel"
+  name="admin_emailid"
+  id="input-email"
+  pattern=".+@.+\..+"
+  placeholder="Email address"
+  autofocus
+  [status]="admin_emailid.dirty ? (admin_emailid.invalid  ? 'danger' : 'success') : ''"
+  required
+  [attr.aria-invalid]="admin_emailid.invalid && admin_emailid.touched ? true : null">
+  <ng-container *ngIf="admin_emailid.invalid && admin_emailid.touched">
+    <p class="error-message" *ngIf="admin_emailid.errors?.required">
+      Email is required!
+    </p>
+    <p class="error-message" *ngIf="admin_emailid.errors?.pattern">
+      Email should be the real one!
+    </p>
+  </ng-container>
+</div>
+<div class="form-control-group">
+  <label class="label" for="input-password">Password:</label>
+  <input nbInput
+  fullWidth
+  [(ngModel)]="user.admin_password"
+  #admin_password="ngModel"
+  name="admin_password"
+  type="password"
+  id="input-password"
+  placeholder="Password"
+  [status]="admin_password.dirty ? (admin_password.invalid  ? 'danger' : 'success') : ''"
+  required
+  [minlength]="8"
+  [maxlength]="40"
+  [attr.aria-invalid]="admin_password.invalid && admin_password.touched ? true : null">
+  <ng-container *ngIf="admin_password.invalid && admin_password.touched ">
+    <p class="error-message" *ngIf="admin_password.errors?.required">
+      Password is required!
+    </p>
+    <!--  <p class="error-message" *ngIf="password.errors?.minlength || password.errors?.maxlength">
+      Password should contains 8 characters ,atleast 1 Upper case,1 Lower Case 1 Number and 1 Special character.Space are not allowed
+      </p> -->
+  </ng-container>
+</div>
+<div class="form-group">
+  <div class="control-group">
+    <div id="patternContainer"></div>
+    <input type="hidden" name="pattern_code" id="patterncode">
+  </div>
+</div>
+<div class="form-control-group accept-group">
+  <nb-checkbox name="rememberMe" [(ngModel)]="user.rememberMe"  checked="user.rememberMe">Remember me</nb-checkbox>
+  <!-- <a class="forgot-password" routerLink="../request-password">Forgot Password?</a> -->
+</div>
+<button nbButton
+fullWidth
+status="success"
+[disabled]="submitted || !form.valid"
+[class.btn-pulse]="submitted">
+Log In
+</button>
+</form>
+<ng-template #content class="modal-dialog modal-lg" let-c="close" let-d="dismiss">
+  <div class="modal-header modal-var">
+    <h4 class="modal-title" id="modal-basic-title">Login OTP</h4>
+    <button type="button" class="close" aria-label="Close"
+      (click)="d('Cross click')" ngbTooltip="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="dateOfBirth">Please enter OTP</label>
+        <div class="input-group">
+          <input name="otp" class="form-control" [(ngModel)]="user.otp" placeholder="Enter OTP" >
+        </div>
+      </div>
+      <div class="google_captcha">
+        <re-captcha (resolved)="resolved($event)" siteKey="6Le5aacUAAAAAMqbpZO0FEgXMwE_I72g-dOD5gpF"></re-captcha>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-block btn-hero-success" (click)="ResendOTP(content)">Resend OTP</button>
+    <button type="button" class="btn btn-block btn-hero-success" (click)="SaveOTP()">Login</button>
+  </div>
+</ng-template>
+<ng-template #loaderModal class="modal-dialog modal-lg" >
+  <div class="modal-body">
+    <form>
+      <div class="form-group" style="padding-left: 8em">
+        <img style="padding-left: 4em" src="assets/images/loader.gif" height="90px" />
+        <div>You are logging in. Please Wait</div>
+      </div>
+    </form>
+  </div>
+</ng-template>

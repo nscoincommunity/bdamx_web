@@ -1,0 +1,633 @@
+        <div class="wrapper"> 
+        <app-header></app-header>
+            <section class="banner-sec"> 
+                <div class="banner-text">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="banner-inner">
+                                    <div id="carouselExampleIndicators" class="carousel slide"  data-interval="false" data-ride="carousel"> 
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <div class="banner-box">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="text-box">
+                                                                <h1>BDAM<span>Pay</span></h1>
+                                                                <p> A state-of-the-art payment network serving as the bridge between the cryptocurrency world and the real world, to satisfy the demands of all sorts of consumers and merchants. </p>
+                                                                <div class="app-storer-btn">
+                                                                    <a  data-toggle="modal" data-target="#coming_soon" style="cursor:pointer;"><img src="assets/images/app-store-btn.svg" alt="" /></a>
+                                                                    <a  data-toggle="modal" data-target="#coming_soon" style="cursor:pointer;"><img src="assets/images/google-play-btn.svg" alt="" /></a>
+                                                                </div>
+                                                                <div class="slide-btn">
+                                                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                                                        <span class="carousel-control-prev-icon" aria-hidden="true"><i class="fa fa-chevron-left"></i></span> 
+                                                                    </a>
+                                                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                                                        <span class="carousel-control-next-icon" aria-hidden="true"><i class="fa fa-chevron-right"></i></span> 
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="image-holder">
+
+
+                                                                <!-- <img  src="assets/images/banner-slide-img1.png" alt="" /> -->
+
+                                                                <img  src="assets/images/2.png" alt="" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <div class="banner-box banner-box-second">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="text-box">
+                                                                <h1>BDAM<span>Pay</span></h1>
+                                                                <p> Providing an efficient, blockchain-based p-ayment system without compromising security while seamlessly connecting merchants, consumers, and developers. </p>
+                                                                <ul>
+                                                                    <li class="bdam-bank-btn"><a data-toggle="modal" data-target="#coming_soon" style="cursor:pointer;">BDAM Bank </a></li>
+                                                                    <li><a href="https://www.bdamx.net" target="_blank">BDAMX</a></li> 
+                                                                </ul>
+                                                                <div class="slide-btn">
+                                                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                                                        <span class="carousel-control-prev-icon" aria-hidden="true"><i class="fa fa-chevron-left"></i></span> 
+                                                                    </a>
+                                                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                                                        <span class="carousel-control-next-icon" aria-hidden="true"><i class="fa fa-chevron-right"></i></span> 
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <!-- <div class="image-holder card-holder">
+                                                                <ul>
+                                                                    <li style="transition-delay: 1.5s;"><img src="assets/images/red-card.png" alt="" /></li>
+                                                                    <li style="transition-delay: 1s;"><img src="assets/images/white-card.png" alt="" /></li>
+                                                                    <li style="transition-delay: 0.5s;"><img src="assets/images/black-card.png" alt="" /></li>
+                                                                </ul>
+                                                            </div> -->
+															<div class="image-holder">
+                                                                <img  src="assets/images/bdampay-card_app.png" alt="" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="socail-media" *ngIf="siteData">
+
+                        <ul>
+                            <li><a href="{{siteData.telegram}}" target="_blank"><i class="fa fa-paper-plane"></i></a></li>
+                            <li><a href="{{siteData.twitter}}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="{{siteData.youtube}}" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                            <li><a href="{{siteData.media}}" target="_blank"><i class="fa fa-medium"></i></a></li>
+                            <li><a href="{{siteData.redit}}" target="_blank"><i class="fa fa-reddit"></i></a></li>
+                            <li><a href="{{siteData.linked_in}}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="{{siteData.github}}" target="_blank"><i class="fa fa-github-alt"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="bitcoin-price-sec">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="bitcoin-price-inner">
+                                <ul *ngIf="currencyData">
+                                    <li *ngFor="let items of currencyData">
+                                        <div class="text-inner">
+                                            <div class="bitcoin-price-box">
+                                                <div class="image-holder">
+                                                    <img src="{{items.image}}" alt="" />
+                                                </div>
+                                                <div class="text-box">
+                                                    <h4>{{items.currencyName}}</h4>
+                                                </div>
+                                            </div>
+                                            <h3>${{items.usd_price |number:'1.2-2'}}</h3>
+                                            <span>{{items.hr_vl |number:'1.2-2' }} ({{items.hr_change |number:'1.2-2'}}%) | 24h</span>
+                                        </div>
+                                    </li>
+                               
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="about-us" class="about-us-sec" *ngIf="aboutUs">
+                <div class="container">
+                    <div class="row">
+                        <div  class="col-md-6">
+                            <div class="image-holder">
+                                <a href="#"  data-toggle="modal" data-target="#exampleModal12"> 
+									<img src="assets/images/macbook.png" alt="" /> 
+									<span class="video-play-icon" href="#" data-toggle="modal" data-target="#exampleModal13">
+										<img src="assets/images/play-button.svg" alt="" />
+									</span>
+								</a>
+                            </div>
+                        </div>
+                        <div  class="col-md-6">
+                            <div class="text-box">
+                                <h3>{{aboutUs.page_heading}}</h3>
+                                <p [innerHtml]="aboutUs.page_content"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="vision-sec">
+                <div class="container">
+                    <div class="row" *ngIf="newsData">
+                        <div class="col-md-4" *ngFor="let items of newsData">
+                            <div class="text-box">
+                                <h3>{{items.title}}</h3>
+                                <p>{{items.content}}</p>
+                            </div>
+                        </div>
+               
+                    </div>
+                </div>
+            </section>
+            <section id="dapp-store" class="blockchain-drop-sec" *ngIf="blockChain">
+                <div class="container">
+                    <div class="row"> 
+                        <div class="col-12">
+                            <div class="blockchain-drop-inner">
+                                <div class="text-box">
+                                    <h3>Blockchain App <span>(Dapp)</span> Store</h3>
+                                    <p [innerHtml]="blockChain.page_content"></p>
+                                    
+                                    <a data-toggle="modal" data-target="#coming_soon" style="cursor:pointer;">VISIT DAPP STORE</a>
+                                </div>
+                                <div class="image-holder">
+                                    <img src="{{blockChain.image_url}}" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="benefit-developer-sec">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="benefit-developer-inner">
+                                <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Benefits for users</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Benefits for developers</a>
+                                    </li> 
+                                </ul>
+                                <div class="tab-content" id="pills-tabContent">
+                                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                                        <div class="benefit-user" *ngIf="benefitUsers">
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-6" *ngFor="let items of benefitUsers">
+                                                    <div class="benefit-user-box">
+                                                        <div class="image-holder">
+                                                            <img src="{{items.image}}" alt="" />
+                                                        </div>
+                                                        <div class="text-box">
+                                                            <p>{{items.content}}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                              </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                        <div class="benefit-user benefit-developer" *ngIf="benefitsData">
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-6" *ngFor="let items of benefitsData">
+                                                    <div class="benefit-user-box">
+                                                        <div class="image-holder">
+                                                            <img src="{{items.image}}" alt="" />
+                                                        </div>
+                                                        <div class="text-box">
+                                                            <p>{{items.content}}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="problem" class="existing-market-sec">
+                <div class="container-fluid p-0">
+                    <div class="row no-gutters">
+                        <div class="col-md-6">
+                            <div  class="existing-side">
+                                <h2><span>Problems</span> with existing markets</h2>
+                                <ul *ngIf="marketProblems">
+                                    <li *ngFor="let items of marketProblems">
+                                        <h3>{{items.description}} </h3>
+                                        <p>{{items.content}}  </p>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="existing-side market-side">
+                                <h2><span>Solutions</span> in the market </h2>
+                                <ul *ngIf="marketSolutions">
+                                    <li *ngFor="let items of marketSolutions">
+                                        <h3>{{items.description}}</h3>
+                                        <p>{{items.content}} </p>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="get-paid-sec" *ngIf="paidinData">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="get-paid-inner">
+                                <h2>Get Paid in</h2>
+                                <ul>
+                                    <li *ngFor="let items of paidinData">
+                                        <div class="get-paid-box">
+                                            <a href="#"><img src="{{items.image}}" alt="" style="height:71px"/></a>
+                                        </div>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="features" class="platform-feature-sec" *ngIf="featureData">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="platform-feature-inner">
+                                <h2>Platform Features </h2>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6" *ngFor="let items of featureData">
+                                        <div class="platform-feature-box">
+                                            <h3>{{items.title}}</h3>
+                                            <p>{{items.content}}</p>
+                                        </div>
+                                    </div>
+                          
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="bdam-pay" class="bdampay-sec">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12"> 
+                            <div class="bdampay-inner">
+                                <div class="row">
+
+                                    <div class="col-md-6 order-md-2">
+                                        <div class="bdampay-left">
+                                            <div class="text-box">
+                                                <h2>Getting Started with  <span>BDAM Pay</span></h2>
+                                            </div>
+                                            <ul class="nav nav-pills" id="pills-tab2" role="tablist">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" id="pills-step1-tab" data-toggle="pill" href="#pills-step1" role="tab" aria-controls="pills-step1" aria-selected="true">
+                                                        <div class="steps-box">
+                                                            <span><img src="assets/images/api-icon.svg" alt="" /></span>
+                                                            <div class="text-box">
+                                                                <h3>Step 1</h3>
+                                                                <p>Integrate our easy to implement API into your online store. Set the price for your products and choose the currency you want to accept e.g. Bitcoin and Eth. </p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="pills-step2-tab" data-toggle="pill" href="#pills-step2" role="tab" aria-controls="pills-step2" aria-selected="false">
+                                                        <div class="steps-box">
+                                                            <span><img src="assets/images/cross-chain-icon.svg" alt="" /></span>
+                                                            <div class="text-box">
+                                                                <h3>Step 2</h3>
+                                                                <p>BDAM Pay is integrated with BDAM Exchange, helping us calculate real-time prices and allowing direct crypto conversion. </p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="pills-step3-tab" data-toggle="pill" href="#pills-step3" role="tab" aria-controls="pills-step3" aria-selected="false">
+                                                        <div class="steps-box">
+                                                            <span><img src="assets/images/paymeny-coin-icon.svg" alt="" /></span>
+                                                            <div class="text-box">
+                                                                <h3>Step 3</h3>
+                                                                <p>The customer selects the product and pays with his preferred currency e.g., USD. The amount is directly converted into Bitcoin.</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="pills-step4-tab" data-toggle="pill" href="#pills-step4" role="tab" aria-controls="pills-step4" aria-selected="false">
+                                                        <div class="steps-box">
+                                                            <span><img src="assets/images/payment-instant-icon.svg" alt="" /></span>
+                                                            <div class="text-box">
+                                                                <h3>Step 4</h3>
+                                                                <p>You receive the amount in your wallet.</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 order-md-1">
+                                        <div class="bdampay-right">
+										 <div class="text-box">
+                                                <h2>&nbsp;</h2>
+                                            </div>
+                                            <div class="tab-content" id="pills-tabContent2">
+                                                <div class="tab-pane fade show active" id="pills-step1" role="tabpanel" aria-labelledby="pills-step1-tab">
+                                                    <div class="image-holder">
+
+                                                        <!-- <img class="img-fluid" src="assets/images/step01.png" alt="" /> -->
+
+                                                        <img class="img-fluid" src="assets/images/1.png" alt="" />
+                                                    </div> 
+                                                </div>
+                                                <div class="tab-pane fade" id="pills-step2" role="tabpanel" aria-labelledby="pills-step2-tab">
+                                                    <div class="image-holder">
+                                                        <img class="img-fluid" src="assets/images/step02.png" alt="" />
+                                                    </div> 
+                                                </div>
+                                                <div class="tab-pane fade" id="pills-step3" role="tabpanel" aria-labelledby="pills-step3-tab">
+                                                    <div class="image-holder">
+                                                        <img class="img-fluid" src="assets/images/step03.png" alt="" />
+                                                    </div> 
+                                                </div>
+                                                <div class="tab-pane fade" id="pills-step4" role="tabpanel" aria-labelledby="pills-step4-tab">
+                                                    <div class="image-holder">
+                                                        <img class="img-fluid" src="assets/images/step04.png" alt="" />
+                                                    </div> 
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="application-industry-sec">
+                <div class="container">
+                    <div class="row">
+                        <div  class="col-md-12">
+                            <div class="text-box">
+                                <h2 class="text-center">Platform Application Industry </h2>
+                                <span class="text-center">Industry Applications of BDAM Pay (or BDAM Pay Use Cases)</span>
+								 <div class="img-holder text-center">
+									<img class="img-fluid" src="assets/images/cards.png" alt="" style="width:600px;"/>
+								</div>
+                                
+                            </div>
+                        </div>
+						<div class="col-md-6">
+							<div class="text-box">
+							<ul>
+                                    <li>Make payments across all sorts of retail stores accepting BDAM Pay</li>
+                                    <li>Online payments across associated merchants and ecommerce stores </li>
+                                    <li>Make online payments for services  </li>
+                                    <li>Pay your utility bills including but not limited to electricity, water and gas.</li>
+                                    <li>Recharge any prepaid mobile in fewer steps. Find the best and latest recharge plans as well as repeat recharge in one tap. Just link your biller accounts once to pay your bill with just a few taps.</li>
+                                    
+                                </ul>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="text-box">
+							<ul>
+                                   
+                                    <li>Recharge your mobile or internet </li>
+                                    <li>Spend across vending machines</li>
+                                    <li>Book Tickets for hotels, trains, and airlines with associated merchants </li>
+                                    <li>Use as peer to peer transfer and exchange of value </li>
+                                    <li>Remit money across the globe with BDAM Pay</li> 
+                                </ul>
+							</div>
+						
+						</div>
+                        <!-- <div  class="col-md-4">
+                            <div class="img-holder">
+                                <img class="img-fluid" src="assets/images/industry-img.png" alt="" />
+                            </div>
+                        </div> -->
+                    </div>
+                </div>    
+            </section>
+            <section class="application-industry-sec opportunity-sec" *ngIf="marketOpportunity">
+                <div class="container">
+                    <div class="row">
+                        <div  class="col-md-6">
+                            <div class="img-holder">
+                                <img class="img-fluid" src="{{marketOpportunity.image_url}}" alt="" />
+                            </div>
+                        </div>
+                        <div  class="col-md-6">
+                            <div class="text-box">
+                                <h2>{{marketOpportunity.page_heading}}</h2> 
+                                <p [innerHtml]="marketOpportunity.page_content"></p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>    
+            </section>
+            <section id="target-market" class="comparison-sec">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="comparison-inner">
+                                <h2>Competitive Comparison </h2>
+                                <div class="comparison-list">
+                                    <ul>
+                                        <li class="comparison-first">
+                                            <div class="comparison-box">
+                                                <h3>Comparison </h3>
+                                                <h4>Description</h4>
+                                                <p>Crypto Support</p>
+                                                <p>Processing time</p>
+                                                <p>Fee</p>
+                                                <p>API Integration</p>
+                                                <p>Permissonless</p>
+                                                <p>Trustless</p>
+                                                <p>Built-In Hybrid Exchange</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="comparison-box">
+                                                <div class="image-holder">
+                                                    <img src="assets/images/square.svg" alt="" />
+                                                </div>
+                                                <h4>Square</h4>
+                                                <p>No</p>
+                                                <p>1-2 Days</p>
+                                                <p>2.9% + $0.3</p>
+                                                <p>Hard</p>
+                                                <p>No</p>
+                                                <p>No</p>
+                                                <p>No</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="comparison-box">
+                                                <div class="image-holder">
+                                                    <img src="assets/images/paypal.svg" alt="" />
+                                                </div>
+                                                <h4>PayPal</h4>
+                                                <p>No</p>
+                                                <p>3-5 Days</p>
+                                                <p>~ 3%</p>
+                                                <p>Hard</p>
+                                                <p>No</p>
+                                                <p>No</p>
+                                                <p>No</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="comparison-box">
+                                                <div class="image-holder">
+                                                    <img src="assets/images/stripe.svg" alt="" />
+                                                </div>
+                                                <h4>Stripe</h4>
+                                                <p>No</p>
+                                                <p>2-4 Days</p>
+                                                <p>2.9%</p>
+                                                <p>Hard</p>
+                                                <p>No</p>
+                                                <p>No</p>
+                                                <p>No</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="comparison-box">
+                                                <div class="image-holder">
+                                                    <img src="assets/images/bitpay.svg" alt="" />
+                                                </div>
+                                                <h4>BitPay</h4>
+                                                <p>Yes</p>
+                                                <p>15-90 Mins</p>
+                                                <p>1%</p>
+                                                <p>Easy</p>
+                                                <p>No</p>
+                                                <p>No</p>
+                                                <p>No</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="comparison-box defbx">
+                                                <div class="image-holder">
+                                                    <img src="assets/images/bdam-coin.svg" alt="" />
+                                                </div>
+                                                <h4>BDAM Pay</h4>
+                                                <p class="wht_cr">Yes</p>
+                                                <p class="wht_cr">10-30 Mins</p>
+                                                <p class="wht_cr">0.5%</p>
+                                                <p class="wht_cr">Easy</p>
+                                                <p class="wht_cr">Yes</p>
+                                                <p class="wht_cr">Yes</p>
+                                                <p class="wht_cr">Yes</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="press-mentions-sec">
+                <div class="container">
+                    <div class="row mx-0">
+                        <div class="col-12">
+                            <div class="press-mentions" *ngIf="pressData?.length > 0">
+                                <h2>Press Mentions</h2>
+                        
+                                <ul>
+                                        <li *ngFor="let slide of pressData; let index=index"> 
+                                            <a href="#"><img [src]="slide.image" alt="" style="height:35px" /></a> 
+                                        </li>
+                                       
+                                </ul>
+                            </div>
+                            <div class="press-mentions" *ngIf="strategicData?.length > 0">
+                                <h2>Strategic Partnerships</h2>
+                           
+                              <!--   <ul>
+                                        <li *ngFor="let slide of strategicData; let index=index"> 
+                                            <a href="#"><img [src]="slide.image" alt="" style="height:86px" /></a> 
+                                        </li>
+                                       
+                                </ul> -->
+                                <ul>
+                                    
+                                    <li> <a href="https://zapaygo.com" target="_blank"><img src="assets/images/zapaygo.png" alt="" /></a> </li>
+                                    <li> <a href="https://veltrust.com" target="_blank"><img src="assets/images/Veltrust_Logo.png" alt="" /></a> </li>
+                                    <li> <a href="https://smartcredit.io" target="_blank"><img src="assets/images/smartcredit_logo.png" alt="" /></a> </li>
+                                    <li> <a href="https://www.osiztechnologies.com" target="_blank"><img src="assets/images/osiz-logo.png" alt="" /></a> </li>
+                                   
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="contact-us" class="contact-us-sec">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="text-box">
+                                <h2>Contact Us</h2>
+                                <p>We'd like to hear from you. Don't hesitate to get in contact with us, 
+                                    no matter your request. We are here to help you.
+                                </p>
+                                <div class="socail-icon">
+                                      <ul *ngIf="siteData">
+                                        <li><a href="{{siteData.telegram}}" target="_blank"><i class="fa fa-paper-plane"></i></a></li>
+                                        <li><a href="{{siteData.twitter}}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="{{siteData.youtube}}" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                                        <li><a href="{{siteData.media}}" target="_blank"><i class="fa fa-medium"></i></a></li>
+                                        <li><a href="{{siteData.redit}}" target="_blank"><i class="fa fa-reddit"></i></a></li>
+                                        <li><a href="{{siteData.linked_in}}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="{{siteData.github}}" target="_blank"><i class="fa fa-github"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+ <app-footer></app-footer>
+</div>

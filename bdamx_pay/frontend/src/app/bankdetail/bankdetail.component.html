@@ -1,0 +1,208 @@
+<div class="container-fluid px-0 font-inner-style">
+<app-dashboard-header></app-dashboard-header>
+<div class="row mx-0">
+  <div class="col-12 col-lg-2 col-xl-2 col-xl-responsive-2 px-0 d-flex">
+<app-sidebar class="w-100 left_bg_green full-height"></app-sidebar>
+</div>
+  <div class="col-12 col-lg-10 col-xl-10 col-xl-responsive-10 px-0 px-md-0 d-flex flex-column">
+    <div class="row mx-0 w-100 my-1" *ngIf="!currencyStatus">
+      <div class="col-12 pl-0 pl-md-3 pr-0 d-flex mt-2 ipad_col_6">
+        <div class="card w-100 border-0 shadow">
+          <div class="card-body px-0">
+            <p class="font_16 px-5 font_weight_400 text_black_1">Add / Edit Bank Details</p>
+         
+            <form #bankform="ngForm" (ngSubmit)="bankform.form.valid && saveBank(bankform) ">
+            <div class="row mx-0 px-5 pt-5">
+            <div class="col-12 col-md-6">
+            <div class="form-group row">
+            <label for="staticEmail" class="col-12 col-md-5 col-lg-5 px-0 col-form-label text_light_grey font_14 font_weight_400">Currency</label>
+            <div class="col-12 col-md-7 col-lg-7 pl-0">
+            <select class="form-control shadow-lg-light form-control-lg w-100 border-0 shadow"  name="currencyName" [(ngModel)]="bank.currencyName" #currencyName="ngModel"  (change)="currencySelected($event.target.value)"  required id="exampleFormControlSelect1" required>
+                          <option value="">--Select Currency--</option>
+                          <option *ngFor="let currency of currencyData" value="{{currency.currencySymbol}}">{{currency.currencySymbol}}</option>                        
+                    </select>
+            </div>
+             <p class="text-danger" *ngIf="(currencyName.invalid && bankform.submitted) || currencyName.touched">
+                <span *ngIf="currencyName.errors?.required">Currency is required</span>
+            </p>
+            </div>
+            </div>
+              
+            <div class="col-12 col-md-6">
+            <div class="form-group row">
+            <label for="staticEmail" class="col-12 col-md-5 col-lg-5 px-0 col-form-label text_light_grey font_14 font_weight_400">Country</label>
+            <div class="col-12 col-md-7 col-lg-7 pl-0">
+             <select class="form-control shadow-lg-light form-control-lg w-75 border-0 shadow" id="exampleFormControlSelect1" name="country" #country="ngModel" [(ngModel)]="bank.country" (change)="countrySelected($event.target.value)" required>
+                    <option value=""> --- Choose Country --- </option>
+                    <option *ngFor="let country of countryList" value="{{country.name}}">{{country.name}}</option>                    
+              </select>
+            </div>
+             <p class="text-danger" *ngIf="(country.invalid && bankform.submitted) || country.touched">
+                <span *ngIf="country.errors?.required">Country is required</span>
+            </p>
+            </div>
+            </div>
+
+            </div>
+
+
+
+            <div class="row mx-0 px-5 pt-5">
+            <div class="col-12 col-md-6">
+            <div class="form-group row">
+            <label for="staticEmail" class="col-12 col-md-5 col-lg-5 px-0 col-form-label text_light_grey font_14 font_weight_400">Bank Name</label>
+            <div class="col-12 col-md-7 col-lg-7 pl-0">
+          <div class="input-group mb-3 input-group-lg shadow">
+         <select class="form-control shadow-lg-light form-control-lg w-75 border-0 shadow" id="exampleFormControlSelect1" name="bankName" #bankName="ngModel" [(ngModel)]="bank.bankName" (change)="bankSelected($event.target.value)" required>
+                    <option value=""> --- Choose Bank --- </option>
+                    <option *ngFor="let bank of bankList" value="{{bank.bank}}">{{bank.bank}}</option>                    
+              </select>
+        
+          </div>
+          <p class="text-danger" *ngIf="(bankName.invalid && bankform.submitted) || bankName.touched">
+                <span *ngIf="bankName.errors?.required">Bank is required</span>
+                 <span *ngIf="bankName.errors?.pattern">Invalid input</span>
+                 <span *ngIf="bankName.errors?.minlength">Bank Name must have minimum 3 characters</span>
+                 <span *ngIf="bankName.errors?.maxlength">Bank Name should not exceed 25 characters</span>
+            </p>
+            </div>  
+            </div>
+            </div>
+            <div class="col-12 col-md-6">
+            <div class="form-group row">
+            <label for="staticEmail" class="col-12 col-md-5 col-lg-5 px-0 col-form-label text_light_grey font_14 font_weight_400">Branch</label>
+            <div class="col-12 col-md-7 col-lg-7 pl-0">
+             <select class="form-control shadow-lg-light form-control-lg w-75 border-0 shadow" id="exampleFormControlSelect1" name="branch" #branch="ngModel" [(ngModel)]="bank.branch" (change)="branchSelected($event.target.value)" required>
+                    <option value=""> --- Choose Branch --- </option>
+                    <option *ngFor="let branch of branches" value="{{branch.branch}}">{{branch.branch}}</option>                    
+              </select>
+            </div>
+             <p class="text-danger" *ngIf="(branch.invalid && bankform.submitted) || branch.touched">
+                <span *ngIf="branch.errors?.required">Branch is required</span>
+            </p>
+            </div>
+            </div></div>
+            <div class="row mx-0 px-5 pt-5">
+            <div class="col-12 col-md-6">
+            <div class="form-group row">
+            <label for="staticEmail" class="col-12 col-md-5 col-lg-5 px-0 col-form-label text_light_grey font_14 font_weight_400">Account Holder Name</label>
+            <div class="col-12 col-md-7 col-lg-7 pl-0">
+            <input type="text" class="form-control form-control-lg shadow border-0 w-100 black_placeholder_small" pattern="[a-zA-Z0-9\s_@.,]+" minlength="3" maxlength="25"  name="accountName" [(ngModel)]="bank.accountName" #accountName="ngModel" onkeypress='return (event.charCode > 96 && event.charCode < 123) || (event.charCode > 64 && event.charCode < 91) || (event.charCode >= 48 && event.charCode <= 57) || event.charCode <= 31' placeholder="Enter Account Holder Name" required>
+            </div>
+            <p class="text-danger" *ngIf="(accountName.invalid && bankform.submitted) || accountName.touched">
+                <span *ngIf="accountName.errors?.required">Account Name is required</span>
+                <span *ngIf="accountName.errors?.pattern">Invalid Input</span>
+                <span *ngIf="bankName.errors?.minlength">Account Holder Name must have minimum 3 characters</span>
+                 <span *ngIf="bankName.errors?.maxlength">Account Holder Name should not exceed 25 characters</span>
+            </p>
+            </div>
+            </div>
+            <div class="col-12 col-md-6">
+            <div class="form-group row">
+            <label for="staticEmail" class="col-12 col-md-5 col-lg-5 px-0 col-form-label text_light_grey font_14 font_weight_400">Account / IBAN Number</label>
+            <div class="col-12 col-md-7 col-lg-7 pl-0">
+          <div class="input-group mb-3 input-group-lg shadow">
+            	<input type="text" class="form-control form-control-lg shadow border-0 w-100 black_placeholder_small" pattern="[a-zA-Z0-9\s_@.,]+" name="accountNumber" [(ngModel)]="bank.accountNumber" #accountNumber="ngModel" aria-describedby="basic-addon2" onkeypress='return (event.charCode > 96 && event.charCode < 123) || (event.charCode > 64 && event.charCode < 91) || (event.charCode >= 48 && event.charCode <= 57) || event.charCode <= 31' #accountNumber="ngModel" aria-describedby="basic-addon2" placeholder="Enter Account / IBAN Number" required>
+           
+          </div>
+          <p class="text-danger" *ngIf="(accountNumber.invalid && bankform.submitted) || accountNumber.touched">
+                <span *ngIf="accountNumber.errors?.required">Account / IBAN Number is required</span>
+                <span *ngIf="accountNumber.errors?.pattern">Invalid Input</span>
+            </p>
+            </div>  
+            </div>
+            </div>
+            </div>
+
+
+             <div class="row mx-0 px-5 pt-5">
+            <div class="col-12 col-md-6">
+            <div class="form-group row">
+            <label for="staticEmail" class="col-12 col-md-5 col-lg-5 px-0 col-form-label text_light_grey font_14 font_weight_400">IFSC / Swift Code</label>
+            <div class="col-12 col-md-7 col-lg-7 pl-0">
+               <input type="text" class="form-control form-control-lg shadow border-0 w-100 black_placeholder_small" pattern="[a-zA-Z0-9\s_@.,]+" onkeypress='return (event.charCode > 96 && event.charCode < 123) || (event.charCode > 64 && event.charCode < 91) || (event.charCode >= 48 && event.charCode <= 57) || event.charCode <= 31' name="ifscCode" [(ngModel)]="bank.ifscCode" #ifscCode="ngModel" aria-describedby="basic-addon2" placeholder="Enter IFSC / Swift Code" required>
+            </div>
+            <p class="text-danger" *ngIf="(ifscCode.invalid && bankform.submitted) || ifscCode.touched">
+                <span *ngIf="ifscCode.errors?.required">IFSC / Swift code is required</span>
+                <span *ngIf="ifscCode.errors?.pattern">Invalid Input</span>
+            </p>
+            </div>
+            </div>
+            </div>
+           <div class="text-center">
+         <button type="submit" class="btn btn-light-green btn-big-bg my-4 font_weight_500" *ngIf="!editData">Add</button>
+         <button type="submit" class="btn btn-light-green btn-big-bg my-4 font_weight_500" *ngIf="editData">Edit</button>
+        </div>
+            </form>           
+           
+      
+      
+       </div>
+
+       </div>
+      </div>
+      
+    </div>
+
+      <div class="row mx-0 my-2 row_position" *ngIf="currencyStatus">
+            <p class="font_16 font_weight_500 px-4" style="color: red;">All Currencies are disabled</p>
+         
+            
+         </div>
+         
+    <div class="row mx-0 my-2 row_position">
+      <p class="font_16 font_weight_500 px-4">User Bank History</p>
+       <span class="position-icon">
+      
+    </span>
+   
+            <div class="w-100 px-4 table-responsive withdraw-table">
+            <table id="example" class="display table-striped table-striped-reverse example_datatable ex_dt_large" style="width:100%">
+        <thead>
+            <tr>
+               <th>S.No</th>
+              <th>Currency</th>
+              <th>Bank</th>             
+              <th>Account Holder Name</th>
+              <th>Account Number</th>
+              <th>IFSC Code</th>
+              <th>Branch</th>
+              <th>Country</th>
+              <th>Date & Time</th>
+              <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let items of bankDetails; let i = index">
+            <td class="text_black_1">{{i + 1}}</td>
+            <td class="text_black_1">{{items.currencysymbol}}</td>
+            <td class="text_black_1">{{items.bank}}</td>           
+            <td class="text_light_grey">{{items.accountname}}</td>
+<td class="text_black_1">{{items.accountnumber}}</td>
+<td class="text_black_1">{{items.ifsccode}}</td>          
+            <td><span class="text_black">{{items.branch}}</span></td>  
+            <td class="text_light_grey">{{items.country}}</td>
+            <td class="text_light_green">{{items.datetime | date: 'medium'}}</td>
+            <td *ngIf="items.status == '0'" class="text-orange">Processing</td>
+            <td *ngIf="items.status == '1'" class="text-text_light_green">Completed</td>
+            <td *ngIf="items.status == '2'" class="text-red-status">Cancelled</td>
+            <td *ngIf="items.status == '3'" class="text-orange">Pending</td>
+            <td>
+              <i class="fa fa-edit" (click)="editBank(items)"></i>
+              <!-- <i class="fa fa-trash" (click)="deleteBank(items)"></i> -->
+            </td>
+            </tr>
+            <tr *ngIf="bankDetails?.length === 0">
+              <td colspan="9" style="text-align: center;">No Records Found</td>
+            </tr>
+        </tbody>
+        
+        
+    </table>
+ 
+    </div>
+  </div>
+  
+</div>
+
+</div>

@@ -1,0 +1,124 @@
+<!-- <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,600,700,900&display=swap" rel="stylesheet">
+<div class="container-fluid padd-zero px-0">
+         <nav class="header navbar homeHeader navbar-dark navbar-expand-xl fixed-top">
+            <a class="navbar-brand" href="#" *ngIf="siteLogo"><img class="logo-top" [src]="siteLogo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+               <ul class="navbar-nav ml-auto">
+                  
+                  <li class="nav-item">
+                      <a class="nav-link nav-menu-link"  href="#about-us">ABOUT US</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link nav-menu-link" href="#bdam-pay">BDAM PAY</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link nav-menu-link" href="#dapp-store">DAPP STORE</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link nav-menu-link" href="#problem">PROBLEM & SOLUTIONS</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link nav-menu-link" href="#features">FEATURES</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link nav-menu-link" href="#target-market">TARGET MARKET</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link nav-menu-link" href="#contact-us">CONTACT US</a>
+                  </li>
+
+                 
+
+                  <li class="nav-item" *ngIf="!loghead">
+                     <a class="nav-link nav-menu-link" [routerLinkActive]="['active']" routerLink="/login">LOGIN</a>
+                  </li>
+
+                  <li class="nav-item" *ngIf="!loghead">
+                     <a class="nav-link nav-menu-link" [routerLinkActive]="['active']" routerLink="/signup">SIGNUP</a>
+
+                  </li>
+
+                  <li class="nav-item" *ngIf="loghead">
+                     <a class="nav-link nav-menu-link" [routerLinkActive]="['active']" routerLink="/balance"><span>HI {{username}}</span></a>
+
+                  </li>
+              
+               </ul>
+               <div class="dropdown">
+                  <button class="btn btn-lang" type="button" data-toggle="dropdown"><img src="assets/images/united-kingdom.svg"> ENG
+                  <span class="caret"></span></button>
+                  <ul class="dropdown-menu dropdown-lang">
+                     <li><a href="#"><img src="assets/images/united-kingdom.svg"> ENG</a></li>
+                  </ul>
+               </div>
+            </div>
+         </nav>
+      </div> -->
+
+
+       <header class="header">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="navigation">
+                                <nav class="navbar navbar-expand-xl navbar-light">
+                                    <a class="navbar-brand" routerLink="/" *ngIf="siteLogo"><img class="logo-top" [src]="siteLogo"></a>
+                                    <a class="navbar-brand" routerLink="/" *ngIf="!siteLogo"><img src="assets/images/logo.svg" alt="" /></a>
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+
+                                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                        <ul class="navbar-nav ml-auto">
+                                            <li class="nav-item">
+                                                <a class="nav-link scroll" href="#about-us">About Us</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link scroll" href="#bdam-pay">BDAM Pay</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link scroll" href="#dapp-store">Dapp store</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link scroll" href="#problem">problem & solutions</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link scroll" href="#features">FEATURES</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link scroll" href="#target-market">TARGET MARKET</a>
+                                            </li> 
+                                            <li class="nav-item">
+                                                <a class="nav-link scroll" href="#contact-us">CONTACT US</a>
+                                            </li>
+                                            <li class="nav-item" *ngIf="!loghead">
+                                                <a class="nav-link nav-menu-link" [routerLinkActive]="['active']" routerLink="/login">LOGIN</a>
+                                             </li>
+                           
+                                             <li class="nav-item" *ngIf="!loghead">
+                                                <a class="nav-link nav-menu-link" [routerLinkActive]="['active']" routerLink="/signup">SIGNUP</a>
+                           
+                                             </li>
+                           
+                                             <li class="nav-item" *ngIf="loghead">
+                                                <a class="nav-link nav-menu-link" [routerLinkActive]="['active']" routerLink="/balance"><span>HI {{username}}</span></a>
+                           
+                                             </li>
+                                            
+
+                                        </ul>
+                                        <div class="nav-country">
+                                            <ul> 
+                                                <li class="language-btn"><a href="#"><img src="assets/images/united-kingdom-icon.svg" alt="" /> ENG</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>

@@ -1,0 +1,126 @@
+<div class="container-fluid px-0 font-inner-style">
+<app-dashboard-header></app-dashboard-header>
+<div class="row mx-0">
+<div class="col-12 col-lg-2 col-xl-2 col-xl-responsive-2 px-0 d-flex">
+<app-sidebar class="w-100 left_bg_green full-height"></app-sidebar>
+</div>
+  <div class="col-12 col-lg-10 col-xl-10 col-xl-responsive-10 px-0 d-flex flex-column marg-top-25">   
+
+    <div class="row mx-0 my-3">
+      <div class="bg_green_1 w-100 ml-3 border_rad">
+        <div class="row mx-0">
+          <div class="col-8 align-self-center">
+            <p class="font_12 font_weight_400 text-white mb-0 d-inline">Your Available Balance Details:</p>
+          </div>
+         <!--  <div class="col-4">
+            <input class="form-control mr-sm-2 input_form_filter w-100 float-right" type="search" placeholder="Search" aria-label="Search">
+          </div> -->
+        </div>
+     <!--  <p class="font_12 font_weight_400 px-4 text-white mb-0 d-inline">Your Available Balance : BTC 0.00000000 ETH 0.00000000
+        <form class="form-inline my-2 my-lg-0 d-inline float-right">
+      <input class="form-control mr-sm-2 input_form_filter" type="search" placeholder="Search" aria-label="Search">
+    </form>
+      </p>   --> 
+      </div>   
+            <!-- <div class=""> -->
+            <div class="pl-3 w-100 table-responsive">
+              <table id="example" class="display table-striped table-striped-reverse example_datatable  table_balance" style="width:100%">
+            <!-- <table id="example" class="display table-striped table-striped-reverse example_datatable table-responsive"> -->
+        <thead class="bg_white">
+            <tr>
+               <th>Asset</th>
+              <th>Name</th>
+              <th>Wallet Balance</th>             
+              <th class="text-center">Actions</th>             
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let items of balanceData">
+            <td class="text_black_1 font-weight-bold">{{items.currencySymbol}} </td>
+             <td class="text_light_grey">{{items.currencyName}}</td>
+              <td class="text_light_grey">{{items.balance | number:'1.8-8'}}</td>
+              <td>
+                <button class="btn table_btn btn_green mr-4" (click)="deposit(items.currencySymbol)"><img src="assets/images/deposit_btn_icon.png" class="mr-2 deposit_btn_img">Deposit</button>
+                <button class="btn table_btn btn_pink mr-4" (click)="withdraw(items.currencySymbol)"><img src="assets/images/withdraw_btn_icon.png" class="mr-2 withdraw_btn_img">Withdraw</button>
+                <button class="btn table_btn btn_dark_purple" (click)="openQR(qrCode, items.currencySymbol)" [disabled]="items.curnType == 2">QR code</button> 
+              </td>            
+            </tr>
+
+             <tr *ngIf="balanceData?.length === 0">
+              <td colspan="4" style="text-align: center;">All Currencies are currently disabled.</td>
+            </tr>
+        </tbody>        
+    </table>
+    </div>
+  <!-- </div> -->
+  </div>
+  
+</div>
+
+</div>
+
+<!-- <button type="button" class="btn btn-primary" (click)="openModal(template)">Create template modal</button> -->
+ 
+<ng-template #qrCode>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left hd">QR Code</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+  <div class="text-center bord-shade">
+    <img [src]="img_qr" class="img-fluid" style="margin-top: -20px;">
+    <div class="form-group row mx-0">
+      <!-- <div class="input-group mb-3 input-group-grey w-50-custom mx-auto mt-5 shadow">
+      <div class="input-group-prepend">
+      <span class="input-group-text border-0 font_weight_500 font_16 text_black">Address</span>
+      </div>
+      <input type="text" class="form-control form-control-lg border-0 black_placeholder_small" disabled="true" aria-label="Amount (to the nearest dollar)" placeholder="{{coinAddress}}">
+      </div> -->
+
+      <p class="qr-val">{{coinAddress}}</p>
+      <span class="input-group-text p-0 border-0"> <img src="assets/images/copy.png" class="w_59_px" (click)="copyText(coinAddress)"></span>
+
+    </div>
+  </div>
+  </div>
+</ng-template>
+<!-- Bootstrap core JavaScript -->
+<!-- <script src="js/chart.min.js"></script>
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="css/DataTables/datatables.js"></script> -->
+<script type="text/javascript">
+  
+
+//  $(document).ready(function() {
+//     $('.example_datatable').DataTable({
+//       "searching": true,
+//       "bLengthChange": false,
+//       "bFilter": false,
+//       "bInfo": false,
+//       "ordering": false,
+//       "paging":false,
+//     //    "oLanguage": {
+//     //     "sSearch": '',
+//     //     // "searchPlaceholder": "Search records"
+//     // },  
+//     "order": [],
+//     "lengthMenu": [[6, 10, 25, -1], [6, 10, 25, "All"]],
+//     "columnDefs": [ {
+//       "targets"  : 'no-sort',
+//       "orderable": false,
+//     }],
+//     "language": {
+//       "sSearch": '',
+//       "searchPlaceholder": "Search",
+//       "info": "Showing _PAGE_ to _PAGES_ results",
+//     "paginate": {
+//       "previous": "<<",
+//       "next": ">>"
+//     }
+//   }
+//     });
+// } );
+</script>

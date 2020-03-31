@@ -1,0 +1,114 @@
+<app-header></app-header>
+<div class="container-fluid login_signup">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 login_l_section d-flex align-items-center">
+      <div style="width: 100%;">
+        <ul class="nav nav-tabs">
+          <li >Login</li>
+
+          <!-- <button class="btn table_btn btn_dark_purple" id="poop" (click)="openPopup(qrCode)">QR code</button>  -->
+        </ul>
+        <div class="clearfix"></div>
+        <div class="tab-content">
+          <form #logForm="ngForm" (ngSubmit)="logForm.form.valid && logSubmit(logForm)" novalidate>
+          <div id="menu1" class="tab-pane fade in active show">
+            <p>User email</p>
+            <p>
+              <input  type="text"  autocomplete="off" onpaste="return false" [(ngModel)]="loginput.email" #email="ngModel" name="email"  required   pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" placeholder="example@gmail.com" class="login_field" >
+            </p>
+            <p class="text-danger" *ngIf="(email.invalid && logForm.submitted) || email.touched">
+                <span *ngIf="email.errors?.required">Email is required</span>
+                <span *ngIf="email.errors?.pattern">Invalid email</span>
+              </p>
+            <p>Password</p>
+            <p class="passw">
+              <input type="password" placeholder="******" id="password" onpaste="return false" autocomplete="off" [(ngModel)]="loginput.password" #password="ngModel" name="password" required  class="login_field" >
+              <img  (click)="change_passtype()"  src="{{pass_icon}}" >
+
+              </p>
+              <p class="text-danger" *ngIf="(password.invalid && logForm.submitted) || password.touched">
+                <span *ngIf="password.errors?.required">Password is required</span>
+                
+              </p>
+            
+            <p class="login_btn lb2">
+              <!-- <input type="button" name="" value="Sign up" > -->
+              <button type="submit"  class="btn btn-primary btn-submit-login" *ngIf="!logsubmitted">Login</button> 
+            <span class="btn btn-primary btn-submit-login"  *ngIf="logsubmitted"> Processing ... </span>  
+            </p>
+
+             <div class="row forget_sec">
+            <div class="col-xs-12 col-sm-5"><a routerLink="/forgot">Forgot Password?</a></div>
+            <div class="col-xs-12 col-sm-7 new_to_bdam">New to bdampay.&nbsp;<a routerLink="/signup">Join us</a></div>
+          </div>
+
+
+          </div>
+          </form>
+        </div></div>
+      </div>
+    <div class="col-xs-12 col-sm-6 login_r_section d-flex align-items-center">
+      <div class="login_r_section_inn"><div>
+        <p><a href="#"><img src="assets/images/logo.png" ></a></p>
+        <h3>Contact us</h3>
+        <div class="row" *ngIf="siteData">
+          <div class="col-xs-12 col-sm-6">Address</div>
+          <div class="col-xs-12 col-sm-6">Business Development</div>
+          <div class="col-xs-12 col-sm-6"> <p style="color: white">BDAM Foundation Ltd, <br>
+                                            International Commerce Centre, 1 Austin <br>
+                                                Road West, Kowloon, Hong Kong</p></div>
+          <div class="col-xs-12 col-sm-6"><a href="mailto:{{siteData.custeomerservice_mail}}">{{siteData.custeomerservice_mail}}</a></div>
+          <div class="col-xs-12 col-sm-6 log_r_t">Timings</div>
+          <div class="col-xs-12 col-sm-6 log_r_t">Developer support</div>
+          <div class="col-xs-12 col-sm-6">{{siteData.timing}}</div>
+          <div class="col-xs-12 col-sm-6"><a href="mailto:{{siteData.developersupport_mail}}">{{siteData.developersupport_mail}}</a></div>
+          <div class="col-xs-12 col-sm-12"><div class="line_1"></div></div>
+          <!-- <div class="col-xs-12 col-sm-3"><a  routerLink="/privacypolicy" target="_blank">Privacy Policy</a></div> -->
+          <div class="col-xs-12 col-sm-5"><a  routerLink="/terms" target="_blank">Terms of service</a></div>
+          <div class="col-xs-12 col-sm-4"><a  routerLink="/faq" target="_blank">FAQ's</a></div>
+          <div class="col-xs-12 col-sm-12">
+            <ul class="footer-social-col foot_icon">
+              <li><a href="{{siteData.telegram}}" target="_blank"><i class="fa fa-paper-plane"></i></a></li>
+               <li><a href="{{siteData.twitter}}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+               <li><a href="{{siteData.youtube}}" target="_blank"><i class="fa fa-youtube"></i></a></li>
+
+               <li><a href="{{siteData.media}}" target="_blank"><i class="fa fa-medium"></i></a></li>
+               <li><a href="{{siteData.redit}}" target="_blank"><i class="fa fa-reddit"></i></a></li>
+               <li><a href="{{siteData.linked_in}}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+               <li><a href="{{siteData.github}}" target="_blank"><i class="fa fa-github"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<ng-template #tfapopup>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left hd">TFA Security</h4>
+  </div>
+  <div class="modal-body">
+  <div class="bord-shade" style="overflow: hidden;box-shadow: 0 0px 9px 0px #ededed !important;padding: 25px;border: 1px solid #ddd;
+}">
+    <form #tfaForm="ngForm" (ngSubmit)="tfaForm.form.valid && TFASubmit(tfaForm)" novalidate>
+    <div class="form-group " >
+      <input  type="text" [(ngModel)]="tfainput.tfacode" #tfacode="ngModel" name="tfacode"  class="form-control" id="tfacode" placeholder="Enter TFA code" autocomplete="off" required="">
+      </div>
+      <p class="text-danger mb-0" *ngIf="(tfacode.invalid && tfaForm.submitted) || tfacode.touched">
+      <span *ngIf="tfacode.errors?.required">TFA is required</span>
+      </p>
+
+      <div class="form-group" style="float: right;">
+      <button *ngIf="!tfasubmited" type="submit" class="btn btn-success">Submit</button>
+      <span *ngIf="tfasubmited"  class="btn btn-success">Processing</span>
+      </div>
+    </form>
+  </div>
+  </div>
+</ng-template>
+
+<app-footer></app-footer>

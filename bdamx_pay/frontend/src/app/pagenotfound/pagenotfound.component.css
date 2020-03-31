@@ -1,0 +1,30 @@
+.nothing-div{
+		padding: 175px 0 20px;
+		min-height: calc(100vh - 292px);
+		max-width: 600px;
+    	margin: 0 auto;
+	}
+	.not-found{
+		font-family: 'Poppins', sans-serif;
+		font-weight: 700;
+		font-size: 20px;
+		color: #322f81;
+		margin-top: 15px;
+	}
+	body{
+		background: #fff !important;
+	}
+	.btn-back-home{
+		 background-color: #322f81;
+	    color: #fff;
+	    border-radius: 50px;
+	    padding: 10px 30px;
+	    margin: auto;
+	    border-color: #322f81;
+	    font-family: 'Poppins', sans-serif;
+		font-weight: 500;
+		font-size: 16px;
+	}
+	.btn-back-home:hover{
+		    color: #75BD29 !important;
+	}

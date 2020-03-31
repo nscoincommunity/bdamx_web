@@ -1,0 +1,25 @@
+.und-cont-div{
+		padding: 175px 0 20px;
+		min-height: calc(100vh - 292px);
+		max-width: 600px;
+    	margin: 0 auto;
+	}
+	.under{
+		font-family: 'Poppins', sans-serif;
+		font-weight: 700;
+		font-size: 40px;
+		color: #322f81;
+		margin-top: 15px;
+	}
+	.construction{
+		color: #e12b77;
+	}
+	.coming{
+		font-family: 'Dancing Script', cursive;
+		font-weight: 800;
+		font-size: 40px;
+		color: #d42a76;
+	}
+	.soon{
+		color: #322f81;
+	}

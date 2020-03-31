@@ -1,0 +1,15 @@
+<!-- <ngx-spinner
+bdColor = "rgba(0,0,0,0.6)"
+size = "large"
+color = "#fff"
+type = "ball-atom"
+[fullScreen] = "true"
+>
+<p style="color: white" > Loading... </p>
+</ngx-spinner> -->
+<div *ngIf="!ipBlocked">
+<router-outlet></router-outlet>
+</div>
+<div *ngIf="ipBlocked">
+	<app-ipblock></app-ipblock>
+</div>

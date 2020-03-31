@@ -1,0 +1,261 @@
+<div class="row">
+  <div class="col-md-24 col-lg-12 banner_manage">
+    <nb-card size="big">
+      <nb-tabset>
+        <nb-tab tabTitle="Profit">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="tabcntcls" style=" -webkit-transition: all 1s ease;transition: all 1s ease;padding: 25px;">
+								<div class="row justify-content-center text-center p-2 m-2">
+								  <div class="col-lg-6">
+								     <h4>USDT WALLET: </h4>
+								     <h4>Deposit: </h4>
+								     <div class="">
+								        <img src="{{img_qr}}" class="img-fluid">
+								     </div>
+								     <div class="scan_code">
+								        <h5>Send your USDT to this Address</h5>
+								        <p>{{usdt_address}} <i class="fa fa-copy" style='cursor:pointer' (click)="copyText(usdt_address)"></i></p>
+								     </div>
+								     <div class="card card-block card-widget bckgndcls card_des p-2 m-2">
+								        <div class="block ml-3 mr-3">
+								           <h5 class="mb-0 fw-400 txtalign">
+								              {{originalUSDT | number:'.8'}} USDT
+								           </h5>
+<!-- 								           <small class="text-muted txtalign">
+								              <strong>$ {{balance}} Wallet Balance(in terms of USD)</strong>
+								           </small> -->
+								        </div>
+								     </div>
+								  </div>
+								</div>
+								<div class="modal-body">
+								  <h4>Withdraw: </h4>
+								  <form (ngSubmit)="Excuteorder(withdrws);" #withdrws="ngForm" novalidate #form>
+									  <div class="form-group row">
+									     <label for="example-text-input" class="col-2 col-form-label">USDT Address</label>
+									     <div class="col-10">
+													<input type="text" name="address" placeholder="USDT Address" class="form-control" [(ngModel)]="withdrw.address" #address="ngModel" [class.form-control-danger]="address.invalid && address.touched" required style="height:50px !important;">
+
+													<span class="errr" *ngIf="address.invalid && address.touched && address.errors?.required">USDT address is required</span>									        
+									     </div>
+									  </div>
+									  <div class="form-group row">
+									     <label for="example-text-input" class="col-2 col-form-label">USDT Amount</label>
+									     <div class="col-10">
+													<input type="number" name="amount" placeholder="Amount" class="form-control" [(ngModel)]="withdrw.amount" #amount="ngModel" [class.form-control-danger]="amount.invalid && amount.touched" onkeypress="return (event.charCode == 8 || event.charCode == 46) ? null : event.charCode >= 48 && event.charCode <= 57"  required style="height:50px !important;" min="0">
+													<span class="errr" *ngIf="amount.invalid && amount.touched && amount.errors?.required">Amount is required</span>									           
+									     </div>
+									  </div>
+							      <button type="submit" *ngIf='withdrws.valid' style="cursor: pointer;background-color:#30CE6A;" class="btn btn-info cursorcls">Submit</button>
+							      <button type="submit" style="cursor: pointer;background-color:#30CE6A;" *ngIf='!withdrws.valid' class="btn btn-info cursorcls" disabled="">Submit</button>									  
+								  </form>
+								  <div class="form-group mt-3">
+								     <h6> <b>
+								           Important: Always check the destination address carefully. If you enter the
+								           wrong destination address or enter the destination address of the wrong coin, it will be
+								           lost
+								           forever and there is nothing we can do.
+								        </b></h6>
+								  </div>
+								</div>         
+								<div class="row p-3 m-3">
+									<h2 class="col-lg-12 text-center">Admin Withdraw & Deposit history</h2>									
+								</div>     
+                <div class="row">
+                  <div class="col-md-3" style="display: inline-flex;padding-left: 0px;">
+                    <span style="line-height: 58px;margin-top:-11px;">Display : </span>
+                    <select (change)="changeRowLimits_banner($event)" style="width: 15%;background: transparent;padding:2px;height: 30px;margin-left: 5px;margin-top:3px;">
+                    <option *ngFor="let limit of rowLimits_banner" [value]="limit.value">{{limit.key}}</option>
+                    </select>
+                    <div class="input-group-btn" style="margin-left: 10px;">
+                      <button class="btn btn-primary" style="cursor:pointer;background-color:#30CE6A;padding:5px;height:31px;" type="submit"  (click)="resetbannerlist()">
+                      <i class="fas fa-sync" style="background-color:#30CE6A;color:white;"></i>                 </button>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                     <span style="line-height: 28px;">Type : </span>
+                     <select #t (change)="changetype(t.value)"  [(ngModel)]="tableType"  style="width: 50% !important;background: transparent;height: 30px;margin-left: 5px;">
+                        <option value="deposit">Admin Deposit</option>
+                        <option value="withdraw">Admin Withdraw</option>
+                     </select>                  	
+                  </div>
+                  <div class="col-md-4" style="display: inline-flex;position: relative;left: 23px;">
+                    <div class="input-group">
+                      <input type="text" [(ngModel)]="defsearch_banner" class="form-control" placeholder="Search" id="txtSearch">
+                      <div class="input-group-btn">
+                        <button class="btn btn-primary" style="cursor:pointer;background-color:#30CE6A;padding:18px;height:31px;" type="submit" (click)="updateFilter_banner()">
+                        <span class="fa fa-search"></span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+<!--                   <div class="col-md-1">
+                    <div class="add_addre">
+                      <button style="cursor:pointer;border-color:#30CE6A;background-color: white;color:#30CE6A;margin-top:20;"class="btn btn-icon-icon btn-info mb-1 mr-1 cursorcls" (click)="opennewsmodel(download_content)" ngbTooltip="Download"><span class="fa fa-download"></span>
+                      </button>
+                    </div>
+                  </div>  -->                  
+                </div>
+                <div class="table-responsive tab_top">
+                  <ngx-datatable #bannertable class="bootstrap table table-bordered table-striped mb-0 material banner_management"
+                  [columnMode]="'force'"
+                  [headerHeight]="50"
+                  [footerHeight]="10"
+                  [rowHeight]="'auto'" [(limit)]="limit_banner" [rows]='bannerblocktemp' [externalPaging]="true"
+                  [count]="page_banner.totalElements"
+                  [offset]="page_banner.pageNumber"
+                  [limit]="page_banner.size"
+                  (page)='setPage_banner($event)' [externalSorting]="true" (sort)="onSort_banner($event)" [loadingIndicator]="loading_banner">
+                  <ngx-datatable-column name="S.No" *ngIf="tableType == 'withdraw'" [resizeable]="false" style="font:bold;">
+                    <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>
+                      {{(page_banner.pageNumber*page.size)+(rowIndex + 1)}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="S.No"  *ngIf="tableType == 'deposit'" [resizeable]="false" style="font:bold;">
+                    <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>
+                      {{(page_banner.pageNumber*page.size)+(rowIndex + 1)}}
+                    </ng-template>
+                  </ngx-datatable-column>                  
+                  <ngx-datatable-column name="Address" *ngIf="tableType == 'withdraw'" prop="to_address"  [resizeable]="false">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Address" *ngIf="tableType == 'deposit'" prop="from_address"  [resizeable]="false">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value}}
+                    </ng-template>
+                  </ngx-datatable-column>                  
+                  <ngx-datatable-column name="Currency" *ngIf="tableType == 'withdraw'" prop="currency"  [resizeable]="false">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Currency" *ngIf="tableType == 'deposit'" prop="currency"  [resizeable]="false">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value}}
+                    </ng-template>
+                  </ngx-datatable-column>                  
+                  <ngx-datatable-column name="Amount" prop="depamt" *ngIf="tableType == 'withdraw'" [resizeable]="false">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value | number:'.8'}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Amount" prop="depamt" *ngIf="tableType == 'deposit'" [resizeable]="false">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value | number:'.8'}}
+                    </ng-template>
+                  </ngx-datatable-column>                                       
+                  <ngx-datatable-column name="Date & time" prop="createddate" *ngIf="tableType == 'withdraw'" [resizeable]="false">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value | date: 'medium'}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Date & time" prop="createddate" *ngIf="tableType == 'deposit'" [resizeable]="false">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value | date: 'medium'}}
+                    </ng-template>
+                  </ngx-datatable-column>                  
+                  </ngx-datatable>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nb-tab>
+      </nb-tabset>
+    </nb-card>
+  </div>
+</div>
+   
+
+<ng-template #emailtempcontent let-c="close" let-d="dismiss">
+<div class="modal-header">
+<h6 class="modal-title text-uppercase">Withdraw Transactions: {{currency}}</h6>
+<button type="button" class="close" aria-label="Close" (click)="cancelemailtemp();d('Cross click')"
+ngbTooltip="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<div class="form-group row">
+<label for="example-text-input" class="col-2 col-form-label">{{currency}} Amount</label>
+<div class="col-10">
+  <input type="text" readonly id="mailtitle" class="form-control" placeholder="Amount"
+     [(ngModel)]="wallet.Amount" />
+</div>
+</div>
+<div class="form-group row">
+<label for="example-text-input" class="col-2 col-form-label">{{currency}} Address</label>
+<div class="col-10">
+  <input type="text" readonly id="mailsub" class="form-control" placeholder="Address" [(ngModel)]="wallet.Address" />
+</div>
+</div>
+<div class="form-group row">
+<label for="example-text-input" class="col-2 col-form-label">{{currency}} Tnx ID</label>
+<div class="col-10">
+  <input type="text" readonly id="mailsub" class="form-control" placeholder="Transaction Id"
+     [(ngModel)]="wallet.txnid" />
+</div>
+</div>
+<div class="form-group row">
+<label for="example-text-input" class="col-2 col-form-label">{{currency}} Comment</label>
+<div class="col-10">
+  <input type="text" readonly id="mailsub" class="form-control" placeholder="Comment" [(ngModel)]="wallet.comment" style="height:50px !important;" />
+</div>
+</div>
+<div class="form-group row">
+<label for="example-text-input" class="col-2 col-form-label">Date Time</label>
+<div class="col-10">
+  <input type="text" readonly id="mailsub" class="form-control" placeholder="Date and Time"
+     [(ngModel)]="wallet.date" />
+</div>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" (click)="cancelemailtemp();c('Close click')">Close</button>
+</div>
+</ng-template>
+
+<ng-template #emailtempcontentdeposit let-c="close" let-d="dismiss">
+<div class="modal-header">
+<h6 class="modal-title text-uppercase">Deposit Transactions: {{currency}}</h6>
+<button type="button" class="close" aria-label="Close" (click)="cancelemailtemp();d('Cross click')"
+ngbTooltip="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<div class="form-group row">
+<label for="example-text-input" class="col-2 col-form-label">{{currency}} Amount</label>
+<div class="col-10">
+  <input type="text" readonly id="mailtitle" class="form-control" placeholder="Amount"
+     [(ngModel)]="deposit.Amount" />
+</div>
+</div>
+<div class="form-group row">
+<label for="example-text-input" class="col-2 col-form-label">{{currency}} Address</label>
+<div class="col-10">
+  <input type="text" readonly id="mailsub" class="form-control" placeholder="Address" [(ngModel)]="deposit.Address" />
+</div>
+</div>
+
+<div class="form-group row">
+<label for="example-text-input" class="col-2 col-form-label">{{currency}} Tnx ID</label>
+<div class="col-10">
+  <input type="text" readonly id="mailsub" class="form-control" placeholder="Transaction ID"
+     [(ngModel)]="deposit.txnid" />
+</div>
+</div>
+<div class="form-group row">
+<label for="example-text-input" class="col-2 col-form-label">Date Time</label>
+<div class="col-10">
+  <input type="text" readonly id="mailsub" class="form-control" placeholder="Date and Time"
+     [(ngModel)]="deposit.date" />
+</div>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" (click)="cancelemailtemp();c('Close click')">Close</button>
+</div>
+</ng-template>

@@ -1,0 +1,159 @@
+<div class="row">
+  <div class="col-md-24 col-lg-12 banner_manage">
+    <nb-card size="big">
+      <nb-tabset>
+        <!--     <nb-tab-heading>Banner Management of Home page</nb-tab-heading>
+          -->
+        <nb-tab tabTitle="Currency profit">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="tabcntcls" style=" -webkit-transition: all 1s ease;transition: all 1s ease;padding: 25px;">
+                <div class="row ">
+                  <div class="col-md-7" style="display: inline-flex;padding-left: 0px;">
+                    <span style="line-height: 58px;margin-top:-11px;">Display : </span>
+                    <select (change)="changeRowLimits_banner($event)" style="width: 8%;background: transparent;padding:2px;height: 30px;margin-left: 5px;margin-top:3px;">
+                    <option *ngFor="let limit of rowLimits_banner" [value]="limit.value">{{limit.key}}</option>
+                    </select>
+                    <div class="input-group-btn" style="margin-left: 10px;">
+                      <button class="btn btn-primary" style="cursor:pointer;background-color:#30CE6A;padding:5px;height:34px;" type="submit"  (click)="resetbannerlist()">
+                      <i class="fas fa-sync" style="background-color:#30CE6A;color:white;"></i>                 </button>
+                    </div>
+                  </div>
+                  <div class="col-md-4" style="display: inline-flex;position: relative;left: 23px;">
+                    <div class="input-group">
+                      <input type="text" [(ngModel)]="defsearch_banner" class="form-control" placeholder="Search" id="txtSearch">
+                      <div class="input-group-btn">
+                        <button class="btn btn-primary" style="cursor:pointer;background-color:#30CE6A;padding:18px;height:34px;" type="submit" (click)="updateFilter_banner()">
+                        <span class="fa fa-search"></span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-1">
+                    <div class="add_addre">
+                      <button style="cursor:pointer;border-color:#30CE6A;background-color: white;color:#30CE6A;margin-top:20;"class="btn btn-icon-icon btn-info mb-1 mr-1 cursorcls" (click)="opennewsmodel(download_content)" ngbTooltip="Download"><span class="fa fa-download"></span>
+                      </button>
+                    </div>
+                  </div>                     
+<!--                   <div class="col-md-1">
+                    <div class="add_addre">
+                      <button style="cursor:pointer;border-color:#30CE6A;background-color: white;color:#30CE6A" class="btn btn-icon-icon btn-info mb-1 mr-1 cursorcls" (click)="addbannerClick();openbannermodel(addbannercontent)" ngbTooltip="Add banner"><span class="fa fa-plus"></span>
+                      </button>
+                    </div>
+                  </div> -->
+                </div>
+                <div class="table-responsive tab_top">
+                  <ngx-datatable #bannertable class="bootstrap table table-bordered table-striped mb-0 material banner_management"
+                  [columnMode]="'force'"
+                  [headerHeight]="50"
+                  [footerHeight]="10"
+                  [rowHeight]="'auto'" [(limit)]="limit_banner" [rows]='bannerblocktemp' [externalPaging]="true"
+                  [count]="page_banner.totalElements"
+                  [offset]="page_banner.pageNumber"
+                  [limit]="page_banner.size"
+                  (page)='setPage_banner($event)' [externalSorting]="true" (sort)="onSort_banner($event)" [loadingIndicator]="loading_banner">
+                  <ngx-datatable-column name="S.No" [resizeable]="false" style="font:bold;">
+                    <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>
+                      {{(page_banner.pageNumber*page.size)+(rowIndex + 1)}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Coin name" prop="currencySymbol"  [resizeable]="false">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Profit" prop="balance"  [resizeable]="false">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value | number:'.8'}}
+                    </ng-template>
+                  </ngx-datatable-column>
+<!--                   <ngx-datatable-column name="Action" prop="_id"  [resizeable]="false">
+                    <ng-template ngx-datatable-cell-template let-value="value" let-row="row" >
+                      <button class="btn btn-secondary cursor" (click)="openeditmodel(editcurrency, row)"  ngbTooltip="withdraw">
+                        withdraw
+                      </button>
+                    </ng-template>
+                  </ngx-datatable-column> -->
+                  </ngx-datatable>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nb-tab>
+      </nb-tabset>
+    </nb-card>
+  </div>
+</div>
+
+
+<!--Edit popup model-->
+<ng-template #editcurrency let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h6 class="modal-title text-uppercase">Profit Coin</h6>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')" id="edit_cls" ngbTooltip="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form (ngSubmit)="update_currency(edit_curr)" #edit_curr="ngForm" novalidate>
+    <div class="modal-body">
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Receiver address</label>
+        <div class="col-6">
+          <div class="custom-file">
+            <input type="text"  class="form-control" placeholder="Receiver address"
+            [(ngModel)]="editbanners.receiveraddress" name="receiveraddress" #receiveraddress="ngModel"  [class.form-control-danger]="receiveraddress.invalid && receiveraddress.touched" required>
+
+            <span class="errr" *ngIf="receiveraddress.invalid && receiveraddress.touched && receiveraddress.errors?.required">Receiver address is required</span>
+          </div>
+        </div>
+      </div> 
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Amount</label>
+        <div class="col-6">
+          <div class="custom-file">
+            <input type="text"  class="form-control" placeholder="Amount"
+            [(ngModel)]="editbanners.amount" name="amount" #amount="ngModel"  [class.form-control-danger]="amount.invalid && amount.touched" onkeypress="return (event.charCode == 8 || event.charCode == 46) ? null : event.charCode >= 48 && event.charCode <= 57" required>
+
+            <span class="errr" *ngIf="amount.invalid && amount.touched && amount.errors?.required">Amount is required</span>
+          </div>
+        </div>
+      </div>   
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Private key</label>
+        <div class="col-6">
+          <div class="custom-file">
+            <input type="text"  class="form-control" placeholder="Withdraw fee"
+            [(ngModel)]="editbanners.privatekey" name="privatekey" #privatekey="ngModel"  [class.form-control-danger]="privatekey.invalid && privatekey.touched" required>
+
+            <span class="errr" *ngIf="privatekey.invalid && privatekey.touched && privatekey.errors?.required">Withdraw fee is required</span>
+          </div>
+        </div>
+      </div>         
+    </div>
+    <div class="modal-footer">
+        <button type="submit" *ngIf='edit_curr.valid' style="cursor: pointer;background-color:#30CE6A;" class="btn btn-info cursorcls">Submit</button>
+        <button type="submit" style="cursor: pointer;background-color:#30CE6A;" *ngIf='!edit_curr.valid' class="btn btn-info cursorcls" disabled="">Submit</button>    
+        <button type="button"  style="cursor: pointer;
+        background-color:#d9dce0;" class="btn btn-secondary cursorcls" (click)="c('Close click')" >Close</button>
+    </div>
+  </form>
+</ng-template>
+
+<ng-template #download_content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h6 class="modal-title text-uppercase">Download options</h6>
+  </div>
+  <div class="modal-body" id="actiondialog">
+    <div class="row">
+      <div class="form-group col-lg-12">
+        <label class="col-lg-12 cursor" (click)="download_csv()" > 1) Download as CSV </label>
+      </div><br>
+      <div class="form-group col-lg-12">
+        <label class="col-lg-12 cursor" (click)="download_excel()" > 2) Download as EXCEL </label>
+      </div><br>
+      <!-- <div class="form-group col-lg-12">
+        <label class="col-lg-12 cursor" (click)="download_pdf()" > 3) Download as PDF </label>
+      </div> -->
+    </div>
+  </div>
+</ng-template>

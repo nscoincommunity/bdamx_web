@@ -1,0 +1,272 @@
+<div class="row mb-5">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-tabset fullWidth>
+        <nb-tab tabTitle="Site Settings">
+          <div class="col-md-12 table-responsive tab_top">
+            <nb-card class="inline-form-card">
+              <nb-card-header>Site Settings</nb-card-header>
+              <nb-card-body>
+<!--                 <div class="row">
+                  <div class="col-md-12">
+                    <label *ngIf="model.site_maintenance == 1" style="float: right;">Site maintenance &nbsp;&nbsp; <i class="fa fa-toggle-on" style="color: green"  (click)="sitemaintenance('0')" aria-hidden="true"></i></label>
+                    <label *ngIf="model.site_maintenance == 0" style="float: right;">Site maintenance &nbsp;&nbsp;<i class="fa fa-toggle-off" aria-hidden="true" (click)="sitemaintenance('1')" ></i></label>
+                  </div>
+                </div>   -->            
+                <form (ngSubmit)="upload()" name="form" #f="ngForm">
+<!--                   <div class="form-group row" *ngIf="model.site_maintenance == 0">
+                    <label class="col-sm-3 col-form-label">Site maintenance Reason</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="col-sm-9 ">
+                      <input type="text" class="form-control" placeholder="Site maintenance Reason" [minlength]="4" [maxlength]="20" [(ngModel)]="model.site_maintenance_reason" name="site_maintenance_reason" #site_maintenance_reason="ngModel" [class.form-control-danger]="site_maintenance_reason.invalid && site_maintenance_reason.touched" required />
+
+                      <span class="errr" *ngIf="site_maintenance_reason.invalid && site_maintenance_reason.touched && site_maintenance_reason.errors?.required">site_maintenance_reason is required</span>                     
+                      <span class="errr" *ngIf="site_maintenance_reason.invalid && site_maintenance_reason.touched && site_maintenance_reason.errors?.minlength">site_maintenance_reason should have minimum 4 characters</span>  
+                    </div>
+                  </div>   -->              
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Site Name</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="col-sm-9 ">
+                      <input type="text" class="form-control" placeholder="sitename" [minlength]="4" [maxlength]="20" [(ngModel)]="model.sitename" name="sitename" #sitename="ngModel" [class.form-control-danger]="sitename.invalid && sitename.touched" required />
+
+                      <span class="errr" *ngIf="sitename.invalid && sitename.touched && sitename.errors?.required">sitename is required</span>                     
+                      <span class="errr" *ngIf="sitename.invalid && sitename.touched && sitename.errors?.minlength">sitename should have minimum 4 characters</span>  
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Title</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="col-sm-9 ">
+                      <input type="text" class="form-control" placeholder="title" [(ngModel)]="model.title" name="title" #title="ngModel" [class.form-control-danger]="title.invalid && title.touched" required />
+
+                      <span class="errr" *ngIf="title.invalid && title.touched && title.errors?.required">title is required</span>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Description</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="col-sm-9 ">
+                      <textarea type="text" class="form-control" placeholder="description" [(ngModel)]="model.description" name="description" #description="ngModel" [class.form-control-danger]="description.invalid && description.touched" required ></textarea>
+
+                      <span class="errr" *ngIf="description.invalid && description.touched && description.errors?.required">description is required</span>                     
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Copy Rights</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="col-sm-9 ">
+                      <input type="text" class="form-control" placeholder="copyrights" [(ngModel)]="model.copyrights" name="copyrights" #copyrights="ngModel" [class.form-control-danger]="copyrights.invalid && copyrights.touched" required />
+
+                      <span class="errr" *ngIf="copyrights.invalid && copyrights.touched && copyrights.errors?.required">copyrights is required</span>
+                    </div>
+                  </div>                
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Facebook</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="col-sm-9 ">
+                      <input type="text" class="form-control" placeholder="Facebook URL" [(ngModel)]="model.fb" name="fb" #fb="ngModel" [class.form-control-danger]="fb.invalid && fb.touched" pattern="https?://.+" required/>
+                      
+                      <span class="errr" *ngIf="fb.invalid && fb.touched && fb.errors?.required">URL is required</span>
+
+                      <span class="errr" *ngIf="fb.invalid && fb.touched && fb.errors?.pattern">Must be a valid URL</span> 
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Youtube</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="col-sm-9 ">
+                      <input type="text" class="form-control" placeholder="Youtube URL" [(ngModel)]="model.youtube" name="youtube" #youtube="ngModel" [class.form-control-danger]="youtube.invalid && youtube.touched" pattern="https?://.+" required/>
+                      
+                      <span class="errr" *ngIf="youtube.invalid && youtube.touched && youtube.errors?.required">URL is required</span>
+
+                      <span class="errr" *ngIf="youtube.invalid && youtube.touched && youtube.errors?.pattern">Must be a valid URL</span> 
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Home page video</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="col-sm-9 ">
+                      <input type="text" class="form-control" placeholder="Youtube URL" [(ngModel)]="model.home_video" name="home_video" #home_video="ngModel" [class.form-control-danger]="home_video.invalid && home_video.touched" pattern="https?://.+" required/>
+                      
+                      <span class="errr" *ngIf="home_video.invalid && home_video.touched && home_video.errors?.required">URL is required</span>
+
+                      <span class="errr" *ngIf="home_video.invalid && home_video.touched && home_video.errors?.pattern">Must be a valid URL</span> 
+                    </div>
+                  </div>                  
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Instagram</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="col-sm-9 ">
+                      <input type="text" class="form-control" placeholder="Instagram" [(ngModel)]="model.insta" name="insta" #insta="ngModel" [class.form-control-danger]="insta.invalid && insta.touched" pattern="https?://.+" required/>
+                      
+                      <span class="errr" *ngIf="insta.invalid && insta.touched && insta.errors?.required">URL is required</span>
+
+                      <span class="errr" *ngIf="insta.invalid && insta.touched && insta.errors?.pattern">Must be a valid URL</span> 
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Linked in</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="col-sm-9 ">
+                      <input type="text" class="form-control" placeholder="Linked in URL" [(ngModel)]="model.linked_in" name="linked_in" #linked_in="ngModel" [class.form-control-danger]="linked_in.invalid && linked_in.touched" pattern="https?://.+" required/>
+                      
+                      <span class="errr" *ngIf="linked_in.invalid && linked_in.touched && linked_in.errors?.required">URL is required</span>
+
+                      <span class="errr" *ngIf="linked_in.invalid && linked_in.touched && linked_in.errors?.pattern">Must be a valid URL</span> 
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Twitter</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="col-sm-9 ">
+                      <input type="text" class="form-control" placeholder="Twitter" [(ngModel)]="model.twitter" name="twitter" #twitter="ngModel" [class.form-control-danger]="twitter.invalid && twitter.touched" pattern="https?://.+" required/>
+                      
+                      <span class="errr" *ngIf="twitter.invalid && twitter.touched && twitter.errors?.required">URL is required</span>
+
+                      <span class="errr" *ngIf="twitter.invalid && twitter.touched && twitter.errors?.pattern">Must be a valid URL</span> 
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Snapchat</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="col-sm-9 ">
+                      <input type="text" class="form-control" placeholder="Snapchat" [(ngModel)]="model.snapchat" name="snapchat" #snapchat="ngModel" [class.form-control-danger]="snapchat.invalid && snapchat.touched" pattern="https?://.+" required/>
+                      
+                      <span class="errr" *ngIf="snapchat.invalid && snapchat.touched && snapchat.errors?.required">URL is required</span>
+
+                      <span class="errr" *ngIf="snapchat.invalid && snapchat.touched && snapchat.errors?.pattern">Must be a valid URL</span> 
+                    </div>
+                  </div> 
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label">Site Logo</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="col-md-9 ">
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <input id="fileInput" name="image" type="file" (change)="fileChangeEvent($event,'site_logo')" placeholder="Upload a file..." single accept="image/gif,image/jpeg,image/jpg,image/png,"/>
+                        </div>
+                        <div class="col-sm-2" *ngIf='loader'>
+                          <img src = "/assets/images/loader1.gif" style="height: 20px;width: 20px;">
+                        </div>
+                        <div class="col-sm-6" style="margin-top:-10px" *ngIf='!loader'>
+                          <img src="{{model.site_logo}}" style="width: 200px;">
+                        </div>
+                      </div>
+                    </div>
+                  </div> 
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label">Fav Icon</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="col-md-9 ">
+                      <div class="row">
+                        <div class="col-sm-3">
+                         <input id="fileInput" name="image" type="file" (change)="fileChangeEvent($event,'site_favicon')" placeholder="Upload a file..." style="height: 100px;" single accept="image/gif,image/jpeg,image/jpg,image/png,"/>
+                        </div>
+                        <div class="col-sm-2" *ngIf='loader1'>
+                          <img src = "/assets/images/loader1.gif" style="height: 20px;width: 20px;">
+                        </div>                        
+                        <div class="col-sm-6" style="margin-top:-10px" *ngIf='!loader1'>
+                          <img src="{{model.favicon}}" style="width: 200px;">
+                        </div>
+                      </div>                    
+                    </div>
+                  </div>                                      
+                  <div class="form-group row">
+                    <div class="col-sm-10 ">
+                      <button type="submit" *ngIf='f.valid' style="cursor: pointer;background-color:#30CE6A;" class="btn btn-info cursorcls">Submit</button>
+                      <button type="submit" style="cursor: pointer;background-color:#30CE6A;" *ngIf='!f.valid' class="btn btn-info cursorcls" disabled="">Submit</button>
+                    </div>
+                  </div>                                                         
+                </form>
+              </nb-card-body>
+            </nb-card>
+          </div>
+        </nb-tab>
+      </nb-tabset>
+    </nb-card>
+  </div>
+</div>
+
+<div class="row mb-5">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-tabset fullWidth>
+        <nb-tab tabTitle="Site maintenance">
+          <div class="col-md-12 table-responsive tab_top">
+            <nb-card class="inline-form-card">
+              <nb-card-header>Site maintenance</nb-card-header>
+              <nb-card-body>
+                <form (ngSubmit)="upload_sitemaintanance()" name="form" #site="ngForm">
+                  <div class="form-group row">
+                    <label class="col-4 col-form-label">Site is under maintainance</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="col-sm-9">
+                      <select class="form-control" name="site_maintenance" [(ngModel)]="main.site_maintenance" #site_maintenance="ngModel" required>
+                        <option value="0">YES</option>
+                        <option value="1">NO</option>
+                      </select>
+                    </div>
+                  </div>                 
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Site maintenance Reason</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="col-sm-9 ">
+                      <input type="text" class="form-control" placeholder="Site maintenance Reason" [minlength]="4" [maxlength]="20" [(ngModel)]="main.site_maintenance_reason" name="site_maintenance_reason" #site_maintenance_reason="ngModel" [class.form-control-danger]="site_maintenance_reason.invalid && site_maintenance_reason.touched" required />
+
+                      <span class="errr" *ngIf="site_maintenance_reason.invalid && site_maintenance_reason.touched && site_maintenance_reason.errors?.required">site_maintenance_reason is required</span>                     
+                      <span class="errr" *ngIf="site_maintenance_reason.invalid && site_maintenance_reason.touched && site_maintenance_reason.errors?.minlength">site_maintenance_reason should have minimum 4 characters</span>  
+                    </div>
+                  </div>                
+                  <div class="form-group row">
+                    <div class="col-sm-10 ">
+                      <button type="submit" *ngIf='site.valid' style="cursor: pointer;background-color:#30CE6A;" class="btn btn-info cursorcls">Submit</button>
+                      <button type="submit" style="cursor: pointer;background-color:#30CE6A;" *ngIf='!site.valid' class="btn btn-info cursorcls" disabled="">Submit</button>
+                    </div>
+                  </div>                                                         
+                </form>
+              </nb-card-body>
+            </nb-card>
+          </div>
+        </nb-tab>
+      </nb-tabset>
+    </nb-card>
+  </div>
+</div>
+
+<div class="row mb-5">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-tabset fullWidth>
+        <nb-tab tabTitle="Contact us">
+          <div class="col-md-12 table-responsive tab_top">
+            <nb-card class="inline-form-card">
+              <nb-card-header>Contact us details</nb-card-header>
+              <nb-card-body>
+                <form (ngSubmit)="upload_contactus()" name="form" #con="ngForm">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Contact mail</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="col-sm-9 ">
+                      <input type="email" class="form-control" placeholder="mail" [(ngModel)]="contact.contact_mail" name="contact_mail" pattern=".+@.+\..+"  #contact_mail="ngModel" [class.form-control-danger]="contact_mail.invalid && contact_mail.touched" required />
+            
+                      <span class="errr" *ngIf="contact_mail.invalid && contact_mail.touched && contact_mail.errors?.required">Contact mail is required</span>
+                      <span class="errr" *ngIf="contact_mail.invalid && contact_mail.touched && contact_mail.errors?.pattern">Contact mail must be a valid contact_mail address</span>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Contact phone number</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="col-sm-9 ">
+                      <input type="text" class="form-control" placeholder="Phone number" [(ngModel)]="contact.contact_phone" name="contact_phone"  #contact_phone="ngModel" [class.form-control-danger]="contact_phone.invalid && contact_phone.touched" [minlength]=10 [maxlength]=10  appOnlynumber required />
+
+                      <span class="errr" *ngIf="contact_phone.invalid && contact_phone.touched && contact_phone.errors?.required"> Phone Number is required!</span> 
+                      <span class="errr" *ngIf="contact_phone.invalid && contact_phone.touched && (contact_phone.errors?.minlength || contact_phone.errors?.maxlength)">Check your Phone Number</span> 
+
+                    </div>
+                  </div>  
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Contact address</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="col-sm-9 ">
+                      <textarea class="form-control" placeholder="Contact address" [(ngModel)]="contact.contact_address" name="contact_address" #contact_address="ngModel" [class.form-control-danger]="contact_address.invalid && contact_address.touched" required ></textarea>
+
+                      <span class="errr" *ngIf="contact_address.invalid && contact_address.touched && contact_address.errors?.required">Contact address is required</span>                     
+                    </div>
+                  </div>                                                    
+                  <div class="form-group row">
+                    <div class="col-sm-10 ">
+                      <button type="submit" *ngIf='con.valid' style="cursor: pointer;background-color:#30CE6A;" class="btn btn-info cursorcls">Submit</button>
+                      <button type="submit" style="cursor: pointer;background-color:#30CE6A;" *ngIf='!con.valid' class="btn btn-info cursorcls" disabled="">Submit</button>
+                    </div>
+                  </div>                                                         
+                </form>
+              </nb-card-body>
+            </nb-card>
+          </div>
+        </nb-tab>
+      </nb-tabset>
+    </nb-card>
+  </div>
+</div>

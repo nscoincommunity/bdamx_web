@@ -1,0 +1,424 @@
+<div class="row">
+  <div class="col-md-24 col-lg-12 banner_manage">
+    <nb-card size="big">
+      <nb-tabset>
+        <nb-tab tabTitle="Exchange">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="tabcntcls" style=" -webkit-transition: all 1s ease;transition: all 1s ease;padding: 25px;">
+                <div class="row ">
+                  <div class="col-md-7" style="display: inline-flex;padding-left: 0px;">
+                    <span style="line-height: 58px;margin-top:-11px;">Display : </span>
+                    <select (change)="changeRowLimits_banner($event)" style="width: 8%;background: transparent;padding:2px;height: 30px;margin-left: 5px;margin-top:3px;">
+                    <option *ngFor="let limit of rowLimits_banner" [value]="limit.value">{{limit.key}}</option>
+                    </select>
+                    <div class="input-group-btn" style="margin-left: 10px;">
+                      <button class="btn btn-primary" style="cursor:pointer;background-color:#30CE6A;padding:5px;height:34px;" type="submit"  (click)="resetbannerlist()">
+                      <i class="fas fa-sync" style="background-color:#30CE6A;color:white;"></i>                 </button>
+                    </div>
+                  </div>
+                  <div class="col-md-4" style="display: inline-flex;position: relative;left: 23px;">
+                    <div class="input-group">
+                      <input type="text" [(ngModel)]="defsearch_banner" class="form-control" placeholder="Search" id="txtSearch">
+                      <div class="input-group-btn">
+                        <button class="btn btn-primary" style="cursor:pointer;background-color:#30CE6A;padding:18px;height:34px;" type="submit" (click)="updateFilter_banner()">
+                        <span class="fa fa-search"></span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-1">
+                    <div class="add_addre">
+                      <button style="cursor:pointer;border-color:#30CE6A;background-color: white;color:#30CE6A;margin-top:20;"class="btn btn-icon-icon btn-info mb-1 mr-1 cursorcls" (click)="opennewsmodel(download_content)" ngbTooltip="Download"><span class="fa fa-download"></span>
+                      </button>
+                    </div>
+                  </div>                     
+<!--                   <div class="col-md-1">
+                    <div class="add_addre">
+                      <button style="cursor:pointer;border-color:#30CE6A;background-color: white;color:#30CE6A" class="btn btn-icon-icon btn-info mb-1 mr-1 cursorcls" (click)="addbannerClick();openbannermodel(addbannercontent)" ngbTooltip="Add banner"><span class="fa fa-plus"></span>
+                      </button>
+                    </div>
+                  </div> -->
+                </div>
+                <div class="table-responsive tab_top">
+                  <ngx-datatable #bannertable class="bootstrap table table-bordered table-striped mb-0 material banner_management"
+                  [columnMode]="'force'"
+                  [headerHeight]="50"
+                  [footerHeight]="10"
+                  [rowHeight]="'auto'" [(limit)]="limit_banner" [rows]='bannerblocktemp' [externalPaging]="true"
+                  [count]="page_banner.totalElements"
+                  [offset]="page_banner.pageNumber"
+                  [limit]="page_banner.size"
+                  (page)='setPage_banner($event)' [externalSorting]="true" (sort)="onSort_banner($event)" [loadingIndicator]="loading_banner">
+                  <ngx-datatable-column name="S.No" [resizeable]="false" style="font:bold;">
+                    <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>
+                      {{(page_banner.pageNumber*page.size)+(rowIndex + 1)}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Username" prop="username" [resizeable]="false" style="white-space: normal;overflow-wrap: break-word;">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Email" prop="usermail" [resizeable]="false" style="white-space: normal;overflow-wrap: break-word;">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Pairs" prop="pairs" [resizeable]="false" style="white-space: normal;overflow-wrap: break-word;">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Amount" prop="total_amount" [resizeable]="false" ngbTooltip="CreatedDate&Time">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value | number:'1.8-8' }}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  
+                  <ngx-datatable-column name="Fees" prop="less_amount" [resizeable]="false" style="white-space: normal;overflow-wrap: break-word;">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value | number:'1.8-8'}}
+                    </ng-template>
+                  </ngx-datatable-column>                                                      
+                  <ngx-datatable-column name="Receive amount" prop="receive_amount" [resizeable]="false" ngbTooltip="CreatedDate&Time">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value | number:'1.8-8'}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  
+                  <ngx-datatable-column name="Date & time" prop="created_date" [resizeable]="false" ngbTooltip="CreatedDate&Time">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value  | date: 'medium'}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Status" prop="status" [resizeable]="false" ngbTooltip="ModifiedDate&Time">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      <!-- {{value}} -->
+                      <span *ngIf="value == '3'"><label class="label label-info">Pending</label></span>
+                      <span *ngIf="value == '2'"><label class="label label-info">Cancelled</label></span>
+                      <span *ngIf="value == '1'"><label class="label label-info">Completed</label></span>
+                      
+                    </ng-template>
+                  </ngx-datatable-column>
+                 <!--  <ngx-datatable-column name="Action" prop="status" [resizeable]="false">
+                    <ng-template ngx-datatable-cell-template let-value="value" let-row="row" >
+                      <button class="btn btn-link mr-1 mb-1 cursorcls" (click)="openeditmodel(editnewscontent, row)"  ngbTooltip="Edit">
+                      <span ><label class="label label-info"> <i class="fa fa-eye" style="color:blue"></i></label></span>
+                      
+                      
+                      
+
+                       
+                      </button>
+                    </ng-template>
+                  </ngx-datatable-column> -->
+
+                   <ngx-datatable-column name="Action" prop="_id"  [resizeable]="false">
+                    <ng-template ngx-datatable-cell-template let-value="value" let-row="row" >
+                      <button *ngIf="row.status=='1' || row.status=='2' " class="btn btn-link mr-1 mb-1 cursorcls" (click)="openeditmodel(editnewscontent, row)"  ngbTooltip="Edit">
+                        <i class="fa fa-eye" style="color:blue"></i>
+                      </button>
+
+                      <button *ngIf="row.status=='3'" class="btn btn-link mr-1 mb-1 cursorcls" (click)="openeditmodel(approvecurrency, row)"  ngbTooltip="Approve now">
+                        <i class="fa fa-check" style="color:green"></i>
+                      </button>
+
+                      <button *ngIf="row.status=='3'" class="btn btn-link mr-1 mb-1 cursorcls" (click)="openeditmodel(rejectcurrency, row)"  ngbTooltip="Reject now">
+                        <i class="fa fa-times" style="color:red"></i>
+                      </button>
+                    </ng-template>
+                  </ngx-datatable-column>
+
+
+
+                  </ngx-datatable>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nb-tab>
+      </nb-tabset>
+    </nb-card>
+  </div>
+</div>
+
+<ng-template #download_content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h6 class="modal-title text-uppercase">Download options</h6>
+  </div>
+  <div class="modal-body" id="actiondialog">
+    <div class="row">
+      <div class="form-group col-lg-12">
+        <label class="col-lg-12 cursor" (click)="download_csv()" > 1) Download as CSV </label>
+      </div><br>
+      <div class="form-group col-lg-12">
+        <label class="col-lg-12 cursor" (click)="download_excel()" > 2) Download as EXCEL </label>
+      </div><br>
+      
+    </div>
+  </div>
+</ng-template>
+
+<!--Edit popup model-->
+<ng-template #editnewscontent let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h6 class="modal-title text-uppercase">Exchange</h6>
+    <button type="button" class="close" aria-label="Close"
+      (click)="d('Cross click')" ngbTooltip="Close" id="cls">
+    <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form  #exchange_status="ngForm" novalidate>
+    <div class="modal-body">
+      <div class="form-group row">
+        <label for="example-text-input" class="col-6 col-form-label"> <b>Name : </b></label>
+        <label for="example-text-input" class="col-6 col-form-label"> {{editbanners.username}}</label>
+      </div> 
+     <div class="form-group row">
+        <label for="example-text-input" class="col-6 col-form-label"> <b>Email : </b></label>
+        <label for="example-text-input" class="col-6 col-form-label"> {{editbanners.usermail}}</label>
+      </div>
+      <div class="form-group row">
+        <label for="example-text-input" class="col-6 col-form-label"> <b>Pairs : </b></label>
+        <label for="example-text-input" class="col-6 col-form-label"> {{editbanners.pairs}}</label>
+      </div> 
+
+      <div class="form-group row">
+        <label for="example-text-input" class="col-6 col-form-label"> <b>Amount : </b></label>
+        <label for="example-text-input" class="col-6 col-form-label">
+
+          <span *ngIf="editbanners.fromcurrency_type==1"> {{editbanners.total_amount   | number:'1.8-8' }}  {{editbanners.fromcurrency_name}} </span>
+          <span *ngIf="editbanners.fromcurrency_type==2"> {{editbanners.total_amount   | number:'1.2-2 ' }}  {{editbanners.fromcurrency_name}}</span>
+         </label>
+      </div> 
+
+       <div class="form-group row" >
+        <label for="example-text-input" class="col-6 col-form-label"> <b>Market price : </b></label>
+        <label for="example-text-input" class="col-6 col-form-label"> <span *ngIf="editbanners.tocurrency_type==1">{{editbanners.price | number:'1.8-8'}} {{editbanners.tocurrency_name}}</span>
+          <span *ngIf="editbanners.tocurrency_type==2">{{editbanners.price | number:'1.2-2'}} {{editbanners.tocurrency_name}}</span> </label>
+      </div>
+      
+
+      <div class="form-group row">
+        <label for="example-text-input" class="col-6 col-form-label"> <b>Fees : </b></label>
+        <label for="example-text-input" class="col-6 col-form-label"> <span *ngIf="editbanners.tocurrency_type==1">{{editbanners.less_amount | number:'1.8-8'}} {{editbanners.tocurrency_name}}</span>
+          <span *ngIf="editbanners.tocurrency_type==2">{{editbanners.less_amount | number:'1.2-2'}} {{editbanners.tocurrency_name}}</span> </label>
+      </div>
+      <div class="form-group row" >
+        <label for="example-text-input" class="col-6 col-form-label"> <b>Receive amount : </b></label>
+        <label for="example-text-input" class="col-6 col-form-label"> <span *ngIf="editbanners.tocurrency_type==1">{{editbanners.receive_amount | number:'1.8-8'}} {{editbanners.tocurrency_name}}</span>
+          <span *ngIf="editbanners.tocurrency_type==2">{{editbanners.receive_amount | number:'1.2-2'}} {{editbanners.tocurrency_name}}</span> </label>
+      </div>  
+     
+
+      <div class="form-group row" *ngIf="editbanners.status=='2'">
+        <label for="example-text-input" class="col-6 col-form-label"> <b>Rejected Reason : </b></label>
+        
+        <label for="example-text-input" class="col-6 col-form-label" *ngIf="editbanners.status=='2'"> 
+        {{editbanners.rejected_reason}}</label>
+        
+      </div>
+
+
+      <div class="form-group row" >
+        <label for="example-text-input" class="col-6 col-form-label"> <b>Status : </b></label>
+        <label for="example-text-input" class="col-6 col-form-label" *ngIf="editbanners.status=='3'"> Pending</label>
+        <label for="example-text-input" class="col-6 col-form-label" *ngIf="editbanners.status=='2'"> 
+        Canceled</label>
+        <label for="example-text-input" class="col-6 col-form-label" *ngIf="editbanners.status=='1'"> Completed</label>
+      </div>
+
+
+      <!-- <div class="form-group row" *ngIf="editbanners.status=='3'">
+        <label for="example-text-input" class="col-2 col-form-label">Reason</label>
+        <div class="col-10">
+          <textarea  name="reject_reason" placeholder="Reason" class="form-control" id="reject_reason" [(ngModel)]="rejcetion.reject_reason" #reject_reason="ngModel" pattern="[a-zA-Z0-9\s_@.,]+" required ></textarea>
+          <span *ngIf="exchange_status.submitted"></span>
+        </div>
+      </div> -->        
+    </div>
+   <!--  <div class="modal-footer" *ngIf="editbanners.status == '3'">
+    <div >
+      <button type="submit"  (click)="status_changes('approve',editbanners._id)" *ngIf="!status_submitted" style="cursor: pointer;background-color:#30CE6A;" class="btn btn-info cursorcls">Approve</button>
+      <button  type="submit" (click)="exchange_status.form.valid && status_changes('rejcet',editbanners._id)" *ngIf="!status_submitted" style="cursor: pointer;"  class="btn btn-danger cursorcls">Cancel</button>
+      <button *ngIf="status_submitted" style="cursor: pointer;" class="btn btn-info cursorcls">Processing</button>
+
+    </div>
+    <div class="col-sm-12" *ngIf='loader'>
+      <img src = "/assets/images/loader1.gif" style="height: 20px;width: 20px;float: right;">
+    </div> 
+    </div>  -->
+  </form> 
+</ng-template>
+
+
+
+
+<ng-template #approvecurrency let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h6 class="modal-title text-uppercase">Exchange</h6>
+    <button type="button" class="close" aria-label="Close"
+      (click)="d('Cross click')" ngbTooltip="Close" id="cls">
+    <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form  #exchange_status="ngForm" novalidate>
+    <div class="modal-body">
+      <div class="form-group row">
+        <label for="example-text-input" class="col-6 col-form-label"> <b>Name : </b></label>
+        <label for="example-text-input" class="col-6 col-form-label"> {{editbanners.username}}</label>
+      </div> 
+     <div class="form-group row">
+        <label for="example-text-input" class="col-6 col-form-label"> <b>Email : </b></label>
+        <label for="example-text-input" class="col-6 col-form-label"> {{editbanners.usermail}}</label>
+      </div>
+      <div class="form-group row">
+        <label for="example-text-input" class="col-6 col-form-label"> <b>Pairs : </b></label>
+        <label for="example-text-input" class="col-6 col-form-label"> {{editbanners.pairs}}</label>
+      </div> 
+      
+      <div class="form-group row">
+        <label for="example-text-input" class="col-6 col-form-label"> <b>Amount : </b></label>
+        <label for="example-text-input" class="col-6 col-form-label">
+            
+          <span *ngIf="editbanners.fromcurrency_type==1"> {{editbanners.total_amount   | number:'1.8-8' }}  {{editbanners.fromcurrency_name}} </span>
+          <span *ngIf="editbanners.fromcurrency_type==2"> {{editbanners.total_amount   | number:'1.2-2' }}  {{editbanners.fromcurrency_name}}</span>
+         </label>
+      </div> 
+
+      <div class="form-group row" >
+        <label for="example-text-input" class="col-6 col-form-label"> <b>Market Price : </b></label>
+        <label for="example-text-input" class="col-6 col-form-label"> <span *ngIf="editbanners.tocurrency_type==1">{{editbanners.price | number:'1.8-8'}} {{editbanners.tocurrency_name}}</span>
+          <span *ngIf="editbanners.tocurrency_type==2">{{editbanners.price | number:'1.2-2'}} {{editbanners.tocurrency_name}}</span> </label>
+      </div>
+
+      <div class="form-group row">
+        <label for="example-text-input" class="col-6 col-form-label"> <b>Fees : </b></label>
+        <label for="example-text-input" class="col-6 col-form-label"> <span *ngIf="editbanners.tocurrency_type==1">{{editbanners.less_amount | number:'1.8-8'}} {{editbanners.tocurrency_name}}</span>
+          <span *ngIf="editbanners.tocurrency_type==2">{{editbanners.less_amount | number:'1.2-2'}} {{editbanners.tocurrency_name}}</span></label>
+      </div>
+      <div class="form-group row" >
+        <label for="example-text-input" class="col-6 col-form-label"> <b>Receive amount : </b></label>
+        <label for="example-text-input" class="col-6 col-form-label"> <span *ngIf="editbanners.tocurrency_type==1">{{editbanners.receive_amount | number:'1.8-8'}} {{editbanners.tocurrency_name}}</span>
+          <span *ngIf="editbanners.tocurrency_type==2">{{editbanners.receive_amount | number:'1.2-2'}} {{editbanners.tocurrency_name}}</span> </label>
+      </div>  
+      
+
+      <div class="form-group row" >
+        <label for="example-text-input" class="col-6 col-form-label"> <b>Status : </b></label>
+        <label for="example-text-input" class="col-6 col-form-label" *ngIf="editbanners.status=='3'"> Pending</label>
+        <label for="example-text-input" class="col-6 col-form-label" *ngIf="editbanners.status=='2'"> 
+        Canceled</label>
+        <label for="example-text-input" class="col-6 col-form-label" *ngIf="editbanners.status=='1'"> Completed</label>
+      </div>
+       
+    </div>
+    <div class="modal-footer" *ngIf="editbanners.status == '3'">
+    <div >
+      <button type="submit"  (click)="status_changes('approve',editbanners._id)" *ngIf="!status_submitted" style="cursor: pointer;background-color:#30CE6A;" class="btn btn-info cursorcls">Approve</button>
+      
+      <button *ngIf="status_submitted" style="cursor: pointer;" class="btn btn-info cursorcls">Processing</button>
+
+    </div>
+    <div class="col-sm-12" *ngIf='loader'>
+      <img src = "/assets/images/loader1.gif" style="height: 20px;width: 20px;float: right;">
+    </div> 
+    </div> 
+  </form> 
+</ng-template>
+
+
+
+<ng-template #rejectcurrency let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h6 class="modal-title text-uppercase">Exchange</h6>
+    <button type="button" class="close" aria-label="Close"
+      (click)="d('Cross click')" ngbTooltip="Close" id="cls">
+    <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form  #exchange_status="ngForm" (ngSubmit)="exchange_status.form.valid && status_changes('rejcet',editbanners._id)" novalidate>
+    <div class="modal-body">
+      <div class="form-group row">
+        <label for="example-text-input" class="col-6 col-form-label"> <b>Name : </b></label>
+        <label for="example-text-input" class="col-6 col-form-label"> {{editbanners.username}}</label>
+      </div> 
+     <div class="form-group row">
+        <label for="example-text-input" class="col-6 col-form-label"> <b>Email : </b></label>
+        <label for="example-text-input" class="col-6 col-form-label"> {{editbanners.usermail}}</label>
+      </div>
+      <div class="form-group row">
+        <label for="example-text-input" class="col-6 col-form-label"> <b>Pairs : </b></label>
+        <label for="example-text-input" class="col-6 col-form-label"> {{editbanners.pairs}}</label>
+      </div> 
+      
+      <div class="form-group row">
+        <label for="example-text-input" class="col-6 col-form-label"> <b>Amount : </b></label>
+        <label for="example-text-input" class="col-6 col-form-label">
+
+          <span *ngIf="editbanners.fromcurrency_type==1"> {{editbanners.total_amount   | number:'1.8-8' }}  {{editbanners.fromcurrency_name}} </span>
+          <span *ngIf="editbanners.fromcurrency_type==2"> {{editbanners.total_amount   | number:'1.2-2 ' }}  {{editbanners.fromcurrency_name}}</span>
+         </label>
+      </div> 
+
+      <div class="form-group row" >
+        <label for="example-text-input" class="col-6 col-form-label"> <b>Market price : </b></label>
+        <label for="example-text-input" class="col-6 col-form-label"> <span *ngIf="editbanners.fromcurrency_type == 1">{{editbanners.price | number:'1.8-8'}} {{editbanners.tc_name}}</span>
+        <span *ngIf="editbanners.fromcurrency_type==2">{{editbanners.price | number:'1.8-8'}} {{editbanners.tc_name}}</span> </label>
+      </div>
+
+      <div class="form-group row">
+        <label for="example-text-input" class="col-6 col-form-label"> <b>Fees : </b></label>
+        <label for="example-text-input" class="col-6 col-form-label"> <span *ngIf="editbanners.fromcurrency_type == 1">{{editbanners.less_amount | number:'1.8-8'}} {{editbanners.tc_name}}</span>
+        <span *ngIf="editbanners.fromcurrency_type==2">{{editbanners.less_amount | number:'1.2-2'}} {{editbanners.tc_name}}</span> </label>
+      </div>
+      <div class="form-group row" >
+        <label for="example-text-input" class="col-6 col-form-label"> <b>Receive amount : </b></label>
+        <label for="example-text-input" class="col-6 col-form-label"> <span *ngIf="editbanners.fromcurrency_type == 1">{{editbanners.receive_amount | number:'1.8-8'}} {{editbanners.tc_name}}</span>
+        <span *ngIf="editbanners.fromcurrency_type==2">{{editbanners.receive_amount | number:'1.8-8'}} {{editbanners.tc_name}}</span> </label>
+      </div>  
+      
+
+      <div class="form-group row" >
+        <label for="example-text-input" class="col-6 col-form-label"> <b>Status : </b></label>
+        <label for="example-text-input" class="col-6 col-form-label" *ngIf="editbanners.status=='3'"> Pending</label>
+        <label for="example-text-input" class="col-6 col-form-label" *ngIf="editbanners.status=='2'"> 
+        Canceled</label>
+        <label for="example-text-input" class="col-6 col-form-label" *ngIf="editbanners.status=='1'"> Completed</label>
+      </div>
+
+
+      <div class="form-group row" *ngIf="editbanners.status=='3'">
+        <label for="example-text-input" class="col-2 col-form-label">Reason</label>
+        <div class="col-10">
+
+        	<textarea name="reject_reason"  class="form-control" autocomplete="off" onpaste="return false" [(ngModel)]="rejcetion.reject_reason"  required="" #reject_reason="ngModel" pattern="[a-zA-Z0-9\s_@.,]+"></textarea>
+        <p class="text-danger" *ngIf="(reject_reason.invalid && exchange_status.submitted) || reject_reason.touched">
+        <span *ngIf="reject_reason.errors?.required">Reason is required</span>
+        <span *ngIf="reject_reason.errors?.pattern">Invalid Value</span>
+        </p>
+
+
+       <!--  
+          <textarea  name="reject_reason" placeholder="Reason" class="form-control" id="reject_reason" [(ngModel)]="rejcetion.reject_reason" #reject_reason="ngModel" pattern="[a-zA-Z0-9\s_@.,]+" required ></textarea>
+          <span *ngIf="exchange_status.submitted">
+          	
+
+          </span> -->
+        </div>
+      </div>        
+    </div>
+    <div class="modal-footer" *ngIf="editbanners.status == '3'">
+    <div >
+      <button  type="submit"  *ngIf="!status_submitted" style="cursor: pointer;"  class="btn btn-danger cursorcls">Cancel</button>
+      <button *ngIf="status_submitted" style="cursor: pointer;" class="btn btn-info cursorcls">Processing</button>
+
+    </div>
+    <div class="col-sm-12" *ngIf='loader'>
+      <img src = "/assets/images/loader1.gif" style="height: 20px;width: 20px;float: right;">
+    </div> 
+    </div> 
+  </form> 
+</ng-template>
+

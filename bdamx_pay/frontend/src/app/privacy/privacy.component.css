@@ -1,0 +1,14 @@
+p strong {
+    font-family: 'Rubik', sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+p {
+    font-family: 'Rubik', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    margin-bottom: 10px !important;
+    line-height: 25px !important;
+}

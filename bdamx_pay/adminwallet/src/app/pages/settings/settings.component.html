@@ -1,0 +1,96 @@
+<div class="row">
+	<div class="col-lg-12 mb-4">
+		<nb-card>
+			<nb-card-header>General</nb-card-header>
+			<nb-card-body>
+				<form (ngSubmit)="basicform.form.valid && savebasicinfo()" #basicform="ngForm" novalidate >
+					<div class="form-group row">
+						<div class="col-2">
+						</div>
+						<div class="col-8">
+							<div class="form-group row">
+								<label for="currentpwdnew" class="col-4 col-form-label pl-0">User Name</label>
+									<input id="username" name="username" [(ngModel)]="admindetails.admin_name"  #admin_name="ngModel" class="col-md-12 fullwidth form-control"  placeholder="Username" 
+									pattern="^[^-\s][a-zA-Z0-9_\s-]+$" [class.form-control-danger]="admin_name.invalid && admin_name.touched" required [minlength]="3" [maxlength]="10" autofocus  style="width: 373px;" />
+									<small class="form-text error" *ngIf="admin_name.invalid && admin_name.touched && admin_name.errors?.required">
+									User name is required!
+									</small>
+									<small class="form-text error" *ngIf="admin_name.invalid && admin_name.touched && admin_name.errors?.pattern">
+									User name is invalid!
+									</small>
+									<small class="form-text error" *ngIf="admin_name.invalid && admin_name.touched && (admin_name.errors?.minlength || admin_name.errors?.maxlength)"> User name should contains from 3 to 10 characters
+									</small>
+							</div>
+							<div class="form-group row">
+								<label for="example-text-input" class="col-4 col-form-label pl-0">Email ID</label>
+								<input id="emailid" name="contact_mail" [(ngModel)]="admindetails.admin_emailid"  #admin_emailid="ngModel" pattern=".+@.+\..+" class="col-md-12 fullwidth form-control" placeholder="Email address"  [class.form-control-danger]="admin_emailid.invalid && admin_emailid.touched" autofocus required  style="width: 373px;">
+								<small class="form-text error" *ngIf="admin_emailid.invalid && admin_emailid.touched && admin_emailid.errors?.required">
+								Email is required!
+								</small>
+								<small class="form-text error" *ngIf="admin_emailid.invalid && admin_emailid.touched && admin_emailid.errors?.pattern">
+								Email should be the real one!
+								</small>
+							</div>
+							<div class="form-group row">
+								<label for="example-text-input" class="col-3 col-form-label pl-0">Pattern</label>
+								<div class="col-8">
+									<div id="patternContainer" style="height: 304px;position: relative;width: 83%;"></div>
+									<input type="hidden" name="pattern_code" id="patterncode" [(ngModel)]="admindetails.admin_pattern"/>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-12" style="text-align: center;">
+					</div>
+					<div class="col-12" style="text-align: center;">
+						<div class="tab_align">
+							<button type="submit" [disabled]="!basicform.valid"	style="cursor:pointer;" class="btn btn-info cursorcls">Submit</button>
+						</div>
+					</div>
+				</form>
+			</nb-card-body>
+		</nb-card>
+	</div>
+	<div class="col-lg-12 mb-4">
+		<nb-card>
+			<nb-card-header>Password</nb-card-header>
+			<nb-card-body>
+				<form (ngSubmit)="pwdform.form.valid && change(pwdform)" #pwdform="ngForm" novalidate>
+					<div class="form-group row">
+						<div class="col-2">
+						</div>
+						<div class="col-8">
+							<div class="form-group row">
+								<label for="currentpwdnew" class="col-4 col-form-label pl-0">Current Password</label>
+								<input type="password" class="form-control form-control-line" placeholder="Enter Current Password" [(ngModel)]="cngPass.pass" name="pass" #pass="ngModel" [class.form-control-danger]="pass.invalid && pass.touched" required />
+								<span class="errr" *ngIf="pass.invalid && pass.touched && pass.errors?.required">Current Password is required!</span> 
+							</div>
+							<div class="form-group row">
+								<label for="example-text-input" class="col-4 col-form-label pl-0">New Password</label>
+                <input type="password" class="form-control form-control-line" placeholder="Enter New Password" [(ngModel)]="cngPass.npass" name="npass" #npass="ngModel" [class.form-control-danger]="npass.invalid && npass.touched" [minlength]="8" [maxlength]="20" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" required />
+                <span class="errr" *ngIf="npass.invalid && npass.touched && npass.errors?.required">New Password is required!</span>    
+                <span class="errr" *ngIf="npass.invalid && npass.touched && npass.errors?.pattern">Password should be 8 character ,atleast 1 Upper case,1 Lower Case 1 Number and 1 Special character.</span>    
+                <span class="errr" *ngIf="npass.invalid && npass.touched && (npass.errors?.minlength || npass.errors?.maxlength)">Password should contains from 8  to 20  characters </span>
+							</div>
+							<div class="form-group row">
+								<label for="example-text-input" class="col-4 col-form-label pl-0">Re-enter Password</label>
+                <input type="password" class="form-control form-control-line" placeholder="Enter Confirm Password" name="cpass" [(ngModel)]="cngPass.cpass" #cpass="ngModel" [class.form-control-danger]="(cpass.invalid || npass.value != cpass.value) && cpass.touched" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" required />
+                <span class="errr" *ngIf="cpass.invalid && cpass.touched && cpass.errors?.required"> Confirm Password is required!</span>  
+                <span class="errr" *ngIf="cpass.touched && npass.value != cpass.value && !cpass.errors?.required">Password does not match password confirmation.</span>  
+                <span class="errr" *ngIf="cpass.invalid && cpass.touched && cpass.errors?.pattern && npass.value == cpass.value">Password should be 8 character ,atleat 1 Upper case, 1 Lower case 1 Number and 1 Special character.</span> 
+							</div>
+						</div>
+					</div>
+					<div class="col-12" style="text-align: center;">
+					</div>
+					<div class="col-12" style="text-align: center;">
+						<div class="tab_align">
+							<button type="submit" style="cursor:pointer;" class="btn btn-info cursorcls" [disabled]="!pwdform.valid" 
+							>Submit</button>
+						</div>
+					</div>
+				</form>
+			</nb-card-body>
+		</nb-card>
+	</div>
+</div>

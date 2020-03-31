@@ -1,0 +1,113 @@
+<div class="container-fluid px-0 font-inner-style">
+  <app-dashboard-header></app-dashboard-header>
+<div class="row mx-0">
+ <div class="col-12 col-lg-2 col-xl-2 col-xl-responsive-2 px-0 d-flex">
+<app-sidebar class="w-100 left_bg_green full-height"></app-sidebar>
+</div>
+  <div class="col-12 col-lg-10 col-xl-10 col-xl-responsive-10 px-0 px-md-0 d-flex flex-column">
+    <div class="row mx-0 w-100 my-1 py-5 pl-0 pl-md-5">
+      <div class="col-12 col-md-3 text-center">
+         <img [src]="tfsqrcode" class="img-fluid">
+
+         <div class="row_position" *ngIf="!tfaenables">
+          <label class="switch my-5">
+          <input type="checkbox" disabled="true">
+          <span class="slider round"></span>
+          <span class="font_16 font_weight_500 switch_label">Off</span>
+          </label>
+
+        </div>
+
+         <div class="row_position" *ngIf="tfaenables">
+          <label class="switch my-5">
+          <input type="checkbox" disabled="true" checked="">
+          <span class="slider round"></span>
+          <span class="font_16 font_weight_500 switch_label">On</span>
+          </label>
+
+        </div>
+
+      </div>
+       <div class="col-12 col-md-9">
+        <div class="form-group row mx-0">
+              <div class="input-group mb-3 input-group-lg mx-auto mt-5 shadow">
+              <!-- <div class="input-group-prepend">
+              <span class="input-group-text border-0 font_weight_500 font_16 text_black bg-white">Secret key</span>
+              </div> -->
+              <input type="text" class="form-control border-0 black_placeholder_small" disabled="true" aria-label="Amount (to the nearest dollar)" placeholder="" value="{{tfaenablekey}}">
+              <div class="input-group-append">
+              <span class="input-group-text p-0 border-0"> <img src="assets/images/copy.png" (click)="copyText(tfaenablekey)" class="w_59_px"></span>
+              </div>
+              </div>
+      </div>
+       <div class="form-group row pt-4 mx-0">
+            <label for="staticEmail" class="col-12 col-md-4 col-lg-4 px-0 col-form-label text_light_grey font_14 font_weight_400">Google authentication code</label>
+            <div class="col-12 col-md-8 col-lg-8 px-0">
+           <input type="text" class="form-control form-control-lg shadow border-0" aria-label="Recipient's username" aria-describedby="basic-addon2" name="tfa" [(ngModel)]="tfaonecode" onkeydown="javascript: return event.keyCode == 69 ? false : true" (keypress)="numberOnly($event)">
+            </div>
+            </div>
+      <div class="row mx-0">
+        <button class="btn btn-light-green btn_green_padding mx-auto my-4" *ngIf="tfaenables == 0"  (click)="clicktfaenable()">Enable security</button>
+
+        <button class="btn btn-light-green btn_green_padding mx-auto my-4" *ngIf="tfaenables == 1"  (click)="clicktfadisable()">Disable security</button>
+
+    
+
+      </div>
+    </div>
+  <!--     <div class="col-12 pl-0 pl-md-3 pr-0 d-flex mt-2 ipad_col_6">
+        <div class="card w-100 border-0 shadow">
+          <div class="card-body px-0">
+            <p class="font_16 px-3 font_weight_400 text_black_1">Deposit</p>
+            <hr class="hr_light_grey">
+            <div class="row mx-0">
+              <div class="col-12 col-md-6">
+              <div class="form-group row">
+              <label for="staticEmail" class="col-12 col-md-5 col-lg-6 col-form-label text_light_grey font_14 font_weight_400">Deposit currency</label>
+              <div class="col-12 col-md-7 col-lg-6">
+              <select class="form-control shadow-lg-light form-control-lg w-75 border-0 shadow" id="exampleFormControlSelect1">
+                          <option>BTC</option>
+                          <option>BTP</option>  
+                          <option>ETH</option>                          
+                    </select>
+              </div>
+              </div>
+               
+              </div>
+               <div class="col-12 col-md-6">
+                <p class="float-right pr-4"><span class="text_light_grey font_14 font_weight_400">Available Balance</span> <span class="font_14 ml-4 font_weight_500 text_black">0.00000000 BTC</span></p>
+              </div>
+            </div>
+            <div class="text-center">
+            <img src="assets/images/qr_code_new.png" class="img-fluid">
+            <div class="form-group row mx-0">
+              <div class="input-group mb-3 input-group-grey w-50-custom mx-auto mt-5 shadow">
+              <div class="input-group-prepend">
+              <span class="input-group-text border-0 font_weight_500 font_16 text_black">Address</span>
+              </div>
+              <input type="text" class="form-control form-control-lg border-0 black_placeholder_small" aria-label="Amount (to the nearest dollar)" placeholder="R3exBzuT3At6iDJ4x0JMYEwMrpL2NTqA">
+              <div class="input-group-append">
+              <span class="input-group-text p-0 border-0"> <img src="assets/images/copy.png" class="w_59_px"></span>
+              </div>
+              </div>
+            </div>
+          </div>
+      
+      
+       </div>
+       <div class="card-footer card_footer_grey border-0">
+        <p class="row mx-0 mb-0"><span class="font_weight_400 font_14 text_black_1 col-1-custom">Note: </span><span class="font_12 font_weight_400 text_light_grey col-11-custom">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></p>
+      </div>
+       </div>
+      </div -->
+      
+    </div>
+
+  
+</div>
+
+</div>
+<!-- Bootstrap core JavaScript -->
+<!-- <script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+ -->

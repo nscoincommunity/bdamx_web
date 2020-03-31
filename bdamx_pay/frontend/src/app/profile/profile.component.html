@@ -1,0 +1,308 @@
+<div class="container-fluid px-0 font-inner-style">
+<app-dashboard-header></app-dashboard-header>
+<div class="row mx-0">
+<div class="col-12 col-lg-2 col-xl-2 col-xl-responsive-2 px-0 d-flex">
+<app-sidebar class="w-100 left_bg_green full-height"></app-sidebar>
+</div>
+  <div class="col-12 col-lg-10 col-xl-10 col-xl-responsive-10 px-0 d-flex flex-column marg-top-25">   
+ <!-- update profile -->
+
+    <div class="row mx-0 my-3">
+            <!-- <div class=""> -->
+           <form class="w-100" #profileform="ngForm" (ngSubmit)="profileform.form.valid && saveProfile(profileform)" novalidate>
+            <div class="row mx-0 px-3 px-md-5 pt-5">
+            <div class="col-12 col-md-4">
+            <div class="form-group row mx-0">
+            <label for="staticEmail" class="col-12 px-0 col-form-label text_light_grey font_14 font_weight_400">Username</label>
+            <div class="col-12 px-0">
+            <input type="text" class="form-control form-control-lg shadow border-0 black_placeholder_small" [(ngModel)]="profile.user_name" #username="ngModel" name="username" placeholder="User Name" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled="true">
+            </div>
+            </div>
+            </div>  
+            <div class="col-12 col-md-4">
+            <div class="form-group row mx-0">
+            <label for="staticEmail" class="col-12 px-0 col-form-label text_light_grey font_14 font_weight_400">Email Address</label>
+            <div class="col-12 px-0">
+            <input type="text" class="form-control form-control-lg shadow border-0 black_placeholder_small" [(ngModel)]="profile.email" #email="ngModel" name="email" placeholder="Email Address" aria-label="Recipient's email" aria-describedby="basic-addon2" disabled="true">
+            </div>
+            </div>
+            </div> 
+            <div class="col-12 col-md-4">
+            <div class="form-group row mx-0">
+            <label for="staticEmail" class="col-12 px-0 col-form-label text_light_grey font_14 font_weight_400">Mobile Number</label>
+            <div class="col-12 px-0">
+            <input type="text" class="form-control form-control-lg shadow border-0 black_placeholder_small"  [(ngModel)]="profile.mobile" #mobilenumber="ngModel" name="mobilenumber" placeholder="Mobile Number" aria-label="Recipient's mobile" aria-describedby="basic-addon2" disabled="true">
+            </div>
+            </div>
+            </div>  
+
+            <div class="col-12 col-md-4">
+            <div class="form-group row mx-0">
+            <label for="staticEmail" class="col-12 px-0 col-form-label text_light_grey font_14 font_weight_400">First Name</label>
+            <div class="col-12 px-0">
+            <input type="text" pattern="[A-Za-z]+" required class="form-control form-control-lg shadow border-0 black_placeholder_small" [(ngModel)]="profile.first_name" #first_name="ngModel" name="first_name" placeholder="First Name" aria-label="Recipient's firstname" aria-describedby="basic-addon2">
+            <p class="text-danger" *ngIf="(first_name.invalid && profileform.submitted) || first_name.touched">
+                <span *ngIf="first_name.errors?.required">First Name is Required</span>
+                <span *ngIf="first_name.errors?.pattern">Letters Only Allowed</span>
+            </p>
+            </div>
+            </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+            <div class="form-group row mx-0">
+            <label for="staticEmail" class="col-12 px-0 col-form-label text_light_grey font_14 font_weight_400">Last Name</label>
+            <div class="col-12 px-0">
+            <input type="text" pattern="[A-Za-z]+" required class="form-control form-control-lg shadow border-0 black_placeholder_small" [(ngModel)]="profile.last_name" #last_name="ngModel" name="last_name" placeholder="Last Name" aria-label="Recipient's lastname" aria-describedby="basic-addon2">
+            <p class="text-danger" *ngIf="(last_name.invalid && profileform.submitted) || last_name.touched">
+                <span *ngIf="last_name.errors?.required">Last Name is Required</span>
+                <span *ngIf="last_name.errors?.pattern">Letters Only Allowed</span>
+            </p>
+            </div>
+            </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+            <div class="form-group row mx-0">
+            <label for="staticEmail" class="col-12 px-0 col-form-label text_light_grey font_14 font_weight_400">Address Line1</label>
+            <div class="col-12 px-0">
+            <input type="text" required class="form-control form-control-lg shadow border-0 black_placeholder_small" [(ngModel)]="profile.address1" #address1="ngModel" name="address1" placeholder="Address Line1" aria-label="Recipient's addressline1" aria-describedby="basic-addon2">
+            <p class="text-danger" *ngIf="(address1.invalid && profileform.submitted) || address1.touched">
+                <span *ngIf="address1.errors?.required">Address Line1 is Required</span>
+            </p>
+            </div>
+            </div>
+            </div> 
+
+             <div class="col-12 col-md-4">
+            <div class="form-group row mx-0">
+            <label for="staticEmail" class="col-12 px-0 col-form-label text_light_grey font_14 font_weight_400">Address Line2</label>
+            <div class="col-12 px-0">
+            <input type="text" class="form-control form-control-lg shadow border-0 black_placeholder_small" [(ngModel)]="profile.address2" #address2="ngModel" name="address2" placeholder="Address Line2" aria-label="Recipient's addressline2" aria-describedby="basic-addon2">
+            <p class="text-danger" *ngIf="(address2.invalid && profileform.submitted) || address2.touched">
+                <span *ngIf="address2.errors?.required">Address Line2 is Required</span>
+            </p>
+            </div>
+            </div>
+            </div> 
+
+             <div class="col-12 col-md-4">
+            <div class="form-group row mx-0">
+            <label for="staticEmail" class="col-12 px-0 col-form-label text_light_grey font_14 font_weight_400">Country</label>
+            <div class="col-12 px-0">
+            	 <select class="form-control  shadow-lg-light form-control-lg border-0 shadow bg-white black_placeholder_small" required name="country" id="exampleFormControlSelect1" disabled="true">
+                          <option value="{{profile.region}}">{{profile.region}}</option>   
+                    </select>
+            </div>
+            </div>
+            </div> 
+
+            <div class="col-12 col-md-4">
+            <div class="form-group row mx-0">
+            <label for="staticEmail" class="col-12 px-0 col-form-label text_light_grey font_14 font_weight_400">City</label>
+            <div class="col-12 px-0">
+            <input type="text" pattern="[A-Za-z]+$" required class="form-control form-control-lg shadow border-0 black_placeholder_small" [(ngModel)]="profile.city" #city="ngModel" name="city" placeholder="City" aria-label="Recipient's city" aria-describedby="basic-addon2">
+             <p class="text-danger" *ngIf="(city.invalid && profileform.submitted) || city.touched">
+                <span *ngIf="city.errors?.required">City is Required</span>
+                <span *ngIf="city.errors?.pattern">Letters Only Allowed</span>
+            </p>
+            </div>
+            </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+            <div class="form-group row mx-0">
+            <label for="staticEmail" class="col-12 px-0 col-form-label text_light_grey font_14 font_weight_400">State</label>
+            <div class="col-12 px-0">
+            <input type="text" pattern="[A-Za-z]+$" required class="form-control form-control-lg shadow border-0 black_placeholder_small" [(ngModel)]="profile.state" #state="ngModel" name="state" placeholder="State" aria-label="Recipient's state" aria-describedby="basic-addon2">
+            <p class="text-danger" *ngIf="(state.invalid && profileform.submitted) || state.touched">
+                <span *ngIf="state.errors?.required">State is Required</span>
+                <span *ngIf="state.errors?.pattern">Letters Only Allowed</span>
+            </p>
+            </div>
+            </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+            <div class="form-group row mx-0">
+            <label for="staticEmail" class="col-12 px-0 col-form-label text_light_grey font_14 font_weight_400">Zipcode/Postalcode</label>
+            <div class="col-12 px-0">
+            <input type="text" required pattern="[0-9]+" class="form-control form-control-lg shadow border-0 black_placeholder_small" [(ngModel)]="profile.zipcode" #zipcode="ngModel" name="zipcode" placeholder="Zipcode/Postalcode" aria-label="Recipient's zipcode" aria-describedby="basic-addon2">
+            <p class="text-danger" *ngIf="(zipcode.invalid && profileform.submitted) || zipcode.touched">
+                <span *ngIf="zipcode.errors?.required">Zipcode is Required</span>
+                <span *ngIf="zipcode.errors?.pattern">Numbers Only Allowed</span>
+            </p>
+            </div>
+            </div>
+            </div>
+            <div class="col-12 col-md-4">
+            <div class="form-group row mx-0">
+            	 <label for="staticEmail" class="col-12 px-0 col-form-label text_light_grey font_14 font_weight_400">Profile Image</label>
+            <div class="col-12 px-0">
+            <div class="custom-file">
+			  <input type="file" class="custom-file-input form-control form-control-lg shadow border-0 black_placeholder_small" (change)="fileChangeEvents($event)" #image accept=".png, .jpg, .jpeg" id="customFile">
+			  <label class="custom-file-label"  for="customFile">Choose file</label>
+			</div>
+              <div class="mt-3" *ngIf="profile.image && !profileSave">
+              <!-- <div id="imagePreview" [style.backgroundImage]="'url('+ imageUrl +')'"> -->
+                <img src="{{profile.image}}" height="50" width="50">
+              </div> 
+			</div>
+			</div>
+			</div>
+       		
+       		<div class="text-center">
+       		 <button type="submit" [disabled]="!(imagechosen ? profile.image : true)" class="btn btn-light-green btn-big-bg my-4 font_weight_500 mx-3">Update Profile</button>
+       		</div>
+
+
+            
+            </div>
+        </form>
+  <!-- </div> -->
+  </div>
+ <!-- end update profile -->
+
+
+ <h5 style="text-align:center">Change Password</h5>
+
+  <!-- change password -->
+  <div class="row mx-0 my-3 justify-content-center">
+            <!-- <div class=""> -->
+           <form class="col-12 col-md-6" #passform="ngForm" (ngSubmit)="passform.form.valid && savePass(passform)" novalidate>
+
+            <div class="row mx-0 px-3 px-md-5 pt-5">
+            <div class="input-group">
+                <label for="staticEmail" class="col-12 px-0 col-form-label text_light_grey font_14 font_weight_400">Current Password</label>
+    
+    <input type="password" id="password" class="form-control" [(ngModel)]="pass.currentpassword" #currentpassword="ngModel" name="currentpassword" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])(?!.*\s).{8,}$" placeholder="Current Password" aria-label="Recipient's currentpassword" aria-describedby="basic-addon2" required>
+
+    <div class="input-group-btn">
+      <button class="btn btn-default" (click)="change_passtype('password', 'new_image1')">
+        <img  id="new_image1" src="{{pass_icon}}" >
+      </button>
+    </div>
+
+  </div>
+  <p class="text-danger" *ngIf="(currentpassword.invalid && passform.submitted) || currentpassword.touched">
+                <span *ngIf="currentpassword.errors?.required">Password is required</span>
+                <span *ngIf="currentpassword.errors?.pattern">Password
+                                        should be 8 character ,atleast 1 Upper case,1 Lower Case 1 Number and 1 Special
+                                        character.Space are not allowed</span>
+              </p>
+  <div class="input-group">
+              <label for="staticEmail" class="col-12 px-0 col-form-label text_light_grey font_14 font_weight_400">New Password</label>
+    
+     <input type="password" id="newpassword" class="form-control" [(ngModel)]="pass.newpassword" #newpassword="ngModel" name="newpassword" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])(?!.*\s).{8,}$" placeholder="New Password" aria-label="Recipient's newpassword" aria-describedby="basic-addon2" required>
+
+    <div class="input-group-btn">
+      <button class="btn btn-default" (click)="change_passtype('newpassword', 'new_image2')" >
+        <img  id="new_image2"  src="{{pass_icon}}" >
+      </button>
+    </div>
+  </div>
+   <p class="text-danger" *ngIf="(newpassword.invalid && passform.submitted) || newpassword.touched">
+                <span *ngIf="newpassword.errors?.required">New Password is required</span>
+                <span *ngIf="newpassword.errors?.pattern">Password
+                                        should be 8 character ,atleast 1 Upper case,1 Lower Case 1 Number and 1 Special
+                                        character.Space are not allowed</span>
+              </p>
+
+  <div class="input-group">
+                <label for="staticEmail" class="col-12 px-0 col-form-label text_light_grey font_14 font_weight_400">Confirm Password</label>
+    
+   <input type="password" id="confirmpassword" class="form-control "  [(ngModel)]="pass.confirmnewpassword" #confirmnewpassword="ngModel" name="confirmnewpassword" pattern="{{newpassword.value}}" placeholder="Confirm New Password" aria-label="Recipient's confirmnewpassword" aria-describedby="basic-addon2" required>
+
+    <div class="input-group-btn">
+      <button class="btn btn-default" (click)="change_passtype('confirmpassword', 'new_image3')">
+        <img   id="new_image3" src="{{pass_icon}}" >
+      </button>
+    </div>
+  </div>
+
+   <p class="text-danger" *ngIf="(confirmnewpassword.invalid && passform.submitted) || confirmnewpassword.touched">
+                <span *ngIf="confirmnewpassword.errors?.required">Confirm Password is required</span>
+                <span *ngIf="confirmnewpassword.errors?.pattern">New Password is mismatch with Confirm New Password</span>
+                                        <!-- <span *ngIf="confirmnewpassword != newpassword">New Password is mismatch with Confirm New Password</span> -->
+              </p>
+
+  <div class="text-center px-3">
+             <button type="submit" class="btn btn-light-green btn-big-bg my-4 font_weight_500">Update Password</button>
+            </div>
+     </div>         
+
+
+            
+    </form>
+</div>
+  <!-- end change password -->
+  
+</div>
+
+</div>
+
+<!-- <button type="button" class="btn btn-primary" (click)="openModal(template)">Create template modal</button> -->
+ 
+<ng-template #qrCode>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left hd">QR Code</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+  <div class="text-center bord-shade">
+    <img [src]="img_qr" class="img-fluid" style="margin-top: -20px;">
+    <div class="form-group row mx-0">
+      <!-- <div class="input-group mb-3 input-group-grey w-50-custom mx-auto mt-5 shadow">
+      <div class="input-group-prepend">
+      <span class="input-group-text border-0 font_weight_500 font_16 text_black">Address</span>
+      </div>
+      <input type="text" class="form-control form-control-lg border-0 black_placeholder_small" disabled="true" aria-label="Amount (to the nearest dollar)" placeholder="{{coinAddress}}">
+      </div> -->
+
+      <p class="qr-val">{{coinAddress}}</p>
+      <span class="input-group-text p-0 border-0"> <img src="assets/images/copy.png" class="w_59_px" (click)="copyText(coinAddress)"></span>
+
+    </div>
+  </div>
+  </div>
+</ng-template>
+<!-- Bootstrap core JavaScript -->
+<!-- <script src="js/chart.min.js"></script>
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="css/DataTables/datatables.js"></script> -->
+<script type="text/javascript">
+  
+
+//  $(document).ready(function() {
+//     $('.example_datatable').DataTable({
+//       "searching": true,
+//       "bLengthChange": false,
+//       "bFilter": false,
+//       "bInfo": false,
+//       "ordering": false,
+//       "paging":false,
+//     //    "oLanguage": {
+//     //     "sSearch": '',
+//     //     // "searchPlaceholder": "Search records"
+//     // },  
+//     "order": [],
+//     "lengthMenu": [[6, 10, 25, -1], [6, 10, 25, "All"]],
+//     "columnDefs": [ {
+//       "targets"  : 'no-sort',
+//       "orderable": false,
+//     }],
+//     "language": {
+//       "sSearch": '',
+//       "searchPlaceholder": "Search",
+//       "info": "Showing _PAGE_ to _PAGES_ results",
+//     "paginate": {
+//       "previous": "<<",
+//       "next": ">>"
+//     }
+//   }
+//     });
+// } );
+</script>

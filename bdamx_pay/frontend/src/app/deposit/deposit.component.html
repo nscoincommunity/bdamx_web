@@ -1,0 +1,385 @@
+<div class="container-fluid px-0  font-inner-style">
+<app-dashboard-header></app-dashboard-header>
+<div class="row mx-0">
+  <div class="col-12 col-lg-2 col-xl-2 col-xl-responsive-2 px-0 d-flex">
+<app-sidebar class="w-100 left_bg_green full-height"></app-sidebar>
+</div>
+  <div class="col-12 col-lg-10 col-xl-10 col-xl-responsive-10 px-0 px-md-0 d-flex flex-column" >
+    <div class="row mx-0 w-100 my-1" *ngIf="!currencyStatus">
+      <div class="col-12 pl-0 pl-md-3 pr-0 d-flex mt-2 ipad_col_6">
+        <div class="card w-100 border-0 shadow">
+          <div class="card-body px-0">
+            <p class="font_16 px-3 font_weight_400 text_black_1">Deposit</p>
+            <hr class="hr_light_grey">
+            <div class="row mx-0">
+              <div class="col-12 col-md-6">
+              <div class="form-group row">
+              <label for="staticEmail" class="col-12 col-md-5 col-lg-5 col-form-label text_light_grey font_14 font_weight_400">Deposit currency</label>
+              <div class="col-12 col-md-7 col-lg-7">
+              <select class="form-control shadow-lg-light form-control-lg w-75 border-0 shadow" id="exampleFormControlSelect1" name="currencyName" [(ngModel)]="currencyName" (change)="currencySelected($event.target.value)">
+                    <option *ngFor="let currency of currencyData" value="{{currency.currencySymbol}}">{{currency.currencySymbol}}</option>                    
+              </select>
+              </div>
+              </div>
+               
+              </div>
+               <div class="col-12 col-md-6">
+                <p class="float-right pr-4"><span class="text_light_grey font_14 font_weight_400">Available Balance</span> <span class="font_14 ml-4 font_weight_500 text_black">{{walletBalance | number: '1.8-8'}} {{currencyName}}</span></p>
+              </div>
+            </div>
+            <div class="text-center" *ngIf="currencyType == 1">
+            <img *ngIf="img_qr" [src]="img_qr" class="img-fluid" >
+            <div class="form-group row mx-0">
+              <div class="input-group mb-3 input-group-grey w-50-custom mx-auto mt-5 shadow">
+              <div class="input-group-prepend">
+              <!-- <span class="input-group-text border-0 font_weight_500 font_16 text_black">Address</span> -->
+              </div>
+              <input type="text" class="form-control form-control-lg border-0 black_placeholder_small" disabled="true" aria-label="Amount (to the nearest dollar)" placeholder="" value="{{coinAddress}}">
+              <div class="input-group-append">
+              <span class="input-group-text p-0 border-0"> <img src="assets/images/copy.png" class="w_59_px" (click)="copyText(coinAddress)"></span>
+              </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="currencyType == 2">
+           <form #depositform="ngForm" (ngSubmit)="depositform.form.valid && saveDeposit(depositform)" novalidate >
+            <div class="row mx-0 px-5 pt-5">
+            <div class="col-12 col-md-6">
+            <div class="form-group row">
+            <label for="staticEmail" class="col-12 col-md-5 col-lg-5 px-0 col-form-label text_light_grey font_14 font_weight_400">Country</label>
+            <div class="col-12 col-md-7 col-lg-7 pl-0">
+             <select class="form-control shadow-lg-light form-control-lg w-75 border-0 shadow" id="exampleFormControlSelect1" name="country" #country="ngModel" [(ngModel)]="deposit.country" (change)="countrySelected($event.target.value)" required>
+                    <option value=""> --- Choose Country --- </option>
+                    <option *ngFor="let country of countryList" value="{{country.name}}">{{country.name}}</option>                    
+              </select>
+            </div>
+             <p class="text-danger" *ngIf="(country.invalid && depositform.submitted) || country.touched">
+                <span *ngIf="country.errors?.required">Country is required</span>
+            </p>
+            </div>
+            </div>
+    
+            </div>
+            <div class="row mx-0 px-5 pt-5">
+            <div class="col-12 col-md-6">
+            <div class="form-group row">
+            <label for="staticEmail" class="col-12 col-md-5 col-lg-5 px-0 col-form-label text_light_grey font_14 font_weight_400">Bank</label>
+            <div class="col-12 col-md-7 col-lg-7 pl-0">
+             <select class="form-control shadow-lg-light form-control-lg w-75 border-0 shadow" id="exampleFormControlSelect1" name="bankName" #bankName="ngModel" [(ngModel)]="deposit.bankName" (change)="bankSelected($event.target.value)" required>
+                    <option value=""> --- Choose Bank --- </option>
+                    <option *ngFor="let bank of bankList" value="{{bank.bank}}">{{bank.bank}}</option>                    
+              </select>
+            </div>
+             <p class="text-danger" *ngIf="(bankName.invalid && depositform.submitted) || bankName.touched">
+                <span *ngIf="bankName.errors?.required">Bank is required</span>
+            </p>
+            </div>
+            </div>
+    
+            </div>
+
+            <div class="row mx-0 px-5 pt-5">
+            <div class="col-12 col-md-6">
+            <div class="form-group row">
+            <label for="staticEmail" class="col-12 col-md-5 col-lg-5 px-0 col-form-label text_light_grey font_14 font_weight_400">Country</label>
+            <div class="col-12 col-md-7 col-lg-7 pl-0">
+             <select class="form-control shadow-lg-light form-control-lg w-75 border-0 shadow" id="exampleFormControlSelect1" name="branch" #branch="ngModel" [(ngModel)]="deposit.branch" (change)="branchSelected($event.target.value)" required>
+                    <option value=""> --- Choose Branch --- </option>
+                    <option *ngFor="let branch of branches" value="{{branch.branch}}">{{branch.branch}}</option>                    
+              </select>
+            </div>
+             <p class="text-danger" *ngIf="(branch.invalid && depositform.submitted) || branch.touched">
+                <span *ngIf="branch.errors?.required">Branch is required</span>
+            </p>
+            </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+            <div class="form-group row">
+            <label for="staticEmail" class="col-12 col-md-5 col-lg-5 px-0 col-form-label text_light_grey font_14 font_weight_400">Deposit Amount</label>
+            <div class="col-12 col-md-7 col-lg-7 pl-0">
+          <div class="input-group mb-3 input-group-lg shadow">
+    
+          <input  type="text" class="form-control border-0 black_placeholder_small" [(ngModel)]="deposit.depositAmount" #depositAmount="ngModel" name="depositAmount" pattern="[0-9]+" aria-label="Recipient's username" aria-describedby="basic-addon2" required placeholder="Deposit Amount" onkeyup="if (/[^0-9.]/g.test(this.value)) this.value = this.value.replace(/[^0-9.]/g, '');" required>
+
+           
+          
+          </div>
+          <p class="text-danger" *ngIf="(depositAmount.invalid && depositform.submitted) || depositAmount.touched">
+                <span *ngIf="depositAmount.errors?.required">Deposit Amount is required</span>
+            </p>
+            </div>  
+            </div>
+            </div>
+            </div>
+            <div class="row mx-0 px-5 pt-3">
+            <div class="col-12 col-md-6">
+            <div class="form-group row">
+            <label for="staticEmail" class="col-12 col-md-5 col-lg-5 px-0 col-form-label text_light_grey font_14 font_weight_400">Transaction Number</label>
+            <div class="col-12 col-md-5 col-lg-5 pl-0">
+            <div class="input-group input-group-lg shadow">             
+                           
+              <input type="text" class="form-control border-0 black_placeholder_small" [(ngModel)]="deposit.transactionNo" #transactionNo="ngModel" name="transactionNo" placeholder="Transaction Number" required >
+
+
+              </div>
+               <p class="text-danger" *ngIf="(transactionNo.invalid && depositform.submitted) || transactionNo.touched">
+                <span *ngIf="transactionNo.errors?.required">Transaction Number is required</span>
+            </p>
+            </div>
+            </div>
+          
+            </div>
+            <div class="col-12 col-md-6">
+            <div class="form-group row">
+            <label for="staticEmail" class="col-12 col-md-5 col-lg-5 px-0 col-form-label text_light_grey font_14 font_weight_400">Proof Image </label>
+            <div class="col-12 col-md-7 col-lg-7 pl-0">
+           <input type='file' id="imageUpload" #image accept=".png, .jpg, .jpeg"  (change)="fileChangeEvents($event)" required/>
+            </div> 
+
+             <div class="" *ngIf="deposit.image && !depositClicked">
+              <!-- <div id="imagePreview" [style.backgroundImage]="'url('+ imageUrl +')'"> -->
+                <img src="{{deposit.image}}" height="50" width="50">
+              </div> 
+
+            </div>
+            </div>
+            </div>
+                   <div class="text-center">
+        
+         <button type="submit"  class="btn btn-light-green btn-big-bg my-4 font_weight_500" [disabled]="!(imagechosen ? deposit.image : true)" >Deposit Now</button> 
+        </div>
+            </form>
+
+
+             <div class="row mx-0 my-2 row_position" *ngIf="bankDetails">
+      <p class="font_16 font_weight_500 px-4">Admin Bank Details</p>
+       <span class="position-icon">
+    </span>
+            <!-- <div class=""> -->
+            <div class="px-4 w-100 table-responsive">
+              <table id="example" class="display table-striped-reverse example_datatable ex_dt_small" style="width:100%">
+            <!-- <table id="example" class="display table-striped table-striped-reverse example_datatable table-responsive"> -->
+        <thead>
+            <tr>
+              <th>Bank Name</th>
+              <th>Account Holder Name</th>
+              <th>Account No</th>             
+              <th>Swift / IBAN Code</th>
+              <th>Branch</th>
+              <th>Country</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let items of bankDetails;let i = index">
+            <td class="text_black_1">{{items.bank}}</td>
+            <td class="text_black_1">{{items.accountname}}</td>
+            <td class="text_black_1">{{items.accountnumber}}</td>
+           
+            <td class="text_light_grey">{{items.ifsccode}}</td>
+             <td class="text_light_grey">{{items.branch}}</td>
+              <td class="text_light_grey">{{items.country}}</td>
+            
+            </tr>
+           
+            <tr *ngIf="bankDetails?.length === 0">
+              <td colspan="6" style="text-align: center;">No Records Found</td>
+            </tr>
+
+           
+          
+                                   
+        </tbody>
+        
+        
+    </table>
+ 
+    </div>
+  <!-- </div> -->
+  </div>
+          </div>
+      
+      
+       </div>
+       <div class="card-footer card_footer_grey border-0" *ngIf="siteData">
+        <p class="row mx-0 mb-0"><span class="font_weight_400 font_14 text_black_1 col-1-custom">Note: </span><span class="font_12 font_weight_400 text_light_grey col-11-custom">{{siteData.deposit_content}}</span></p>
+      </div>
+       </div>
+      </div>
+      
+    </div>
+
+
+
+
+
+
+    <div class="row mx-0 w-100 my-1" *ngIf="currencyStatus">
+      <div class="col-12 pl-0 pl-md-3 pr-0 d-flex mt-2 ipad_col_6">
+        <div class="card w-100 border-0 shadow">
+          <div class="card-footer card_footer_grey border-0" *ngIf="siteData">
+        <p class="row mx-0 mb-0"><span class="font_weight_400 font_14 text_black_1 col-1-custom">Note: </span><span class="font_12 font_weight_400 text_light_grey col-11-custom">All Currencies are disabled.</span></p>
+      </div>
+       </div>
+      </div>
+      
+    </div>
+
+
+
+
+
+    <div class="row mx-0 my-2 row_position">
+      <p class="font_16 font_weight_500 px-4">Deposit History</p>
+       <span class="position-icon">
+        <img src="assets/images/excel.png" id="siteLogoMode" alt="" class="ml-2 square_25 position_excel mt-1" (click)="export()" style="cursor: pointer;" title="Export to Excel"> 
+      <!-- <img src="assets/images/excel.png" id="siteLogoMode" alt="" class="ml-2 square_25 position_excel"> 
+      <img src="assets/images/pdf.png" id="siteLogoMode" alt="" class="square_20 position_pdf">  -->
+    </span>
+            <!-- <div class=""> -->
+            <div class="px-4 w-100 table-responsive">
+                <table class="display table-striped table-striped-reverse example_datatable ex_dt_large" style="width:100%">
+            <!-- <table id="example" class="display table-striped table-striped-reverse example_datatable table-responsive"> -->
+        <thead>
+            <tr>
+               <th>S.No</th>
+              <th>Currency</th>
+              <th>Amount</th>             
+              <th>Transaction ID</th>
+              <th *ngIf="currencyType == 2">Proof Image</th>
+              <th>Date & Time</th>
+              <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let items of depositData;let i = index">
+            <td class="text_black_1">{{i+1}}</td>
+            <td class="text_black_1">{{items.currency_name}}</td>
+            <td class="text_black_1">{{items.status == '1' ? items.approve_amount : items.depamt}}</td>
+           
+            <td *ngIf="items.currency_type == 'crypto' && (items.currency_name == 'ETH' || items.currency_name == 'USDT' || items.currency_name == 'EOS')" class="text_light_grey"><a href="{{dynamicUrl}}{{items.txnid}}" target="_blank" >{{items.txnid}}</a></td>
+             <td *ngIf="items.currency_type == 'crypto' && (items.currency_name == 'BTC')" class="text_light_grey"><a href="{{btc_config}}" target="_blank" >{{items.txnid}}</a></td>
+             <td *ngIf="items.currency_type == 'fiat'">{{items.txnid}}</td>
+            <td *ngIf="currencyType == 2"><img src="{{items.image}}" height="50" (click)="openImage(proofImage, items.image)"></td>
+            <td><span class="text_black">{{items.createddate | date:'medium'}}</span><span class="text_light_grey ml-2"></span></td>            
+            <td *ngIf="items.status == '0'" class="text-orange">Processing</td>
+            <td *ngIf="items.status == '1'" class="text-text_light_green">Completed</td>
+            <td *ngIf="items.status == '2'" class="text-red-status">Cancelled</td>
+            <td *ngIf="items.status == '3'" class="text-orange">Pending</td>
+            </tr>
+           
+            <tr *ngIf="depositData?.length === 0">
+              <td colspan="6" style="text-align: center;">No Records Found</td>
+            </tr>
+
+           
+          
+                                   
+        </tbody>
+        
+        
+    </table>
+ 
+    </div>
+  <!-- </div> -->
+  </div>
+  
+</div>
+
+</div>
+
+                <table id="myTableElementId" class="display table-striped table-striped-reverse example_datatable ex_dt_large" style="width:100%; display:none">
+            <!-- <table id="example" class="display table-striped table-striped-reverse example_datatable table-responsive"> -->
+        <thead>
+            <tr>
+               <th>S.No</th>
+              <th>Currency</th>
+              <th>Amount</th>             
+              <th>Transaction ID</th>
+              <th>Date & Time</th>
+              <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let items of depositData;let i = index">
+            <td class="text_black_1">{{i+1}}</td>
+            <td class="text_black_1">{{items.currency_name}}</td>
+            <td class="text_black_1">{{items.depamt}}</td>
+           
+            <td *ngIf="items.currency_type == 'crypto' && (items.currency_name == 'ETH' || items.currency_name == 'USDT' || items.currency_name == 'EOS')" class="text_light_grey"><a href="{{dynamicUrl}}{{items.txnid}}" target="_blank" >{{items.txnid}}</a></td>
+             <td *ngIf="items.currency_type == 'crypto' && (items.currency_name == 'BTC')" class="text_light_grey"><a href="{{btc_config}}" target="_blank" >{{items.txnid}}</a></td>
+             <td *ngIf="items.currency_type == 'fiat'">{{items.txnid}}</td>
+            <td><span class="text_black">{{items.createddate | date:'medium'}}</span><span class="text_light_grey ml-2"></span></td>            
+            <td *ngIf="items.status == '0'" class="text-orange">Processing</td>
+            <td *ngIf="items.status == '1'" class="text-text_light_green">Completed</td>
+            <td *ngIf="items.status == '2'" class="text-red-status">Cancelled</td>
+            <td *ngIf="items.status == '3'" class="text-orange">Pending</td>
+            </tr>
+           
+            <tr *ngIf="depositData?.length === 0">
+              <td colspan="6" style="text-align: center;">No Records Found</td>
+            </tr>
+
+           
+          
+                                   
+        </tbody>
+        
+        
+    </table>
+
+<ng-template #proofImage>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left hd">Proof Image</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+  <div class="text-center bord-shade">
+    <img [src]="imageProof" class="img-fluid" style="margin-top: -20px;height: 250px">
+    <div class="form-group row mx-0">
+      <!-- <p class="qr-val">{{coinAddress}}</p> -->
+     <!--  <span class="input-group-text p-0 border-0"> <img src="assets/images/copy.png" class="w_59_px" (click)="copyText(coinAddress)"></span> -->
+    </div>
+  </div>
+  </div>
+</ng-template>
+
+<!-- Bootstrap core JavaScript -->
+<!-- <script src="js/chart.min.js"></script>
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="css/DataTables/datatables.js"></script> -->
+<script type="text/javascript">
+  
+
+ $(document).ready(function() {
+    $('.example_datatable').DataTable({
+      "searching": true,
+      "bLengthChange": false,
+      "bFilter": false,
+      "bInfo": true,
+      "ordering": false,
+    //    "oLanguage": {
+    //     "sSearch": '',
+    //     // "searchPlaceholder": "Search records"
+    // },  
+    "order": [],
+    "lengthMenu": [[6, 10, 25, -1], [6, 10, 25, "All"]],
+    "columnDefs": [ {
+      "targets"  : 'no-sort',
+      "orderable": false,
+    }],
+    "language": {
+      "sSearch": '',
+      "searchPlaceholder": "Search",
+      "info": "Showing _PAGE_ to _PAGES_ results",
+    "paginate": {
+      "previous": "<<",
+      "next": ">>"
+    }
+  }
+    });
+} );
+</script>

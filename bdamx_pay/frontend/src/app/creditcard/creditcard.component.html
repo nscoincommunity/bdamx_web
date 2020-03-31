@@ -1,0 +1,143 @@
+<div class="container-fluid px-0 font-inner-style">
+<app-dashboard-header></app-dashboard-header>
+<div class="row mx-0">
+  <div class="col-12 col-lg-2 col-xl-2 col-xl-responsive-2 px-0 d-flex">
+<app-sidebar class="w-100 left_bg_green full-height"></app-sidebar>
+</div>
+  <div class="col-12 col-lg-10 col-xl-10 col-xl-responsive-10 px-0 px-md-0 d-flex flex-column">
+    <div class="row mx-0 w-100 my-1">
+      <div class="col-12 pl-0 pl-md-3 pr-0 d-flex mt-2 ipad_col_6">
+        <div class="card w-100 border-0 shadow">
+          <div class="card-body px-0">
+            <p class="font_16 px-5 font_weight_400 text_black_1">Add / Edit Credit Card Details</p>
+         
+            <form #cardform="ngForm" (ngSubmit)="cardform.form.valid && saveCard(cardform) ">
+          
+            <div class="row mx-0 px-5 pt-5">
+            <div class="col-12 col-md-6">
+            <div class="form-group row">
+            <label for="staticEmail" class="col-12 col-md-5 col-lg-5 px-0 col-form-label text_light_grey font_14 font_weight_400">Card Holder's Name</label>
+            <div class="col-12 col-md-7 col-lg-7 pl-0">
+            <input type="text" class="form-control form-control-lg shadow border-0 w-100 black_placeholder_small" pattern="[a-zA-Z0-9\s_@.,]+" minlength="3" maxlength="25"  name="accountholdername" [(ngModel)]="card.accountholdername" #accountholdername="ngModel" onkeypress='return (event.charCode > 96 && event.charCode < 123) || (event.charCode > 64 && event.charCode < 91) || (event.charCode >= 48 && event.charCode <= 57) || event.charCode <= 31' placeholder="Enter Card Holder's Name" required>
+            </div>
+            <p class="text-danger" *ngIf="(accountholdername.invalid && cardform.submitted) || accountholdername.touched">
+                <span *ngIf="accountholdername.errors?.required">Card Holder's Name is required</span>
+                <span *ngIf="accountholdername.errors?.pattern">Invalid Input</span>
+                <span *ngIf="accountholdername.errors?.minlength">Card Holder's Name must have minimum 3 characters</span>
+                 <span *ngIf="accountholdername.errors?.maxlength">Card Holder's Name should not exceed 25 characters</span>
+            </p>
+            </div>
+            </div>
+            <div class="col-12 col-md-6">
+            <div class="form-group row">
+            <label for="staticEmail" class="col-12 col-md-5 col-lg-5 px-0 col-form-label text_light_grey font_14 font_weight_400">Card Number</label>
+            <div class="col-12 col-md-7 col-lg-7 pl-0">
+          <div class="input-group mb-3 input-group-lg shadow">
+            	<input type="text" class="form-control form-control-lg shadow border-0 w-100 black_placeholder_small" pattern="[a-zA-Z0-9\s_@.,]+" name="cardnumber" [(ngModel)]="card.cardnumber" #cardnumber="ngModel" aria-describedby="basic-addon2" onkeypress='return (event.charCode > 96 && event.charCode < 123) || (event.charCode > 64 && event.charCode < 91) || (event.charCode >= 48 && event.charCode <= 57) || event.charCode <= 31' #cardnumber="ngModel" aria-describedby="basic-addon2" placeholder="Enter Credit Card Number" required>
+           
+          </div>
+          <p class="text-danger" *ngIf="(cardnumber.invalid && cardform.submitted) || cardnumber.touched">
+                <span *ngIf="cardnumber.errors?.required">Card Number is required</span>
+                <span *ngIf="cardnumber.errors?.pattern">Invalid Input</span>
+            </p>
+            </div>  
+            </div>
+            </div>
+            </div>
+
+
+             <div class="row mx-0 px-5 pt-5">
+            <div class="col-12 col-md-6">
+            <div class="form-group row">
+            <label for="staticEmail" class="col-12 col-md-5 col-lg-5 px-0 col-form-label text_light_grey font_14 font_weight_400">Expiry Date</label>
+            <div class="col-12 col-md-7 col-lg-7 pl-0">
+               <input type="text" class="form-control form-control-lg shadow border-0 w-100 black_placeholder_small"  name="expiry" [(ngModel)]="card.expiry" #expiry="ngModel" aria-describedby="basic-addon2" placeholder="MM/YYYY" required>
+            </div>
+            <p class="text-danger" *ngIf="(expiry.invalid && cardform.submitted) || expiry.touched">
+                <span *ngIf="expiry.errors?.required">Expiry Date is required</span>
+            </p>
+            </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+            <div class="form-group row">
+            <label for="staticEmail" class="col-12 col-md-5 col-lg-5 px-0 col-form-label text_light_grey font_14 font_weight_400">CVV</label>
+            <div class="col-12 col-md-7 col-lg-7 pl-0">
+          <div class="input-group mb-3 input-group-lg shadow">
+          
+      
+          	<input type="text" class="form-control form-control-lg shadow border-0 w-100 black_placeholder_small" pattern="[a-zA-Z0-9\s_@.,]+" name="cvv" [(ngModel)]="card.cvv" #cvv="ngModel" aria-describedby="basic-addon2" placeholder="Enter CVV" maxlength="3" required>
+        
+          </div>
+          <p class="text-danger" *ngIf="(cvv.invalid && cardform.submitted) || cvv.touched">
+                <span *ngIf="cvv.errors?.required">CVV is required</span>
+                <span *ngIf="cvv.errors?.pattern">Invalid input</span>
+            </p>
+            </div>  
+            </div>
+            </div>
+            </div>
+
+          
+           <div class="text-center">
+         <button type="submit" class="btn btn-light-green btn-big-bg my-4 font_weight_500" *ngIf="!editData">Add</button>
+         <button type="submit" class="btn btn-light-green btn-big-bg my-4 font_weight_500" *ngIf="editData">Edit</button>
+        </div>
+            </form>           
+           
+      
+      
+       </div>
+
+       </div>
+      </div>
+      
+    </div>
+
+           
+    <div class="row mx-0 my-2 row_position">
+      <p class="font_16 font_weight_500 px-4">User Credit Card Details</p>
+       <span class="position-icon">
+      
+    </span>
+   
+            <div class="w-100 px-4 table-responsive withdraw-table">
+            <table id="example" class="display table-striped table-striped-reverse example_datatable ex_dt_large" style="width:100%">
+        <thead>
+            <tr>
+               <th>S.No</th>
+              <th>Card Number</th>
+              <th>Card Holder Name</th>
+              <th>Expiry</th>
+              <th>Card Type</th>
+              <th>Date & Time</th>
+              <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let items of cardDetails; let i = index">
+            <td class="text_black_1">{{i + 1}}</td>
+            <td class="text_light_grey">{{items.cardnumber}}</td>
+			<td class="text_black_1">{{items.accountholdername}}</td>          
+            <td><span class="text_black">{{items.expiry}}/{{items.year}}</span></td>  
+            <td class="text_light_grey">{{items.cardtype}}</td>
+            <td class="text_light_green">{{items.datetime | date: 'medium'}}</td>
+            <td>
+              <i class="fa fa-edit" (click)="editcard(items)"></i>
+              <!-- <i class="fa fa-trash" (click)="deletecard(items)"></i> -->
+            </td>
+            </tr>
+            <tr *ngIf="cardDetails?.length === 0">
+              <td colspan="9" style="text-align: center;">No Records Found</td>
+            </tr>
+        </tbody>
+        
+        
+    </table>
+ 
+    </div>
+  </div>
+  
+</div>
+
+</div>

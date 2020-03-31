@@ -1,0 +1,859 @@
+<div class="row">
+  <div class="col-md-24 col-lg-12">
+    <nb-card size="big">
+      <nb-tabset>
+        <nb-tab tabTitle="Sub Admins">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="tabcntcls" style=" -webkit-transition: all 1s ease;transition: all 1s ease;padding: 25px 25px 25px 25px;">
+                <div class="row">
+                  <div class="col-md-7" style="display: inline-flex;padding-left: 0px;">
+                    <span style="line-height: 58px;margin-top:-11px;">Display : </span>
+                    <select (change)="changeRowLimits_news($event)" style="width: 8%;background: transparent;height: 31px;padding:2px;margin-left: 5px;margin-top:0px;">
+                    <option *ngFor="let limit of rowLimits_news" [value]="limit.value">{{limit.key}}</option>
+                    </select>
+                    <div class="input-group-btn" style="margin-left: 10px;">
+                      <button class="btn btn-primary" style="cursor:pointer;background-color:#30CE6A;padding:5px;height:34px;" type="submit" (click)="resetnewslist()">
+                      <i class="fas fa-sync" style="background-color:#30CE6A;color:white;"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-md-4" style="display: inline-flex;position: relative;left: 23px;">
+                    <div class="input-group">
+                      <input type="text" [(ngModel)]="defsearch_news" class="form-control" placeholder="Search" id="txtSearch" (keyup.enter)="updateFilter_news()"/>
+                      <div class="input-group-btn">
+                        <button class="btn btn-primary" style="cursor:pointer;background-color:#30CE6A;padding:18px;height:34px;" type="submit" (click)="updateFilter_news()">
+                        <span class="fa fa-search"></span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-1">
+                    <div class="add_addre">
+                      <button style="cursor:pointer;border-color:#30CE6A;background-color: white;color:#30CE6A;margin-top:20;"class="btn btn-icon-icon btn-info mb-1 mr-1 cursorcls" (click)="opennewsmodel(addnewscontent)" ngbTooltip="Addtitles"><span class="fa fa-plus"></span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="table-responsive tab_top">
+                  <ngx-datatable #newstable class="bootstrap table table-bordered table-striped mb-0 material content_manage_tab"
+                  [columnMode]="'force'"
+                  [headerHeight]="50"
+                  [footerHeight]="50"
+                  [rowHeight]="'auto'" [(limit)]="limit_banner" [rows]='bannerblocktemp' [externalPaging]="true"
+                  [count]="page_banner.totalElements"
+                  [offset]="page_banner.pageNumber"
+                  [limit]="page_banner.size"
+                  (page)='setPage_banner($event)' [externalSorting]="true" (sort)="onSort_banner($event)" [loadingIndicator]="loading_banner">
+                  <ngx-datatable-column name="S.No" [resizeable]="false" style="font:bold;">
+                    <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>
+                      {{(page_banner.pageNumber*page.size)+(rowIndex + 1)}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Name" prop="admin_name" [resizeable]="false" style="white-space: normal;overflow-wrap: break-word;">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Email" prop="admin_emailid" [resizeable]="false" style="white-space: normal;overflow-wrap: break-word;">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value}}
+                    </ng-template>
+                  </ngx-datatable-column>                  
+                  <ngx-datatable-column name="CreatedDate" prop="createddate" [resizeable]="false" ngbTooltip="CreatedDate&Time">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value  | date: 'medium'}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="ModifiedDate" prop="modifieddate" [resizeable]="false" ngbTooltip="ModifiedDate&Time">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value  | date: 'medium'}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Status" prop="status" [resizeable]="false">
+                    <ng-template ngx-datatable-cell-template let-value="value" let-row="row" >
+                      <span *ngIf="value == 0"><label class="label label-info">Active</label></span>
+                      <span *ngIf="value == 1"><label class="label label-secondary">Deactive</label></span>
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Action" prop="_id" [resizeable]="false">
+                    <ng-template ngx-datatable-cell-template let-value="value" let-row="row" let-rowIndex="rowIndex">
+                      <button class="btn btn-link mr-1 mb-1 cursorcls" (click)="openeditmodel(editnewscontent, row)"  ngbTooltip="Edit">
+                        <i class="fa fa-edit" style="color:blue"></i>
+                      </button>
+                      <button class="btn btn-link mr-1 mb-1 cursorcls" style="color:#b4b4b4;" >
+	                      <i *ngIf="row.status == 0" (click)="changeStatus(row,1,rowIndex)" style="color: #1FA86D" class="fa fa-unlock" aria-hidden="true" ngbTooltip="Move to Deactive"></i>
+	                      <i *ngIf="row.status == 1" (click)="changeStatus(row,0,rowIndex)" style="color: #E51F1F" class="fa fa-lock" aria-hidden="true" ngbTooltip="Move to Active"></i>
+                      </button>
+                    </ng-template>
+                  </ngx-datatable-column>
+                  </ngx-datatable>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nb-tab>
+      </nb-tabset>
+    </nb-card>
+  </div>
+</div>
+
+<!--Add popup model-->
+<ng-template #addnewscontent let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h6 class="modal-title text-uppercase">Add Subadmin</h6>
+    <button type="button" class="close" aria-label="Close" id="cls" (click)="d('Cross click')" ngbTooltip="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form (ngSubmit)="Add_admin(add_admin)" #add_admin="ngForm" novalidate>
+    <div class="modal-body">
+          <div class="row">
+            <div class="form-group col-lg-3" >
+                <label>Admin Name<span style="color: red"> *</span></label>
+                <input type="text" class="form-control" placeholder="Enter Admin Name" [minlength]="4" [maxlength]="20" [(ngModel)]="addadmin.admin_name" name="admin_name" #admin_name="ngModel" [class.form-control-danger]="admin_name.invalid && admin_name.touched" required />
+
+                <span class="errr" *ngIf="admin_name.invalid && admin_name.touched && admin_name.errors?.required">Admin Name is required</span>                     
+                <span class="errr" *ngIf="admin_name.invalid && admin_name.touched && admin_name.errors?.minlength">Admin Name should have minimum 4 characters</span>                    
+            </div>  
+
+            <div class="form-group col-lg-3" >
+                <label>Email<span style="color: red"> *</span></label>
+                <input type="email" class="form-control" placeholder="Enter Email" pattern=".+@.+\..+" [(ngModel)]="addadmin.admin_emailid" name="admin_emailid" #admin_emailid="ngModel" [class.form-control-danger]="admin_emailid.invalid && admin_emailid.touched" required />
+            
+                <span class="errr" *ngIf="admin_emailid.invalid && admin_emailid.touched && admin_emailid.errors?.required">Email is required</span>
+                <span class="errr" *ngIf="admin_emailid.invalid && admin_emailid.touched && admin_emailid.errors?.pattern">Email must be a valid email address</span>
+            </div> 
+
+            <div class="form-group col-lg-3" >
+                <label>Password<span style="color: red"> *</span></label>
+                <input type="password" class="form-control" placeholder="Enter Password" [(ngModel)]="addadmin.admin_password" name="admin_password" #admin_password="ngModel" [class.form-control-danger]="admin_password.invalid && admin_password.touched" required />
+            
+                <span class="errr" *ngIf="admin_password.invalid && admin_password.touched && admin_password.errors?.required">Password is required</span>
+                
+            </div>
+
+            <div class="form-group col-lg-3">
+                
+                <label>Pattern<span style="color: red"> *</span></label>
+
+                <input type="email" value="123" class="form-control" name="admin_pattern" readonly="" value="123" />
+            
+                               
+            </div>  
+
+					</div>  
+
+          <div class="row">
+          	<h3 class="col-lg-12 text-center m-2 mb-3 p1">Sub admin Permission</h3>
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Admin Withdraw<span style="color: red"> *</span> :</div>
+              <input type="radio" name="admin_withdraw" class="radioin cursor" id="addwith" [(ngModel)]="addadmin.admin_withdraw" value="1" #admin_withdraw="ngModel" [class.form-control-danger]="(admin_withdraw.invalid || admin_withdraw.value != admin_withdraw.value) && admin_withdraw.touched" required>
+              <label class="p-2 cursor" for="addwith">Permitted</label>
+              <input type="radio" name="admin_withdraw" class="radioin cursor" id="addwith1" [(ngModel)]="addadmin.admin_withdraw" value="0" #admin_withdraw="ngModel" [class.form-control-danger]="(admin_withdraw.invalid || admin_withdraw.value != admin_withdraw.value) && admin_withdraw.touched" required>
+              <label class="p-2 cursor" for="addwith1">Not Permitted</label>
+
+
+              <span class="errr" *ngIf="admin_withdraw.invalid && admin_withdraw.touched && admin_withdraw.errors?.required"> This field is required!</span>         
+            </div>
+
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Currency Detailss<span style="color: red"> *</span> :</div>
+              <input type="radio" name="currency_details" class="radioin cursor" id="addcur" [(ngModel)]="addadmin.currency_details" value="1" #currency_details="ngModel" [class.form-control-danger]="(currency_details.invalid || currency_details.value != currency_details.value) && currency_details.touched" required>
+              <label class="p-2 cursor" for="addcur">Permitted</label>
+              <input type="radio" name="currency_details" class="radioin cursor" id="addcur1" [(ngModel)]="addadmin.currency_details" value="0" #currency_details="ngModel" [class.form-control-danger]="(currency_details.invalid || currency_details.value != currency_details.value) && currency_details.touched" required>
+              <label class="p-2 cursor" for="addcur1">Not Permitted</label>
+
+
+              <span class="errr" *ngIf="currency_details.invalid && currency_details.touched && currency_details.errors?.required"> This field is required!</span>
+            </div>
+
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Pair Details<span style="color: red"> *</span> :</div>
+              <input type="radio" name="pair_details" class="radioin cursor" id="addpair" [(ngModel)]="addadmin.pair_details" value="1" #pair_details="ngModel" [class.form-control-danger]="(pair_details.invalid || pair_details.value != pair_details.value) && pair_details.touched" required>
+              <label class="p-2 cursor" for="addpair">Permitted</label>
+              <input type="radio" name="pair_details" class="radioin cursor" id="addpair1" [(ngModel)]="addadmin.pair_details" value="0" #pair_details="ngModel" [class.form-control-danger]="(pair_details.invalid || pair_details.value != pair_details.value) && pair_details.touched" required>
+              <label class="p-2 cursor" for="addpair1">Not Permitted</label>
+
+              <span class="errr" *ngIf="pair_details.invalid && pair_details.touched && pair_details.errors?.required"> This field is required!</span>
+            </div>
+
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Site Settingss<span style="color: red"> *</span> :</div>
+              <input type="radio" name="site_settings" class="radioin cursor" id="addsite" [(ngModel)]="addadmin.site_settings" value="1" #site_settings="ngModel" [class.form-control-danger]="(site_settings.invalid || site_settings.value != site_settings.value) && site_settings.touched" required>
+              <label class="p-2 cursor" for="addsite">Permitted</label>
+              <input type="radio" name="site_settings" class="radioin cursor" id="addsite1" [(ngModel)]="addadmin.site_settings" value="0" #site_settings="ngModel" [class.form-control-danger]="(site_settings.invalid || site_settings.value != site_settings.value) && site_settings.touched" required>
+              <label class="p-2 cursor" for="addsite1">Not Permitted</label>
+
+              <span class="errr" *ngIf="site_settings.invalid && site_settings.touched && site_settings.errors?.required"> This field is required!</span>
+            </div>
+
+             <div class="form-group col-lg-6 p-3">
+             
+              <div class="font-weight-bold mb-2">User Manage<span style="color: red"> *</span> :</div>
+              <input type="radio" name="usermanage" class="radioin cursor" id="addusermanage" [(ngModel)]="addadmin.usermanage" value="1" #usermanage="ngModel" [class.form-control-danger]="(usermanage.invalid || usermanage.value != usermanage.value) && usermanage.touched" required>
+              <label class="p-2 cursor" for="addusermanage">Permitted</label>
+              <input type="radio" name="usermanage" class="radioin cursor" id="addusermanage1" [(ngModel)]="addadmin.usermanage" value="0" #usermanage="ngModel" [class.form-control-danger]="(usermanage.invalid || usermanage.value != usermanage.value) && usermanage.touched" required>
+              <label class="p-2 cursor" for="addusermanage1">Not Permitted</label>
+
+              <span class="errr" *ngIf="usermanage.invalid && usermanage.touched && usermanage.errors?.required"> This field is required!</span>
+            </div>
+
+             <div class="form-group col-lg-6 p-3">
+             
+              <div class="font-weight-bold mb-2">IP Block<span style="color: red"> *</span> :</div>
+              <input type="radio" name="ipblock" class="radioin cursor" id="addipblock" [(ngModel)]="addadmin.ipblock" value="1" #ipblock="ngModel" [class.form-control-danger]="(ipblock.invalid || ipblock.value != ipblock.value) && ipblock.touched" required>
+              <label class="p-2 cursor" for="addipblock">Permitted</label>
+              <input type="radio" name="ipblock" class="radioin cursor" id="addipblock1" [(ngModel)]="addadmin.ipblock" value="0" #ipblock="ngModel" [class.form-control-danger]="(ipblock.invalid || ipblock.value != ipblock.value) && ipblock.touched" required>
+              <label class="p-2 cursor" for="addipblock1">Not Permitted</label>
+
+              <span class="errr" *ngIf="ipblock.invalid && ipblock.touched && ipblock.errors?.required"> This field is required!</span>
+            </div>
+
+
+             <div class="form-group col-lg-6 p-3">
+             
+              <div class="font-weight-bold mb-2">Exchange History<span style="color: red"> *</span> :</div>
+              <input type="radio" name="exchangehistory" class="radioin cursor" id="addexchangehistory" [(ngModel)]="addadmin.exchangehistory" value="1" #exchangehistory="ngModel" [class.form-control-danger]="(exchangehistory.invalid || exchangehistory.value != exchangehistory.value) && exchangehistory.touched" required>
+              <label class="p-2 cursor" for="addexchangehistory">Permitted</label>
+              <input type="radio" name="exchangehistory" class="radioin cursor" id="addexchangehistory1" [(ngModel)]="addadmin.exchangehistory" value="0" #exchangehistory="ngModel" [class.form-control-danger]="(exchangehistory.invalid || exchangehistory.value != exchangehistory.value) && exchangehistory.touched" required>
+              <label class="p-2 cursor" for="addexchangehistory1">Not Permitted</label>
+
+              <span class="errr" *ngIf="exchangehistory.invalid && exchangehistory.touched && exchangehistory.errors?.required"> This field is required!</span>
+            </div>
+
+             <div class="form-group col-lg-6 p-3">
+             
+              <div class="font-weight-bold mb-2">Admin Bank Details<span style="color: red"> *</span> :</div>
+              <input type="radio" name="admin_bank_details" class="radioin cursor" id="addadmin_bank_details" [(ngModel)]="addadmin.admin_bank_details" value="1" #admin_bank_details="ngModel" [class.form-control-danger]="(admin_bank_details.invalid || admin_bank_details.value != admin_bank_details.value) && admin_bank_details.touched" required>
+              <label class="p-2 cursor" for="addadmin_bank_details">Permitted</label>
+              <input type="radio" name="admin_bank_details" class="radioin cursor" id="addadmin_bank_details1" [(ngModel)]="addadmin.admin_bank_details" value="0" #admin_bank_details="ngModel" [class.form-control-danger]="(admin_bank_details.invalid || admin_bank_details.value != admin_bank_details.value) && admin_bank_details.touched" required>
+              <label class="p-2 cursor" for="addadmin_bank_details1">Not Permitted</label>
+
+              <span class="errr" *ngIf="admin_bank_details.invalid && admin_bank_details.touched && admin_bank_details.errors?.required"> This field is required!</span>
+            </div>
+
+
+             <div class="form-group col-lg-6 p-3">
+             
+              <div class="font-weight-bold mb-2">Admin Bank Info<span style="color: red"> *</span> :</div>
+              <input type="radio" name="admin_bank_info" class="radioin cursor" id="addadmin_bank_info" [(ngModel)]="addadmin.admin_bank_info" value="1" #admin_bank_info="ngModel" [class.form-control-danger]="(admin_bank_info.invalid || admin_bank_info.value != admin_bank_info.value) && admin_bank_info.touched" required>
+              <label class="p-2 cursor" for="addadmin_bank_info">Permitted</label>
+              <input type="radio" name="admin_bank_info" class="radioin cursor" id="addadmin_bank_info1" [(ngModel)]="addadmin.admin_bank_info" value="0" #admin_bank_info="ngModel" [class.form-control-danger]="(admin_bank_info.invalid || admin_bank_info.value != admin_bank_info.value) && admin_bank_info.touched" required>
+              <label class="p-2 cursor" for="addadmin_bank_info1">Not Permitted</label>
+
+              <span class="errr" *ngIf="admin_bank_info.invalid && admin_bank_info.touched && admin_bank_info.errors?.required"> This field is required!</span>
+            </div>
+
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">CMS<span style="color: red"> *</span> :</div>
+              <input type="radio" name="cms_page" class="radioin cursor" id="addcms" [(ngModel)]="addadmin.cms_page" value="1" #cms_page="ngModel" [class.form-control-danger]="(cms_page.invalid || cms_page.value != cms_page.value) && cms_page.touched" required>
+              <label class="p-2 cursor" for="addcms">Permitted</label>
+              <input type="radio" name="cms_page" class="radioin cursor" id="addcms1" [(ngModel)]="addadmin.cms_page" value="0" #cms_page="ngModel" [class.form-control-danger]="(cms_page.invalid || cms_page.value != cms_page.value) && cms_page.touched" required>
+              <label class="p-2 cursor" for="addcms1">Not Permitted</label>
+
+              <span class="errr" *ngIf="cms_page.invalid && cms_page.touched && cms_page.errors?.required"> This field is required!</span>
+            </div>
+            <div class="form-group col-lg-6 p-3">
+
+              <div class="font-weight-bold mb-2">FAQ<span style="color: red"> *</span> :</div>
+              <input type="radio" name="faq" class="radioin cursor" id="addfaq" [(ngModel)]="addadmin.faq" value="1" #faq="ngModel" [class.form-control-danger]="(faq.invalid || faq.value != faq.value) && faq.touched" required>
+              <label class="p-2 cursor" for="addfaq">Permitted</label>
+              <input type="radio" name="faq" class="radioin cursor" id="addfaq1" [(ngModel)]="addadmin.faq" value="0" #faq="ngModel" [class.form-control-danger]="(faq.invalid || faq.value != faq.value) && faq.touched" required>
+              <label class="p-2 cursor" for="addfaq1">Not Permitted</label>
+
+              <span class="errr" *ngIf="faq.invalid && faq.touched && faq.errors?.required"> This field is required!</span>
+            </div>
+             <div class="form-group col-lg-6 p-3">
+              
+              <div class="font-weight-bold mb-2">FAQ Category<span style="color: red"> *</span> :</div>
+              <input type="radio" name="faqcategory" class="radioin cursor" id="addfaqcategory" [(ngModel)]="addadmin.faqcategory" value="1" #faqcategory="ngModel" [class.form-control-danger]="(faqcategory.invalid || faqcategory.value != faqcategory.value) && faqcategory.touched" required>
+              <label class="p-2 cursor" for="addfaqcategory">Permitted</label>
+              <input type="radio" name="faqcategory" class="radioin cursor" id="addfaqcategory1" [(ngModel)]="addadmin.faq" value="0" #faqcategory="ngModel" [class.form-control-danger]="(faqcategory.invalid || faqcategory.value != faqcategory.value) && faqcategory.touched" required>
+              <label class="p-2 cursor" for="addfaqcategory1">Not Permitted</label>
+
+              <span class="errr" *ngIf="faqcategory.invalid && faqcategory.touched && faqcategory.errors?.required"> This field is required!</span>
+            </div>
+
+             <div class="form-group col-lg-6 p-3">
+              
+              <div class="font-weight-bold mb-2">Benefits<span style="color: red"> *</span> :</div>
+              <input type="radio" name="benefits" class="radioin cursor" id="addbenefits" [(ngModel)]="addadmin.benefits" value="1" #benefits="ngModel" [class.form-control-danger]="(benefits.invalid || benefits.value != benefits.value) && benefits.touched" required>
+              <label class="p-2 cursor" for="addbenefits">Permitted</label>
+              <input type="radio" name="benefits" class="radioin cursor" id="addbenefits1" [(ngModel)]="addadmin.benefits" value="0" #benefits="ngModel" [class.form-control-danger]="(benefits.invalid || benefits.value != benefits.value) && benefits.touched" required>
+              <label class="p-2 cursor" for="addbenefits1">Not Permitted</label>
+
+              <span class="errr" *ngIf="benefits.invalid && benefits.touched && benefits.errors?.required"> This field is required!</span>
+            </div>
+
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Vison & Mission<span style="color: red"> *</span> :</div>
+              <input type="radio" name="news" class="radioin cursor" id="addnews" [(ngModel)]="addadmin.news" value="1" #news="ngModel" [class.form-control-danger]="(news.invalid || news.value != news.value) && news.touched" required>
+              <label class="p-2 cursor" for="addnews">Permitted</label>
+              <input type="radio" name="news" class="radioin cursor" id="addnews1" [(ngModel)]="addadmin.news" value="0" #news="ngModel" [class.form-control-danger]="(news.invalid || news.value != news.value) && news.touched" required>
+              <label class="p-2 cursor" for="addnews1">Not Permitted</label>
+
+              <span class="errr" *ngIf="news.invalid && news.touched && news.errors?.required"> This field is required!</span>
+            </div>
+
+             <div class="form-group col-lg-6 p-3">
+              
+              <div class="font-weight-bold mb-2">Markets<span style="color: red"> *</span> :</div>
+              <input type="radio" name="markets" class="radioin cursor" id="addmarkets" [(ngModel)]="addadmin.markets" value="1" #markets="ngModel" [class.form-control-danger]="(markets.invalid || markets.value != markets.value) && markets.touched" required>
+              <label class="p-2 cursor" for="addmarkets">Permitted</label>
+              <input type="radio" name="markets" class="radioin cursor" id="addmarkets1" [(ngModel)]="addadmin.markets" value="0" #markets="ngModel" [class.form-control-danger]="(markets.invalid || markets.value != markets.value) && markets.touched" required>
+              <label class="p-2 cursor" for="addmarkets1">Not Permitted</label>
+
+              <span class="errr" *ngIf="markets.invalid && markets.touched && markets.errors?.required"> This field is required!</span>
+            </div>
+
+              <div class="form-group col-lg-6 p-3">
+              
+              <div class="font-weight-bold mb-2">Platform Features<span style="color: red"> *</span> :</div>
+              <input type="radio" name="feature" class="radioin cursor" id="addfeature" [(ngModel)]="addadmin.feature" value="1" #feature="ngModel" [class.form-control-danger]="(feature.invalid || feature.value != feature.value) && feature.touched" required>
+              <label class="p-2 cursor" for="addfeature">Permitted</label>
+              <input type="radio" name="feature" class="radioin cursor" id="addfeature1" [(ngModel)]="addadmin.feature" value="0" #feature="ngModel" [class.form-control-danger]="(feature.invalid || feature.value != feature.value) && feature.touched" required>
+              <label class="p-2 cursor" for="addfeature1">Not Permitted</label>
+
+              <span class="errr" *ngIf="feature.invalid && feature.touched && feature.errors?.required"> This field is required!</span>
+            </div>  
+
+            <div class="form-group col-lg-6 p-3">
+             
+              <div class="font-weight-bold mb-2">Get Paid in<span style="color: red"> *</span> :</div>
+              <input type="radio" name="paidin" class="radioin cursor" id="addpaidin" [(ngModel)]="addadmin.paidin" value="1" #paidin="ngModel" [class.form-control-danger]="(paidin.invalid || paidin.value != paidin.value) && paidin.touched" required>
+              <label class="p-2 cursor" for="addpaidin">Permitted</label>
+              <input type="radio" name="paidin" class="radioin cursor" id="addpaidin1" [(ngModel)]="addadmin.paidin" value="0" #paidin="ngModel" [class.form-control-danger]="(paidin.invalid || paidin.value != paidin.value) && paidin.touched" required>
+              <label class="p-2 cursor" for="addpaidin1">Not Permitted</label>
+
+              <span class="errr" *ngIf="paidin.invalid && paidin.touched && paidin.errors?.required"> This field is required!</span>
+            </div>
+
+
+            <div class="form-group col-lg-6 p-3">
+             
+              <div class="font-weight-bold mb-2">Strategic Partnership<span style="color: red"> *</span> :</div>
+              <input type="radio" name="partners" class="radioin cursor" id="addpartners" [(ngModel)]="addadmin.partners" value="1" #partners="ngModel" [class.form-control-danger]="(partners.invalid || partners.value != partners.value) && partners.touched" required>
+              <label class="p-2 cursor" for="addpartners">Permitted</label>
+              <input type="radio" name="partners" class="radioin cursor" id="addpartners1" [(ngModel)]="addadmin.partners" value="0" #partners="ngModel" [class.form-control-danger]="(partners.invalid || partners.value != partners.value) && partners.touched" required>
+              <label class="p-2 cursor" for="addpartners1">Not Permitted</label>
+
+              <span class="errr" *ngIf="partners.invalid && partners.touched && partners.errors?.required"> This field is required!</span>
+            </div>
+
+             <div class="form-group col-lg-6 p-3">
+             
+              <div class="font-weight-bold mb-2">Press Mentions<span style="color: red"> *</span> :</div>
+              <input type="radio" name="customers" class="radioin cursor" id="addcustomers" [(ngModel)]="addadmin.customers" value="1" #customers="ngModel" [class.form-control-danger]="(customers.invalid || customers.value != customers.value) && customers.touched" required>
+              <label class="p-2 cursor" for="addcustomers">Permitted</label>
+              <input type="radio" name="customers" class="radioin cursor" id="addcustomers1" [(ngModel)]="addadmin.customers" value="0" #customers="ngModel" [class.form-control-danger]="(customers.invalid || customers.value != customers.value) && customers.touched" required>
+              <label class="p-2 cursor" for="addcustomers1">Not Permitted</label>
+
+              <span class="errr" *ngIf="customers.invalid && customers.touched && customers.errors?.required"> This field is required!</span>
+            </div>
+
+             <div class="form-group col-lg-6 p-3">
+             
+              <div class="font-weight-bold mb-2">Type Comparison<span style="color: red"> *</span> :</div>
+              <input type="radio" name="type" class="radioin cursor" id="addtype" [(ngModel)]="addadmin.type" value="1" #type="ngModel" [class.form-control-danger]="(type.invalid || type.value != type.value) && type.touched" required>
+              <label class="p-2 cursor" for="addtype">Permitted</label>
+              <input type="radio" name="type" class="radioin cursor" id="addtype1" [(ngModel)]="addadmin.type" value="0" #type="ngModel" [class.form-control-danger]="(type.invalid || type.value != type.value) && type.touched" required>
+              <label class="p-2 cursor" for="addtype1">Not Permitted</label>
+
+              <span class="errr" *ngIf="type.invalid && type.touched && type.errors?.required"> This field is required!</span>
+            </div>
+
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Meta content<span style="color: red"> *</span> :</div>
+              <input type="radio" name="meta_content" class="radioin cursor" id="addmeta" [(ngModel)]="addadmin.meta_content" value="1" #meta_content="ngModel" [class.form-control-danger]="(meta_content.invalid || meta_content.value != meta_content.value) && meta_content.touched" required>
+              <label class="p-2 cursor" for="addmeta">Permitted</label>
+              <input type="radio" name="meta_content" class="radioin cursor" id="addmeta1" [(ngModel)]="addadmin.meta_content" value="0" #meta_content="ngModel" [class.form-control-danger]="(meta_content.invalid || meta_content.value != meta_content.value) && meta_content.touched" required>
+              <label class="p-2 cursor" for="addmeta1">Not Permitted</label>
+
+              <span class="errr" *ngIf="meta_content.invalid && meta_content.touched && meta_content.errors?.required"> This field is required!</span>
+            </div>            
+
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Deposite<span style="color: red"> *</span> :</div>
+              <input type="radio" name="deposit" class="radioin cursor" id="adddepo" [(ngModel)]="addadmin.deposit" value="1" #deposit="ngModel" [class.form-control-danger]="(deposit.invalid || deposit.value != deposit.value) && deposit.touched" required>
+              <label class="p-2 cursor" for="adddepo">Permitted</label>
+              <input type="radio" name="deposit" class="radioin cursor" id="adddepo1" [(ngModel)]="addadmin.deposit" value="0" #deposit="ngModel" [class.form-control-danger]="(deposit.invalid || deposit.value != deposit.value) && deposit.touched" required>
+              <label class="p-2 cursor" for="adddepo1">Not Permitted</label>
+
+              <span class="errr" *ngIf="deposit.invalid && deposit.touched && deposit.errors?.required"> This field is required!</span>
+            </div>
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Withdraw<span style="color: red"> *</span> :</div>
+              <input type="radio" name="withdraw" class="radioin cursor" id="addwithdraw" [(ngModel)]="addadmin.withdraw" value="1" #withdraw="ngModel" [class.form-control-danger]="(withdraw.invalid || withdraw.value != withdraw.value) && withdraw.touched" required>
+              <label class="p-2 cursor" for="addwithdraw">Permitted</label>
+              <input type="radio" name="withdraw" class="radioin cursor" id="addwithdraw1" [(ngModel)]="addadmin.withdraw" value="0" #withdraw="ngModel" [class.form-control-danger]="(withdraw.invalid || withdraw.value != withdraw.value) && withdraw.touched" required>
+              <label class="p-2 cursor" for="addwithdraw1">Not Permitted</label>
+
+              <span class="errr" *ngIf="withdraw.invalid && withdraw.touched && withdraw.errors?.required"> This field is required!</span>
+            </div>                        
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Trade history<span style="color: red"> *</span> :</div>
+              <input type="radio" name="trade_history" class="radioin cursor" id="addhis" [(ngModel)]="addadmin.trade_history" value="1" #trade_history="ngModel" [class.form-control-danger]="(trade_history.invalid || trade_history.value != trade_history.value) && trade_history.touched" required>
+              <label class="p-2 cursor" for="addhis">Permitted</label>
+              <input type="radio" name="trade_history" class="radioin cursor" id="addhis1" [(ngModel)]="addadmin.trade_history" value="0" #trade_history="ngModel" [class.form-control-danger]="(trade_history.invalid || trade_history.value != trade_history.value) && trade_history.touched" required>
+              <label class="p-2 cursor" for="addhis1">Not Permitted</label>
+
+              <span class="errr" *ngIf="trade_history.invalid && trade_history.touched && trade_history.errors?.required"> This field is required!</span>
+            </div>
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">History active<span style="color: red"> *</span> :</div>
+              <input type="radio" name="history_active" class="radioin cursor" id="addact" [(ngModel)]="addadmin.history_active" value="1" #history_active="ngModel" [class.form-control-danger]="(history_active.invalid || history_active.value != history_active.value) && history_active.touched" required>
+              <label class="p-2 cursor" for="addact">Permitted</label>
+              <input type="radio" name="history_active" class="radioin cursor" id="addact1" [(ngModel)]="addadmin.history_active" value="0" #history_active="ngModel" [class.form-control-danger]="(history_active.invalid || history_active.value != history_active.value) && history_active.touched" required>
+              <label class="p-2 cursor" for="addact1">Not Permitted</label>
+
+              <span class="errr" *ngIf="history_active.invalid && history_active.touched && history_active.errors?.required"> This field is required!</span>
+            </div>                        
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">History cancelled<span style="color: red"> *</span> :</div>
+              <input type="radio" name="history_cancelled" class="radioin cursor" id="addcancel" [(ngModel)]="addadmin.history_cancelled" value="1" #history_cancelled="ngModel" [class.form-control-danger]="(history_cancelled.invalid || history_cancelled.value != history_cancelled.value) && history_cancelled.touched" required>
+              <label class="p-2 cursor" for="addcancel">Permitted</label>
+              <input type="radio" name="history_cancelled" class="radioin cursor" id="addcancel1" [(ngModel)]="addadmin.history_cancelled" value="0" #history_cancelled="ngModel" [class.form-control-danger]="(history_cancelled.invalid || history_cancelled.value != history_cancelled.value) && history_cancelled.touched" required>
+              <label class="p-2 cursor" for="addcancel1">Not Permitted</label>
+
+              <span class="errr" *ngIf="history_cancelled.invalid && history_cancelled.touched && history_cancelled.errors?.required"> This field is required!</span>
+            </div>            
+           <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Profit<span style="color: red"> *</span> :</div>
+              <input type="radio" name="profit" class="radioin cursor" id="addprofit" [(ngModel)]="addadmin.profit" value="1" #profit="ngModel" [class.form-control-danger]="(profit.invalid || profit.value != profit.value) && profit.touched" required>
+              <label class="p-2 cursor" for="addprofit">Permitted</label>
+              <input type="radio" name="profit" class="radioin cursor" id="addprofit1" [(ngModel)]="addadmin.profit" value="0" #profit="ngModel" [class.form-control-danger]="(profit.invalid || profit.value != profit.value) && profit.touched" required>
+              <label class="p-2 cursor" for="addprofit1">Not Permitted</label>
+
+              <span class="errr" *ngIf="profit.invalid && profit.touched && profit.errors?.required"> This field is required!</span>
+            </div>  
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Currency profit<span style="color: red"> *</span> :</div>
+              <input type="radio" name="currency_profit" class="radioin cursor" id="addcurprofit" [(ngModel)]="addadmin.currency_profit" value="1" #currency_profit="ngModel" [class.form-control-danger]="(currency_profit.invalid || currency_profit.value != currency_profit.value) && currency_profit.touched" required>
+              <label class="p-2 cursor" for="addcurprofit">Permitted</label>
+              <input type="radio" name="currency_profit" class="radioin cursor" id="addcurprofit1" [(ngModel)]="addadmin.currency_profit" value="0" #currency_profit="ngModel" [class.form-control-danger]="(currency_profit.invalid || currency_profit.value != currency_profit.value) && currency_profit.touched" required>
+              <label class="p-2 cursor" for="addcurprofit1">Not Permitted</label>
+
+              <span class="errr" *ngIf="currency_profit.invalid && currency_profit.touched && currency_profit.errors?.required"> This field is required!</span>
+            </div>  
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">User details<span style="color: red"> *</span> :</div>
+              <input type="radio" name="user_details" class="radioin cursor" id="adduser" [(ngModel)]="addadmin.user_details" value="1" #user_details="ngModel" [class.form-control-danger]="(user_details.invalid || user_details.value != user_details.value) && user_details.touched" required>
+              <label class="p-2 cursor" for="adduser">Permitted</label>
+              <input type="radio" name="user_details" class="radioin cursor" id="adduser1" [(ngModel)]="addadmin.user_details" value="0" #user_details="ngModel" [class.form-control-danger]="(user_details.invalid || user_details.value != user_details.value) && user_details.touched" required>
+              <label class="p-2 cursor" for="adduser1">Not Permitted</label>
+
+              <span class="errr" *ngIf="user_details.invalid && user_details.touched && user_details.errors?.required"> This field is required!</span>
+            </div>     
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Token Details<span style="color: red"> *</span> :</div>
+              <input type="radio" name="token_details" class="radioin cursor" id="addtoken" [(ngModel)]="addadmin.token_details" value="1" #token_details="ngModel" [class.form-control-danger]="(token_details.invalid || token_details.value != token_details.value) && token_details.touched" required>
+              <label class="p-2 cursor" for="addtoken">Permitted</label>
+              <input type="radio" name="token_details" class="radioin cursor" id="addtoken1" [(ngModel)]="addadmin.token_details" value="0" #token_details="ngModel" [class.form-control-danger]="(token_details.invalid || token_details.value != token_details.value) && token_details.touched" required>
+              <label class="p-2 cursor" for="addtoken1">Not Permitted</label>
+
+              <span class="errr" *ngIf="token_details.invalid && token_details.touched && token_details.errors?.required"> This field is required!</span>
+            </div>
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Contact us<span style="color: red"> *</span> :</div>
+              <input type="radio" name="contact_us" class="radioin cursor" id="addcont" [(ngModel)]="addadmin.contact_us" value="1" #contact_us="ngModel" [class.form-control-danger]="(contact_us.invalid || contact_us.value != contact_us.value) && contact_us.touched" required>
+              <label class="p-2 cursor" for="addcont">Permitted</label>
+              <input type="radio" name="contact_us" class="radioin cursor" id="addcont1" [(ngModel)]="addadmin.contact_us" value="0" #contact_us="ngModel" [class.form-control-danger]="(contact_us.invalid || contact_us.value != contact_us.value) && contact_us.touched" required>
+              <label class="p-2 cursor" for="addcont1">Not Permitted</label>
+
+              <span class="errr" *ngIf="contact_us.invalid && contact_us.touched && contact_us.errors?.required"> This field is required!</span>
+            </div>    
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Email template<span style="color: red"> *</span> :</div>
+              <input type="radio" name="email_template" class="radioin cursor" id="addcont" [(ngModel)]="addadmin.email_template" value="1" #email_template="ngModel" [class.form-control-danger]="(email_template.invalid || email_template.value != email_template.value) && email_template.touched" required>
+              <label class="p-2 cursor" for="addcont">Permitted</label>
+              <input type="radio" name="email_template" class="radioin cursor" id="addcont1" [(ngModel)]="addadmin.email_template" value="0" #email_template="ngModel" [class.form-control-danger]="(email_template.invalid || email_template.value != email_template.value) && email_template.touched" required>
+              <label class="p-2 cursor" for="addcont1">Not Permitted</label>
+
+              <span class="errr" *ngIf="email_template.invalid && email_template.touched && email_template.errors?.required"> This field is required!</span>
+            </div>                                                      
+          </div>  
+    </div>
+    <div class="modal-footer">
+      <button type="submit" *ngIf='add_admin.valid && !addadminloader' style="cursor: pointer;background-color:#30CE6A;" class="btn btn-info cursorcls">Submit</button>
+      <button type="submit" style="cursor: pointer;background-color:#30CE6A;" *ngIf='!add_admin.valid && !addadminloader' class="btn btn-info cursorcls" disabled="">Submit</button>
+      <button type="submit" style="cursor: pointer;background-color:#30CE6A;" *ngIf='addadminloader' class="btn btn-info cursorcls">Adding admin <img src = "/assets/images/loader1.gif" style="height: 20px;width: 20px;"></button>
+      <button type="button"  style="cursor: pointer; background-color:#30CE6A;" class="btn btn-secondary cursorcls" (click)="cancelemailtemp();c('Close click')">Close</button>
+    </div>
+  </form>
+</ng-template>
+
+
+<ng-template #editnewscontent let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h6 class="modal-title text-uppercase">Edit Subadmin</h6>
+    <button type="button" class="close" aria-label="Close"
+      (click)="cancelemailtemp();d('Cross click')" ngbTooltip="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form (ngSubmit)="editAdmin();c('Close click')" #edit_admin="ngForm" novalidate>
+    <div class="modal-body">
+
+          <div class="row">
+            <div class="form-group col-lg-6" >
+                <label>Name<span style="color: red"> *</span></label>
+                <input type="text" class="form-control" placeholder="Enter Admin Name" [(ngModel)]="editadmin.admin_name" name="admin_name" readonly />
+           </div>  
+
+            <div class="form-group col-lg-6" >
+                <label>Email<span style="color: red"> *</span></label>
+                <input type="email" class="form-control" placeholder="Enter Email" [(ngModel)]="editadmin.admin_emailid" name="admin_emailid" readonly />
+            </div>
+
+             <div class="form-group col-lg-6" >
+                <label>Password<span style="color: red"> *</span></label>
+
+                <div *ngIf="password_crypto && !showPassword">
+                <input type="password" class="form-control" [(ngModel)]="editadmin.admin_password" name="admin_password" readonly />
+                <i class="fa fa-eye" (click)="showPassword = true; password_crypto = false"></i>
+                </div>
+
+                <div *ngIf="showPassword && !password_crypto">
+                <input type="text" class="form-control" [(ngModel)]="editadmin.admin_password" name="admin_password" readonly />
+                <i class="fa fa-eye-slash" (click)="showPassword = false; password_crypto = true"></i>
+              </div>
+            </div>
+
+             <div class="form-group col-lg-6" >
+                <label>Pattern<span style="color: red"> *</span></label>
+                <input type="email" class="form-control" [(ngModel)]="editadmin.admin_pattern" name="admin_pattern" readonly />
+            </div>
+          
+					</div> 
+
+      
+
+          <div class="row">
+          	<h3 class="col-lg-12 text-center m-2 mb-3 p1">Sub admin Permission</h3>
+
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Admin Withdraw<span style="color: red"> *</span> :</div>
+              <input type="radio" name="admin_withdraw" class="radioin cursor" id="editwith" [(ngModel)]="editadmin.admin_withdraw" value="1" #admin_withdraw="ngModel" [class.form-control-danger]="(admin_withdraw.invalid || admin_withdraw.value != admin_withdraw.value) && admin_withdraw.touched" required>
+              <label class="p-2 cursor" for="editwith">Permitted</label>
+              <input type="radio" name="admin_withdraw" class="radioin cursor" id="editwith1" [(ngModel)]="editadmin.admin_withdraw" value="0" #admin_withdraw="ngModel" [class.form-control-danger]="(admin_withdraw.invalid || admin_withdraw.value != admin_withdraw.value) && admin_withdraw.touched" required>
+              <label class="p-2 cursor" for="editwith1">Not Permitted</label>
+
+
+              <span class="errr" *ngIf="admin_withdraw.invalid && admin_withdraw.touched && admin_withdraw.errors?.required"> This field is required!</span>         
+            </div>
+
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Currency Details<span style="color: red"> *</span> :</div>
+              <input type="radio" name="currency_details" class="radioin cursor" id="editcur" [(ngModel)]="editadmin.currency_details" value="1" #currency_details="ngModel" [class.form-control-danger]="(currency_details.invalid || currency_details.value != currency_details.value) && currency_details.touched" required>
+              <label class="p-2 cursor" for="editcur">Permitted</label>
+              <input type="radio" name="currency_details" class="radioin cursor" id="editcur1" [(ngModel)]="editadmin.currency_details" value="0" #currency_details="ngModel" [class.form-control-danger]="(currency_details.invalid || currency_details.value != currency_details.value) && currency_details.touched" required>
+              <label class="p-2 cursor" for="editcur1">Not Permitted</label>
+
+
+              <span class="errr" *ngIf="currency_details.invalid && currency_details.touched && currency_details.errors?.required"> This field is required!</span>
+            </div>
+
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Pair Details<span style="color: red"> *</span> :</div>
+              <input type="radio" name="pair_details" class="radioin cursor" id="editpair" [(ngModel)]="editadmin.pair_details" value="1" #pair_details="ngModel" [class.form-control-danger]="(pair_details.invalid || pair_details.value != pair_details.value) && pair_details.touched" required>
+              <label class="p-2 cursor" for="editpair">Permitted</label>
+              <input type="radio" name="pair_details" class="radioin cursor" id="editpair1" [(ngModel)]="editadmin.pair_details" value="0" #pair_details="ngModel" [class.form-control-danger]="(pair_details.invalid || pair_details.value != pair_details.value) && pair_details.touched" required>
+              <label class="p-2 cursor" for="editpair1">Not Permitted</label>
+
+              <span class="errr" *ngIf="pair_details.invalid && pair_details.touched && pair_details.errors?.required"> This field is required!</span>
+            </div>
+
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">User Management<span style="color: red"> *</span> :</div>
+              <input type="radio" name="usermanage" class="radioin cursor" id="editusermanage" [(ngModel)]="editadmin.usermanage" value="1" #usermanage="ngModel" [class.form-control-danger]="(usermanage.invalid || usermanage.value != usermanage.value) && usermanage.touched" required>
+              <label class="p-2 cursor" for="editusermanage">Permitted</label>
+              <input type="radio" name="usermanage" class="radioin cursor" id="editusermanage1" [(ngModel)]="editadmin.usermanage" value="0" #usermanage="ngModel" [class.form-control-danger]="(usermanage.invalid || usermanage.value != usermanage.value) && usermanage.touched" required>
+              <label class="p-2 cursor" for="editfaq1">Not Permitted</label>
+
+              <span class="errr" *ngIf="usermanage.invalid && usermanage.touched && usermanage.errors?.required"> This field is required!</span>
+            </div>
+
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">IP Block<span style="color: red"> *</span> :</div>
+              <input type="radio" name="ipblock" class="radioin cursor" id="editipblock" [(ngModel)]="editadmin.ipblock" value="1" #ipblock="ngModel" [class.form-control-danger]="(ipblock.invalid || ipblock.value != ipblock.value) && ipblock.touched" required>
+              <label class="p-2 cursor" for="editipblock">Permitted</label>
+              <input type="radio" name="ipblock" class="radioin cursor" id="editipblock1" [(ngModel)]="editadmin.ipblock" value="0" #ipblock="ngModel" [class.form-control-danger]="(ipblock.invalid || ipblock.value != ipblock.value) && ipblock.touched" required>
+              <label class="p-2 cursor" for="editfaq1">Not Permitted</label>
+
+              <span class="errr" *ngIf="ipblock.invalid && ipblock.touched && ipblock.errors?.required"> This field is required!</span>
+            </div>
+
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Site Settingss<span style="color: red"> *</span> :</div>
+              <input type="radio" name="site_settings" class="radioin cursor" id="editsite" [(ngModel)]="editadmin.site_settings" value="1" #site_settings="ngModel" [class.form-control-danger]="(site_settings.invalid || site_settings.value != site_settings.value) && site_settings.touched" required>
+              <label class="p-2 cursor" for="editsite">Permitted</label>
+              <input type="radio" name="site_settings" class="radioin cursor" id="editsite1" [(ngModel)]="editadmin.site_settings" value="0" #site_settings="ngModel" [class.form-control-danger]="(site_settings.invalid || site_settings.value != site_settings.value) && site_settings.touched" required>
+              <label class="p-2 cursor" for="editsite1">Not Permitted</label>
+
+              <span class="errr" *ngIf="site_settings.invalid && site_settings.touched && site_settings.errors?.required"> This field is required!</span>
+            </div>
+
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Exchange History<span style="color: red"> *</span> :</div>
+              <input type="radio" name="exchangehistory" class="radioin cursor" id="editexchangehistory" [(ngModel)]="editadmin.exchangehistory" value="1" #exchangehistory="ngModel" [class.form-control-danger]="(exchangehistory.invalid || exchangehistory.value != exchangehistory.value) && exchangehistory.touched" required>
+              <label class="p-2 cursor" for="editexchangehistory">Permitted</label>
+              <input type="radio" name="exchangehistory" class="radioin cursor" id="editexchangehistory1" [(ngModel)]="editadmin.exchangehistory" value="0" #exchangehistory="ngModel" [class.form-control-danger]="(exchangehistory.invalid || exchangehistory.value != exchangehistory.value) && exchangehistory.touched" required>
+              <label class="p-2 cursor" for="editfaq1">Not Permitted</label>
+
+              <span class="errr" *ngIf="exchangehistory.invalid && exchangehistory.touched && exchangehistory.errors?.required"> This field is required!</span>
+            </div>
+
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Admin Bank Details<span style="color: red"> *</span> :</div>
+              <input type="radio" name="admin_bank_details" class="radioin cursor" id="editadmin_bank_details" [(ngModel)]="editadmin.admin_bank_details" value="1" #admin_bank_details="ngModel" [class.form-control-danger]="(admin_bank_details.invalid || admin_bank_details.value != admin_bank_details.value) && admin_bank_details.touched" required>
+              <label class="p-2 cursor" for="editadmin_bank_details">Permitted</label>
+              <input type="radio" name="admin_bank_details" class="radioin cursor" id="editadmin_bank_details1" [(ngModel)]="editadmin.admin_bank_details" value="0" #admin_bank_details="ngModel" [class.form-control-danger]="(admin_bank_details.invalid || admin_bank_details.value != admin_bank_details.value) && admin_bank_details.touched" required>
+              <label class="p-2 cursor" for="editfaq1">Not Permitted</label>
+
+              <span class="errr" *ngIf="admin_bank_details.invalid && admin_bank_details.touched && admin_bank_details.errors?.required"> This field is required!</span>
+            </div>
+
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Admin Bank Info<span style="color: red"> *</span> :</div>
+              <input type="radio" name="admin_bank_info" class="radioin cursor" id="editadmin_bank_info" [(ngModel)]="editadmin.admin_bank_info" value="1" #admin_bank_info="ngModel" [class.form-control-danger]="(admin_bank_info.invalid || admin_bank_info.value != admin_bank_info.value) && admin_bank_info.touched" required>
+              <label class="p-2 cursor" for="editadmin_bank_info">Permitted</label>
+              <input type="radio" name="admin_bank_info" class="radioin cursor" id="editadmin_bank_info1" [(ngModel)]="editadmin.admin_bank_info" value="0" #admin_bank_info="ngModel" [class.form-control-danger]="(admin_bank_info.invalid || admin_bank_info.value != admin_bank_info.value) && admin_bank_info.touched" required>
+              <label class="p-2 cursor" for="editfaq1">Not Permitted</label>
+
+              <span class="errr" *ngIf="admin_bank_info.invalid && admin_bank_info.touched && admin_bank_info.errors?.required"> This field is required!</span>
+            </div>
+
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">CMS<span style="color: red"> *</span> :</div>
+              <input type="radio" name="cms_page" class="radioin cursor" id="editcms" [(ngModel)]="editadmin.cms_page" value="1" #cms_page="ngModel" [class.form-control-danger]="(cms_page.invalid || cms_page.value != cms_page.value) && cms_page.touched" required>
+              <label class="p-2 cursor" for="editcms">Permitted</label>
+              <input type="radio" name="cms_page" class="radioin cursor" id="editcms1" [(ngModel)]="editadmin.cms_page" value="0" #cms_page="ngModel" [class.form-control-danger]="(cms_page.invalid || cms_page.value != cms_page.value) && cms_page.touched" required>
+              <label class="p-2 cursor" for="editcms1">Not Permitted</label>
+
+              <span class="errr" *ngIf="cms_page.invalid && cms_page.touched && cms_page.errors?.required"> This field is required!</span>
+            </div>
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">FAQ<span style="color: red"> *</span> :</div>
+              <input type="radio" name="faq" class="radioin cursor" id="editfaq" [(ngModel)]="editadmin.faq" value="1" #faq="ngModel" [class.form-control-danger]="(faq.invalid || faq.value != faq.value) && faq.touched" required>
+              <label class="p-2 cursor" for="editfaq">Permitted</label>
+              <input type="radio" name="faq" class="radioin cursor" id="editfaq1" [(ngModel)]="editadmin.faq" value="0" #faq="ngModel" [class.form-control-danger]="(faq.invalid || faq.value != faq.value) && faq.touched" required>
+              <label class="p-2 cursor" for="editfaq1">Not Permitted</label>
+
+              <span class="errr" *ngIf="faq.invalid && faq.touched && faq.errors?.required"> This field is required!</span>
+            </div>
+              <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">FAQ Category<span style="color: red"> *</span> :</div>
+              <input type="radio" name="faqcategory" class="radioin cursor" id="editfaqcategory" [(ngModel)]="editadmin.faqcategory" value="1" #faqcategory="ngModel" [class.form-control-danger]="(faqcategory.invalid || faqcategory.value != faqcategory.value) && faqcategory.touched" required>
+              <label class="p-2 cursor" for="editfaqcategory">Permitted</label>
+              <input type="radio" name="faqcategory" class="radioin cursor" id="editfaqcategory1" [(ngModel)]="editadmin.faqcategory" value="0" #faqcategory="ngModel" [class.form-control-danger]="(faqcategory.invalid || faqcategory.value != faqcategory.value) && faqcategory.touched" required>
+              <label class="p-2 cursor" for="editfaq1">Not Permitted</label>
+
+              <span class="errr" *ngIf="faqcategory.invalid && faqcategory.touched && faqcategory.errors?.required"> This field is required!</span>
+            </div>
+
+              <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Benefits<span style="color: red"> *</span> :</div>
+              <input type="radio" name="benefits" class="radioin cursor" id="editbenefits" [(ngModel)]="editadmin.benefits" value="1" #benefits="ngModel" [class.form-control-danger]="(benefits.invalid || benefits.value != benefits.value) && benefits.touched" required>
+              <label class="p-2 cursor" for="editbenefits">Permitted</label>
+              <input type="radio" name="benefits" class="radioin cursor" id="editbenefits1" [(ngModel)]="editadmin.benefits" value="0" #benefits="ngModel" [class.form-control-danger]="(benefits.invalid || benefits.value != benefits.value) && benefits.touched" required>
+              <label class="p-2 cursor" for="editfaq1">Not Permitted</label>
+
+              <span class="errr" *ngIf="benefits.invalid && benefits.touched && benefits.errors?.required"> This field is required!</span>
+            </div>
+
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Vison & Mission <span style="color: red"> *</span> :</div>
+              <input type="radio" name="news" class="radioin cursor" id="editnews" [(ngModel)]="editadmin.news" value="1" #news="ngModel" [class.form-control-danger]="(news.invalid || news.value != news.value) && news.touched" required>
+              <label class="p-2 cursor" for="editnews">Permitted</label>
+              <input type="radio" name="news" class="radioin cursor" id="editnews1" [(ngModel)]="editadmin.news" value="0" #news="ngModel" [class.form-control-danger]="(news.invalid || news.value != news.value) && news.touched" required>
+              <label class="p-2 cursor" for="editnews1">Not Permitted</label>
+
+              <span class="errr" *ngIf="news.invalid && news.touched && news.errors?.required"> This field is required!</span>
+            </div>
+
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Markets<span style="color: red"> *</span> :</div>
+              <input type="radio" name="markets" class="radioin cursor" id="editmarkets" [(ngModel)]="editadmin.markets" value="1" #markets="ngModel" [class.form-control-danger]="(markets.invalid || markets.value != markets.value) && markets.touched" required>
+              <label class="p-2 cursor" for="editmarkets">Permitted</label>
+              <input type="radio" name="markets" class="radioin cursor" id="editmarkets1" [(ngModel)]="editadmin.markets" value="0" #markets="ngModel" [class.form-control-danger]="(markets.invalid || markets.value != markets.value) && markets.touched" required>
+              <label class="p-2 cursor" for="editfaq1">Not Permitted</label>
+
+              <span class="errr" *ngIf="markets.invalid && markets.touched && markets.errors?.required"> This field is required!</span>
+            </div>
+
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Platform Features<span style="color: red"> *</span> :</div>
+              <input type="radio" name="feature" class="radioin cursor" id="editfeature" [(ngModel)]="editadmin.feature" value="1" #feature="ngModel" [class.form-control-danger]="(feature.invalid || feature.value != feature.value) && feature.touched" required>
+              <label class="p-2 cursor" for="editfeature">Permitted</label>
+              <input type="radio" name="feature" class="radioin cursor" id="editfeature1" [(ngModel)]="editadmin.feature" value="0" #feature="ngModel" [class.form-control-danger]="(feature.invalid || feature.value != feature.value) && feature.touched" required>
+              <label class="p-2 cursor" for="editfaq1">Not Permitted</label>
+
+              <span class="errr" *ngIf="feature.invalid && feature.touched && feature.errors?.required"> This field is required!</span>
+            </div>
+
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Get Paid In<span style="color: red"> *</span> :</div>
+              <input type="radio" name="paidin" class="radioin cursor" id="editpaidin" [(ngModel)]="editadmin.paidin" value="1" #paidin="ngModel" [class.form-control-danger]="(paidin.invalid || paidin.value != paidin.value) && paidin.touched" required>
+              <label class="p-2 cursor" for="editpaidin">Permitted</label>
+              <input type="radio" name="paidin" class="radioin cursor" id="editpaidin1" [(ngModel)]="editadmin.paidin" value="0" #paidin="ngModel" [class.form-control-danger]="(paidin.invalid || paidin.value != paidin.value) && paidin.touched" required>
+              <label class="p-2 cursor" for="editfaq1">Not Permitted</label>
+
+              <span class="errr" *ngIf="paidin.invalid && paidin.touched && paidin.errors?.required"> This field is required!</span>
+            </div>
+
+
+
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Strategic Partnership<span style="color: red"> *</span> :</div>
+              <input type="radio" name="partners" class="radioin cursor" id="editpartners" [(ngModel)]="editadmin.partners" value="1" #partners="ngModel" [class.form-control-danger]="(partners.invalid || partners.value != partners.value) && partners.touched" required>
+              <label class="p-2 cursor" for="editpartners">Permitted</label>
+              <input type="radio" name="partners" class="radioin cursor" id="editpartners1" [(ngModel)]="editadmin.partners" value="0" #partners="ngModel" [class.form-control-danger]="(partners.invalid || partners.value != partners.value) && partners.touched" required>
+              <label class="p-2 cursor" for="editfaq1">Not Permitted</label>
+
+              <span class="errr" *ngIf="partners.invalid && partners.touched && partners.errors?.required"> This field is required!</span>
+            </div>
+
+
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Press Mentions<span style="color: red"> *</span> :</div>
+              <input type="radio" name="customers" class="radioin cursor" id="editcustomers" [(ngModel)]="editadmin.customers" value="1" #customers="ngModel" [class.form-control-danger]="(customers.invalid || customers.value != customers.value) && customers.touched" required>
+              <label class="p-2 cursor" for="editcustomers">Permitted</label>
+              <input type="radio" name="customers" class="radioin cursor" id="editcustomers1" [(ngModel)]="editadmin.customers" value="0" #customers="ngModel" [class.form-control-danger]="(customers.invalid || customers.value != customers.value) && customers.touched" required>
+              <label class="p-2 cursor" for="editfaq1">Not Permitted</label>
+
+              <span class="errr" *ngIf="customers.invalid && customers.touched && customers.errors?.required"> This field is required!</span>
+            </div>
+
+
+            <div class="form-group col-lg-6 p-3">
+
+              <div class="font-weight-bold mb-2">Type Comparison<span style="color: red"> *</span> :</div>
+              <input type="radio" name="type" class="radioin cursor" id="edittype" [(ngModel)]="editadmin.type" value="1" #type="ngModel" [class.form-control-danger]="(type.invalid || type.value != type.value) && type.touched" required>
+              <label class="p-2 cursor" for="edittype">Permitted</label>
+              <input type="radio" name="type" class="radioin cursor" id="edittype1" [(ngModel)]="editadmin.type" value="0" #type="ngModel" [class.form-control-danger]="(type.invalid || type.value != type.value) && type.touched" required>
+              <label class="p-2 cursor" for="edittype1">Not Permitted</label>
+
+              <span class="errr" *ngIf="type.invalid && type.touched && type.errors?.required"> This field is required!</span>
+            </div>
+
+
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Meta content<span style="color: red"> *</span> :</div>
+              <input type="radio" name="meta_content" class="radioin cursor" id="editmeta" [(ngModel)]="editadmin.meta_content" value="1" #meta_content="ngModel" [class.form-control-danger]="(meta_content.invalid || meta_content.value != meta_content.value) && meta_content.touched" required>
+              <label class="p-2 cursor" for="editmeta">Permitted</label>
+              <input type="radio" name="meta_content" class="radioin cursor" id="editmeta1" [(ngModel)]="editadmin.meta_content" value="0" #meta_content="ngModel" [class.form-control-danger]="(meta_content.invalid || meta_content.value != meta_content.value) && meta_content.touched" required>
+              <label class="p-2 cursor" for="editmeta1">Not Permitted</label>
+
+              <span class="errr" *ngIf="meta_content.invalid && meta_content.touched && meta_content.errors?.required"> This field is required!</span>
+            </div>            
+
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Deposite<span style="color: red"> *</span> :</div>
+              <input type="radio" name="deposit" class="radioin cursor" id="editdepo" [(ngModel)]="editadmin.deposit" value="1" #deposit="ngModel" [class.form-control-danger]="(deposit.invalid || deposit.value != deposit.value) && deposit.touched" required>
+              <label class="p-2 cursor" for="editdepo">Permitted</label>
+              <input type="radio" name="deposit" class="radioin cursor" id="editdepo1" [(ngModel)]="editadmin.deposit" value="0" #deposit="ngModel" [class.form-control-danger]="(deposit.invalid || deposit.value != deposit.value) && deposit.touched" required>
+              <label class="p-2 cursor" for="editdepo1">Not Permitted</label>
+
+              <span class="errr" *ngIf="deposit.invalid && deposit.touched && deposit.errors?.required"> This field is required!</span>
+            </div>
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Withdraw<span style="color: red"> *</span> :</div>
+              <input type="radio" name="withdraw" class="radioin cursor" id="editwithdraw" [(ngModel)]="editadmin.withdraw" value="1" #withdraw="ngModel" [class.form-control-danger]="(withdraw.invalid || withdraw.value != withdraw.value) && withdraw.touched" required>
+              <label class="p-2 cursor" for="editwithdraw">Permitted</label>
+              <input type="radio" name="withdraw" class="radioin cursor" id="editwithdraw1" [(ngModel)]="editadmin.withdraw" value="0" #withdraw="ngModel" [class.form-control-danger]="(withdraw.invalid || withdraw.value != withdraw.value) && withdraw.touched" required>
+              <label class="p-2 cursor" for="editwithdraw1">Not Permitted</label>
+
+              <span class="errr" *ngIf="withdraw.invalid && withdraw.touched && withdraw.errors?.required"> This field is required!</span>
+            </div>                        
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Trade history<span style="color: red"> *</span> :</div>
+              <input type="radio" name="trade_history" class="radioin cursor" id="edithis" [(ngModel)]="editadmin.trade_history" value="1" #trade_history="ngModel" [class.form-control-danger]="(trade_history.invalid || trade_history.value != trade_history.value) && trade_history.touched" required>
+              <label class="p-2 cursor" for="edithis">Permitted</label>
+              <input type="radio" name="trade_history" class="radioin cursor" id="edithis1" [(ngModel)]="editadmin.trade_history" value="0" #trade_history="ngModel" [class.form-control-danger]="(trade_history.invalid || trade_history.value != trade_history.value) && trade_history.touched" required>
+              <label class="p-2 cursor" for="edithis1">Not Permitted</label>
+
+              <span class="errr" *ngIf="trade_history.invalid && trade_history.touched && trade_history.errors?.required"> This field is required!</span>
+            </div>
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">History active<span style="color: red"> *</span> :</div>
+              <input type="radio" name="history_active" class="radioin cursor" id="editact" [(ngModel)]="editadmin.history_active" value="1" #history_active="ngModel" [class.form-control-danger]="(history_active.invalid || history_active.value != history_active.value) && history_active.touched" required>
+              <label class="p-2 cursor" for="editact">Permitted</label>
+              <input type="radio" name="history_active" class="radioin cursor" id="editact1" [(ngModel)]="editadmin.history_active" value="0" #history_active="ngModel" [class.form-control-danger]="(history_active.invalid || history_active.value != history_active.value) && history_active.touched" required>
+              <label class="p-2 cursor" for="editact1">Not Permitted</label>
+
+              <span class="errr" *ngIf="history_active.invalid && history_active.touched && history_active.errors?.required"> This field is required!</span>
+            </div>                        
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">History cancelled<span style="color: red"> *</span> :</div>
+              <input type="radio" name="history_cancelled" class="radioin cursor" id="editcancel" [(ngModel)]="editadmin.history_cancelled" value="1" #history_cancelled="ngModel" [class.form-control-danger]="(history_cancelled.invalid || history_cancelled.value != history_cancelled.value) && history_cancelled.touched" required>
+              <label class="p-2 cursor" for="editcancel">Permitted</label>
+              <input type="radio" name="history_cancelled" class="radioin cursor" id="editcancel1" [(ngModel)]="editadmin.history_cancelled" value="0" #history_cancelled="ngModel" [class.form-control-danger]="(history_cancelled.invalid || history_cancelled.value != history_cancelled.value) && history_cancelled.touched" required>
+              <label class="p-2 cursor" for="editcancel1">Not Permitted</label>
+
+              <span class="errr" *ngIf="history_cancelled.invalid && history_cancelled.touched && history_cancelled.errors?.required"> This field is required!</span>
+            </div>            
+           <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Profit<span style="color: red"> *</span> :</div>
+              <input type="radio" name="profit" class="radioin cursor" id="editprofit" [(ngModel)]="editadmin.profit" value="1" #profit="ngModel" [class.form-control-danger]="(profit.invalid || profit.value != profit.value) && profit.touched" required>
+              <label class="p-2 cursor" for="editprofit">Permitted</label>
+              <input type="radio" name="profit" class="radioin cursor" id="editprofit1" [(ngModel)]="editadmin.profit" value="0" #profit="ngModel" [class.form-control-danger]="(profit.invalid || profit.value != profit.value) && profit.touched" required>
+              <label class="p-2 cursor" for="editprofit1">Not Permitted</label>
+
+              <span class="errr" *ngIf="profit.invalid && profit.touched && profit.errors?.required"> This field is required!</span>
+            </div>  
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Currency profit<span style="color: red"> *</span> :</div>
+              <input type="radio" name="currency_profit" class="radioin cursor" id="editcurprofit" [(ngModel)]="editadmin.currency_profit" value="1" #currency_profit="ngModel" [class.form-control-danger]="(currency_profit.invalid || currency_profit.value != currency_profit.value) && currency_profit.touched" required>
+              <label class="p-2 cursor" for="editcurprofit">Permitted</label>
+              <input type="radio" name="currency_profit" class="radioin cursor" id="editcurprofit1" [(ngModel)]="editadmin.currency_profit" value="0" #currency_profit="ngModel" [class.form-control-danger]="(currency_profit.invalid || currency_profit.value != currency_profit.value) && currency_profit.touched" required>
+              <label class="p-2 cursor" for="editcurprofit1">Not Permitted</label>
+
+              <span class="errr" *ngIf="currency_profit.invalid && currency_profit.touched && currency_profit.errors?.required"> This field is required!</span>
+            </div>  
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">User details<span style="color: red"> *</span> :</div>
+              <input type="radio" name="user_details" class="radioin cursor" id="edituser" [(ngModel)]="editadmin.user_details" value="1" #user_details="ngModel" [class.form-control-danger]="(user_details.invalid || user_details.value != user_details.value) && user_details.touched" required>
+              <label class="p-2 cursor" for="edituser">Permitted</label>
+              <input type="radio" name="user_details" class="radioin cursor" id="edituser1" [(ngModel)]="editadmin.user_details" value="0" #user_details="ngModel" [class.form-control-danger]="(user_details.invalid || user_details.value != user_details.value) && user_details.touched" required>
+              <label class="p-2 cursor" for="edituser1">Not Permitted</label>
+
+              <span class="errr" *ngIf="user_details.invalid && user_details.touched && user_details.errors?.required"> This field is required!</span>
+            </div>     
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Token Details<span style="color: red"> *</span> :</div>
+              <input type="radio" name="token_details" class="radioin cursor" id="edittoken" [(ngModel)]="editadmin.token_details" value="1" #token_details="ngModel" [class.form-control-danger]="(token_details.invalid || token_details.value != token_details.value) && token_details.touched" required>
+              <label class="p-2 cursor" for="edittoken">Permitted</label>
+              <input type="radio" name="token_details" class="radioin cursor" id="edittoken1" [(ngModel)]="editadmin.token_details" value="0" #token_details="ngModel" [class.form-control-danger]="(token_details.invalid || token_details.value != token_details.value) && token_details.touched" required>
+              <label class="p-2 cursor" for="edittoken1">Not Permitted</label>
+
+              <span class="errr" *ngIf="token_details.invalid && token_details.touched && token_details.errors?.required"> This field is required!</span>
+            </div>
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Contact us<span style="color: red"> *</span> :</div>
+              <input type="radio" name="contact_us" class="radioin cursor" id="editcont" [(ngModel)]="editadmin.contact_us" value="1" #contact_us="ngModel" [class.form-control-danger]="(contact_us.invalid || contact_us.value != contact_us.value) && contact_us.touched" required>
+              <label class="p-2 cursor" for="editcont">Permitted</label>
+              <input type="radio" name="contact_us" class="radioin cursor" id="editcont1" [(ngModel)]="editadmin.contact_us" value="0" #contact_us="ngModel" [class.form-control-danger]="(contact_us.invalid || contact_us.value != contact_us.value) && contact_us.touched" required>
+              <label class="p-2 cursor" for="editcont1">Not Permitted</label>
+
+              <span class="errr" *ngIf="contact_us.invalid && contact_us.touched && contact_us.errors?.required"> This field is required!</span>
+            </div>    
+            <div class="form-group col-lg-6 p-3">
+              <div class="font-weight-bold mb-2">Email template<span style="color: red"> *</span> :</div>
+              <input type="radio" name="email_template" class="radioin cursor" id="editcont" [(ngModel)]="editadmin.email_template" value="1" #email_template="ngModel" [class.form-control-danger]="(email_template.invalid || email_template.value != email_template.value) && email_template.touched" required>
+              <label class="p-2 cursor" for="editcont">Permitted</label>
+              <input type="radio" name="email_template" class="radioin cursor" id="editcont1" [(ngModel)]="editadmin.email_template" value="0" #email_template="ngModel" [class.form-control-danger]="(email_template.invalid || email_template.value != email_template.value) && email_template.touched" required>
+              <label class="p-2 cursor" for="editcont1">Not Permitted</label>
+
+              <span class="errr" *ngIf="email_template.invalid && email_template.touched && email_template.errors?.required"> This field is required!</span>
+            </div>                                                     
+          </div>  
+    </div>
+    <div class="modal-footer">
+      <button type="submit" *ngIf='edit_admin.valid' style="cursor: pointer;background-color:#30CE6A;" class="btn btn-info cursorcls">Submit</button>
+      <button type="submit" style="cursor: pointer;background-color:#30CE6A;" *ngIf='!edit_admin.valid' class="btn btn-info cursorcls" disabled="">Submit</button>    
+      <h6 *ngIf="isValid">Loading... <i class="fa fa-spinner fa-spin"></i> </h6>
+    </div>
+  </form>
+</ng-template>

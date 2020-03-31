@@ -1,0 +1,131 @@
+<div class="row">
+  <div class="col-md-24 col-lg-12">
+    <nb-card size="big">
+      <nb-tabset>
+        <nb-tab tabTitle="CMS">
+          <div class="row col-md-12 " style="padding:50px 25px 25px 25px;">
+            <div class="col-md-8" style="display: inline-flex;padding-left: 0px;margin-top: px;">
+              <span style="line-height: 28px;">Display : </span>
+              <select (change)="changeRowLimitsCMS($event)" style="width: 8%;background: transparent;height: 30px;padding:2px;margin-left: 5px;margin-top:0px;">
+              <option *ngFor="let limit of rowLimits" [value]="limit.value">{{limit.key}}</option>
+              </select>
+              <div class="input-group-btn" style="margin-left: 10px;">
+                <button class="btn btn-primary" style="cursor:pointer;background-color:#30CE6A;padding:5px;margin-top: 0px;" type="submit"  (click)="resetcmslist()">
+                <i class="fas fa-sync" style="background-color:#30CE6A;color:white;"></i>
+                </button>
+              </div>
+            </div>
+            <div class="col-md-4" style="display: inline-flex;position: relative;">
+              <div class="input-group">
+                <input type="text" [(ngModel)]="cmsdefsearch" class="form-control" placeholder="Search" id="txtSearch" (keyup.enter)="updateFilterCMS()"/>
+                <div class="input-group-btn">
+                  <button class="btn btn-primary" style="cursor:pointer;background-color:#30CE6A;" type="submit" (click)="updateFilterCMS()">
+                  <span class="fa fa-search"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 table-responsive tab_top">
+            <ngx-datatable #cmstable class="bootstrap table table-bordered table-striped mb-0 material content_manage_tab_cms"
+            [columnMode]="'force'"
+            [headerHeight]="50"
+            [footerHeight]="50"
+            [rowHeight]="'auto'" [(limit)]="limitcmslist" [rows]='rowscmslist' [externalPaging]="true"
+            [count]="cmspage.totalElements"
+            [offset]="cmspage.pageNumber"
+            [limit]="cmspage.size"
+            (page)='setPage_cms($event)' [externalSorting]="true" (sort)="onSort_cms($event)" [loadingIndicator]="loading_cms">
+            <ngx-datatable-column name="S.No" [resizeable]="false">
+              <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>
+                {{(cmspage.pageNumber*cmspage.size)+(rowIndex + 1)}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Page Title" prop="page_heading" [resizeable]="false">
+              <ng-template let-value="value" ngx-datatable-cell-template>
+                {{value}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Page Name" prop="page_name" [resizeable]="false">
+              <ng-template let-value="value" ngx-datatable-cell-template>
+                {{value}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column prop="modified_date" name="Modified date" [resizeable]="false" ngbTooltip="ModifiedDate&Time">
+              <ng-template let-value="value" ngx-datatable-cell-template>
+                {{value | date:'medium'}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Action" [resizeable]="false" prop="_id"
+              >
+              <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                <button class="btn btn-link mr-1 mb-1 cursorcls" (click)="openCMSmodel(cmscontent, row)" style="outline:none;" ngbTooltip="Edit">
+                  <i class="fa fa-edit" style="color:blue"></i>
+                </button>
+              </ng-template>
+            </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+        </nb-tab>
+      </nb-tabset>
+    </nb-card>
+  </div>
+</div>
+<ng-template #cmscontent let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h6 class="modal-title text-uppercase">Edit Cms</h6>
+    <button type="button" class="close" aria-label="Close" (click)="cancelcms();d('Cross click')"  ngbTooltip="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form (ngSubmit)="saveEditCMS(edit_cms)" #edit_cms="ngForm" novalidate>
+    <div class="modal-body">
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Page Heading</label>
+        <div class="col-10">
+          <input type="text"  class="form-control" placeholder="Page Heading"
+          [(ngModel)]="editcms.page_heading" name="page_heading" #page_heading="ngModel"  [class.form-control-danger]="page_heading.invalid && page_heading.touched" required>
+
+          <span class="errr" *ngIf="page_heading.invalid && page_heading.touched && page_heading.errors?.required">Page heading is required</span>
+        </div>
+      </div>  
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Page Name</label>
+        <div class="col-10">
+          <input type="text" name="page_name" style="cursor:not-allowed;" class="form-control" placeholder="Page Name"
+          [(ngModel)]="editcms.page_name" disabled=""/>
+        </div>
+      </div>
+      <div class="form-group row" >
+        <label for="example-text-input" class="col-2 col-form-label">Page Content</label>
+        <div class="col-10">
+          <ck-editor name="page_content" [(ngModel)]="editcms.page_content" skin="moono-lisa" lang="en" [config] = "config"></ck-editor>
+        </div>
+      </div>
+      <div class="form-group" *ngIf='editcms.image == 1'>
+        <div class="row">
+          <label for="example-text-input" class="col-2 col-form-label">Title image (select to change the image)</label>
+          <div class="col-3 col-form-label">
+            <input type="file" name="new_Attachment" [(ngModel)]= "editcms.new_Attachment"  class="custom-file-input" (change)="fileChangeEvent($event)"  id="customFile">
+          </div>
+          <div class="col-2 mt-2" *ngIf='loader'>
+            <img src = "/assets/images/loader1.gif" style="height: 20px;width: 20px;">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2"></div>
+          <div class="col-6" style="min-height: 120px;">
+            <div class="custom-file">
+              <img style="height: 110px;width: 200px;" src = "{{editcms.image_url}}" style="height: 100px;width: 100px;">
+            </div>
+          </div>
+        </div>
+      </div>      
+    </div>
+    <div class="modal-footer">
+        <button type="submit" *ngIf='edit_cms.valid' style="cursor: pointer;background-color:#30CE6A;" class="btn btn-info cursorcls">Submit</button>
+        <button type="submit" style="cursor: pointer;background-color:#30CE6A;" *ngIf='!edit_cms.valid' class="btn btn-info cursorcls" disabled="">Submit</button>  
+      <button type="button" style="cursor:pointer;" class="btn btn-secondary cursorcls" (click)="cancelcms();c('Close click')">Close</button>
+    </div>
+  </form>
+</ng-template>

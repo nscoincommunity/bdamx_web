@@ -1,0 +1,168 @@
+<div class="container-fluid px-0 font-inner-style">
+  <app-dashboard-header></app-dashboard-header>
+  <div class="row mx-0">
+     <div class="col-12 col-lg-2 col-xl-2 col-xl-responsive-2 px-0 d-flex dashboardsidebar">
+        <app-sidebar class="w-100 left_bg_green full-height "></app-sidebar>
+     </div>
+
+     <div class="col-12 col-lg-10 col-xl-10 col-xl-responsive-10 px-0 px-md-0 d-flex flex-column dashboardcontent">
+        <div class="row mx-0 w-100 my-1">
+           <div class="col-12 col-md-6 pl-0 pl-md-3 pr-0 d-flex mt-2 ipad_col_6">
+              <div class="card w-100 border-0">
+              
+                 <div class="card-body px-4" *ngIf="!currencyStatus">
+                    <h5 class="markettabheader">Balance Details</h5>
+                   <div class="checkbox_box col-6 py-2" *ngIf="balance">
+                        <div class="form-check form-check-light-green row mx-0 px-0">
+                           <label class="custom-control custom-radio custom-control-inline mr-5 mb-0">
+                           <input class="custom-control-input" type="radio" name="radio-inline" value="1" [(ngModel)]="selectedType" (change)="change($event.target.value)"><span class="custom-control-label font_14 font_weight_400 text_black" >Crypto</span>
+                           </label>
+                           <label class="custom-control custom-radio custom-control-inline mr-0 mb-0">
+                           <input class="custom-control-input" type="radio" name="radio-inline" value="2" [(ngModel)]="selectedType" (change)="change($event.target.value)"><span class="custom-control-label font_14 font_weight_400 text_black_light" >Fiat</span>
+                           </label>         
+                        </div>
+                     </div>
+                  <div class="row mx-0 d-flex justify-content-center align-items-center doughnutchartheader">
+                  <div class="container d-flex justify-content-center">
+                 
+                     <hr>
+                      <div class="row mx-0 mt-5" *ngIf="balance">
+                       
+                        <div style="display: block" *ngIf="doughnutChartLabels">
+                           <canvas width="500" height="300" baseChart 
+                           [data]="doughnutChartData"
+                           [labels]="doughnutChartLabels"
+                           [colors]="donutColors"
+                           [chartType]="doughnutChartType"
+                           [borderWidth]="[1000]">
+                           </canvas>
+                        </div>
+                       
+                     </div>
+                     <div class="mx-0 mt-3" *ngIf="market " >
+                        <div class="row mx-0 py-2 my-2 border_top_grey" *ngFor="let items of pairData">
+                           <div class="col-12 col-md-5 px-0">
+                              <p class="px-3 mb-1 font_14 font_weight_400 text_light_grey">{{items.pair}}</p>
+                              <p class="px-3 mb-0"><span class="font_14 font_weight_400 text_black">{{items.price | number:'1.8-8'}}</span><span class="text_light_green ml-4 font_14 font_14 font_weight_400"></span></p>
+                           </div>
+                           <div class="col-12 col-md-2 text-center px-0">
+                              <img src="assets/images/convert_icon_1.png" id="siteLogoMode" alt="" class="align-self-center mt-1">
+                           </div>
+                           <div class="col-12 col-md-5 px-0">
+                              <p class="px-3 mb-0 font_14 font_weight_400 text_light_grey">Market</p>
+                              <p class="px-3 mb-0"><span class="font_14 font_weight_400 text_black"> {{items.marketPrice | number:'1.8-8'}}</span><span class="text_light_green ml-2 font_14 font_weight_400   "></span></p>
+                           </div>
+                        </div>
+                        <div class="row border_top_grey mx-0">
+                           <a routerLink='' class="font_14 text_blue_link font_weight_400 pt-3 mx-auto">View more ></a>
+                        </div>
+                     </div>
+                  </div>
+                </div>
+                
+                 </div>
+              </div>
+
+           </div>
+           <div class="col-12 col-md-6 pr-0 pl-0 pl-md-2 d-flex mt-2">
+
+              <div class="card w-100 border-0" *ngIf="Market_chart.length > 0">
+                 <div class="card-body px-0 markettab">
+                    <span class="pull-right">
+                        <select class="form-control" name="chartCurrencies" [(ngModel)]="chartCurrencies" (change)="get_chartdata($event.target.value)">
+                        <option *ngFor="let currency of cryptoData" > {{currency.currencySymbol}}</option>
+                        </select>
+                        </span>
+                  <h5 class="markettabheader">Market  </h5>
+                
+                  
+                  
+           <canvas baseChart     style="width: 500px;
+    height: 407px"
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                ></canvas>
+                 </div>
+              </div>
+           </div>
+        </div>
+        <div *ngIf="currencyStatus" style="text-align: center;">
+
+          All Currencies are disabled.
+        </div>
+        <div class="row mx-0 w-100 my-1">
+          <div class="col-12 col-md-6 pl-0 pl-md-3 pr-0 d-flex mt-2 ipad_col_6">
+             <div class="card w-100 border-0">
+                <div class="card-body px-4">
+                  <div class="mx-0 mt-3">
+                    <h5 class="markettabheader border-0">Market Price for Crypto Currencies</h5>
+                  <div class="row mx-0 py-2 my-2 border_top_grey" *ngFor="let items of cryptoData">
+                       <div class="col-lg-6 col-md-7 col-4 px-0">
+                         <p class="mb-1 font_14 font_weight_600 text_light_black">{{items.currencySymbol}}/USD</p>
+                         <p class="mb-0"><span class="font_14 font_weight_500 text_light_grey">$ {{items.hr_vl | number:'1.2-2'}}</span><span class="text_light_green ml-4 font_14 font_14 font_weight_500">24hr vol</span></p>
+                      
+                       </div>
+                        <div class="col-lg-2 col-md-1 col-3 text-center px-0">
+                         <img src="{{items.image}}" style="height: 35px;" id="siteLogoMode" alt="" class="align-self-center mt-1">
+                       </div>
+                        <div class="col-lg-4 col-md-4 col-4 px-0">
+                          <p class="mb-0 font_14 font_weight_600 text_light_grey">Market</p>
+                         <p class="mb-0"><span class="font_14 font_weight_500 text_black">$ {{items.usd_price | number:'1.2-2'}}</span><span class="text_light_green ml-2 font_14 font_weight_500   ">  {{items.hr_change | number:'1.2-2'}} %</span></p>
+                       </div>
+                     </div>
+                     <div *ngIf="currencyStatus" style="text-align: center;">
+                       No Data available.
+                     </div>
+               </div>
+                </div>
+             </div>
+
+          </div>
+          <div class="col-12 col-md-6 pr-0 pl-0 pl-md-2 d-flex mt-2">
+             <div class="card w-100 border-0">
+                <div class="card-body px-0">
+                  <div class="mx-0 mt-3">
+                    <span class="pull-right" *ngIf="!currencyStatus">
+                      <select class="form-control" name="currencies" [(ngModel)]="currencies" (change)="currencySelected($event.target.value)">
+                        <option *ngFor="let currency of cryptoData" > {{currency.currencySymbol}}</option>
+                     </select>
+                    </span>
+                    <h5 class="markettabheader border-0">Market Price for Fiat Currencies</h5>
+                   
+                  
+                      <div class="row mx-0 py-2 my-2 border_top_grey" *ngFor="let items of fiatData">
+                       <div class="col-lg-4 col-md-4 col-4 px-0">
+                         <p class="px-3 mb-1 font_14 font_weight_600 text_light_grey">{{items.currencySymbol}}/{{currencies}}</p>
+                         <p class="px-3 mb-0">
+                          <span class="font_14 font_weight_400 text_black text_light_green">{{items.currencyName}}</span>
+                          <!-- <span class="text_light_green ml-4 font_14 font_14 font_weight_400">{{items.currencyName}}</span> -->
+                        </p>
+                      
+                       </div>
+                        <div class="col-lg-4 col-md-4 col-4 text-center px-0">
+                         <img src="{{items.image}}" style="height: 35px;" id="siteLogoMode" alt="" class="align-self-center mt-1">
+                       </div>
+                        <div class="col-lg-4 col-md-4 col-4 px-0">
+                          <p class="px-3 mb-0 font_14 font_weight_400 text_light_grey">Market</p>
+                         <p class="px-3 mb-0"><span class="font_14 font_weight_400 text_black"> {{items.choosenPrice | number:'1.8-8'}}</span>
+                          <!-- <span class="text_light_green ml-2 font_14 font_weight_400   ">+ $ 3.12 B</span> -->
+                        </p>
+                       </div>
+                     </div>
+                     <div *ngIf="currencyStatus" style="text-align: center;">
+                       No Data available.
+                     </div>
+               </div>
+                </div>
+             </div>
+          </div>
+       </div>
+     </div>
+   </div>
+
+ 
+</div>

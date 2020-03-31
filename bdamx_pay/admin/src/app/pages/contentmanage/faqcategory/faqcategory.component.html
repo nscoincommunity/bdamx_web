@@ -1,0 +1,193 @@
+<div class="row">
+  <div class="col-md-24 col-lg-12">
+    <nb-card size="big">
+      <nb-tabset>
+        <nb-tab tabTitle="FAQ Category">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="tabcntcls" style=" -webkit-transition: all 1s ease;transition: all 1s ease;padding: 25px 25px 25px 25px;">
+                <div class="row">
+                  <div class="col-md-7" style="display: inline-flex;padding-left: 0px;">
+                    <span style="line-height: 58px;margin-top:-11px;">Display : </span>
+                    <select (change)="changeRowLimits_news($event)" style="width: 8%;background: transparent;height: 31px;padding:2px;margin-left: 5px;margin-top:0px;">
+                    <option *ngFor="let limit of rowLimits_news" [value]="limit.value">{{limit.key}}</option>
+                    </select>
+                    <div class="input-group-btn" style="margin-left: 10px;">
+                      <button class="btn btn-primary" style="cursor:pointer;background-color:#30CE6A;padding:5px;height:31px;" type="submit" (click)="resetnewslist()">
+                      <i class="fas fa-sync" style="background-color:#30CE6A;color:white;"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-md-4" style="display: inline-flex;position: relative;left: 23px;">
+                    <div class="input-group">
+                      <input type="text" [(ngModel)]="defsearch_news" class="form-control" placeholder="Search" id="txtSearch" (keyup.enter)="updateFilter_news()"/>
+                      <div class="input-group-btn">
+                        <button class="btn btn-primary" style="cursor:pointer;background-color:#30CE6A;padding:18px;height:34px;" type="submit" (click)="updateFilter_news()">
+                        <span class="fa fa-search"></span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-1">
+                    <div class="add_addre">
+                      <!-- <button style="cursor:pointer;border-color:#30CE6A;background-color: white;color:#30CE6A;margin-top:20;"class="btn btn-icon-icon btn-info mb-1 mr-1 cursorcls" (click)="addnewsClick();opennewsmodel(addnewscontent)" ngbTooltip="Addtitles"><span class="fa fa-plus"></span>
+                      </button> -->
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="table-responsive tab_top">
+                  <ngx-datatable #newstable class="bootstrap table table-bordered table-striped mb-0 material content_manage_tab"
+                  [columnMode]="'force'"
+                  [headerHeight]="50"
+                  [footerHeight]="50"
+                  [rowHeight]="'auto'" [(limit)]="limit_banner" [rows]='bannerblocktemp' [externalPaging]="true"
+                  [count]="page_banner.totalElements"
+                  [offset]="page_banner.pageNumber"
+                  [limit]="page_banner.size"
+                  (page)='setPage_banner($event)' [externalSorting]="true" (sort)="onSort_banner($event)" [loadingIndicator]="loading_banner">
+                  <ngx-datatable-column name="S.No" [resizeable]="false" style="font:bold;">
+                    <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>
+                      {{(page_banner.pageNumber*page.size)+(rowIndex + 1)}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="FAQ Category" prop="title" [resizeable]="false" style="white-space: normal;overflow-wrap: break-word;">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                 
+                               
+                  <ngx-datatable-column name="CreatedDate" prop="createddate" [resizeable]="false" ngbTooltip="CreatedDate&Time">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value  | date: 'medium'}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="ModifiedDate" prop="modifieddate" [resizeable]="false" ngbTooltip="ModifiedDate&Time">
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                      {{value  | date: 'medium'}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Status" prop="status" [resizeable]="false">
+                    <ng-template ngx-datatable-cell-template let-value="value" let-row="row" >
+                      {{value? 'Deactive':'Active'}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Action" prop="_id" [resizeable]="false">
+                    <ng-template ngx-datatable-cell-template let-value="value" let-row="row" >
+                      <button class="btn btn-link mr-1 mb-1 cursorcls" (click)="openeditmodel(editnewscontent, row)"  ngbTooltip="Edit">
+                        <i class="fa fa-edit" style="color:blue"></i>
+                      </button>
+                      <button class="btn btn-link mr-1 mb-1 cursorcls"  (click)="changebanner(statusmodel, row)"
+                        style="color:#b4b4b4;" >
+                      <i *ngIf="row.status == '0'" style="color: #1FA86D" class="fa fa-unlock" aria-hidden="true" ngbTooltip="Move to Deactive"></i>
+                      <i *ngIf="row.status == '1'" style="color: #E51F1F" class="fa fa-lock" aria-hidden="true" ngbTooltip="Move to Active"></i>
+                      </button>
+                      <!-- <button class="btn btn-link mr-1 mb-1 cursorcls"
+                        ngbTooltip="Delete" (click)="deletenewspopup(deletenewsmodel, row)">
+                      <i class="fa fa-trash" style="color:red"></i></button> -->
+                    </ng-template>
+                  </ngx-datatable-column>
+                  </ngx-datatable>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nb-tab>
+      </nb-tabset>
+    </nb-card>
+  </div>
+</div>
+
+<ng-template #statusmodel let-c="close" let-d="dismiss">
+  <div class="modal-body" id="actiondialog">
+    <h6>Do you want to change the status of title?</h6>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success cursorcls"
+      (click)="changebannerStatus(bannersvalue);c('Close click')">Yes</button>
+    <button type="button" style="cursor: pointer;
+      background-color:#d9dce0;" class="btn cursorcls"
+      (click)="c('Close click')">No</button>
+  </div>
+</ng-template>
+
+<!--Add popup model-->
+<ng-template #addnewscontent let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h6 class="modal-title text-uppercase">Add Title</h6>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')" ngbTooltip="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form (ngSubmit)="Add_news(add_news)" #add_news="ngForm" novalidate>
+    <div class="modal-body">
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label"> Title</label>
+        <div class="col-10">
+          <input type="text" name="title" class="form-control" id="mailtitle" [(ngModel)]="ban.title" #title="ngModel" [class.form-control-danger]="title.invalid && title.touched" required >
+
+          <span class="errr" *ngIf="title.invalid && title.touched && title.errors?.required">title is required</span>
+                
+        </div>
+      </div>
+
+  
+
+     
+
+    </div>
+    <div class="modal-footer">
+      <button type="submit" *ngIf='add_news.valid' style="cursor: pointer;background-color:#30CE6A;" class="btn btn-info cursorcls">Submit</button>
+      <button type="submit" style="cursor: pointer;background-color:#30CE6A;" *ngIf='!add_news.valid' class="btn btn-info cursorcls" disabled="">Submit</button>
+      <button type="button"  style="cursor: pointer;
+        background-color:#30CE6A;" class="btn btn-secondary cursorcls" (click)="cancelemailtemp();c('Close click')">Close</button>
+    </div>
+  </form>
+</ng-template>
+
+
+<ng-template #deletenewsmodel let-c="close" let-d="dismiss">
+  <div class="modal-body" id="actiondialog">
+    <h6>Are you sure to delete title ?</h6>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success cursorcls"
+      (click)="deletenews(bannersvalue);c('Close click')">Yes</button>
+    <button type="button" style="cursor: pointer;
+      background-color:#d9dce0;"  class="btn cursorcls"
+      (click)="c('Close click')">No</button>
+  </div>
+</ng-template>
+
+
+<ng-template #editnewscontent let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h6 class="modal-title text-uppercase">Edit FAQ Category</h6>
+    <button type="button" class="close" aria-label="Close"
+      (click)="cancelemailtemp();d('Cross click')" ngbTooltip="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form (ngSubmit)="saveEditEmailTemplate(edit_news);c('Close click')" #edit_news="ngForm" novalidate>
+    <div class="modal-body">
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label"> FAQ Category</label>
+        <div class="col-10">
+          <input type="text" name="title" class="form-control" id="mailtitle" [(ngModel)]="editbanners.title" #title="ngModel" [class.form-control-danger]="title.invalid && title.touched" required >
+
+          <span class="errr" *ngIf="title.invalid && title.touched && title.errors?.required">category is required</span>
+                
+        </div>
+      </div>
+
+
+            
+    </div>
+    <div class="modal-footer">
+      <button type="submit" *ngIf='edit_news.valid' style="cursor: pointer;background-color:#30CE6A;" class="btn btn-info cursorcls">Submit</button>
+      <button type="submit" style="cursor: pointer;background-color:#30CE6A;" *ngIf='!edit_news.valid' class="btn btn-info cursorcls" disabled="">Submit</button>    
+      <h6 *ngIf="isValid">Loading... <i class="fa fa-spinner fa-spin"></i> </h6>
+    </div>
+  </form>
+</ng-template>

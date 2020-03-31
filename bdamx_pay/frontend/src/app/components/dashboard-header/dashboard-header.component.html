@@ -1,0 +1,32 @@
+  <nav class="navbar py-0 navbar-expand-lg navbar-light navbar-white bg-light row mx-0 px-0">
+  <a class="navbar-brand col-2 py-1 mr-0" href="#"><img class="img-fluid" src="assets/images/logo.jpg"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse col-10  navbar-collapse shadow py-1" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto" (click)="apiService.historyBack()">
+       <img src="assets/images/left_icon_transparent.png" class="left_img_filter" >
+    </ul>
+    <ul class="list-unstyled mx-auto mb-0">
+       <li class="nav-item active">
+        <img src="assets/images/balance.png"> <span class="font_20 font-weight-bold text_light_green ml-2">{{header}}</span>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+     <img *ngIf="userDetails.image" src="{{userDetails.image}}" height="30">
+      <li class="nav-item dropdown px-2">
+<a class="nav-link dropdown-toggle arr_down" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<span class="font_16 text_black_light font_weight_400" *ngIf="userDetails">Hi {{userDetails.user_name | titlecase}}</span>
+
+<img src="assets/images/down-arrow.png" id="siteLogoMode" alt="" class="ml-2"> 
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+<a class="dropdown-item" routerLink='/profile'>Settings</a>
+<a class="dropdown-item" (click)="logout()">Logout</a>
+
+</div>
+</li>
+ </ul>     
+  </div>
+</nav>

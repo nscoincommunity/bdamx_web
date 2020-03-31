@@ -1,0 +1,29 @@
+<div class="header-container"
+     [class.left]="position === 'normal'"
+     [class.right]="position === 'inverse'">
+  <div class="logo-containter">
+    <a (click)="toggleSidebar()" href="#" class="navigation"><i class="nb-menu"></i></a>
+    <div class="logo" (click)="goToHome()"><span><img src="{{sitelogo}}"  width="100"/></span></div>
+  </div>
+  <!-- <ngx-theme-switcher></ngx-theme-switcher> -->
+</div>
+
+<div class="header-container">
+  <ngx-layout-direction-switcher></ngx-layout-direction-switcher>
+
+
+     <nb-actions
+    size="medium"
+    [class.right]="position === 'normal'"
+    [class.left]="position === 'normal'">
+    <nb-action *nbIsGranted="['view', 'user',admindetails]" >
+          
+      <nb-user [nbContextMenu]="userMenu" [name]="admindetails?.admin_name" 
+      [picture]="user?.picture"></nb-user>
+    </nb-action>
+    
+      </nb-actions>
+
+
+</div>
+ 

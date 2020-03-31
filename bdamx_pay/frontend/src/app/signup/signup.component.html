@@ -1,0 +1,118 @@
+<app-header></app-header>
+<div class="container-fluid login_signup">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 login_l_section  d-flex align-items-center">
+      <div>
+        <ul class="nav nav-tabs">
+          <li >Sign Up</li>
+        </ul>
+        <div class="clearfix"></div>
+        <div class="tab-content">
+          <form #regForm="ngForm" (ngSubmit)="regForm.form.valid && regSubmit(regForm)" novalidate>
+          <div id="menu1" class="tab-pane fade in active show">
+            <p>Select your country region</p>
+            <p>
+              <select class="login_field" name="region" required [(ngModel)]="reginput.region" #region="ngModel" >
+                <option selected="selected"  *ngFor="let list of conutryList; index as i;"  value="{{list.name}},{{list.dial_code}}">
+                   {{list.name}},{{list.dial_code}}
+                </option>
+                
+              </select>
+            </p>
+            <p class="text-danger" *ngIf="(region.invalid && regForm.submitted) || region.touched">
+            <span *ngIf="region.errors?.required">Select country</span>
+            </p>
+            <p>Mobile Number</p>
+            <p>
+              <input minlength="10" autocomplete="off" onpaste="return false" maxlength="15" type="text" [(ngModel)]="reginput.mobile" #mobile="ngModel" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="mobile" pattern="[0-9]+"  required class="login_field" >
+            </p>
+             <p class="text-danger" *ngIf="(mobile.invalid && regForm.submitted) || mobile.touched">
+        <span *ngIf="mobile.errors?.required">Mobile number  is required</span><span *ngIf="mobile.errors?.pattern">Numbers only allowed</span>
+        <span *ngIf="mobile.errors?.minlength">Numbers must be  10 digit</span>
+        <span *ngIf="mobile.errors?.maxlength">Numbers must below 15 digit</span>
+
+
+              </p>
+            <p>Username</p>
+            <p>
+              <input  type="text" onpaste="return false" autocomplete="off" [(ngModel)]="reginput.user_name" #user_name="ngModel" name="user_name"  required minlength="3" maxlength="15"  pattern="[A-Za-z0-9]+" placeholder="John" class="login_field" >
+            </p>
+            <p class="text-danger" *ngIf="(user_name.invalid && regForm.submitted) || user_name.touched">
+                <span *ngIf="user_name.errors?.required">Username required</span>
+                <span *ngIf="user_name.errors?.minlength">Username must be atleast 3 characters</span>
+                <span *ngIf="user_name.errors?.maxlength">Username must not exceed 15 characters</span>
+                <span *ngIf="user_name.errors?.pattern">Space and special charactors not allowed example(john123)</span>
+              </p>
+            <p>User email</p>
+            <p>
+              <input  type="text"  autocomplete="off" onpaste="return false" [(ngModel)]="reginput.email" #email="ngModel" name="email"  required   pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" placeholder="example@gmail.com" class="login_field" >
+            </p>
+            <p class="text-danger" *ngIf="(email.invalid && regForm.submitted) || email.touched">
+                <span *ngIf="email.errors?.required">Email is required</span>
+                <span *ngIf="email.errors?.pattern">Invalid email</span>
+              </p>
+            <p>Password</p>
+            <p class="passw">
+              <input type="password" placeholder="******" onpaste="return false" autocomplete="off" [(ngModel)]="reginput.password" #password="ngModel"  name="password" id="password" required pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])(?!.*\s).{8,}$" class="login_field" >
+              <img (click)="change_passtype()"  src="{{pass_icon}}" >
+              </p>
+              <p class="text-danger" *ngIf="(password.invalid && regForm.submitted) || password.touched">
+                <span *ngIf="password.errors?.required">Password is required</span>
+                <span *ngIf="password.errors?.pattern">Password should be 8 character ,atleast 1 Upper case,1 Lower Case 1 Number and 1 Special character. Space are not allowed</span>
+              </p>
+            <p class="i_agree_tc">
+              <input  (change)="FieldsChange($event)" #terms="ngModel"  [(ngModel)]="reginput.terms" required  type="checkbox" name="terms" class="check_log">
+              <span class="checkmark2"></span>&nbsp;&nbsp;I agree to <a routerLink="/terms" target="_blank">TERMS OF SERVICE </a>, <a routerLink="/privacypolicy" target="_blank">PRIVACY POLICY</a></p>
+              <p class="text-danger" *ngIf="(terms.invalid && regForm.submitted) || terms.touched">
+                <span *ngIf="terms.errors?.required">Please check terms and conditions</span>
+              </p>
+            <p class="login_btn lb2">
+              <!-- <input type="button" name="" value="Sign up" > -->
+              <button type="submit"  class="btn btn-primary btn-submit-login" *ngIf="!regsubmitted">Sign up</button> 
+              <span class="btn btn-primary btn-submit-login"  *ngIf="regsubmitted"> Processing ... </span>  
+            </p>
+            <div class="row forget_sec">
+              <div class="col-xs-12 col-sm-12">If you've applied.&nbsp;<a routerLink="/login" >Click here</a></div>
+            </div>
+          </div>
+          </form>
+        </div></div>
+      </div>
+     <div class="col-xs-12 col-sm-6 login_r_section d-flex align-items-center">
+      <div class="login_r_section_inn"><div>
+        <p><a href="#"><img src="assets/images/logo.png" ></a></p>
+        <h3>Contact us</h3>
+        <div class="row" *ngIf="siteData">
+          <div class="col-xs-12 col-sm-6">Address</div>
+          <div class="col-xs-12 col-sm-6">Business Development</div>
+          <div class="col-xs-12 col-sm-6"><p style="color: white">BDAM Foundation Ltd, <br>
+                                            International Commerce Centre, 1 Austin <br>
+                                                Road West, Kowloon, Hong Kong</p></div>
+          <div class="col-xs-12 col-sm-6"><a href="mailto:{{siteData.custeomerservice_mail}}">{{siteData.custeomerservice_mail}}</a></div>
+          <div class="col-xs-12 col-sm-6 log_r_t">Timings</div>
+          <div class="col-xs-12 col-sm-6 log_r_t">Developer support</div>
+          <div class="col-xs-12 col-sm-6">{{siteData.timing}}</div>
+          <div class="col-xs-12 col-sm-6"><a href="mailto:{{siteData.developersupport_mail}}">{{siteData.developersupport_mail}}</a></div>
+          <div class="col-xs-12 col-sm-12"><div class="line_1"></div></div>
+          <!-- <div class="col-xs-12 col-sm-3"><a  routerLink="/terms" target="_blank">Support</a></div> -->
+          <div class="col-xs-12 col-sm-5"><a  routerLink="/terms" target="_blank">Terms of service</a></div> 
+          <div class="col-xs-12 col-sm-4"><a  routerLink="/faq" target="_blank">FAQ's</a></div>
+          <div class="col-xs-12 col-sm-12">
+            <ul class="footer-social-col foot_icon">
+              <li><a href="{{siteData.telegram}}" target="_blank"><i class="fa fa-paper-plane"></i></a></li>
+               <li><a href="{{siteData.twitter}}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+               <li><a href="{{siteData.youtube}}" target="_blank"><i class="fa fa-youtube"></i></a></li>
+
+               <li><a href="{{siteData.media}}" target="_blank"><i class="fa fa-medium"></i></a></li>
+               <li><a href="{{siteData.redit}}" target="_blank"><i class="fa fa-reddit"></i></a></li>
+               <li><a href="{{siteData.linked_in}}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+               <li><a href="{{siteData.github}}" target="_blank"><i class="fa fa-github"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

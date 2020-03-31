@@ -1,0 +1,2140 @@
+/*************** ABOUT US  CSS ****************/
+.about-us-sec {
+    padding: 45px 0;
+}
+.about-us-sec .image-holder{
+    margin-left: -57px;
+}
+.about-us-sec .text-box h3{
+    color: #021E67;
+    font-size: 44px;
+    font-family: 'Montserrat-ExtraBold';
+    margin-bottom: 13px;
+}
+.about-us-sec .text-box p{
+    font-size: 14px;
+    line-height: 30px;
+    color: #313131;
+    margin-bottom: 30px;
+}
+/*************** VISION SEC CSS ****************/
+.vision-sec .text-box{
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0px 0px 39px rgba(0, 0, 0, 0.08);
+    padding-top: 39px;
+    padding-bottom: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+    min-height: 278px;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+.vision-sec .text-box p{
+    color: #313131;
+    font-size: 14px;
+    line-height: 28px;
+    font-family: 'Montserrat-Medium';
+}
+.vision-sec .text-box h3{
+    color: #4A4A4A;
+    font-size: 22px;
+    font-family: 'Montserrat-ExtraBold';
+    margin-bottom: 15px;
+}
+.vision-sec{
+    padding: 47px 0 165px 0;
+}
+/*************** BANNER CSS ****************/
+.banner-sec{
+    padding: 0;
+    background: url(/assets/images/banner-bg.png) no-repeat;
+    background-position: bottom center;
+    background-size: 100%;
+    position: relative;
+    height: 728px; 
+}
+.banner-inner .text-box {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 30px 0 0 0;
+    position: relative;
+    z-index: 10;
+}
+.banner-inner .banner-box .text-box h1{
+    color: #4A4A4A;
+    font-size: 45px;
+    font-family: 'Montserrat-ExtraBold';
+    line-height: 60px;
+    margin-bottom: 0px;
+}
+.banner-inner .banner-box .text-box h1 span{
+    color: #78C029;
+}
+.banner-inner .banner-box .text-box p{
+    color: #4A4A4A;
+    font-size: 15px;
+    font-family: 'Montserrat-Medium';
+    line-height: 27px;
+    max-width: 520px;
+    margin-bottom: 35px;
+}
+.banner-inner .banner-box .text-box ul{
+    display: flex; 
+    flex-wrap: wrap;
+}
+.banner-inner .banner-box .text-box ul li{
+    margin-right: 8px;
+}
+.banner-inner .banner-box .text-box ul li.download-brn a{
+    min-width: 155px;
+    background-color: #c8212f;
+}
+.banner-inner .banner-box .text-box ul li.download-brn a:hover{
+    background-color: #2e2c62;
+}
+.banner-inner .banner-box .text-box ul li a{
+    font-size: 16px;
+    font-family: 'Montserrat-Bold';
+    color: #75BD29;
+    border-radius: 6px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
+    height: 48px;
+    width: 100%;
+
+}
+.banner-inner .banner-box .text-box ul li a:hover{
+    background-color: #75BD29;
+    color: #fff;
+}
+.banner-inner .banner-box .text-box ul li.bdam-bank-btn a{
+    background-color: #75BD29;
+    color: #fff;
+}
+.banner-inner .banner-box .text-box ul li.bdam-bank-btn a:hover{
+    background-color: #C8102E;
+    color: #fff;
+}
+.slide-btn{
+    display: flex;
+    align-items: center;
+    position: static;
+    right: 0;
+    bottom: 0;
+    padding-top: 70px;
+}
+.carousel-control-next-icon,
+.carousel-control-prev-icon{
+    background: none;
+}
+.carousel-control-next, .carousel-control-prev{
+    position: static;
+    opacity: 1;
+    width: 72px;
+    height: 72px;
+    background-color: #75BD29;
+    color: #fff;
+    font-size: 24px;
+    transition: all 0.5s ease-in-out;
+}
+.carousel-control-next{
+    background-color: #fff; 
+    color: #4A4A4A;
+}
+.carousel-control-prev:hover{
+    background-color: #C8102E !important;
+    color: #fff;
+}
+.carousel-control-next:focus,
+.carousel-control-prev:focus{
+    opacity: 1;
+}
+.carousel-control-next:hover,.carousel-control-prev:hover {
+    text-decoration: none;
+    background-color: #75BD29;
+    color: #fff;
+    outline: 0;
+    opacity: 1;
+    transition: all 0.5s ease-in-out;
+}
+.socail-media{
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translate(0, -50%);
+    background-color: #fff;
+    border-radius: 22.5px; 
+    padding: 34px 14px;
+}
+.socail-media ul li{
+    margin-bottom: 31px;
+}
+.socail-media ul li:last-child{
+    margin-bottom: 0;
+}
+.socail-media ul li a{
+    display: block;
+    background-color:transparent;  
+    transition: all 0.5s ease-in-out;
+    color: #B2B2B2;
+    font-size: 16px;
+}
+.socail-media ul li a:hover{ 
+    transition: all 0.5s ease-in-out;
+    color: #75BD29;
+}
+.app-storer-btn{
+    margin: 0 -10px;
+}
+.app-storer-btn a{
+    padding:0 10px;
+    display: inline-block;
+}
+.app-storer-btn a:hover{
+    opacity: 0.5
+}
+.banner-text{
+    height: 100%;
+    width: 100%;
+    padding: 76px 0px 130px;
+}
+.banner-inner .banner-box .image-holder.card-holder ul{
+    margin-left: 300px;
+    margin-top: 99px;
+    position: relative;
+    right: -40px;
+}
+.banner-inner .banner-box .image-holder.card-holder ul li{
+    border-radius: 10px;
+    opacity: 0;
+    transition: all 0.9s ease-in-out;
+}
+.banner-inner .banner-box .image-holder.card-holder ul li:nth-child(2){
+    margin-top: -145px;
+    margin-left: -150px;
+}
+.banner-inner .banner-box .image-holder.card-holder ul li:last-child{
+    margin-top: -158px;
+    margin-left: -321px;
+}
+.banner-inner .banner-box .image-holder.card-holder ul li img{
+    max-width: 270px;
+    transform: rotate3d(0, 1, 1, 31deg);
+    box-shadow: 20px -3px 8px 0px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    border-radius: 10px;
+}
+.banner-box-second {
+    padding-bottom: 30px;
+    padding-right: 200px;
+}
+.carousel-item.active .banner-box .image-holder ul li{
+    opacity: 1;
+    transition: all 0.9s ease-in-out;
+}
+.bitcoin-price-inner{
+    margin: -80px 0 0 0;
+}
+.bitcoin-price-inner ul{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+.bitcoin-price-inner ul li{
+    width: 20%;
+    padding: 0 15px;
+}
+.bitcoin-price-inner ul li .text-inner{
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0px 0px 39px rgba(0, 0, 0, 0.08);
+    padding: 24px 17px;
+}
+.bitcoin-price-box{
+    display: flex;
+}
+.bitcoin-price-box .image-holder{
+    max-width: 28px;
+    width: 100%;
+}
+.bitcoin-price-box .text-box {
+    width: calc(100% - 28px);
+    padding-left: 13px;
+
+}
+.bitcoin-price-box .text-box h4{
+    color: #333333;
+    font-size: 13px;
+    margin-bottom: 3px;
+    font-family: 'Montserrat-SemiBold';
+}
+.bitcoin-price-box .text-box p{
+    color: #828181;
+    font-size: 11px;
+    font-family: 'Montserrat-Medium';
+}
+.bitcoin-price-inner ul li .text-inner h3{
+    color: #4A4A4A;
+    font-size: 15px;
+    margin-top: 19px;
+}
+.bitcoin-price-inner ul li .text-inner span{
+    color: #E52237;
+    font-family: 'Montserrat-SemiBold';
+    font-size: 12px;
+}
+/*************** BLOCKCHAIN DROP CSS ****************/
+.blockchain-drop-sec{
+    background: url(/assets/images/drop-store-bg.png) no-repeat;
+    background-size: cover;
+    background-position: -30px 0%;
+    padding: 50px 0;
+}
+.blockchain-drop-inner{
+    display: flex;
+}
+
+.blockchain-drop-sec .text-box {
+    padding: 56px 0 0 0;
+    width: 100%;
+    max-width: 585px;
+}
+.blockchain-drop-sec .text-box h3{
+    color: #021E67;
+    font-size: 37px;
+    margin-bottom: 19px;
+}
+.blockchain-drop-sec .text-box h3 span{
+    color: #C8102E;
+    font-family: 'Montserrat-ExtraBold';
+}
+.blockchain-drop-sec .text-box  p:last-child{
+    margin-bottom: 0;
+}
+.blockchain-drop-sec .text-box  p{
+    color: #313131;
+    font-size: 14px;
+    line-height: 28px;
+    max-width: 575px;
+    margin-bottom: 30px;
+    width: 100%;
+}
+.blockchain-drop-sec .text-box a{
+    background-color: #021E67;
+    border-radius: 33px;
+    width: 237px;
+    height: 62px;
+    box-shadow: 0px 0px 39px rgba(0, 0, 0, 0.08);
+    font-size: 14px;
+    color: #fff;
+    font-family: 'Montserrat-Bold';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.blockchain-drop-sec .text-box a:hover{
+    background-color: #75BD29;
+}
+.blockchain-drop-sec .image-holder{
+    width: calc(100% - 585px);
+    position: relative;
+    right: -40px;
+}
+/*************** BENEFIT DEVELOPER CSS ****************/
+.benefit-developer-sec{
+    padding: 50px 0;
+}
+.benefit-developer-inner .nav-pills{
+    border-radius: 33px;
+    background: #fff;
+    box-shadow: 0px 0px 39px rgba(0, 0, 0, 0.08);
+    max-width: 474px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 60px;
+}
+.benefit-developer-inner .nav-pills .nav-item .nav-link{
+    font-size: 14px;
+    color: #4A4A4A;
+    font-family: 'Montserrat-SemiBold';
+    padding: 0;
+    border-radius: 33px;
+    min-width: 237px;
+    width: 100%;
+    height: 66px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.benefit-developer-inner .nav-pills .nav-item .nav-link.active{
+    color: #fff;
+    background-color: #C8102E;
+}
+.benefit-user-box{
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0px 0px 39px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    padding: 35px 30px;
+    min-height: 135px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+.benefit-user-box:hover{
+    background-color: #C8102E;
+    transition: all 0.5s ease-in-out;
+}
+.benefit-user-box:hover .text-box p{
+    color: #fff;
+    transition: all 0.5s ease-in-out;
+}
+.benefit-user-box:hover img {
+    filter: brightness(1710);
+}
+.benefit-user-box .image-holder{
+    max-width: 60px;
+    width: 100%;
+}
+.benefit-user-box .image-holder img{
+    height: 42px;
+}
+.benefit-user-box .text-box{
+    width: calc(100% - 60px);
+    padding-left: 10px;
+}
+.benefit-user-box .text-box p{
+    color: #313131;
+    font-size: 14px;
+    line-height: 22px;
+    transition: all 0.5s ease-in-out;
+    font-family: 'Montserrat-SemiBold';
+}
+.benefit-developer{
+    max-width: 760px;
+    width: 100%;
+    margin: 0 auto;
+}
+.existing-market-sec{
+    background-color: #272644;
+    position: relative;
+}
+/*************** EXISTING MARKET SEC CSS ****************/
+.existing-side{
+    background-color: #2C2A4E;
+    padding: 96px 75px 115px;
+    position: relative;
+}
+.existing-side:after {
+    position: absolute;
+    content: "";
+    top: 167px;
+    /* background-color: rgba(255, 255, 255, 0.22); */
+    width: 100%;
+    height: 1px;
+    left: 80px;
+}
+.existing-side:before {
+    position: absolute;
+    content: "";
+    bottom: 47px;
+    /* background-color: rgba(255, 255, 255, 0.22); */
+    width: 100%;
+    height: 1px;
+    left: 80px;
+}
+.existing-side h2{
+    color: #fff;
+    font-size: 35px;
+    margin-bottom: 75px !important;
+}
+.existing-side h2 span{
+    color: #C8102E;
+}
+.market-side{
+    background-color: #272644;
+    position: relative;
+}
+.market-side:after {
+    left: 0;
+    width: 80%;
+}
+.market-side:before{
+    left: 0;
+    width: 80%;
+}
+.market-side h2 span{
+    color: #75BD29;
+}
+.existing-side ul{
+    position: relative;
+    padding-left: 35px !important;
+}
+.existing-side ul::after {
+    content: '';
+    position: absolute;
+    width: 1px;
+    border: 1px dashed rgba(255, 255, 255, 0.22);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin-left: 0;
+}
+.existing-side ul li {
+    margin-bottom: 45px;
+    position: relative;
+}
+.existing-side ul li:after{
+    position: absolute;
+    content: "";    
+    top: -3px;
+    left: -42px;
+    background-color: #272644;
+    border: 3px solid #C8102E;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    z-index: 1;
+}
+.existing-side ul li:last-child{
+    margin-bottom: 0;
+}
+.existing-side ul li h3{
+    color: #fff;
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+.existing-side ul li p{
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 14px;
+    line-height: 18px;
+    font-family: 'Montserrat-Medium';
+}
+.existing-side ul li:last-child p{
+    position: absolute;
+}
+.existing-side ul li:last-child:after{
+    top: auto;
+    bottom: 0;
+}
+.market-side ul li:after{
+    border-color: #75BD29; 
+}
+/*************** GET PAID CSS ****************/
+.get-paid-sec{
+    background: url(/assets/images/get-paid-bg.png) no-repeat;
+    background-size: cover;
+    padding: 93px 0 80px;
+}
+.get-paid-inner h2{
+    color: #4A4A4A;
+    font-size: 48px;
+    text-align: center;
+}
+.get-paid-inner ul{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 28px -25px 0;
+}
+.get-paid-inner ul li{
+    width: 20%;
+    padding: 20px 25px;
+}
+.get-paid-inner ul li .get-paid-box{
+    width: 100%;
+    height: 160px;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0px 0px 39px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+.get-paid-inner ul li .get-paid-box:hover{
+    background-color: #C8102E;
+    transition: all 0.5s ease-in-out;
+}
+/*************** PLATFORM FEATURE CSS ****************/
+.platform-feature-sec{
+    background-color: #272644;
+    padding: 100px 0;
+}
+.platform-feature-inner h2{
+    color: #fff;
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 58px !important;
+}
+.platform-feature-box{
+    border-radius: 16px;
+    background-color: #fff;
+    box-shadow: 0px 0px 39px rgba(0, 0, 0, 0.08);
+    padding: 26px 40px;
+    min-height: 172px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+.platform-feature-box:hover{
+    background-color: #C8102E;
+    transition: all 0.5s ease-in-out;
+}
+.platform-feature-box:hover h3,
+.platform-feature-box:hover p{
+    color: #fff;
+    transition: all 0.5s ease-in-out;
+}
+.platform-feature-box h3{
+    color: #4A4A4A;
+    font-size: 18px;
+    margin-bottom: 11px;
+    transition: all 0.5s ease-in-out;
+}
+.platform-feature-box p{
+    color: #313131;
+    font-size: 13px;
+    line-height: 22px;
+    transition: all 0.5s ease-in-out;
+}
+/*************** BDAM PAY CSS ****************/
+.bdampay-sec{
+    padding: 84px 0 12px;
+    background: url(/assets/images/bdampay-bg.png) no-repeat;
+    background-position: right top;
+    background-size: 100%;
+}
+.bdampay-right img{
+    width:70%;
+}
+.bdampay-right .image-holder{
+    text-align:center;
+}
+.bdampay-left,.bdampay-right{
+    padding-top: 50px;
+}
+.bdampay-inner .bdampay-left .text-box h2,.bdampay-inner .bdampay-right .text-box h2{
+    font-size: 44px;
+    color: #021E67;  
+    font-family: 'Montserrat-ExtraBold';
+    margin-bottom: 48px;
+}
+.bdampay-inner .bdampay-left .text-box h2 span{
+    color: #75BD29;
+    display: block;
+}
+.bdampay-left .nav-pills .nav-item{
+    margin-bottom: 32px;
+}
+.bdampay-left .nav-pills .nav-item:last-child{
+    margin-bottom: 0;
+}
+.bdampay-left .nav-pills .nav-item .nav-link{
+    padding: 0;
+}
+.bdampay-left .nav-pills .nav-item .nav-link .steps-box{
+    display: flex;
+}
+.bdampay-left .nav-pills .nav-item .nav-link .steps-box span{
+    background-color: #fff;
+    width: 80px;
+    height: 80px;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0px 0px 39px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+.bdampay-left .nav-pills .nav-item .nav-link .steps-box .text-box{
+    width: calc(100% - 80px);
+    padding-left: 52px;
+}
+.bdampay-left .nav-pills .nav-item .nav-link .steps-box .text-box h3{
+    color: #75BD29;
+    font-size: 19px;
+    margin-bottom: 6px;
+    padding-bottom: 0;
+}
+.bdampay-left .nav-pills .nav-item .nav-link .steps-box .text-box p{
+    color: #313131;
+    font-size: 13px;
+    line-height: 22px;
+}
+.bdampay-left .nav-pills .nav-item .nav-link.active{
+    background-color: transparent;
+}
+.bdampay-left .nav-pills .nav-item .nav-link.active .steps-box span{
+    background-color: #75BD29;
+} 
+.bdampay-left .nav-pills .nav-item .nav-link.active .steps-box span img{
+    filter: brightness(10.5);
+}
+*//*************** APPLICATION INDUSTRY CSS ****************/
+.application-industry-sec{
+    background-color: #F6F6F8;
+    padding: 65px 0;
+}
+.application-industry-sec .text-box {
+    padding: 60px 0 0 0;
+}
+.application-industry-sec .text-box h2{
+    color: #021E67;
+    font-family: 'Montserrat-ExtraBold';
+    font-size: 43px;
+    margin-bottom: 15px;
+}
+.application-industry-sec .text-box span{
+    color: #C8102E;
+    font-size: 19px;
+    display: block;
+    font-family: 'Montserrat-Bold';
+    margin-bottom: 40px;
+}
+.application-industry-sec .text-box ul li{
+    color: #4A4A4A;
+    font-size: 14px;
+    font-family: 'Montserrat-Medium';
+    line-height: 30px;
+    margin-bottom: 5px;
+    padding-left: 35px;
+    position: relative;
+    max-width: 560px;
+}
+.application-industry-sec .text-box ul li:after{
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 11px;
+    background-color: #C8102E;
+    width: 8px;
+    height: 8px;
+}
+.application-industry-sec .image-holder img{
+    box-shadow: 0px 27px 46px rgba(0, 0, 0, 0.13); 
+}
+/*************** OPPORTUNITY SEC CSS ****************/
+.opportunity-sec {
+    background-color: #fff;
+}
+.opportunity-sec .text-box h2{
+    color: #4A4A4A;
+}
+.opportunity-sec .text-box p{
+    color: #313131;
+    font-size: 14px;
+    line-height: 31px;
+}
+/*************** COMPARISON SEC CSS ****************/
+.comparison-sec {
+    background-color: #F6F6F8;
+    padding: 72px 0 78px;
+}
+.comparison-inner h2{
+    color: #C8102E;
+    font-size: 43px;
+    text-align: center;
+    font-family: 'Montserrat-ExtraBold';
+}
+.comparison-list ul{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 55px -10px 0 !important;
+}
+.comparison-list ul li{
+    padding: 0 10px;
+    width: 15.2%;
+}
+.comparison-list ul li.comparison-first{
+    width: 23.8%;
+}
+.comparison-list ul li .comparison-box {
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0px 0px 39px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: all 0.5s ease-in-out;
+}
+.comparison-list ul li .comparison-box:hover{
+    background-color: #75BD29;
+    transition: all 0.5s ease-in-out;
+}
+.comparison-list ul li .comparison-box:hover p,
+.comparison-list ul li.comparison-first .comparison-box:hover p,
+.comparison-list ul li.comparison-first .comparison-box:hover h3{
+    color: #fff;
+    transition: all 0.5s ease-in-out;
+}
+.comparison-list ul li .comparison-box:hover h4,
+.comparison-list ul li.comparison-first .comparison-box:hover h4{
+    background-color: #75BD29;
+    transition: all 0.5s ease-in-out;
+}
+.comparison-list ul li.comparison-first .comparison-box{
+    text-align: left;
+}
+.comparison-list ul li.comparison-first .comparison-box h3{
+    color: #E52237;
+    font-size: 23px;
+    padding: 37px 28px 28px;
+}
+.comparison-list ul li.comparison-first .comparison-box h4{
+    color: #fff;
+    font-size: 17px;
+    background-color: #C8102E;
+    border-top: 1px solid  #EDEDED; 
+    border-bottom: 1px solid  #EDEDED; 
+    padding: 17px 28px;
+    transition: all 0.5s ease-in-out;
+}
+.comparison-list ul li.comparison-first .comparison-box p{
+    color: #4A4A4A;
+    font-family: 'Montserrat-Bold';
+    font-size: 14px;
+    border-bottom: 1px solid #EDEDED;
+    transition: all 0.5s ease-in-out;
+    padding: 20px 28px;
+}
+.comparison-list ul li .comparison-box .image-holder {
+    padding: 24px 0;
+}
+.comparison-list ul li .comparison-box h4{
+    color: #fff;
+    font-size: 15px;
+    background-color: #272644;
+    border-top: 1px solid  #EDEDED; 
+    transition: all 0.5s ease-in-out;
+    border-bottom: 1px solid  #EDEDED; 
+    padding: 17px 28px;
+}
+.comparison-list ul li .comparison-box p{
+    color: #4A4A4A;
+    border-bottom: 1px solid #EDEDED;
+    font-size: 14px;
+    padding: 20px 10px;
+    transition: all 0.5s ease-in-out;
+    font-family: 'Montserrat-Medium';
+}
+/*************** PRESS MENTIONS SEC CSS ****************/
+.press-mentions-sec{
+    padding: 100px 0 62px;
+}
+.press-mentions {
+    margin-bottom: 78px;
+}
+.press-mentions:last-child{
+    margin-bottom: 0;
+}
+.press-mentions h2{
+    text-align: center;
+    color: #4A4A4A;
+    font-size: 31px;
+    margin-bottom: 34px !important;
+}
+.press-mentions ul{
+    display: flex;
+    margin: 0 -25px;
+}
+.press-mentions ul li{
+    padding: 0 25px;
+    width: 16.6%;
+}
+.press-mentions ul li a{
+    width: 100%;
+    height: 157px;
+    border-radius: 16px;
+    background-color: #fff;
+    box-shadow: 0px 0px 39px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.press-mentions ul li a:hover{
+    background-color: #75BD29;
+}
+/*************** COBTACT US SEC CSS ****************/
+.contact-us-sec{
+    text-align: center;
+    padding-bottom: 44px;
+}
+.contact-us-sec .text-box h2{
+    color: #4A4A4A;
+    font-size: 44px;
+    text-align: center;
+    font-family: 'Montserrat-ExtraBold';
+}
+.contact-us-sec .text-box p {
+    color: #4A4A4A;
+    font-size: 16px;
+    font-family: 'Montserrat-Medium';
+    max-width: 545px;
+    width: 100%;
+    margin: 20px auto 30px;
+}
+.contact-us-sec .text-box ul{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 -6px;
+}
+.contact-us-sec .text-box ul li {
+    padding: 0 6px;
+}
+.contact-us-sec .text-box ul li a{
+    background-color: #C8102E;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 16px;
+    transition: all 0.5s ease-in-out;
+    border-radius: 50%;
+}
+.contact-us-sec .text-box ul li a:hover{
+    background-color: #75BD29;
+    transition: all 0.5s ease-in-out;
+}
+/*************** FOOTER SEC CSS ****************/
+.footer-sec{
+    padding: 67px 0 30px;
+    background-color: #272644;
+}
+.footer-socail {
+    margin-top: 25px;
+}
+.footer-text{
+    margin-top: 23px;
+}
+.footer-text p{
+    color: #fff;
+    font-size: 13px;
+    line-height: 25px;
+    font-family: 'Montserrat-Medium';
+}
+.footer-link h3{
+    color: #fff;
+    font-size: 15px;
+    margin-bottom: 16px !important; 
+}
+.footer-link ul li{
+    margin-bottom: 22px;
+}
+.footer-link ul li:last-child{
+    margin-bottom: 0;
+}
+.footer-link ul li a{
+    color: #fff;
+    font-size: 13px;
+}
+.footer-link ul li a:hover{
+    color: #C8102E;
+}
+.footer-link p a{
+    color: #fff;
+    font-size: 12px;
+    display: block;
+    margin-bottom: 8px;
+}
+.footer-link p a:hover{
+    color: #C8102E;
+}
+.footer-address {
+    margin-top: 18px;
+}
+.footer-address p{
+    color: #fff;
+    font-size: 11px;
+    line-height: 21px;
+}
+.copyright .copyright-inner {
+    border-top: 1px solid rgba(151, 151, 151, 0.24);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 25px;
+    margin-top: 60px;
+}
+.copyright-inner p{
+    font-size: 13px;
+    color: #fff;
+    font-family: 'Montserrat-SemiBold';
+}
+.modal-dialog {
+    max-width: 600px;
+
+}
+.modal-content{
+    border-radius: 0;
+    background: url(/assets/images/roadmap-bg.png) no-repeat;
+    background-size: cover;
+    background-position: center right;
+}
+.modal-body{
+    padding: 30px;
+    background-color: rgba(35, 33, 83, 1);
+}
+.anout-detail-modal .modal-body h3{
+    color: #fff;
+    text-align: center;
+    font-size: 22px; 
+    position: relative;
+    padding-bottom: 30px;
+}
+.anout-detail-modal .modal-body h3:before {
+    position: absolute;
+    content: "";
+    left: 50%;
+    bottom: 15px;
+    transform: translate(-50%,0);
+    width: 57px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: #fb2335;
+}
+.anout-detail-modal .modal-body p{
+    font-size: 13px;
+    line-height: 1.77;
+    color: #fff;
+}
+.close {
+    float: right;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1;
+    color: #fff;
+    text-shadow: none;
+    opacity: 1;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+}
+.close:hover{
+    color: #fb2335;
+}
+.privacy-heading h2{
+    font-size: 26px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+.privacy-heading p{
+    font-size: 13px;
+    line-height: 1.77;
+    color: #fff;
+}
+.privacy-heading p a{
+    color: #fb2335;
+    text-decoration: underline;
+}
+
+.privacy-policy-inner .text-box {
+    margin-top: 20px;
+}
+.privacy-policy-inner .text-box h3{
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+.privacy-policy-inner .text-box h4{
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 10px;
+    font-family: 'Montserrat-Medium';
+}
+.privacy-policy-inner .text-box p{
+    font-size: 13px;
+    line-height: 1.77;
+    color: #fff;
+}
+.privacy-policy-inner .text-box p a{
+    color: #fb2335;
+    text-decoration: underline;
+}
+.privacy-policy-inner .text-box ul {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+.privacy-policy-inner .text-box ul li{
+    font-size: 13px;
+    line-height: 1.77;
+    color: #fff;
+    padding-left: 15px;
+    position: relative;
+    margin-bottom: 10px;
+}
+.privacy-policy-inner .text-box ul li:last-child{
+    margin-bottom: 0;
+}
+.privacy-policy-inner .text-box ul li:after{
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 10px;
+    background-color: #fff;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+}
+.privacy-policy-inner .text-box ol {
+    padding-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.privacy-policy-inner .text-box ol li{
+    font-size: 13px;
+    line-height: 1.77;
+    color: #fff;
+    position: relative;
+    margin-bottom: 10px;
+}
+.privacy-policy-inner .text-box ol li:last-child{
+    margin-bottom: 0;
+}
+.modal-open{
+    padding-right: 0;    
+}
+.back-top{
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    transition: background-color .3s, 
+    opacity .5s, visibility .5s;
+    visibility: visible;
+    z-index: 10;
+}
+#button.show {
+    opacity: 1;
+    visibility: visible;
+}
+.back-top a img{
+    max-width: 14px;
+}
+.back-top a{
+    background: #ad2264;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+}
+.back-top a:hover{
+    background: #95296f;
+}
+button.close.close-mb {
+    top: auto;
+    bottom: 10px;
+}
+.footer-logo a img {
+    max-width: 320px;
+    width: 100%;
+}
+@media(max-width:1600px)  {
+    .existing-side h2 {
+        font-size: 30px;
+    }
+    .market-side:after{
+        left: 0;
+        width: 90%;
+    }
+    .market-side:before{
+        bottom: 27px;
+    }
+    .existing-side:before{
+        bottom: 27px;
+    }
+    .existing-side ul li p{
+        font-size: 12px;
+    }
+}
+@media(max-width:1366px)  {
+    .navigation .navbar .navbar-nav .nav-item .nav-link {
+        padding: 13px 8px;
+    }
+    .navigation .nav-country ul li a {
+        min-width: 100px;
+    }
+    .navigation .nav-country ul li a img {
+        margin-right: 5px;
+    }
+    .navigation .nav-country ul li.language-btn a {
+        min-width: 80px;
+    } 
+    .socail-media {
+        right: 20px;
+    }
+    .existing-side h2 {
+        font-size: 22px;
+    }
+    .existing-side {
+        padding: 96px 40px 115px;
+    }
+    .existing-side ul li p {
+        min-height: 40px;
+    }
+    .existing-side:after{
+        left: 40px;
+    }
+}
+@media(max-width:1199px)  {
+    .wrapper {
+        padding: 78.25px 0 0 0;
+    }
+    .header {
+        padding: 10px 0;
+    }
+    .navigation .nav-country ul {
+        margin-left: 10px;
+    }
+    .bdampay-sec {
+        background-size: cover;
+    }
+    .banner-inner .banner-box .text-box h1 {
+        font-size: 38px;
+        line-height: 47px;
+    }
+    .banner-inner .banner-box .text-box p {
+        font-size: 16px;
+        line-height: 25px;
+    }
+    .laptop-slide .image-holder {
+        width: 618px;
+        margin-left: -274px;
+        margin-top: 145px;
+    }
+    .banner-sec {
+        height: 600px;
+        background-size: cover;
+    }
+    .socail-media {
+        right: 30px;
+        padding: 15px 10px;
+    }
+    .socail-media ul li {
+        margin-bottom: 15px;
+    }
+    .navigation .navbar .navbar-brand img {
+        max-width: 200px;
+        width: 100%;
+    }
+    .navigation .navbar .navbar-nav .nav-item .nav-link {
+        padding: 13px 6px;
+        font-size: 11px;
+    }
+    .navigation .nav-country ul li a {
+        min-width: 90px;
+        font-size: 9px;
+    }
+    .navigation .nav-country ul li.language-btn a {
+        min-width: 70px;
+    }  
+    .token-holder {
+        padding: 0;
+    }  
+    .app-storer-btn a {
+        padding: 0 5px;
+    }
+    .bitcoin-price-inner ul li {
+        padding: 0 5px;
+    }
+    .bitcoin-price-inner ul {
+        margin: 0 -5px;
+    }
+    .slide-btn{
+        padding-top: 30px;
+    }
+    .bitcoin-price-inner ul li .text-inner {
+        padding: 15px 10px;
+    }
+    .bitcoin-price-box .text-box {
+        padding-left: 10px;
+    }
+    .bitcoin-price-inner ul li .text-inner h3 {
+        font-size: 22px;
+        margin-top: 10px;
+    }
+    .about-us-sec .image-holder {
+        margin-left: -40px;
+    }
+    .about-us-sec .text-box {
+        padding-left: 0;
+        padding-top: 5px;
+    }
+    .about-us-sec .text-box p {
+        font-size: 14px;
+        line-height: 28px;
+        margin-bottom: 15px;
+    }
+    .vision-sec .text-box{
+        padding: 20px;
+        min-height: 250px;
+    }
+    .vision-sec .text-box h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    .vision-sec .text-box p{
+        line-height: 24px;
+    }
+    .blockchain-drop-sec {
+        background-size: 100%;
+        background-position: -10px 0%;
+    }
+    .blockchain-drop-sec .image-holder {
+        right: -20px;
+    }
+    .blockchain-drop-sec .text-box {
+        padding: 25px 0 0 0;
+    }
+    .blockchain-drop-sec .text-box h3 {
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+    .blockchain-drop-sec .text-box p {
+        font-size: 14px;
+        line-height: 24px;
+        margin-bottom: 20px;
+    }
+    .blockchain-drop-sec .text-box a {
+        width: 195px;
+        height: 50px;
+    }
+    .benefit-user-box{
+        padding: 25px;
+    }
+    .existing-side { 
+        padding: 50px 30px 100px;
+    }
+    .existing-side h2 {
+        font-size: 22px;
+        margin-bottom: 40px !important;
+    }
+    .existing-side ul {
+        padding-left: 25px !important;
+    }
+    .existing-side ul li:after {
+        left: -32px;
+    }
+    .existing-side ul li p {
+        min-height: 54px;
+    }
+    .existing-side ul li {
+        margin-bottom: 25px;
+    }
+    .platform-feature-box{
+        padding: 20px;
+    }
+    .platform-feature-box h3{
+        font-size: 16px;
+    }
+    .bdampay-inner .bdampay-left .text-box h2 {
+        font-size: 34px;
+        margin-bottom: 30px;
+    }
+    .application-industry-sec .text-box h2{
+        font-size: 34px;
+    }
+    .application-industry-sec .text-box {
+        padding: 20px 0 0 0;
+    }
+    .application-industry-sec .text-box span {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    .comparison-list ul li.comparison-first .comparison-box p {
+        font-size: 12px;
+        padding: 15px;
+    }
+    .comparison-list ul li.comparison-first .comparison-box h3{
+        font-size: 20px;
+        padding: 37px 15px 28px;
+    }
+    .comparison-list ul li.comparison-first .comparison-box h4 {
+        padding: 17px 15px;
+    }
+    .comparison-list ul li .comparison-box .image-holder {
+        padding: 21px 0;
+    }
+    .comparison-list ul li .comparison-box .image-holder img{
+        height: 45px;
+    }
+    .comparison-list ul li .comparison-box h4 {
+        padding: 18px 15px;
+    }
+    .comparison-list ul li .comparison-box p {
+        font-size: 12px;
+        padding: 15px 10px;
+    }
+    .banner-inner .banner-box .image-holder.card-holder ul {
+        margin-top: 69px;
+        right: 20px;
+    }
+    .banner-inner .banner-box .image-holder.card-holder ul li:nth-child(2) {
+        margin-top: -115px;
+        margin-left: -120px;
+    }
+    .banner-inner .banner-box .image-holder.card-holder ul li:last-child {
+        margin-top: -126px;
+        margin-left: -251px;
+    }
+    .banner-inner .banner-box .image-holder.card-holder ul li img {
+        max-width: 230px;
+    }
+    .banner-inner .banner-box .text-box ul li a{
+        min-width: 160px;
+    }
+    .existing-side:after {
+        left: 0px;
+        top: 91px;
+    }
+    .existing-side:before {
+        left: 0;
+    }
+    .market-side:before,
+    .market-side:after{
+        width: 100%;
+    }
+}
+@media(max-width:991px)   {
+    .banner-inner .text-box{
+        padding: 0;
+    }
+    .banner-inner .image-holder {
+        min-height: 320px;
+    }
+    .banner-inner .banner-box .text-box p {
+        font-size: 14px;
+        line-height: 24px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    .banner-inner .banner-box .text-box ul li a img {
+        margin-right: 5px;
+    }
+    .banner-inner .banner-box .text-box ul li.download-brn a {
+        min-width: 115px;
+    }
+    .banner-inner .banner-box .text-box ul li a {
+        font-size: 14px;
+        min-width: 130px;
+        height: 40px;
+    }
+    .laptop-slide .image-holder {
+        width: 440px;
+        margin-left: -195px;
+        margin-top: 185px;
+    }
+    .banner-inner .text-box .app-storer-btn img {
+        max-width: 150px;
+        width: 100%;
+    }
+    .app-storer-btn {
+        margin: 0 -5px;
+    }
+    .banner-sec {
+        height: auto;
+    }
+    .socail-media {
+        right: 10px;
+    }
+    .bitcoin-price-inner ul li {
+        padding: 5px 5px;
+        width: 33.3%;
+    }
+    .bdampay-inner .bdampay-right .app-storer-btn img {
+        max-width: 150px;
+        width: 100%;
+    }
+    .bdampay-inner .bdampay-left .text-box p br{
+        display: none;
+    }
+    .bdampay-inner .bdampay-left .text-box p {
+        font-size: 12px;
+        line-height: 18px;
+        margin-top: 10px;
+    }
+    .bdampay-inner .bdampay-left ul {
+        margin-top: 5px;
+    }
+    .bdampay-inner .bdampay-left ul li a {
+        font-size: 12px;
+        padding: 15px 15px;
+    }
+    .bdampay-inner .bdampay-left ul li a span {
+        margin-right: 15px;
+    }  
+
+    .footer-socail ul li {
+        padding: 0 5px;
+    }
+    .footer-socail ul li a{
+        width: 30px;
+        height: 30px;
+    }
+    .footer-address ul li {
+        font-size: 12px;
+        line-height: 1.85;
+        color: #fff;
+        margin-bottom: 5px;
+    }
+    .footer-address ul li a {
+        font-size: 12px;
+        color: #fff;
+    }
+    .footer-address ul li img {
+        margin-right: 5px;
+    }
+    .navbar-light .navbar-toggler{
+        padding: 0;
+        border: none;
+    }
+    .navbar-light .navbar-toggler-icon{
+        background: url(../images/menu-icon.png) no-repeat;
+        width: 25px;
+        height: 20px;
+    }
+    .header {
+        padding: 15px 0;
+    }
+    .carousel-control-next, .carousel-control-prev {
+        width: 50px;
+        height: 50px;
+    }
+    .carousel-control-next-icon img, .carousel-control-prev-icon img{
+        max-width: 10px;
+    }
+    .navigation .nav-country ul {
+        margin-left: 0;
+    }
+    .navigation .navbar .navbar-nav .nav-item .nav-link {
+        padding: 15px 8px;
+        font-size: 13px;
+        display: inline-block;
+    }
+    .navbar-collapse{
+        position: absolute;
+        left: 0;
+        width: 100%;
+        background-color: #272644;
+        z-index: 100;
+        top: 70px;
+    }
+    .nav-country{
+        padding: 10px 10px 20px;
+    }
+    .feature-video video{
+        width: 100%;
+    }
+    .wrapper {
+        padding: 88.25px 0 0 0;
+    }
+    .about-us-sec .text-box p { 
+        line-height: 24px;
+        margin-bottom: 10px;
+    }
+    .about-us-sec .text-box h3 {
+        font-size: 34px;
+        margin-bottom: 10px;
+    }
+    .vision-sec {
+        padding: 50px 0;
+    }
+    .vision-sec .text-box {
+        padding: 15px;
+        min-height: 222px;
+    }
+    .vision-sec .text-box h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    .vision-sec .text-box p {
+        line-height: 20px;
+        font-size: 12px;
+    }
+    .blockchain-drop-sec .text-box {
+        max-width: 380px;
+    }
+    .blockchain-drop-sec .text-box h3 {
+        font-size: 22px;
+    }
+    .blockchain-drop-sec .text-box p {
+        font-size: 13px;
+        line-height: 20px;
+        margin-bottom: 12px;
+    }
+    .blockchain-drop-sec .image-holder {
+        width: calc(100% - 380px);
+    }
+    .existing-side h2 {
+        min-height: 52px;
+    }
+    .get-paid-inner ul li { 
+        padding: 10px;
+    }
+    .get-paid-inner ul {
+        margin: 28px -10px 0 !important;
+    }
+    .get-paid-inner ul li .get-paid-box{
+        height: 130px;
+    }
+    .bdampay-inner .bdampay-left .text-box h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+    .bdampay-left .nav-pills .nav-item .nav-link .steps-box .text-box {
+        padding-left: 0;
+    }
+    .bdampay-left .nav-pills .nav-item .nav-link .steps-box .text-box p {
+        line-height: 18px;
+    }
+    .bdampay-left .nav-pills .nav-item {
+        margin-bottom: 20px;
+    }
+    .bdampay-sec{
+        padding: 80px 0 50px;
+    }
+    .application-industry-sec .text-box h2 {
+        font-size: 28px;
+    }
+    .application-industry-sec .text-box span {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+    .application-industry-sec .text-box ul li {
+        font-size: 14px;
+        line-height: 24px;
+        margin-bottom: 2px;
+        padding-left: 19px;
+    }
+    .application-industry-sec .text-box {
+        padding: 0;
+    }
+    .opportunity-sec .text-box p {
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    .comparison-list ul li,
+    .comparison-list ul li.comparison-first{
+        padding: 10px 10px;
+        width: 33.3%;
+    }
+    .press-mentions ul{
+        margin: 0 -10px;
+    }
+    .press-mentions ul li {
+        padding: 10px;
+    }
+    .press-mentions ul li a{
+        height: 110px;
+        padding: 20px;
+    }
+    .footer-text {
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
+    .footer-link h3 {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    .footer-link ul li {
+        margin-bottom: 10px;
+    }
+    .back-top{
+        right: 20px;
+        bottom: 20px;
+    }
+    .banner-box-second {
+        padding-bottom: 30px;
+        padding-right: 0;
+    }
+    .banner-inner .banner-box .image-holder.card-holder ul {
+        margin-top: 69px;
+        right: 160px;
+    }
+    .banner-inner .banner-box .image-holder.card-holder ul li img {
+        max-width: 140px;
+    }
+    .banner-inner .banner-box .image-holder.card-holder ul li:nth-child(2) {
+        margin-top: -72px;
+        margin-left: -70px;
+    }
+    .banner-inner .banner-box .image-holder.card-holder ul li:last-child {
+        margin-top: -70px;
+        margin-left: -141px;
+    }
+}
+@media(max-width:767px)   {
+    .existing-side:after,
+    .existing-side:before{
+        display: none;
+    }
+    .container {
+        max-width: 100%;
+    }
+    .banner-text {
+        padding: 50px 0px 120px;
+    }
+    .laptop-slide .image-holder {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 0;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+    .banner-box.laptop-slide {
+        margin: 0; 
+    }
+    .banner-inner .text-box{
+        padding: 0;
+    }
+    .banner-box .image-holder{
+        max-width: 450px;
+        margin: 30px auto 0;
+        min-height: auto;
+    }
+    .about-us-sec {
+        padding: 50px 0 0;
+    }
+    .about-us-sec .image-holder {
+        margin-left: 0;
+    }
+    .about-us-sec .text-box {
+        padding-left: 0;
+        padding-top: 30px;
+    }
+    .vision-sec .text-box {
+        padding: 20px;
+        min-height: auto;
+        margin-bottom: 30px;
+    }
+    .vision-sec {
+        padding: 50px 0 20px;
+    }
+    .blockchain-drop-inner {
+        flex-direction: column;
+    }
+    .blockchain-drop-sec .text-box {
+        padding: 0;
+        max-width: 100%;
+    }
+    .blockchain-drop-sec .text-box h3 {
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+    .blockchain-drop-sec .image-holder {
+        width: 100%;
+        margin-top: 50px;
+        right: 0;
+    }
+    .benefit-developer-inner .nav-pills{
+        margin: 0 auto 30px;
+    }
+    .benefit-user-box {
+        padding: 20px;
+        min-height: auto;
+    }
+    .existing-side {
+        padding: 30px 30px 60px 30px;
+    }
+    .existing-side ul li h3 {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+    .existing-side ul li p {
+        min-height: auto;
+        font-size: 12px;
+    }
+    .existing-side ul li {
+        margin-bottom: 30px;
+    }
+    .existing-side h2 {
+        min-height: auto;
+        margin-bottom: 25px !important;
+    }
+    .get-paid-sec {
+        padding: 50px 0;
+    }
+    .get-paid-inner h2{
+        font-size: 34px;
+    }
+    .get-paid-inner ul li {
+        width: 33.3%;
+    }
+    .platform-feature-sec {
+        padding: 50px 0 20px;
+    }
+    .platform-feature-inner h2 {
+        font-size: 34px;
+        margin-bottom: 30px !important;
+    }
+    .platform-feature-box {
+        padding: 20px;
+        min-height: auto;
+    }
+    .bdampay-sec {
+        padding: 50px 0 0;
+    }
+    .bdampay-left{
+        padding: 0;
+    }
+    .bdampay-inner .bdampay-left .text-box h2{
+        font-size: 34px;
+    }
+    .bdampay-right {
+        padding: 0;
+        margin-top: 30px;
+        text-align: center;
+    } 
+    .application-industry-sec {
+        padding: 50px 0;
+    }
+    .application-industry-sec .text-box h2 {
+        font-size: 34px;
+        margin-bottom: 10px;
+    }
+    .application-industry-sec .text-box span {
+        font-size: 16px;
+    }
+    .application-industry-sec .text-box ul li{
+        max-width: 100%;
+    }
+    .application-industry-sec .img-holder{
+        text-align: center;
+        margin: 30px 0 0 0;
+    }
+    .application-industry-sec.opportunity-sec .img-holder{
+        margin: 0 0 30px 0;
+    }
+    .opportunity-sec .text-box p {
+        line-height: 30px;
+    }
+    .comparison-sec { 
+        padding: 50px 0;
+    }
+    .comparison-inner h2{
+        font-size: 34px;
+    }
+    .comparison-list ul {
+        margin: 30px -10px 0 !important;
+    }
+    .press-mentions-sec {
+        padding: 50px 0;
+    }
+    .press-mentions h2 {
+        font-size: 26px;
+        margin-bottom: 20px !important;
+    }
+    .press-mentions {
+        margin-bottom: 30px;
+    }
+    .footer-sec {
+        padding: 50px 0 30px;
+    }
+    .footer-link{
+        margin-bottom: 30px;
+    }
+    .footer-address:last-child {
+        margin-left: 0;
+        margin-top: 30px;
+    }
+    .copyright .copyright-inner {
+        padding-top: 30px;
+        margin-top: 30px;
+    } 
+    .back-top {
+        right: 10px;
+        bottom: 10px;
+    }
+    .banner-inner .banner-box .image-holder.card-holder ul {
+        right: 20px;
+        margin-top: 0;
+        margin-left: 260px;
+        padding-bottom: 30px;
+    }
+    .banner-inner .banner-box .image-holder.card-holder ul li img {
+        max-width: 220px;
+    }
+    .banner-inner .banner-box .image-holder.card-holder ul li:nth-child(2) {
+        margin-top: -110px;
+        margin-left: -110px;
+    }
+    .banner-inner .banner-box .image-holder.card-holder ul li:last-child {
+        margin-top: -110px;
+        margin-left: -231px;
+    }
+    .comparison-inner{
+        padding: 0 10px;
+    }
+    .back-top {
+        right: 10px;
+        bottom: 10px;
+    }
+}
+@media(max-width:575px)  {
+    
+    .title h2 {
+        font-size: 28px;
+    }
+    .title {
+        text-align: center;
+        padding: 30px 0;
+    } 
+    .app-storer-btn a {
+        padding: 0 5px;
+    }
+
+    .bdampay-title h3 {
+        font-size: 29px;
+    }
+    .bdampay-sec{
+        padding: 50px 0;
+    }
+    .bdampay-title {
+        margin-bottom: 30px;
+    }
+    .bdampay-inner .bdampay-left .text-box h3 {
+        font-size: 28px;
+        padding-bottom: 15px;
+    }
+    .title h2:before{
+        bottom: -10px;
+    } 
+    .heading h2 {
+        font-size: 28px;
+    }
+    .heading h2:before {
+        bottom: -10px;
+    }  
+    .copyright-inner ul li a {
+        padding: 0 8px;
+    }
+    .socail-media ul li {
+        margin-bottom: 10px;
+    }
+    .socail-media {
+        right: 10px;
+        z-index: 10;
+    } 
+    .modal-body {
+        padding: 50px 15px 30px;
+    }
+    .close {
+        right: 15px;
+        top: 10px;
+    }
+    .anout-detail-modal .modal-body h3 {
+        font-size: 16px; 
+    }
+    .anout-detail-modal .modal-body p {
+        line-height: 20px; 
+    }
+    .privacy-policy-inner .text-box p,
+    .privacy-policy-inner .text-box ul li,
+    .privacy-policy-inner .text-box ol li{
+        line-height: 20px;
+    }
+    .privacy-policy-inner .text-box {
+        margin-top: 15px;
+    }
+    .privacy-policy-inner .text-box h3 {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    .privacy-heading h2 {
+        font-size: 18px;
+    }
+    .video-play-inner {
+        padding: 0;
+    }
+    .banner-inner .banner-box .text-box ul li.download-brn a {
+        min-width: 110px;
+    }
+    .banner-inner .banner-box .text-box ul li a {
+        font-size: 12px;
+        min-width: 115px;
+        height: 40px;
+    }
+    .bitcoin-price-inner ul li { 
+        width: 50%;
+    }
+    .benefit-developer-inner .nav-pills {
+        flex-direction: column;
+    }
+    .benefit-developer-inner .nav-pills .nav-item{
+        width: 100%;
+    }
+    .benefit-developer-inner .nav-pills .nav-item .nav-link{
+        height: 50px;
+    }
+    .existing-side {
+        padding: 30px 30px 90px 30px;
+    }
+    .comparison-list ul li, .comparison-list ul li.comparison-first {
+        width: 50%;
+    }
+    .press-mentions ul{
+        flex-wrap: wrap;
+    }
+    .press-mentions ul li {
+        width: 33.3%;
+    }
+    .press-mentions ul li a{
+        padding: 0;
+    }
+    .contact-us-sec .text-box h2{
+        font-size: 34px;
+    }
+    .contact-us-sec .text-box p {
+        font-size: 14px;
+        margin: 20px auto;
+    }
+    .banner-inner .banner-box .image-holder.card-holder ul li img {
+        max-width: 150px;
+    }
+    .banner-inner .banner-box .image-holder.card-holder ul li:nth-child(2) {
+        margin-top: -80px;
+        margin-left: -80px;
+    }
+    .banner-inner .banner-box .image-holder.card-holder ul li:last-child {
+        margin-top: -80px;
+        margin-left: -161px;
+    }
+}
+@media(max-width:479px)  {
+    .banner-inner .banner-box .text-box h1 {
+        font-size: 20px;
+        line-height: 26px;
+    }
+    .banner-inner .banner-box .text-box p {
+        margin-bottom: 15px;
+    }
+    .banner-inner .banner-box .text-box ul li {
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+    .banner-box .image-holder {
+        max-width: 240px;
+        margin: 20px auto 0;
+    }
+    .banner-text {
+        padding: 30px 0px 100px;
+    }
+    .banner-inner .text-box .app-storer-btn img {
+        max-width: 110px;
+        width: 100%;
+    }
+    .carousel-control-next, .carousel-control-prev {
+        width: 40px;
+        font-size: 18px;
+        height: 40px;
+    }
+    .carousel-control-next-icon img, .carousel-control-prev-icon img {
+        max-width: 7px;
+    }
+    .bitcoin-price-inner ul li {
+        width: 100%;
+        padding: 10px 0;
+    }
+    .bitcoin-price-inner ul {
+        margin: 0 0;
+    }
+    .bdampay-inner .bdampay-right .app-storer-btn img {
+        max-width: 120px;
+        width: 100%;
+    }
+    .get-paid-inner ul li {
+        width: 50%;
+    }
+    .platform-feature-inner h2 {
+        font-size: 24px;
+    }
+    .bdampay-inner .bdampay-left .text-box h2 {
+        font-size: 24px;
+    }
+    .bdampay-left .nav-pills .nav-item .nav-link .steps-box span{
+        width: 70px;
+        height: 70px;
+    }
+    .bdampay-left .nav-pills .nav-item .nav-link .steps-box .text-box{
+        width: calc(100% - 70px);
+    }
+    .application-industry-sec .text-box h2 {
+        font-size: 24px; 
+    }
+    .application-industry-sec .text-box span {
+        font-size: 14px;
+    }
+    .opportunity-sec .text-box p {
+        line-height: 26px;
+    }
+    .comparison-inner h2 {
+        font-size: 20px;
+    }
+    .comparison-list ul li, .comparison-list ul li.comparison-first {
+        width: 100%;
+        padding: 10px 0 !important;
+    }
+    .comparison-list ul {
+        margin: 30px 0 0;
+    }
+    .press-mentions ul li {
+        width: 50%;
+    }
+    .press-mentions ul li a {
+        padding: 20px;
+    }
+    .press-mentions h2 {
+        font-size: 20px;
+    }
+    .contact-us-sec .text-box ul li a {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+    .contact-us-sec .text-box ul li {
+        padding: 0 5px;
+    }
+    .copyright .copyright-inner {
+        flex-direction: column;
+    }
+    .copyright-inner p {
+        margin-bottom: 10px;
+    } 
+    .banner-inner .banner-box .image-holder.card-holder ul {
+        margin-left: 120px;
+    }
+    .banner-inner .banner-box .image-holder.card-holder ul li:nth-child(2) {
+        margin-top: -60px;
+        margin-left: -60px;
+    }
+    .banner-inner .banner-box .image-holder.card-holder ul li:last-child {
+        margin-top: -53px;
+        margin-left: -111px;
+    }
+    .bdampay-right img {
+        width: 100%;
+    }
+}
+@media (min-width: 1200px) and (max-width: 1300px){
+    .benefit-developer-inner .nav-pills{
+        max-width: 510px;
+    }
+}
+#button.show {
+    opacity: 1;
+    visibility: visible;
+}
+html{
+    scroll-behavior: smooth;
+}

@@ -1,0 +1,202 @@
+<div class="container-fluid px-0 font-inner-style">
+   <app-dashboard-header></app-dashboard-header>
+   <div class="row mx-0">
+      <div class="col-12 col-lg-2 col-xl-2 col-xl-responsive-2 px-0 d-flex">
+         <app-sidebar class="w-100 left_bg_green full-height"></app-sidebar>
+      </div>
+
+      <div class="col-12 col-lg-10 col-xl-10 col-xl-responsive-10 px-0 px-md-0 d-flex flex-column">
+         <div class="row mx-0 w-100 my-1" *ngIf="!currencyStatus">
+            <div class="col-12 col-md-6 pl-0 pl-md-3 pr-0 d-flex mt-2 ipad_col_6">
+               <div class="card w-100 border-0">
+                  <div class="card-body px-4">
+                     <div class="row mx-0">
+                        <div class="col-12 col-md-6 px-0">
+                           <button type="submit" class="btn btn-light-green btn-big-bg mb-4 px-5 font_weight_500 w-100" (click)="balance = true; market = false">Balance</button>
+                        </div>
+                        <div class="col-12 col-md-6 pr-0">
+                           <button type="submit" class="btn btn-light-green btn-big-bg ml-auto mb-4 px-5 font_weight_500 w-100 float-right" (click)="market = true; balance = false">Market</button>
+                        </div>
+                     </div>
+                     <div class="checkbox_box col-6 py-2" *ngIf="balance">
+                        <div class="form-check form-check-light-green row mx-0 px-0">
+                           <label class="custom-control custom-radio custom-control-inline mr-5 mb-0">
+                           <input class="custom-control-input" type="radio" name="radio-inline" value="1" [(ngModel)]="selectedType" (change)="change($event.target.value)"><span class="custom-control-label font_14 font_weight_400 text_black" >Crypto</span>
+                           </label>
+                           <label class="custom-control custom-radio custom-control-inline mr-0 mb-0">
+                           <input class="custom-control-input" type="radio" name="radio-inline" value="2" [(ngModel)]="selectedType" (change)="change($event.target.value)"><span class="custom-control-label font_14 font_weight_400 text_black_light" >Fiat</span>
+                           </label>         
+                        </div>
+                     </div>
+                     <hr>
+                     <div class="row mx-0 mt-5" *ngIf="balance">
+                        <!-- <div class="col-12 col-md-12 text-center px-0">
+                           <img src="assets/images/chart2_new.png" class="img-fluid">
+                           </div> -->
+                        <div style="display: block" *ngIf="doughnutChartLabels">
+                           <canvas width="600" height="300" baseChart 
+                           [data]="doughnutChartData"
+                           [labels]="doughnutChartLabels"
+                           [colors]="donutColors"
+                           [chartType]="doughnutChartType">
+                           </canvas>
+                        </div>
+                     </div>
+                     <div class="mx-0 mt-3" *ngIf="market" >
+                        <div class="row mx-0 py-2 my-2 border_top_grey" *ngFor="let items of pairData">
+                           <div class="col-12 col-md-5 px-0">
+                              <p class="px-3 mb-1 font_14 font_weight_400 text_light_grey">{{items.currencySymbol}}/USD</p>
+                              <p class="px-3 mb-0"><span class="font_14 font_weight_400 text_black">$ {{items.hr_vl | number:'1.2-2'}}</span><span class="text_light_green ml-4 font_14 font_14 font_weight_400">24hr vol</span></p>
+                           </div>
+                           <div class="col-12 col-md-2 text-center px-0">
+                              <img src="{{items.image}}" style="height: 35px;" id="siteLogoMode" alt="" class="align-self-center mt-1">
+                           </div>
+                           <div class="col-12 col-md-5 px-0">
+                              <p class="px-3 mb-0 font_14 font_weight_400 text_light_grey">Market Cap</p>
+                              <p class="px-3 mb-0"><span class="font_14 font_weight_400 text_black"> $ {{items.usd_price | number:'1.2-2'}}</span><span class="text_light_green ml-2 font_14 font_weight_400"> {{items.hr_change | number:'1.2-2'}} %</span></p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+            <div class="col-12 col-md-6 pr-0 pl-0 pl-md-2 d-flex mt-2">
+               <div class="card w-100 border-0">
+                  <div class="card-body px-0">
+                     <div class="row mx-0">
+                        <div class="col-4">
+                           <p class="font_16 font_weight_400 px-4">Exchanges</p>
+                        </div>
+                        <div class="col-7 ml-3 btc_align_center text-right">
+                           <!-- <p><span class="text_light_grey font_weight_500 text-center">{{receiveAmount}}</span></p> -->
+                           <p><span class="font_13 font_weight_400 text_light_grey_1">Exchange </span><span class="font_13 font_weight_500 text_black ml-1"> {{fromCurrency}} </span></p>
+                        </div>
+
+                        <!-- div class="col-4">
+                        </div> -->
+                     </div>
+                     <div class="login-or">
+                        <hr class="hr-or">
+                        <!-- <span class="span-or">your bitcoins</span> -->
+                     </div>
+                     <div class="row mx-0 padd-15">
+                       <div class="col-md-6 form-group">
+                         <label for="sel1" class="font-weight-bold">Send Currency</label>
+                           <select class="form-control" id="exampleFormControlSelect1" name="fromCurrency" [(ngModel)]="fromCurrency" (change)="fromCurrencySelected($event.target.value)">
+                              <ng-container *ngFor="let currency of currencyData">
+                                 <option  *ngIf="currency.currencySymbol != toCurrency && (selectedToFiat ? currency.curnType === 1 : true)" value="{{currency.currencySymbol}}"> {{currency.currencySymbol}}  -  {{currency.currencyName}}</option>
+                              </ng-container>
+                              </select>
+                       </div>
+                       <div class="col-md-6 form-group">
+                         <label for="sel1" class="font-weight-bold">Receive Currency</label>
+                            <select class="form-control" id="exampleFormControlSelect1" name="toCurrency" [(ngModel)]="toCurrency" (change)="toCurrencySelected($event.target.value)">
+                              <ng-container *ngFor="let currency of currencyData">
+                                 <option  *ngIf="currency.currencySymbol != fromCurrency && (selectedFromFiat ? currency.curnType === 1 : true)" value="{{currency.currencySymbol}}">{{currency.currencySymbol}}  -  {{currency.currencyName}}</option>
+                              </ng-container>
+                              </select>
+                       </div>
+                     </div>
+                     <div class="">
+                        <div class="row mx-0  py-2 mt-3">
+                           <div class="col-12 col-md-5">
+                              <div _ngcontent-c4="" class="input-group mb-3 input-group-lg"><input type="text" name="amount" class="form-control" [(ngModel)] ="amount" (input)="amountcal(amount)"(keypress)="isNumberKey($event)" (cut)="$event.preventDefault()" (copy)="$event.preventDefault()" (paste)="$event.preventDefault()"required text><div _ngcontent-c4="" class="input-group-append border-0"><span _ngcontent-c4="" class="input-group-text border-0 bg_green_1 px-4 text-white" id="basic-addon2">{{fromCurrency}}</span></div></div>
+                           </div>
+                           <div class="col-12 col-md-2 text-center">
+                              <img src="assets/images/convert.png" id="siteLogoMode" alt="" class="align-self-center mt-1">
+                           </div>
+                           <div class="col-12 col-md-5">
+                            <div _ngcontent-c4="" class="input-group mb-3 input-group-lg"><input type="text" name="price" class="form-control" [(ngModel)] ="price"  (input)="pricecal(price)"  (keypress)="isNumberKey($event)" (cut)="$event.preventDefault()" (copy)="$event.preventDefault()" (paste)="$event.preventDefault()" required text ><div _ngcontent-c4="" class="input-group-append border-0"><span _ngcontent-c4="" class="input-group-text border-0 bg_green_1 px-4 text-white" id="basic-addon2">{{toCurrency}}</span></div></div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row mx-0 mt-4 px-3">
+                        <div class="col-12 col-md-5 px-0">
+                           <p><span class="font_13 font_weight_500 text_black">1 {{fromCurrency}}</span><span clas="mx-2 font_13 font_weight_400 text_light_grey_1"> = {{marketPrice | number:'1.8-8'}}</span><span class="font_13 font_weight_500 text_black ml-2">{{toCurrency}}</span></p>
+                        </div>
+                        <div class="col-12 col-md-2 px-0">Fees : {{currencyDetails.fee}}{{feePercentage}}
+                          </div>
+                        <div class="col-12 col-md-5 px-0">
+                           <div class="row mx-0">
+                              
+                              <div class="col-12 col-md-12 px-0 pl-3">
+                                 <p><span class="font_13 font_weight_400 text_light_grey_1"> Min {{currencyDetails.min_amt | number:'1.8-8'}} <br>Max {{currencyDetails.max_amt | number:'1.8-8'}}<br><span *ngIf="receiveAmount">Receive {{receiveAmount | number:'1.8-8'}}</span></span></p>
+                              </div>
+                           </div>
+                        </div>
+                        <button type="button" (click)="exchangeNow()" class="btn btn-light-green btn-big mb-4 px-5 rounded-btn mx-auto font_14 font_weight_400">Exchange Now</button>
+
+                          
+                     </div>
+                     <div class="card-footer card_footer_grey border-0" *ngIf="siteData">
+                        <p class="row mx-0 mb-0"><span class="font_weight_300 font_12 text_black_1 col-2-custom">Note: </span><span class="font_12 font_weight_400 text_light_grey col-11-custom">{{siteData.exchange_content}}</span></p>
+                      </div>
+                  </div>
+               </div>
+
+            </div>
+         </div>
+
+
+
+
+    
+    <div class="row mx-0 my-2 row_position" *ngIf="currencyStatus">
+            <p class="font_16 font_weight_500 px-4" style="color: red;">All Currencies are disabled</p>
+         
+            
+         </div>
+
+         <div class="row mx-0 my-2 row_position">
+            <p class="font_16 font_weight_500 px-4" >Exchange History</p>
+            <span class="position-icon">
+               <img src="assets/images/excel.png" id="siteLogoMode" alt="" class="ml-2 square_25 position_excel mt-1" (click)="export()" style="cursor: pointer;" title="Export to Excel"> 
+            <!-- <img src="assets/images/excel.png" id="siteLogoMode" alt="" class="ml-2 square_25 position_excel mt-1"> 
+            <img src="assets/images/pdf.png" id="siteLogoMode" alt="" class="square_20 position_pdf">  -->
+            </span>
+            <!-- <div class="card w-100">
+               <div class="card-body px-0"> -->
+            <div class="w-100 px-4 table-responsive mob-fiat-table">
+                <table id="myTableElementId" class="display table-striped table-striped-reverse example_datatable ex_dt_large" style="width:100%">
+                  <thead>
+                     <tr>
+                        <th>S.No</th>
+                        <th>Pairs</th>
+                        <th>Amount</th>
+                        <th>Fees</th>
+                        <th>Market Price</th>
+                        <th>Receiving Amount</th>
+                        <th>Date & Time</th>
+                        <th>Status</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr *ngFor="let items of exchangeData;let i = index">
+                        <td class="text_black_1">{{i + 1}}</td>
+                        <td class="text_black_1">{{items.pairs}}</td>
+                        <td class="text_black_1">{{items.total_amount | number:'1.8-8'}}</td>
+                        <td class="text_black_1">{{items.less_amount | number:'1.8-8'}}</td>
+                        <td class="text_light_grey">{{items.price | number:'1.8-8'}}</td>
+                        <td class="text_light_grey">{{items.receive_amount | number:'1.8-8'}}</td>
+                        <td><span class="text_black">{{items.created_date | date:'medium'}}</span></td>
+                        <td *ngIf="items.status == '0'" class="text-orange">Processing</td>
+                        <td *ngIf="items.status == '1'" class="text-text_light_green">Completed</td>
+                        <td *ngIf="items.status == '2'" class="text-red-status">Cancelled</td>
+                        <td *ngIf="items.status == '3'" class="text-orange">Pending</td>
+                     </tr>
+                     <tr *ngIf="exchangeData?.length === 0">
+                       <td colspan="6" style="text-align: center;">No Records Found</td>
+                     </tr>
+
+                  </tbody>
+               </table>
+               <!--  </div>
+                  </div> -->
+            </div>
+         </div>
+      </div>
+    </div>
+
+  
+</div>
